@@ -20,13 +20,13 @@ import javax.swing.SwingUtilities;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.JTextComponent;
 import org.exbin.jaguif.utils.ActionUtils;
-import org.exbin.jaguif.action.api.clipboard.TextClipboardController;
+import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 
 /**
  * Popup handler for text component.
  */
 @ParametersAreNonnullByDefault
-public class TextComponentPopupHandler implements TextClipboardController {
+public class TextComponentPopupHandler implements TextClipboardOperationController {
 
     private final JTextComponent txtComp;
 

@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.action;
 
-import org.exbin.jaguif.action.clipboard.TextClipboardActions;
-import org.exbin.jaguif.action.clipboard.ClipboardActions;
+import org.exbin.jaguif.action.clipboard.DefaultTextClipboardActions;
+import org.exbin.jaguif.action.clipboard.DefaultClipboardActions;
 import java.awt.datatransfer.FlavorEvent;
 import java.awt.datatransfer.FlavorListener;
 import java.net.URL;
@@ -33,9 +33,9 @@ import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.ClipboardUtils;
 import org.exbin.jaguif.context.api.ContextComponent;
-import org.exbin.jaguif.action.api.clipboard.ClipboardController;
 import org.exbin.jaguif.context.api.ContextChangeListener;
 import org.exbin.jaguif.context.api.ContextStateProvider;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationController;
 
 /**
  * Implementation of action module.
@@ -43,8 +43,8 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 @ParametersAreNonnullByDefault
 public class ActionModule implements ActionModuleApi {
 
-    private ClipboardActions clipboardActions = null;
-    private TextClipboardActions clipboardTextActions = null;
+    private DefaultClipboardActions clipboardActions = null;
+    private DefaultTextClipboardActions clipboardTextActions = null;
     private ResourceBundle resourceBundle;
 
     public ActionModule() {
@@ -64,9 +64,9 @@ public class ActionModule implements ActionModuleApi {
 
     @Nonnull
     @Override
-    public ClipboardActions getClipboardActions() {
+    public DefaultClipboardActions getClipboardOperationActions() {
         if (clipboardActions == null) {
-            clipboardActions = new ClipboardActions();
+            clipboardActions = new DefaultClipboardActions();
             clipboardActions.init(getResourceBundle());
         }
 
@@ -75,9 +75,9 @@ public class ActionModule implements ActionModuleApi {
 
     @Nonnull
     @Override
-    public TextClipboardActions getClipboardTextActions() {
+    public DefaultTextClipboardActions getClipboardTextOperationActions() {
         if (clipboardTextActions == null) {
-            clipboardTextActions = new TextClipboardActions();
+            clipboardTextActions = new DefaultTextClipboardActions();
             clipboardTextActions.init(getResourceBundle());
         }
 
@@ -145,7 +145,7 @@ public class ActionModule implements ActionModuleApi {
             public void flavorsChanged(FlavorEvent fe) {
                 ContextComponent contextComponent = provider.getActiveState(ContextComponent.class);
                 if (contextComponent != null) {
-                    listener.notifyStateUpdated(ContextComponent.class, contextComponent, ClipboardController.UpdateType.CLIPBOARD_FLAVOR);
+                    listener.notifyStateUpdated(ContextComponent.class, contextComponent, ClipboardOperationController.UpdateType.CLIPBOARD_FLAVOR);
                 }
             }
         });

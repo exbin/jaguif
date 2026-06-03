@@ -43,7 +43,6 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.text.encoding.EncodingsManager;
-import org.exbin.jaguif.action.api.clipboard.ClipboardStateListener;
 import org.exbin.jaguif.document.syntax.TextPanelCompoundUndoManager;
 
 /**

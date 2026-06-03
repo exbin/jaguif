@@ -19,18 +19,18 @@ import java.util.ResourceBundle;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.swing.Action;
-import org.exbin.jaguif.action.api.clipboard.ClipboardActionsApi;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 
 /**
  * Clipboard actions.
  */
 @ParametersAreNonnullByDefault
-public class ClipboardActions implements ClipboardActionsApi {
+public class DefaultClipboardActions implements ClipboardOperationActions {
 
     protected ResourceBundle resourceBundle;
 
-    public ClipboardActions() {
+    public DefaultClipboardActions() {
     }
 
     public void init(ResourceBundle resourceBundle) {

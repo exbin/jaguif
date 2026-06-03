@@ -27,9 +27,9 @@ import org.exbin.jaguif.action.api.ActionContextChange;
 import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.action.api.DeletionController;
 import org.exbin.jaguif.utils.ActionUtils;
-import org.exbin.jaguif.action.api.clipboard.ClipboardController;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationController;
 
 /**
  * Cut to clipboard action.
@@ -39,7 +39,7 @@ public class CutAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "cut";
 
-    protected ClipboardController clipboardSupport;
+    protected ClipboardOperationController clipboardSupport;
 
     public CutAction() {
     }
@@ -64,18 +64,18 @@ public class CutAction extends AbstractAction implements ActionContextChange {
             updateByContext(instance);
         });
         registrar.registerStateUpdateListener(ContextComponent.class, (instance, updateType) -> {
-            if (ClipboardController.UpdateType.CONTENT_STATE.equals(updateType)) {
+            if (ClipboardOperationController.UpdateType.CONTENT_STATE.equals(updateType)) {
                 updateByContext(instance);
             }
         });
     }
 
-    public void setClipboardSupport(@Nullable ClipboardController clipboardSupport) {
+    public void setClipboardSupport(@Nullable ClipboardOperationController clipboardSupport) {
         updateByContext(clipboardSupport);
     }
 
     public void updateByContext(Object context) {
-        clipboardSupport = context instanceof ClipboardController && context instanceof DeletionController ? (ClipboardController) context : null;
+        clipboardSupport = context instanceof ClipboardOperationController && context instanceof DeletionController ? (ClipboardOperationController) context : null;
         setEnabled(clipboardSupport != null && clipboardSupport.hasDataToCopy() && ((DeletionController) clipboardSupport).canDelete());
     }
 }

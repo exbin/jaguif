@@ -26,9 +26,9 @@ import org.exbin.jaguif.action.api.ActionConsts;
 import org.exbin.jaguif.action.api.ActionContextChange;
 import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.utils.ActionUtils;
-import org.exbin.jaguif.action.api.clipboard.ClipboardController;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationController;
 
 /**
  * Copy to clipboard action.
@@ -38,7 +38,7 @@ public class CopyAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "copy";
 
-    protected ClipboardController clipboardSupport;
+    protected ClipboardOperationController clipboardSupport;
 
     public CopyAction() {
     }
@@ -63,18 +63,18 @@ public class CopyAction extends AbstractAction implements ActionContextChange {
             updateByContext(instance);
         });
         registrar.registerStateUpdateListener(ContextComponent.class, (instance, updateType) -> {
-            if (ClipboardController.UpdateType.CONTENT_STATE.equals(updateType)) {
+            if (ClipboardOperationController.UpdateType.CONTENT_STATE.equals(updateType)) {
                 updateByContext(instance);
             }
         });
     }
 
-    public void setClipboardActionsHandler(@Nullable ClipboardController clipboardSupport) {
+    public void setClipboardActionsHandler(@Nullable ClipboardOperationController clipboardSupport) {
         updateByContext(clipboardSupport);
     }
 
     public void updateByContext(Object context) {
-        clipboardSupport = context instanceof ClipboardController ? (ClipboardController) context : null;
+        clipboardSupport = context instanceof ClipboardOperationController ? (ClipboardOperationController) context : null;
         setEnabled(clipboardSupport != null && clipboardSupport.hasDataToCopy());
     }
 }

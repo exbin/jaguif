@@ -20,13 +20,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import org.exbin.jaguif.utils.ClipboardUtils;
-import org.exbin.jaguif.action.api.clipboard.TextClipboardController;
+import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 
 /**
  * Popup handler for table.
  */
 @ParametersAreNonnullByDefault
-public class TablePopupHandler implements TextClipboardController {
+public class TablePopupHandler implements TextClipboardOperationController {
 
     private final JTable tableComp;
 

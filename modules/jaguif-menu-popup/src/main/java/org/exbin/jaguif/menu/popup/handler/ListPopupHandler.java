@@ -21,13 +21,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
 import org.exbin.jaguif.utils.ClipboardUtils;
-import org.exbin.jaguif.action.api.clipboard.TextClipboardController;
+import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 
 /**
  * Popup handler for JList.
  */
 @ParametersAreNonnullByDefault
-public class ListPopupHandler implements TextClipboardController {
+public class ListPopupHandler implements TextClipboardOperationController {
 
     private final JList<?> listComp;
 

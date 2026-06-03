@@ -26,17 +26,17 @@ import javax.swing.JTextArea;
 import javax.swing.text.DefaultEditorKit;
 import org.exbin.jaguif.document.text.gui.TextPanel;
 import org.exbin.jaguif.utils.ClipboardUtils;
-import org.exbin.jaguif.action.api.clipboard.TextClipboardController;
 import org.exbin.jaguif.utils.ActionUtils;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.text.encoding.CharsetEncodingState;
 import org.exbin.jaguif.text.font.TextFontState;
+import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 
 /**
  * Text panel component.
  */
 @ParametersAreNonnullByDefault
-public class EditorTextPanelComponent implements ContextComponent, TextPanelComponent, TextClipboardController, CharsetEncodingState, TextAppearanceState, TextColorState, TextFontState {
+public class EditorTextPanelComponent implements ContextComponent, TextPanelComponent, TextClipboardOperationController, CharsetEncodingState, TextAppearanceState, TextColorState, TextFontState {
 
     private final TextPanel textPanel;
 

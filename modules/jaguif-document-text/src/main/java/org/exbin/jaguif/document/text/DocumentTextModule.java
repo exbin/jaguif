@@ -47,7 +47,6 @@ import org.exbin.jaguif.text.encoding.EncodingsManager;
 import org.exbin.jaguif.text.font.TextFontModule;
 import org.exbin.jaguif.text.font.action.TextFontAction;
 import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
-import org.exbin.jaguif.action.api.clipboard.ClipboardActionsApi;
 import org.exbin.jaguif.context.api.ContextModuleApi;
 import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -76,6 +75,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.text.font.contribution.TextFontContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 
 /**
  * Text editor module.
@@ -204,7 +204,7 @@ public class DocumentTextModule implements Module {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         menuModule.registerMenu(TEXT_POPUP_MENU_ID, MODULE_ID);
         MenuDefinitionManagement mgmt = menuModule.getMainMenuDefinition(TEXT_POPUP_MENU_ID, MODULE_ID);
-        ClipboardActionsApi clipboardActions = actionModule.getClipboardActions();
+        ClipboardOperationActions clipboardActions = actionModule.getClipboardOperationActions();
 
         SequenceContribution contribution = mgmt.registerMenuGroup(TEXT_POPUP_VIEW_GROUP_ID);
         mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.TOP));

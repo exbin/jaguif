@@ -15,13 +15,20 @@
  */
 package org.exbin.jaguif.action.api.clipboard;
 
+import org.exbin.jaguif.action.api.DeletionController;
+import org.exbin.jaguif.action.api.SelectionController;
+
 /**
- * Clipboard state listener.
+ * Interface for clipboard operations controller for visual component or
+ * document usable for context menu.
  */
-public interface ClipboardStateListener {
+public interface TextClipboardOperationController extends ClipboardOperationController, SelectionController, DeletionController {
 
     /**
-     * Notify about change in clipboard state.
+     * Returns whether it is possible to change components data using clipboard
+     * operations.
+     *
+     * @return true if component is editable
      */
-    void stateChanged();
+    boolean isEditable();
 }

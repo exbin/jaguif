@@ -27,7 +27,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.api.ActionConsts;
-import org.exbin.jaguif.action.api.clipboard.ClipboardActionsApi;
 import org.exbin.jaguif.action.api.ActionType;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.action.api.ActionModuleApi;
@@ -41,6 +40,7 @@ import org.exbin.jaguif.menu.api.MenuManagement;
 import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 import org.exbin.jaguif.menu.api.MenuBuilder;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 
 /**
  * Implementation of menu module.
@@ -206,11 +206,11 @@ public class MenuModule implements MenuModuleApi {
     @Override
     public void registerClipboardMenuItems(String menuId, @Nullable String subMenuId, String moduleId, SeparationSequenceContributionRule.SeparationMode separationMode) {
         ActionModuleApi actionModule = App.getModule(ActionModuleApi.class);
-        registerClipboardMenuItems(actionModule.getClipboardActions(), menuId, subMenuId, moduleId, separationMode);
+        registerClipboardMenuItems(actionModule.getClipboardOperationActions(), menuId, subMenuId, moduleId, separationMode);
     }
 
     @Override
-    public void registerClipboardMenuItems(ClipboardActionsApi actions, String menuId, @Nullable String subMenuId, String moduleId, SeparationSequenceContributionRule.SeparationMode separationMode) {
+    public void registerClipboardMenuItems(ClipboardOperationActions actions, String menuId, @Nullable String subMenuId, String moduleId, SeparationSequenceContributionRule.SeparationMode separationMode) {
         MenuDefinitionManagement mgmt = MenuModule.this.getMainMenuDefinition(menuId, moduleId);
         if (subMenuId != null) {
             mgmt = mgmt.getSubMenu(subMenuId);

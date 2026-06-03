@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import org.exbin.jaguif.action.api.clipboard.ClipboardActionsApi;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
@@ -31,6 +30,7 @@ import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.contribution.api.SeparationSequenceContributionRule;
 import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 
 /**
  * Interface for menu support module.
@@ -214,5 +214,5 @@ public interface MenuModuleApi extends Module {
      * @param moduleId module id
      * @param separationMode separation mode
      */
-    void registerClipboardMenuItems(ClipboardActionsApi actions, String menuId, @Nullable String subMenuId, String moduleId, SeparationSequenceContributionRule.SeparationMode separationMode);
+    void registerClipboardMenuItems(ClipboardOperationActions actions, String menuId, @Nullable String subMenuId, String moduleId, SeparationSequenceContributionRule.SeparationMode separationMode);
 }

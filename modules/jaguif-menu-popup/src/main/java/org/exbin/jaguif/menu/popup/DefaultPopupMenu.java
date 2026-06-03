@@ -57,9 +57,9 @@ import org.exbin.jaguif.menu.popup.handler.TextComponentPopupHandler;
 import org.exbin.jaguif.utils.ActionUtils;
 import org.exbin.jaguif.menu.popup.api.ComponentPopupEventDispatcher;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.action.api.clipboard.TextClipboardController;
 import org.exbin.jaguif.menu.api.MenuBuilder;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
+import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 
 /**
  * Utilities for default menu generation.
@@ -238,7 +238,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 setEnabled(clipboardHandler.isEditable() && clipboardHandler.hasSelection());
             }
@@ -256,7 +256,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 setEnabled(clipboardHandler.hasSelection());
             }
@@ -273,7 +273,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 setEnabled(clipboardHandler.isEditable());
             }
@@ -290,7 +290,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 setEnabled(clipboardHandler.canDelete() && clipboardHandler.hasSelection());
             }
@@ -307,7 +307,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 setEnabled(clipboardHandler.canSelectAll());
             }
@@ -329,7 +329,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 boolean updateEnabled;
                 if (mouseEvent != null && clipboardHandler instanceof PositionTextActionsHandler) {
@@ -352,7 +352,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 boolean updateEnabled;
                 if (mouseEvent != null && clipboardHandler instanceof PositionLinkActionsHandler) {
@@ -375,7 +375,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 boolean updateEnabled;
                 if (mouseEvent != null && clipboardHandler instanceof PositionLinkActionsHandler) {
@@ -398,7 +398,7 @@ public class DefaultPopupMenu {
             }
 
             @Override
-            public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+            public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
                 super.updateFor(clipboardHandler, mouseEvent);
                 boolean updateEnabled;
                 if (mouseEvent != null && clipboardHandler instanceof PositionImageActionsHandler) {
@@ -586,7 +586,7 @@ public class DefaultPopupMenu {
         }
     }
 
-    protected void activateMousePopup(MouseEvent mouseEvent, Component component, TextClipboardController clipboardHandler) {
+    protected void activateMousePopup(MouseEvent mouseEvent, Component component, TextClipboardOperationController clipboardHandler) {
         for (DefaultPopupClipboardAction action : defaultTextActions) {
             action.updateFor(clipboardHandler, mouseEvent);
             copyTextAction.updateFor(clipboardHandler, mouseEvent);
@@ -602,7 +602,7 @@ public class DefaultPopupMenu {
         showPopupMenu(component, point, clipboardHandler);
     }
 
-    protected void activateKeyPopup(Component component, @Nullable Point point, TextClipboardController clipboardHandler) {
+    protected void activateKeyPopup(Component component, @Nullable Point point, TextClipboardOperationController clipboardHandler) {
         for (DefaultPopupClipboardAction action : defaultTextActions) {
             action.updateFor(clipboardHandler, null);
             copyTextAction.updateFor(clipboardHandler, null);
@@ -623,7 +623,7 @@ public class DefaultPopupMenu {
         showPopupMenu(component, point, clipboardHandler);
     }
 
-    protected void showPopupMenu(Component component, Point point, TextClipboardController handler) {
+    protected void showPopupMenu(Component component, Point point, TextClipboardOperationController handler) {
         boolean editable = handler.isEditable();
 
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
@@ -706,14 +706,14 @@ public class DefaultPopupMenu {
     @ParametersAreNonnullByDefault
     protected static abstract class DefaultPopupClipboardAction extends AbstractAction {
 
-        protected TextClipboardController clipboardHandler;
+        protected TextClipboardOperationController clipboardHandler;
         protected MouseEvent mouseEvent;
 
         public DefaultPopupClipboardAction(String name) {
             super(name);
         }
 
-        public void updateFor(TextClipboardController clipboardHandler, @Nullable MouseEvent mouseEvent) {
+        public void updateFor(TextClipboardOperationController clipboardHandler, @Nullable MouseEvent mouseEvent) {
             this.clipboardHandler = clipboardHandler;
             this.mouseEvent = mouseEvent;
         }

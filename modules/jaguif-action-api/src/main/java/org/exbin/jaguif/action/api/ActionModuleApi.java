@@ -22,10 +22,10 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
-import org.exbin.jaguif.action.api.clipboard.ClipboardActionsApi;
-import org.exbin.jaguif.action.api.clipboard.TextClipboardActionsApi;
 import org.exbin.jaguif.context.api.ContextChangeListener;
 import org.exbin.jaguif.context.api.ContextStateProvider;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
+import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationActions;
 
 /**
  * Interface for action support module.
@@ -60,7 +60,7 @@ public interface ActionModuleApi extends Module {
      * @return clipboard editing actions
      */
     @Nonnull
-    ClipboardActionsApi getClipboardActions();
+    ClipboardOperationActions getClipboardOperationActions();
 
     /**
      * Returns clipboard/editing text actions.
@@ -68,7 +68,7 @@ public interface ActionModuleApi extends Module {
      * @return clipboard/editing text actions.
      */
     @Nonnull
-    TextClipboardActionsApi getClipboardTextActions();
+    TextClipboardOperationActions getClipboardTextOperationActions();
 
     /**
      * Returns clipboard action icon.
@@ -80,7 +80,7 @@ public interface ActionModuleApi extends Module {
     ImageIcon getClipboardActionIcon(String actionId);
 
     /**
-     * Registers clipboard handler for main clipboard actions.
+     * Registers clipboard flavor changes listener for main clipboard.
      *
      * @param listener context change listener
      * @param provider context status provider

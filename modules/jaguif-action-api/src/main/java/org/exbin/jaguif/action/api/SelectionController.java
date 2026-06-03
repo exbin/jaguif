@@ -18,7 +18,7 @@ package org.exbin.jaguif.action.api;
 import org.exbin.jaguif.context.api.StateUpdateType;
 
 /**
- * Interface for active document selection controller.
+ * Interface for component selection controller.
  */
 public interface SelectionController {
 

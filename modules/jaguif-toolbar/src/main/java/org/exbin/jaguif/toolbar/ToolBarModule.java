@@ -23,7 +23,6 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
-import org.exbin.jaguif.action.api.clipboard.ClipboardActionsApi;
 import org.exbin.jaguif.contribution.api.GroupSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule.PositionMode;
@@ -31,6 +30,7 @@ import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 import org.exbin.jaguif.toolbar.api.ToolBarManagement;
 import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 
 /**
  * Implementation of tool bar module.
@@ -97,7 +97,7 @@ public class ToolBarModule implements ToolBarModuleApi {
     @Override
     public void registerToolBarClipboardActions() {
         ActionModuleApi actionModule = App.getModule(ActionModuleApi.class);
-        ClipboardActionsApi clipboardActions = actionModule.getClipboardActions();
+        ClipboardOperationActions clipboardActions = actionModule.getClipboardOperationActions();
         ToolBarDefinitionManagement mgmt = ToolBarModule.this.getMainToolBarDefinition(MODULE_ID);
         SequenceContribution contribution = mgmt.registerToolBarGroup(CLIPBOARD_ACTIONS_TOOL_BAR_GROUP_ID);
         mgmt.registerToolBarRule(contribution, new PositionSequenceContributionRule(PositionMode.TOP));

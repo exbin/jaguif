@@ -20,7 +20,7 @@ import org.exbin.jaguif.context.api.StateUpdateType;
 /**
  * Interface for document clipboard actions controller.
  */
-public interface ClipboardController {
+public interface ClipboardOperationController {
 
     /**
      * Performs cut to clipboard operation.

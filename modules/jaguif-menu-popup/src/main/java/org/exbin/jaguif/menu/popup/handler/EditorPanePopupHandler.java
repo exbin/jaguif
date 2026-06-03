@@ -51,13 +51,13 @@ import org.exbin.jaguif.menu.popup.PositionLinkActionsHandler;
 import org.exbin.jaguif.utils.ActionUtils;
 import org.exbin.jaguif.utils.DesktopUtils;
 import org.exbin.jaguif.utils.ClipboardUtils;
-import org.exbin.jaguif.action.api.clipboard.TextClipboardController;
+import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 
 /**
  * Popup handler for JEditorPane.
  */
 @ParametersAreNonnullByDefault
-public class EditorPanePopupHandler implements TextClipboardController, LinkActionsHandler, PositionLinkActionsHandler, ImageActionsHandler, PositionImageActionsHandler {
+public class EditorPanePopupHandler implements TextClipboardOperationController, LinkActionsHandler, PositionLinkActionsHandler, ImageActionsHandler, PositionImageActionsHandler {
 
     private static final String MAP_PROPERTY = "__MAP__";
     private static final String IMAGE_CACHE_PROPERTY = "imageCache";
