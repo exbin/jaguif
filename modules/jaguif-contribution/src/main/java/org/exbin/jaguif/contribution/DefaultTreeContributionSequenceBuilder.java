@@ -108,14 +108,16 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
                     subRecord.groupsMap.put(groupId, (BuilderGroupRecord) contributionRecord);
                 }
             } else if (contribution instanceof SubSequenceContribution) {
+                contributionId = ((SubSequenceContribution) contribution).getContributionId();
                 contributionRecord = new BuilderSubContributionRecord((SubSequenceContribution) contribution);
             } else if (contribution instanceof ItemSequenceContribution) {
+                contributionId = ((ItemSequenceContribution) contribution).getContributionId();
                 contributionRecord = new BuilderItemContributionRecord((ItemSequenceContribution) contribution);
             } else {
                 throw new IllegalStateException("Unsupported contribution type: " + (contribution == null ? "null" : contribution.getClass().getName()));
             }
 
-            if (contributionId != null && subRecord.contributionsMap.containsKey(contributionId)) {
+            if (contributionId != null && !contributionId.isEmpty() && subRecord.contributionsMap.containsKey(contributionId)) {
                 throw new IllegalStateException("Contribution with id " + contributionId + " already exists");
             }
 

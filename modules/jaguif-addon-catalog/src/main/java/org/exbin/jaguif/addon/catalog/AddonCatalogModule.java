@@ -29,6 +29,7 @@ import org.exbin.jaguif.addon.catalog.settings.AddonCatalogOptions;
 import org.exbin.jaguif.addon.catalog.settings.AddonCatalogSettingsComponent;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
+import org.exbin.jaguif.contribution.api.RelativeSequenceContributionRule;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
 import org.exbin.jaguif.options.settings.api.SettingsComponentContribution;
@@ -95,7 +96,9 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
     public void registerAddonManagerPages() {
         TabPagesModuleApi tabPagesModule = App.getModule(TabPagesModuleApi.class);
         TabPagesDefinitionManagement pagesDefinitions = tabPagesModule.getMainTabPagesDefinition(AddonManagerModuleApi.ADDON_MANAGER_TABPAGES_ID, AddonManagerModuleApi.MODULE_ID);
-        pagesDefinitions.registerTabPagesContribution(new AddonsCatalogPage.Contribution());
+        AddonsCatalogPage.Contribution pageContribution = new AddonsCatalogPage.Contribution();
+        pagesDefinitions.registerTabPagesContribution(pageContribution);
+        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.BEFORE, "installedAddons"));
     }
 
     @Override

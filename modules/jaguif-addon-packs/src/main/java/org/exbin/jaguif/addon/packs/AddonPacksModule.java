@@ -42,5 +42,6 @@ public class AddonPacksModule implements Module {
         AddonPacksPage.Contribution pageContribution = new AddonPacksPage.Contribution();
         pagesDefinitions.registerTabPagesContribution(pageContribution);
         pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.AFTER, "addonsCatalog" /*AddonsCatalogPage.PAGE_ID */));
+        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.BEFORE, "installedAddons"));
     }
 }

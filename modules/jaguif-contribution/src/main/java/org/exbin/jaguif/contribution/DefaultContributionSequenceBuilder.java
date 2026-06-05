@@ -102,12 +102,13 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
                     builderRecord.groupsMap.put(groupId, (BuilderGroupRecord) contributionRecord);
                 }
             } else if (contribution instanceof ItemSequenceContribution) {
+                contributionId = ((ItemSequenceContribution) contribution).getContributionId();
                 contributionRecord = new BuilderItemContributionRecord((ItemSequenceContribution) contribution);
             } else {
                 throw new IllegalStateException("Unsupported contribution type: " + (contribution == null ? "null" : contribution.getClass().getName()));
             }
 
-            if (contributionId != null && builderRecord.contributionsMap.containsKey(contributionId)) {
+            if (contributionId != null && !contributionId.isEmpty() && builderRecord.contributionsMap.containsKey(contributionId)) {
                 throw new IllegalStateException("Contribution with id " + contributionId + " already exists");
             }
 
