@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 
 /**
  * Addon manager page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonManagerPage extends TabPagesComponent {
 
     /**
@@ -48,7 +48,7 @@ public interface AddonManagerPage extends TabPagesComponent {
      * @param filter filter condition
      * @return operation
      */
-    @Nonnull
+    @NonNull
     Runnable createFilterOperation(Object filter);
 
     /**
@@ -57,6 +57,6 @@ public interface AddonManagerPage extends TabPagesComponent {
      * @param search search condition
      * @return operation
      */
-    @Nonnull
+    @NonNull
     Runnable createSearchOperation(String search);
 }

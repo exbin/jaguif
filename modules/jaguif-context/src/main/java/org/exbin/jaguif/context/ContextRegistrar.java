@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
@@ -31,7 +31,7 @@ import org.exbin.jaguif.context.api.ContextStateChangeListener;
 /**
  * Context registration.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ContextRegistrar implements ContextRegistration, ContextChangeRegistration {
 
     public static final String KEY_CONTEXT_CHANGE = "ContextChange";

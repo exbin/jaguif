@@ -19,7 +19,7 @@ import bibliothek.gui.dock.common.DefaultMultipleCDockable;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.Optional;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.editor.api.EditorProvider;
 import org.exbin.jaguif.file.api.EditableFileHandler;
 import org.exbin.jaguif.file.api.FileHandler;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.file.api.FileHandler;
 /**
  * Editor dockable.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EditorCDockable extends DefaultMultipleCDockable {
 
     public static final String UNDEFINED_NAME = "Untitled";

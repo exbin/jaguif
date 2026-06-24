@@ -23,8 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import org.exbin.jaguif.App;
@@ -40,7 +39,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationController;
 /**
  * Implementation of action module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ActionModule implements ActionModuleApi {
 
     private DefaultClipboardActions clipboardActions = null;
@@ -53,7 +52,6 @@ public class ActionModule implements ActionModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ActionModule.class);
@@ -62,7 +60,6 @@ public class ActionModule implements ActionModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
     @Override
     public DefaultClipboardActions getClipboardOperationActions() {
         if (clipboardActions == null) {
@@ -73,7 +70,6 @@ public class ActionModule implements ActionModuleApi {
         return clipboardActions;
     }
 
-    @Nonnull
     @Override
     public DefaultTextClipboardActions getClipboardTextOperationActions() {
         if (clipboardTextActions == null) {
@@ -127,7 +123,6 @@ public class ActionModule implements ActionModuleApi {
         }
     }
 
-    @Nonnull
     @Override
     public ImageIcon getClipboardActionIcon(String actionId) {
         try {

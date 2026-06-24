@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.exbin.jaguif.App;
@@ -44,7 +44,7 @@ import org.exbin.jaguif.ui.theme.settings.ThemeSettingsApplier;
 /**
  * Module user interface handling.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UiThemeModule implements UiThemeModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "theme";
@@ -55,7 +55,7 @@ public class UiThemeModule implements UiThemeModuleApi {
     public UiThemeModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(UiThemeModule.class);
@@ -69,7 +69,7 @@ public class UiThemeModule implements UiThemeModuleApi {
         lafProviders.add(lafProvider);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<LafProvider> getLafProviders() {
         return lafProviders;

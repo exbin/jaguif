@@ -24,9 +24,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.GroupSequenceContributionRule;
@@ -44,7 +44,7 @@ import org.exbin.jaguif.contribution.api.TreeContributionSequenceOutput;
 /**
  * Tree contribution sequence builder.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultTreeContributionSequenceBuilder implements TreeContributionSequenceBuilder {
 
     public DefaultTreeContributionSequenceBuilder() {
@@ -289,7 +289,7 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
         }
     }
 
-    @Nonnull
+    @NonNull
     private static BuilderGroupRecord createGroup(BuilderRecord builderRecord, @Nullable String subId, @Nullable String groupId) {
         if (subId == null) {
             subId = "";
@@ -319,7 +319,7 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
         Map<String, BuilderSubRecord> subMap = new HashMap<>();
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class BuilderSubRecord {
 
         TreeContributionSequenceOutput sequenceOutput;
@@ -340,7 +340,7 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class BuilderGroupRecord extends BuilderContributionRecord {
 
         SectionProcessingState processingState = SectionProcessingState.START;
@@ -365,7 +365,7 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
         END
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class BuilderItemContributionRecord extends BuilderContributionRecord {
 
         final ItemSequenceContribution contribution;
@@ -376,7 +376,7 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class BuilderSubContributionRecord extends BuilderContributionRecord {
 
         final SubSequenceContribution contribution;

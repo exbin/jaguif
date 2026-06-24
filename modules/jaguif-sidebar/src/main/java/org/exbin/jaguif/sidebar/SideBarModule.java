@@ -16,8 +16,8 @@
 package org.exbin.jaguif.sidebar;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 import org.exbin.jaguif.App;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.utils.UiUtils;
 /**
  * Implementation of side bar module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SideBarModule implements SideBarModuleApi {
 
     private SideBarManager mainSideBarManager = null;
@@ -46,7 +46,7 @@ public class SideBarModule implements SideBarModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SideBarModule.class);
@@ -55,7 +55,7 @@ public class SideBarModule implements SideBarModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SideBarManagement getMainSideBarManager() {
         if (mainSideBarManager == null) {
@@ -65,7 +65,7 @@ public class SideBarModule implements SideBarModuleApi {
         return mainSideBarManager;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SideBarManagement createSideBarManager() {
         return new SideBarManager();
@@ -86,13 +86,13 @@ public class SideBarModule implements SideBarModuleApi {
         SideBarModule.this.getMainSideBarManager().registerSideBar(sideBarId, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SideBarDefinitionManagement getMainSideBarDefinition(String moduleId) {
         return new SideBarDefinitionManager(getMainSideBarManager(), MAIN_SIDE_BAR_ID, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SideBarDefinitionManagement createSideBarDefinition(SideBarManagement sideBarManagement, String sideBarId, String moduleId) {
         return new SideBarDefinitionManager(sideBarManagement, sideBarId, moduleId);

@@ -16,13 +16,13 @@
 package org.exbin.jaguif.options.settings.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Settings options provider interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SettingsOptionsProvider {
 
     /**
@@ -32,7 +32,7 @@ public interface SettingsOptionsProvider {
      * @param settingsClass settings options class
      * @return settings options instance
      */
-    @Nonnull
+    @NonNull
     <T extends SettingsOptions> T getSettingsOptions(Class<T> settingsClass);
 
     /**
@@ -42,6 +42,6 @@ public interface SettingsOptionsProvider {
      * @param inferenceClass inference options class
      * @return inference options instance
      */
-    @Nonnull
+    @NonNull
     <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass);
 }

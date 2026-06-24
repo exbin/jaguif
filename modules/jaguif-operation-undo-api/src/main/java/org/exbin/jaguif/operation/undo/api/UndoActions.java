@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.operation.undo.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
 /**
  * Interface for undo action set.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UndoActions {
 
     /**
@@ -30,7 +30,7 @@ public interface UndoActions {
      *
      * @return undo action
      */
-    @Nonnull
+    @NonNull
     Action createUndoAction();
 
     /**
@@ -38,6 +38,6 @@ public interface UndoActions {
      *
      * @return redo action
      */
-    @Nonnull
+    @NonNull
     Action createRedoAction();
 }

@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.addon.update.contribution;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.update.api.AddonUpdateModuleApi;
@@ -25,12 +25,12 @@ import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 /**
  * Check for update contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CheckForUpdateContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "checkForUpdate";
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         AddonUpdateModuleApi addonUpdateModule = App.getModule(AddonUpdateModuleApi.class);
@@ -38,7 +38,7 @@ public class CheckForUpdateContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

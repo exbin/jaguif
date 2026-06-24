@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addon operation record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonOperation implements CartOperation {
 
     protected final AddonOperationVariant variant;
@@ -32,13 +32,13 @@ public class AddonOperation implements CartOperation {
         this.item = item;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public AddonOperationVariant getVariant() {
         return variant;
     }
 
-    @Nonnull
+    @NonNull
     public ItemRecord getItem() {
         return item;
     }

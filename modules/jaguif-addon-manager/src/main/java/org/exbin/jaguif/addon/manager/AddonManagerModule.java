@@ -16,8 +16,7 @@
 package org.exbin.jaguif.addon.manager;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
@@ -41,7 +40,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 /**
  * Addon manager module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonManagerModule implements AddonManagerModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "addonManager";
@@ -53,7 +52,6 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     public AddonManagerModule() {
     }
 
-    @Nonnull
     @Override
     public Action createAddonManagerAction() {
         return new AddonManagerAction();
@@ -96,7 +94,6 @@ public class AddonManagerModule implements AddonManagerModuleApi {
         getAddonManager().registerBasicAddonManager();
     }
 
-    @Nonnull
     public AddonManager getAddonManager() {
         if (addonManager == null) {
             addonManager = new AddonManager();
@@ -104,7 +101,6 @@ public class AddonManagerModule implements AddonManagerModuleApi {
         return addonManager;
     }
 
-    @Nonnull
     @Override
     public String getManualLegacyUrl() {
         ResourceBundle appBundle = App.getAppBundle();

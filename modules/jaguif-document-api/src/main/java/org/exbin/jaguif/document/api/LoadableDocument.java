@@ -16,13 +16,13 @@
 package org.exbin.jaguif.document.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for loadable document.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface LoadableDocument extends Document {
 
     /**
@@ -30,7 +30,7 @@ public interface LoadableDocument extends Document {
      *
      * @return document source
      */
-    @Nonnull
+    @NonNull
     Optional<DocumentSource> getDocumentSource();
 
     /**

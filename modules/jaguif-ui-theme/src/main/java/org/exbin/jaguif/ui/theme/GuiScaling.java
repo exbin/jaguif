@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Enumeration of GUI scaling options.
@@ -29,7 +29,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  * <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/2d/flags.html">JavaSE
  * 8 2D Technology</a>
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public enum GuiScaling {
 
     DEFAULT(""),
@@ -43,12 +43,12 @@ public enum GuiScaling {
         this.propertyValue = propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public String getPropertyValue() {
         return propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public static Optional<GuiScaling> fromPropertyValue(String propertyValue) {
         for (GuiScaling method : values()) {
             if (propertyValue.equals(method.getPropertyValue())) {
@@ -59,7 +59,7 @@ public enum GuiScaling {
         return Optional.empty();
     }
 
-    @Nonnull
+    @NonNull
     public static List<GuiScaling> getAvailable() {
         return new ArrayList<>(Arrays.asList(values()));
     }

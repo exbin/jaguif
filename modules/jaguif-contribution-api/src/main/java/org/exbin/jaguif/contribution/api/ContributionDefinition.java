@@ -17,13 +17,13 @@ package org.exbin.jaguif.contribution.api;
 
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for contribution definition.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContributionDefinition {
 
     /**
@@ -38,7 +38,7 @@ public interface ContributionDefinition {
      *
      * @return contributions;
      */
-    @Nonnull
+    @NonNull
     List<SequenceContribution> getContributions();
 
     /**
@@ -55,6 +55,6 @@ public interface ContributionDefinition {
      * @param contribution contribution
      * @return contribution rules
      */
-    @Nonnull
+    @NonNull
     Optional<List<SequenceContributionRule>> getContributionRules(SequenceContribution contribution);
 }

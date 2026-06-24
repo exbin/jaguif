@@ -17,7 +17,7 @@ package org.exbin.jaguif.document.text.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -38,7 +38,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 /**
  * Go to line action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class GoToLineAction extends AbstractAction {
 
     public static final String ACTION_ID = "goToLine";

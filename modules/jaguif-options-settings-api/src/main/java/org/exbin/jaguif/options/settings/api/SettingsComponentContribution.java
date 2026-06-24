@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 
 /**
  * Settings component contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class SettingsComponentContribution implements ItemSequenceContribution {
 
@@ -35,13 +35,13 @@ public class SettingsComponentContribution implements ItemSequenceContribution {
         this.settingsComponentProvider = settingsComponentProvider;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return contributionId;
     }
 
-    @Nonnull
+    @NonNull
     public SettingsComponentProvider getSettingsComponentProvider() {
         return settingsComponentProvider;
     }

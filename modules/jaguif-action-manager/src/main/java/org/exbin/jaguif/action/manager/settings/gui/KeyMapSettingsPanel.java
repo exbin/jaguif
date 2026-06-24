@@ -18,8 +18,7 @@ package org.exbin.jaguif.action.manager.settings.gui;
 import java.awt.BorderLayout;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.manager.gui.KeyMapTablePanel;
 import org.exbin.jaguif.action.manager.model.KeyMapRecord;
@@ -31,7 +30,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 /**
  * Keymap settings panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class KeyMapSettingsPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(KeyMapSettingsPanel.class);
@@ -48,7 +47,6 @@ public class KeyMapSettingsPanel extends javax.swing.JPanel implements SettingsC
         add(keyMap, BorderLayout.CENTER);
     }
 
-    @Nonnull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

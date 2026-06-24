@@ -16,7 +16,7 @@
 package org.exbin.jaguif.context;
 
 import java.util.List;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextRegistration;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.context.api.ContextUpdateManagement;
 /**
  * Context registration.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ContextUpdateRegistrar implements ContextRegistration {
 
     protected final String recordId;

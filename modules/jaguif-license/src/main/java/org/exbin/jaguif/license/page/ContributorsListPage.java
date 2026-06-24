@@ -16,8 +16,8 @@
 package org.exbin.jaguif.license.page;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
@@ -31,7 +31,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 /**
  * Contributors list page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ContributorsListPage extends AbstractTabPagesComponent {
 
     public static final String PAGE_ID = "contributorsList";
@@ -44,7 +44,7 @@ public class ContributorsListPage extends AbstractTabPagesComponent {
         putValue(KEY_NAME, resourceBundle.getString("pageName"));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         if (!contentLoaded) {
@@ -63,13 +63,13 @@ public class ContributorsListPage extends AbstractTabPagesComponent {
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @Nonnull
+        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new ContributorsListPage();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

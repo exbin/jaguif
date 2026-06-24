@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 
 /**
  * Interface for settings options builder.
  * @param <T> settins options
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SettingsOptionsBuilder<T extends SettingsOptions> {
 
     /**
@@ -32,6 +32,6 @@ public interface SettingsOptionsBuilder<T extends SettingsOptions> {
      * @param optionsStorage storage options
      * @return settings options instance
      */
-    @Nonnull
+    @NonNull
     T createInstance(OptionsStorage optionsStorage);
 }

@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.frame.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * Frame appearance options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FrameAppearanceOptions implements SettingsOptions {
 
     public static final String KEY_TOOLBAR_VISIBLE = "toolBar.visible";

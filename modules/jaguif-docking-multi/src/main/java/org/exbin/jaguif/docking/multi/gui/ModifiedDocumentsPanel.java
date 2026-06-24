@@ -17,8 +17,8 @@ package org.exbin.jaguif.docking.multi.gui;
  */
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
 import org.exbin.jaguif.App;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.utils.WindowUtils;
 /**
  * Modified documents panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ModifiedDocumentsPanel extends javax.swing.JPanel {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ModifiedDocumentsPanel.class);
@@ -52,7 +52,7 @@ public class ModifiedDocumentsPanel extends javax.swing.JPanel {
         WindowUtils.assignGlobalKeyListener(this, cancelButton);
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -232,7 +232,7 @@ public class ModifiedDocumentsPanel extends javax.swing.JPanel {
     private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface Controller {
 
         boolean saveFile(Document document);

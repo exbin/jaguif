@@ -16,7 +16,7 @@
 package org.exbin.jaguif.project.model;
 
 import java.util.Collection;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.project.api.ProjectCategory;
 /**
  * Tree model for projects.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ProjectTreeModel implements TreeModel {
 
     private final Collection<ProjectCategory> categories;

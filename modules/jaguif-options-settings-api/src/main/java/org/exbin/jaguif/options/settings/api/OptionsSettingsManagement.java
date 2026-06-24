@@ -17,8 +17,8 @@ package org.exbin.jaguif.options.settings.api;
 
 import java.util.Collection;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 /**
  * Interface for management of options settings.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface OptionsSettingsManagement {
 
     /**
@@ -55,7 +55,7 @@ public interface OptionsSettingsManagement {
      * @param componentProvider component provider
      * @return contribution instance
      */
-    @Nonnull
+    @NonNull
     SettingsComponentContribution registerComponent(String contributionId, SettingsComponentProvider componentProvider);
 
     /**
@@ -71,7 +71,7 @@ public interface OptionsSettingsManagement {
      * @param groupId group id
      * @return contribution instance
      */
-    @Nonnull
+    @NonNull
     GroupSequenceContribution registerGroup(String groupId);
 
     /**
@@ -96,7 +96,7 @@ public interface OptionsSettingsManagement {
      * @param settingsClass settings class
      * @return options settings builder
      */
-    @Nonnull
+    @NonNull
     SettingsOptionsBuilder getSettingsOptionsBuilder(Class<? extends SettingsOptions> settingsClass);
 
     /**
@@ -106,7 +106,7 @@ public interface OptionsSettingsManagement {
      * @param inferenceClass inference class
      * @return inference options instance
      */
-    @Nonnull
+    @NonNull
     <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass);
 
     /**
@@ -114,7 +114,7 @@ public interface OptionsSettingsManagement {
      *
      * @return options settings classes
      */
-    @Nonnull
+    @NonNull
     Collection<Class<? extends SettingsOptions>> getOptionsClasses();
 
     /**
@@ -178,6 +178,6 @@ public interface OptionsSettingsManagement {
      *
      * @return settings options provider
      */
-    @Nonnull
+    @NonNull
     SettingsOptionsProvider getSettingsOptionsProvider();
 }

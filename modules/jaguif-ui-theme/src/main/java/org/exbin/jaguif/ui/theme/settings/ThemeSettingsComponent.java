@@ -21,8 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.UIManager;
@@ -50,7 +50,7 @@ import org.exbin.jaguif.ui.theme.UiThemeModule;
 /**
  * UI theme settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ThemeSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "theme";
@@ -173,7 +173,7 @@ public class ThemeSettingsComponent implements SettingsComponentProvider {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsComponent createComponent() {
         if (!valuesInitialized) {

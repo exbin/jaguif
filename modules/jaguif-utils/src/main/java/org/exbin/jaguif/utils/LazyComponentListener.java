@@ -16,12 +16,12 @@
 package org.exbin.jaguif.utils;
 
 import java.awt.Component;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Listener for lazy component creations.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface LazyComponentListener {
 
     /**

@@ -17,8 +17,7 @@ package org.exbin.jaguif.addon.manager;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleProvider;
 import org.exbin.jaguif.addon.AddonModuleFileLocation;
@@ -32,7 +31,7 @@ import org.exbin.jaguif.basic.ModuleRecord;
 /**
  * Addons target state including queued changes.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonsState {
 
     protected final List<ItemRecord> installedAddons = new ArrayList<>();
@@ -87,22 +86,18 @@ public class AddonsState {
         }
     }
 
-    @Nonnull
     public List<ItemRecord> getInstalledAddons() {
         return installedAddons;
     }
 
-    @Nonnull
     public UpdateAvailabilityManager getAvailableModuleUpdates() {
         return availableModuleUpdates;
     }
 
-    @Nonnull
     public AddonUpdateChanges getAddonUpdateChanges() {
         return addonUpdateChanges;
     }
 
-    @Nonnull
     public ApplicationModulesUsage getApplicationModulesUsage() {
         return applicationModulesUsage;
     }

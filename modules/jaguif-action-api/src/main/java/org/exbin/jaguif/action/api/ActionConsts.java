@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.action.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Action related constants.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ActionConsts {
 
     /**

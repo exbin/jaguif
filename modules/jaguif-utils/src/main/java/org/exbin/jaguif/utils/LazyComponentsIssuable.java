@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.utils;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for panels creating lazy components.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface LazyComponentsIssuable {
 
     /**

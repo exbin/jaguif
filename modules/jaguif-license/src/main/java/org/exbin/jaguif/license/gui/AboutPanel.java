@@ -18,8 +18,8 @@ package org.exbin.jaguif.license.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ResourceBundle;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.ApplicationInfoKeys;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.utils.UiUtils;
 /**
  * Basic about panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AboutPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AboutPanel.class);

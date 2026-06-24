@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.statusbar;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.statusbar.api.StatusBarManagement;
 /**
  * Default status bar definition manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class StatusBarDefinitionManager implements StatusBarDefinitionManagement {
 
     protected final StatusBarManagement statusBarManager;
@@ -44,7 +44,7 @@ public class StatusBarDefinitionManager implements StatusBarDefinitionManagement
         statusBarManager.registerStatusBarContribution(statusBarId, moduleId, contribution);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public GroupSequenceContribution registerStatusBarGroup(String groupId) {
         return statusBarManager.registerStatusBarGroup(statusBarId, moduleId, groupId);

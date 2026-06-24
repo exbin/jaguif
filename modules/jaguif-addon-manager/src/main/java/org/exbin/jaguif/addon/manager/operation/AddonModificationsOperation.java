@@ -32,9 +32,9 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.model.AddonUpdateChanges;
@@ -52,7 +52,7 @@ import org.exbin.jaguif.options.api.OptionsModuleApi;
 /**
  * Addon modifications operation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonModificationsOperation {
 
     protected static final String MAVEN_CENTRAL_URL = "https://repo1.maven.org/maven2/";
@@ -74,12 +74,12 @@ public class AddonModificationsOperation {
         this.addonUpdateChanges = addonUpdateChanges;
     }
 
-    @Nonnull
+    @NonNull
     public AddonUpdateChanges getAddonUpdateChanges() {
         return addonUpdateChanges;
     }
 
-    @Nonnull
+    @NonNull
     public List<String> getOperations() {
         List<String> operations = new ArrayList<>();
         String operationMessage = resourceBundle.getString("operationMessage.installModule");
@@ -109,7 +109,7 @@ public class AddonModificationsOperation {
         return operations;
     }
 
-    @Nonnull
+    @NonNull
     public List<LicenseItemRecord> getLicenseRecords() {
         for (LicenseItemRecord record : licenseRecords) {
             try {
@@ -122,7 +122,7 @@ public class AddonModificationsOperation {
         return licenseRecords;
     }
 
-    @Nonnull
+    @NonNull
     public List<DownloadItemRecord> getDownloadRecords() {
         List<DownloadItemRecord> downloadRecords = new ArrayList<>();
         String downloadItemDescription = resourceBundle.getString("downloadItemDescription.module");
@@ -376,7 +376,7 @@ public class AddonModificationsOperation {
         addonUpdateChanges.writeConfigFile();
     }
 
-    @Nonnull
+    @NonNull
     public static String mavenCodeToDownloadUrl(String mavenCode) {
         StringBuilder builder = new StringBuilder();
         builder.append(MAVEN_CENTRAL_URL);

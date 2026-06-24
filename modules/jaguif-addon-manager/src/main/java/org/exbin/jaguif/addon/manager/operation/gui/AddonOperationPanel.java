@@ -18,8 +18,8 @@ package org.exbin.jaguif.addon.manager.operation.gui;
 import java.awt.BorderLayout;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationStep;
@@ -28,7 +28,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Panel for addon installation / update operation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonOperationPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationPanel.class);
@@ -49,7 +49,7 @@ public class AddonOperationPanel extends javax.swing.JPanel {
         goToStep(AddonModificationStep.OVERVIEW);
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -81,7 +81,7 @@ public class AddonOperationPanel extends javax.swing.JPanel {
         repaint();
     }
 
-    @Nonnull
+    @NonNull
     public Optional<JComponent> getActiveComponent() {
         return Optional.ofNullable(activePanel);
     }

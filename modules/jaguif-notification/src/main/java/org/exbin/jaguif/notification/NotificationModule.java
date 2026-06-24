@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.notification;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.notification.api.NotificationModuleApi;
 
 /**
  * Support for notifications module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class NotificationModule implements NotificationModuleApi {
 
 }

@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.statusbar.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 
 /**
  * Interface for status bar.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface StatusBar extends ContextStatusBar {
 
     /**
@@ -30,7 +30,7 @@ public interface StatusBar extends ContextStatusBar {
      *
      * @return status bar component
      */
-    @Nonnull
+    @NonNull
     JComponent getComponent();
 
     /**

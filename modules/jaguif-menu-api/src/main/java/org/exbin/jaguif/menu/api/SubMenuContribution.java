@@ -16,8 +16,8 @@
 package org.exbin.jaguif.menu.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JMenu;
 import org.exbin.jaguif.contribution.api.SubSequenceContribution;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.contribution.api.SubSequenceContribution;
 /**
  * Record of sub/child menu contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SubMenuContribution implements SubSequenceContribution {
 
     protected final String subMenuId;
@@ -37,23 +37,23 @@ public class SubMenuContribution implements SubSequenceContribution {
         this.action = action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return subMenuId;
     }
 
-    @Nonnull
+    @NonNull
     public String getSubMenuId() {
         return subMenuId;
     }
 
-    @Nonnull
+    @NonNull
     public Action getAction() {
         return action;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<JMenu> getSubMenu() {
         return Optional.ofNullable(subMenu);
     }

@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.operation.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Command interface.
@@ -27,7 +27,7 @@ public interface Command {
      *
      * @return command type
      */
-    @Nonnull
+    @NonNull
     CommandType getType();
 
     /**

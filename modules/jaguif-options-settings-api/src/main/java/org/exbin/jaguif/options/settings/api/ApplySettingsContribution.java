@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Settings applier contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class ApplySettingsContribution {
 
@@ -34,12 +34,12 @@ public class ApplySettingsContribution {
         this.settingsApplier = settingsApplier;
     }
 
-    @Nonnull
+    @NonNull
     public String getContributionId() {
         return contributionId;
     }
 
-    @Nonnull
+    @NonNull
     public SettingsApplier getSettingsApplier() {
         return settingsApplier;
     }

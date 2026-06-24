@@ -19,9 +19,9 @@ import java.text.ParseException;
 import org.exbin.jaguif.document.text.RelativePositionMode;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.SpinnerNumberModel;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.SelectionRange;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Edit selection panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EditSelectionPanel extends javax.swing.JPanel {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(EditSelectionPanel.class);
@@ -95,7 +95,7 @@ public class EditSelectionPanel extends javax.swing.JPanel {
         });
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -498,7 +498,7 @@ public class EditSelectionPanel extends javax.swing.JPanel {
         updateStartTargetPosition();
     }
 
-    @Nonnull
+    @NonNull
     public Optional<SelectionRange> getSelectionRange() {
         return Optional.of(new SelectionRange(getStartTargetPosition(), getEndTargetPosition()));
     }

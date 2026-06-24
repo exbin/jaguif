@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.help.online.contribution;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -28,7 +28,7 @@ public class OnlineHelpContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "onlineHelp";
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         HelpOnlineModuleApi helpOnlineModule = App.getModule(HelpOnlineModuleApi.class);
@@ -36,7 +36,7 @@ public class OnlineHelpContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

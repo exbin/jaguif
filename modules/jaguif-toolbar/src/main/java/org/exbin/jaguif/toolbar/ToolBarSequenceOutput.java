@@ -18,8 +18,8 @@ package org.exbin.jaguif.toolbar;
 import java.beans.PropertyChangeEvent;
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -43,7 +43,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarComponent;
 /**
  * Toolbar sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ToolBarSequenceOutput implements ContributionSequenceOutput {
 
     protected final JToolBar toolBar;
@@ -79,7 +79,7 @@ public class ToolBarSequenceOutput implements ContributionSequenceOutput {
         return toolBar.getComponentCount() == 0;
     }
 
-    @Nonnull
+    @NonNull
     protected static JComponent createToolBarComponent(Action action) {
         ActionType actionType = (ActionType) action.getValue(ActionConsts.ACTION_TYPE);
         JComponent toolBarItem;
@@ -131,7 +131,7 @@ public class ToolBarSequenceOutput implements ContributionSequenceOutput {
         return toolBarItem;
     }
 
-    @Nonnull
+    @NonNull
     protected static JComponent createDefaultToolBarItem(Action action) {
         JButton button = new JButton(action);
         button.setFocusable(false);

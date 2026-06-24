@@ -16,15 +16,15 @@
 package org.exbin.jaguif.document.text.settings;
 
 import java.util.Optional;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * Text color options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextColorOptions implements SettingsOptions {
 
     public static final String KEY_TEXT_COLOR_DEFAULT = "textColor.default";

@@ -19,14 +19,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Paths;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Dynamic class loader.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DynamicClassLoader extends URLClassLoader {
 
     static {
@@ -68,7 +67,6 @@ public class DynamicClassLoader extends URLClassLoader {
         addURL(url);
     }
 
-    @Nonnull
     @Override
     protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
         if (clientFirst) {
@@ -97,7 +95,7 @@ public class DynamicClassLoader extends URLClassLoader {
     }
 
     @Nullable
-    public static DynamicClassLoader findAncestor(@Nonnull ClassLoader cl) {
+    public static DynamicClassLoader findAncestor(ClassLoader cl) {
         do {
             if (cl instanceof DynamicClassLoader) {
                 return (DynamicClassLoader) cl;

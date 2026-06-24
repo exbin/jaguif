@@ -24,8 +24,8 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -71,7 +71,7 @@ import org.exbin.jaguif.frame.api.FrameController;
 /**
  * Module for window frame support.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FrameModule implements FrameModuleApi {
 
     public static final String FILE_EXIT_GROUP_ID = MODULE_ID + ".exit";
@@ -90,7 +90,7 @@ public class FrameModule implements FrameModuleApi {
     public FrameModule() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
@@ -129,7 +129,7 @@ public class FrameModule implements FrameModuleApi {
         toolBarModule.registerToolBar(ToolBarModuleApi.MAIN_TOOL_BAR_ID, MODULE_ID);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Frame getFrame() {
         return getFrameController().getFrame();
@@ -157,7 +157,7 @@ public class FrameModule implements FrameModuleApi {
         windowPositionOptions.setWindowPosition(windowPosition);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createExitAction() {
         Action exitAction = new AbstractAction() {
@@ -225,7 +225,7 @@ public class FrameModule implements FrameModuleApi {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public FrameController getFrameController() {
         if (applicationFrame == null) {
@@ -237,7 +237,7 @@ public class FrameModule implements FrameModuleApi {
             ActiveContextManagement contextManager = applicationFrame.getContextManager();
             contextManager.changeActiveState(ContextFrame.class, applicationFrame);
             contextManager.changeActiveState(DialogParentComponent.class, new DialogParentComponent() {
-                @Nonnull
+                @NonNull
                 @Override
                 public Component getComponent() {
                     return applicationFrame;
@@ -275,7 +275,7 @@ public class FrameModule implements FrameModuleApi {
         getExitHandler().removeClosingListener(listener);
     }
 
-    @Nonnull
+    @NonNull
     private FrameClosingHandler getExitHandler() {
         if (exitHandler == null) {
             exitHandler = new FrameClosingHandler();
@@ -287,7 +287,7 @@ public class FrameModule implements FrameModuleApi {
         return exitHandler;
     }
 
-    @Nonnull
+    @NonNull
     private StatusBarHandler getStatusBarHandler() {
         getFrameController();
         if (statusBarHandler == null) {
@@ -307,7 +307,7 @@ public class FrameModule implements FrameModuleApi {
         getStatusBarHandler().switchStatusBar(statusBarId);
     }
 
-    @Nonnull
+    @NonNull
     public FrameActions getFrameActions() {
         if (frameActions == null) {
             frameActions = new FrameActions();
@@ -369,7 +369,7 @@ public class FrameModule implements FrameModuleApi {
         this.undecorated = true;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<Image> getApplicationIcon() {
         return Optional.ofNullable(appIcon);

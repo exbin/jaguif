@@ -17,8 +17,8 @@ package org.exbin.jaguif.addon.update.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import org.exbin.jaguif.App;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Check for update panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CheckForUpdatePanel extends javax.swing.JPanel implements HyperlinkListener {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CheckForUpdatePanel.class);
@@ -41,7 +41,7 @@ public class CheckForUpdatePanel extends javax.swing.JPanel implements Hyperlink
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

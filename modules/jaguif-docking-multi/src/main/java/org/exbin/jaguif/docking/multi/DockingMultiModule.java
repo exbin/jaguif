@@ -19,8 +19,8 @@ import org.exbin.jaguif.docking.multi.gui.ModifiedDocumentsPanel;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
@@ -47,7 +47,7 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 /**
  * Interface for docking module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DockingMultiModule implements DockingMultiModuleApi {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingMultiModule.class);
@@ -55,7 +55,7 @@ public class DockingMultiModule implements DockingMultiModuleApi {
 
     private ResourceBundle resourceBundle;
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DockingMultiModule.class);
@@ -64,7 +64,7 @@ public class DockingMultiModule implements DockingMultiModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public DocumentDocking createDefaultDocking() {
         return new DefaultMultiDocking();
@@ -115,7 +115,7 @@ public class DockingMultiModule implements DockingMultiModuleApi {
         return result[0];
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public CloseAllFilesAction createCloseAllFilesAction() {
         CloseAllFilesAction closeAllFilesAction = new CloseAllFilesAction();
@@ -123,7 +123,7 @@ public class DockingMultiModule implements DockingMultiModuleApi {
         return closeAllFilesAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public CloseOtherFilesAction createCloseOtherFilesAction() {
         CloseOtherFilesAction closeOtherFilesAction = new CloseOtherFilesAction();

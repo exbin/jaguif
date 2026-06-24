@@ -16,13 +16,13 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addons management cart controller interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonsManagementCartController extends AddonsManagementContext {
 
     /**
@@ -46,6 +46,6 @@ public interface AddonsManagementCartController extends AddonsManagementContext 
      *
      * @return cart operations
      */
-    @Nonnull
+    @NonNull
     List<CartOperation> getCartOperations();
 }

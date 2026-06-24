@@ -25,8 +25,8 @@ import java.nio.charset.Charset;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextArea;
@@ -48,7 +48,7 @@ import org.exbin.jaguif.document.syntax.TextPanelCompoundUndoManager;
 /**
  * Text editor panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SyntaxTextPanel extends javax.swing.JPanel {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SyntaxTextPanel.class);
@@ -119,7 +119,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         }
     }
 
-    @Nonnull
+    @NonNull
     public Color[] getCurrentColors() {
         Color[] colors = new Color[5];
         colors[0] = textArea.getForeground();
@@ -130,7 +130,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         return colors;
     }
 
-    @Nonnull
+    @NonNull
     public Color[] getDefaultColors() {
         return defaultColors;
     }
@@ -181,12 +181,12 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         textArea.setCaretPosition(textArea.getCaretPosition() + charPos - 1);
     }
 
-    @Nonnull
+    @NonNull
     public JTextArea getTextArea() {
         return textArea;
     }
 
-    @Nonnull
+    @NonNull
     public JTextComponent getTextComponent() {
         return textArea;
     }
@@ -207,7 +207,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         return textArea.getFont();
     }
 
-    @Nonnull
+    @NonNull
     public Color getFoundTextBackgroundColor() {
         return foundTextBackgroundColor;
     }
@@ -258,7 +258,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         firePropertyChange("modified", oldValue, this.modified);
     }
 
-    @Nonnull
+    @NonNull
     public TextPanelCompoundUndoManager getUndo() {
         return undoManagement;
     }
@@ -267,7 +267,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         textArea.setComponentPopupMenu(menu);
     }
 
-    @Nonnull
+    @NonNull
     public Point getCaretPosition() {
         int line;
         int caretPosition = textArea.getCaretPosition();
@@ -285,7 +285,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         textArea.getCaret().addChangeListener(listener);
     }
 
-    @Nonnull
+    @NonNull
     public Charset getCharset() {
         return charset;
     }
@@ -294,7 +294,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         this.charset = charset;
     }
 
-    @Nonnull
+    @NonNull
     public Font getDefaultFont() {
         return defaultFont;
     }

@@ -18,9 +18,9 @@ package org.exbin.jaguif.addon.manager.operation.gui;
 import java.awt.Component;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Addons operation file downloads panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonOperationDownloadPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationDownloadPanel.class);
@@ -51,7 +51,7 @@ public class AddonOperationDownloadPanel extends javax.swing.JPanel {
             private final ImageIcon inprogressIcon = new ImageIcon(getClass().getResource(resourceBundle.getString("downloadItem.inprogress.icon")));
             private final ImageIcon doneIcon = new ImageIcon(getClass().getResource(resourceBundle.getString("downloadItem.done.icon")));
 
-            @Nonnull
+            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (value instanceof DownloadItemRecord) {
@@ -81,7 +81,7 @@ public class AddonOperationDownloadPanel extends javax.swing.JPanel {
         downloadItemsList.setModel(listModel);
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

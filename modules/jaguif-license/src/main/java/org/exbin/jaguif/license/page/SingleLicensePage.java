@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
@@ -37,7 +37,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
 /**
  * Single license page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SingleLicensePage extends AbstractTabPagesComponent {
 
     public static final String PAGE_ID = "singleLicense";
@@ -50,7 +50,7 @@ public class SingleLicensePage extends AbstractTabPagesComponent {
         putValue(KEY_NAME, resourceBundle.getString("pageName"));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         if (!contentLoaded) {
@@ -81,13 +81,13 @@ public class SingleLicensePage extends AbstractTabPagesComponent {
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @Nonnull
+        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new SingleLicensePage();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

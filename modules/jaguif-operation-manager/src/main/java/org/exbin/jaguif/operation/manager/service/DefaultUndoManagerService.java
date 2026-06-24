@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JFileChooser;
 import org.exbin.jaguif.operation.api.Command;
 import org.exbin.jaguif.operation.manager.service.UndoManagerService;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.operation.manager.service.UndoManagerService;
 /**
  * Undo manager service implementation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultUndoManagerService implements UndoManagerService {
 
     @Override

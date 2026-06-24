@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.addon.update.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * Check for update on start options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CheckForUpdateOptions implements SettingsOptions {
 
     public static final String KEY_CHECK_FOR_UPDATE_ON_START = "start.checkForUpdate";

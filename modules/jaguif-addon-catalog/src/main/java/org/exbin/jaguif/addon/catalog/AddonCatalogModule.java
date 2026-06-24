@@ -17,8 +17,7 @@ package org.exbin.jaguif.addon.catalog;
 
 import java.awt.Frame;
 import java.net.URL;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogModuleApi;
@@ -41,7 +40,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 /**
  * Addon manager module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonCatalogModule implements AddonCatalogModuleApi {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonCatalogModule.class);
@@ -53,12 +52,10 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
     public AddonCatalogModule() {
     }
 
-    @Nonnull
     public String getAddonServiceUrl() {
         return catalogPageUrl + (devMode ? "addon-dev/" : "addon/");
     }
 
-    @Nonnull
     public String getCatalogPageUrl() {
         return catalogPageUrl;
     }
@@ -75,7 +72,6 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
         AddonCatalogModule.devMode = devMode;
     }
 
-    @Nonnull
     public AddonCatalogService createCatalogService() {
         return new DefaultAddonCatalogService();
     }

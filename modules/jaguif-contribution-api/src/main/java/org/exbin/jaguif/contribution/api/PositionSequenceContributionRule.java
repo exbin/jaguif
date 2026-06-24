@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Sequence contribution rule for item position.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class PositionSequenceContributionRule implements SequenceContributionRule {
 
@@ -37,7 +37,7 @@ public class PositionSequenceContributionRule implements SequenceContributionRul
      *
      * @return position mode
      */
-    @Nonnull
+    @NonNull
     public PositionMode getPositionMode() {
         return positionMode;
     }

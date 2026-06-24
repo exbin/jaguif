@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.addon.update.api;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Simple structure for application version.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class VersionNumbers {
 
     private VersionNumbersFormat format;

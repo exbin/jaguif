@@ -16,8 +16,8 @@
 package org.exbin.jaguif.search.action;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 /**
  * Find/replace actions for searching.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FindReplaceActions {
 
     private ResourceBundle resourceBundle;
@@ -45,28 +45,28 @@ public class FindReplaceActions {
         this.resourceBundle = resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     public Action createEditFindAction() {
         EditFindAction editFindAction = new EditFindAction();
         editFindAction.init(resourceBundle);
         return editFindAction;
     }
 
-    @Nonnull
+    @NonNull
     public Action createEditFindNextAction() {
         EditFindNextAction editFindNextAction = new EditFindNextAction();
         editFindNextAction.init(resourceBundle);
         return editFindNextAction;
     }
 
-    @Nonnull
+    @NonNull
     public Action createEditFindPreviousAction() {
         EditFindPreviousAction editFindPreviousAction = new EditFindPreviousAction();
         editFindPreviousAction.init(resourceBundle);
         return editFindPreviousAction;
     }
 
-    @Nonnull
+    @NonNull
     public Action createEditReplaceAction() {
         EditReplaceAction editReplaceAction = new EditReplaceAction();
         editReplaceAction.init(resourceBundle);
@@ -112,13 +112,13 @@ public class FindReplaceActions {
 
         public static final String CONTRIBUTION_ID = "editFind";
 
-        @Nonnull
+        @NonNull
         @Override
         public Action createAction() {
             return createEditFindAction();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;
@@ -129,13 +129,13 @@ public class FindReplaceActions {
 
         public static final String CONTRIBUTION_ID = "editFindNext";
 
-        @Nonnull
+        @NonNull
         @Override
         public Action createAction() {
             return createEditFindNextAction();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;
@@ -146,13 +146,13 @@ public class FindReplaceActions {
 
         public static final String CONTRIBUTION_ID = "editFindPrevious";
 
-        @Nonnull
+        @NonNull
         @Override
         public Action createAction() {
             return createEditFindPreviousAction();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;
@@ -163,13 +163,13 @@ public class FindReplaceActions {
 
         public static final String CONTRIBUTION_ID = "editReplace";
 
-        @Nonnull
+        @NonNull
         @Override
         public Action createAction() {
             return createEditReplaceAction();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;

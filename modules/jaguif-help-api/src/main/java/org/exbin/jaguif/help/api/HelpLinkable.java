@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.help.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Link to help page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface HelpLinkable {
 
     /**

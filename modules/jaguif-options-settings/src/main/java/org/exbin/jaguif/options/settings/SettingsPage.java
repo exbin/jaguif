@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.GroupLayout;
 import javax.swing.JPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Options settings page record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SettingsPage {
 
     protected final String pageId;
@@ -55,12 +55,12 @@ public class SettingsPage {
         panel.setLayout(groupLayout);
     }
 
-    @Nonnull
+    @NonNull
     public JPanel getPanel() {
         return panel;
     }
 
-    @Nonnull
+    @NonNull
     public String getPageId() {
         return pageId;
     }

@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Enumeration of Mac OS appearance modes.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public enum GuiMacOsAppearance {
 
     DEFAULT(""),
@@ -39,12 +39,12 @@ public enum GuiMacOsAppearance {
         this.propertyValue = propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public String getPropertyValue() {
         return propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public static Optional<GuiMacOsAppearance> fromPropertyValue(String propertyValue) {
         for (GuiMacOsAppearance method : values()) {
             if (propertyValue.equals(method.getPropertyValue())) {
@@ -55,7 +55,7 @@ public enum GuiMacOsAppearance {
         return Optional.empty();
     }
 
-    @Nonnull
+    @NonNull
     public static List<GuiMacOsAppearance> getAvailable() {
         return new ArrayList<>(Arrays.asList(values()));
     }

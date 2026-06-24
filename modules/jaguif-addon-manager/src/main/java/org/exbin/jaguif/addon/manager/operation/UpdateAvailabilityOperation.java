@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.api.UpdateRecord;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.operation.api.CancellableOperation;
 /**
  * Update availability operation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UpdateAvailabilityOperation implements Runnable, CancellableOperation {
 
     protected final AddonCatalogService addonCatalogService;
@@ -60,12 +60,12 @@ public class UpdateAvailabilityOperation implements Runnable, CancellableOperati
         return cancelled;
     }
 
-    @Nonnull
+    @NonNull
     public List<UpdateRecord> getUpdateRecords() {
         return updateRecords;
     }
 
-    @Nonnull
+    @NonNull
     public Map<String, String> getLatestVersions() {
         Map<String, String> latestVersions = new HashMap<>();
         if (updateRecords != null) {

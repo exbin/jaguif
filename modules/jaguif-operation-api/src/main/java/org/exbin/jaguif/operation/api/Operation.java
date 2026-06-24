@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.operation.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Operation interface.
@@ -27,7 +27,7 @@ public interface Operation {
      *
      * @return operation type
      */
-    @Nonnull
+    @NonNull
     OperationType getType();
 
     /**

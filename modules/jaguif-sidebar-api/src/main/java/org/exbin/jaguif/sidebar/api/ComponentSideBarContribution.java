@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.sidebar.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 
 /**
  * Side bar item contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ComponentSideBarContribution extends ItemSequenceContribution {
 
     /**
@@ -30,6 +30,6 @@ public interface ComponentSideBarContribution extends ItemSequenceContribution {
      *
      * @return side bar component
      */
-    @Nonnull
+    @NonNull
     SideBarComponent createComponent();
 }

@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.text.encoding.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.options.settings.api.SettingsApplier;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Text encoding settings applier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextEncodingSettingsApplier implements SettingsApplier {
 
     public static final String APPLIER_ID = "textEncoding";

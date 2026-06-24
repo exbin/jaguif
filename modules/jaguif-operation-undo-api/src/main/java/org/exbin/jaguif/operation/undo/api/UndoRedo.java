@@ -17,15 +17,15 @@ package org.exbin.jaguif.operation.undo.api;
 
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.operation.api.Command;
 import org.exbin.jaguif.operation.api.ModifiedState;
 
 /**
  * Undoable command sequence.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UndoRedo extends UndoRedoController, ModifiedState {
 
     /**
@@ -41,7 +41,7 @@ public interface UndoRedo extends UndoRedoController, ModifiedState {
      *
      * @return top undo command if exists
      */
-    @Nonnull
+    @NonNull
     Optional<Command> getTopUndoCommand();
 
     /**
@@ -49,7 +49,7 @@ public interface UndoRedo extends UndoRedoController, ModifiedState {
      *
      * @return list of commands
      */
-    @Nonnull
+    @NonNull
     List<Command> getCommandList();
 
     /**

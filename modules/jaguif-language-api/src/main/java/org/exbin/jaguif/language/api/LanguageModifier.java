@@ -16,7 +16,7 @@
 package org.exbin.jaguif.language.api;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Language modifier.
@@ -29,7 +29,7 @@ public interface LanguageModifier {
      * @param actionTitle action title
      * @return enhanced action title
      */
-    @Nonnull
+    @NonNull
     String getActionWithDialogText(String actionTitle);
 
     /**
@@ -39,6 +39,6 @@ public interface LanguageModifier {
      * @param key resource key
      * @return enhanced action title
      */
-    @Nonnull
+    @NonNull
     String getActionWithDialogText(ResourceBundle bundle, String key);
 }

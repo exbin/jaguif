@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 
 /**
  * Interface for settings applier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SettingsApplier {
 
     /**

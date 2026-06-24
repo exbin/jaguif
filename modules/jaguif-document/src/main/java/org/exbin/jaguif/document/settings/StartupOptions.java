@@ -21,15 +21,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 import org.exbin.jaguif.options.api.OptionsStorage;
 
 /**
  * Document startup settings options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class StartupOptions implements SettingsOptions {
 
     public static final String KEY_STARTUP_BEHAVIOR = "startup.behavior";
@@ -42,7 +42,7 @@ public class StartupOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @Nonnull
+    @NonNull
     public StartupBehavior getStartupBehavior() {
         StartupBehavior defaultBehavior = StartupBehavior.NEW_FILE;
         try {
@@ -57,7 +57,7 @@ public class StartupOptions implements SettingsOptions {
         storage.put(KEY_STARTUP_BEHAVIOR, behavior.name());
     }
 
-    @Nonnull
+    @NonNull
     public List<URI> getLastSessionFiles() {
         int count = storage.getInt(KEY_SESSION_FILE_COUNT, 0);
         List<URI> fileUris = new ArrayList<>();

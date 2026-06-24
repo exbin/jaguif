@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
 /**
  * Default sequence action item contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultActionSequenceContribution implements ActionSequenceContribution {
 
     protected final String contributionId;
@@ -33,13 +33,13 @@ public class DefaultActionSequenceContribution implements ActionSequenceContribu
         this.actionCreator = actionCreator;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         return actionCreator.createAction();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return contributionId;
@@ -47,7 +47,7 @@ public class DefaultActionSequenceContribution implements ActionSequenceContribu
 
     public interface ActionCreator {
 
-        @Nonnull
+        @NonNull
         Action createAction();
     }
 }

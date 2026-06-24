@@ -23,12 +23,12 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DesktopUtils {
 
     private static final String ERROR_MESSAGE = "Error attempting to launch web browser";
@@ -154,7 +154,7 @@ public class DesktopUtils {
      * @see sun.awt.OSInfo
      * @return basic operating system type
      */
-    @Nonnull
+    @NonNull
     public static OsType detectBasicOs() {
         String osName = System.getProperty(OS_NAME).toLowerCase();
         if (osName.contains("os x")) {

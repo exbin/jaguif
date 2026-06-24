@@ -17,14 +17,14 @@ package org.exbin.jaguif.file.api;
 
 import java.awt.Component;
 import java.io.File;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * File dialogs provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface FileDialogsProvider {
 
     /**
@@ -32,7 +32,7 @@ public interface FileDialogsProvider {
      *
      * @return provider name
      */
-    @Nonnull
+    @NonNull
     String getProviderName();
 
     /**
@@ -45,7 +45,7 @@ public interface FileDialogsProvider {
      * @param dialogName dialog name
      * @return open file result
      */
-    @Nonnull
+    @NonNull
     OpenFileResult showOpenFileDialog(Component parentComponent, FileTypes fileTypes, @Nullable File selectedFile, @Nullable UsedDirectoryApi usedDirectory, @Nullable String dialogName);
 
     /**
@@ -58,6 +58,6 @@ public interface FileDialogsProvider {
      * @param dialogName dialog name
      * @return open file result
      */
-    @Nonnull
+    @NonNull
     OpenFileResult showSaveFileDialog(Component parentComponent, FileTypes fileTypes, @Nullable File selectedFile, @Nullable UsedDirectoryApi usedDirectory, @Nullable String dialogName);
 }

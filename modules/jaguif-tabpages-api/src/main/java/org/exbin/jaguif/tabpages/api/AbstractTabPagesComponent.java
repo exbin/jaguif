@@ -17,13 +17,13 @@ package org.exbin.jaguif.tabpages.api;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Abstract tab pages component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public abstract class AbstractTabPagesComponent implements TabPagesComponent {
 
     protected final Map<String, Object> propertyList = new HashMap<>();

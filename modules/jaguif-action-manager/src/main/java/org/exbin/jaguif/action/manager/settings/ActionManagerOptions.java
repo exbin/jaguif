@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.action.manager.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * Action manager settings options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ActionManagerOptions implements SettingsOptions {
 
     public static final String KEY_ACTION_KEYS = "action.keys";

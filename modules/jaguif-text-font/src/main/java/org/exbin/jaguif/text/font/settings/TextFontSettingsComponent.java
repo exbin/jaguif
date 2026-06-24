@@ -16,8 +16,8 @@
 package org.exbin.jaguif.text.font.settings;
 
 import java.awt.Font;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.text.font.gui.TextFontPanel;
 import org.exbin.jaguif.text.font.settings.gui.TextFontSettingsPanel;
@@ -32,12 +32,12 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 /**
  * Text font settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextFontSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "textFont";
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsComponent createComponent() {
         TextFontSettingsPanel panel = new TextFontSettingsPanel();

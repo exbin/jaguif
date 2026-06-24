@@ -16,8 +16,8 @@
 package org.exbin.jaguif.component.action;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.component.ComponentModule;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 /**
  * Item edit default action set.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultEditItemActions implements EditItemActions {
 
     public static final String GROUP_ID = "editItem";
@@ -48,7 +48,7 @@ public class DefaultEditItemActions implements EditItemActions {
         this.mode = mode;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public AddItemAction createAddItemAction() {
         AddItemAction addItemAction = new AddItemAction(mode);
@@ -56,7 +56,7 @@ public class DefaultEditItemActions implements EditItemActions {
         return addItemAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public EditItemAction createEditItemAction() {
         EditItemAction editItemAction = new EditItemAction(mode);
@@ -64,7 +64,7 @@ public class DefaultEditItemActions implements EditItemActions {
         return editItemAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public DeleteItemAction createDeleteItemAction() {
         DeleteItemAction deleteItemAction = new DeleteItemAction();
@@ -72,17 +72,17 @@ public class DefaultEditItemActions implements EditItemActions {
         return deleteItemAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SequenceContribution createAddItemContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createAction() {
                 return createAddItemAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public String getContributionId() {
                 return AddItemAction.ACTION_ID;
@@ -90,17 +90,17 @@ public class DefaultEditItemActions implements EditItemActions {
         };
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SequenceContribution createEditItemContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createAction() {
                 return createEditItemAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public String getContributionId() {
                 return EditItemAction.ACTION_ID;
@@ -108,17 +108,17 @@ public class DefaultEditItemActions implements EditItemActions {
         };
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SequenceContribution createDeleteItemContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createAction() {
                 return createDeleteItemAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public String getContributionId() {
                 return DeleteItemAction.ACTION_ID;

@@ -17,14 +17,14 @@ package org.exbin.jaguif.file.api;
 
 import java.io.File;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for last used directory support.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UsedDirectoryApi {
 
     /**
@@ -32,7 +32,7 @@ public interface UsedDirectoryApi {
      *
      * @return directory or empty
      */
-    @Nonnull
+    @NonNull
     Optional<File> getLastUsedDirectory();
 
     /**

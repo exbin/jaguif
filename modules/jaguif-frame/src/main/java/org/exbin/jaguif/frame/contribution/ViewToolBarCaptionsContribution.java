@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.frame.contribution;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -29,7 +29,7 @@ public class ViewToolBarCaptionsContribution implements ActionSequenceContributi
 
     public static final String CONTRIBUTION_ID = "viewToolBarCaptions";
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         ViewToolBarCaptionsAction action = new ViewToolBarCaptionsAction();
@@ -38,7 +38,7 @@ public class ViewToolBarCaptionsContribution implements ActionSequenceContributi
         return action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

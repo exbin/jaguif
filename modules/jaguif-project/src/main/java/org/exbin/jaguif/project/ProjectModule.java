@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.GroupSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
@@ -42,7 +42,7 @@ import org.exbin.jaguif.project.contribution.SaveProjectContribution;
 /**
  * Implementation of framework project module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ProjectModule implements ProjectModuleApi {
 
     private java.util.ResourceBundle resourceBundle = null;
@@ -53,7 +53,7 @@ public class ProjectModule implements ProjectModuleApi {
     public ProjectModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ProjectModule.class);
@@ -82,13 +82,13 @@ public class ProjectModule implements ProjectModuleApi {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Collection<ProjectCategory> getProjectCategories() {
         return projectCategories;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Collection<ProjectType> getProjectTypes() {
         return projectTypes;
@@ -111,7 +111,7 @@ public class ProjectModule implements ProjectModuleApi {
         mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(PROJECT_MENU_GROUP_ID));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public NewProjectAction createNewProjectAction() {
         NewProjectAction newProjectAction = new NewProjectAction();
@@ -119,7 +119,7 @@ public class ProjectModule implements ProjectModuleApi {
         return newProjectAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OpenProjectAction createOpenProjectAction() {
         OpenProjectAction openProjectAction = new OpenProjectAction();
@@ -127,7 +127,7 @@ public class ProjectModule implements ProjectModuleApi {
         return openProjectAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SaveProjectAction createSaveProjectAction() {
         SaveProjectAction saveProjectAction = new SaveProjectAction();

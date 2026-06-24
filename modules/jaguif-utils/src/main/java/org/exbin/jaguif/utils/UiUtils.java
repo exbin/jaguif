@@ -22,9 +22,9 @@ import java.awt.Window;
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -33,7 +33,7 @@ import javax.swing.UIManager;
 /**
  * Utility static methods usable for UI.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UiUtils {
 
     private static final int BUTTON_CLICK_TIME = 150;
@@ -80,7 +80,7 @@ public class UiUtils {
      * @param clazz class type
      * @return class instance
      */
-    @Nonnull
+    @NonNull
     @SuppressWarnings("unchecked")
     public static <T> T createInUiThread(Class<T> clazz) {
         if (SwingUtilities.isEventDispatchThread()) {
@@ -113,7 +113,7 @@ public class UiUtils {
      * @param instanceCreator instance creator
      * @return class instance
      */
-    @Nonnull
+    @NonNull
     @SuppressWarnings("unchecked")
     public static <T> T createInUiThread(InstanceCreator<T> instanceCreator) {
         if (SwingUtilities.isEventDispatchThread()) {
@@ -187,7 +187,7 @@ public class UiUtils {
 
     public interface InstanceCreator<U> {
 
-        @Nonnull
+        @NonNull
         U createInstance();
     }
 }

@@ -16,13 +16,13 @@
 package org.exbin.jaguif.document.text.settings;
 
 import java.awt.Color;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 
 /**
  * Text color context inference options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextColorContextInference implements TextColorInference {
 
     protected ContextStateProvider contextProvider;

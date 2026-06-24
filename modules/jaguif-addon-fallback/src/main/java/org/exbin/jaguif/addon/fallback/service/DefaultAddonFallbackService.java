@@ -17,8 +17,7 @@ package org.exbin.jaguif.addon.fallback.service;
 
 import java.net.URL;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.UpdateRecord;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
@@ -27,7 +26,7 @@ import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
 /**
  * Addon legacy service implementation using fixed files.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultAddonFallbackService implements AddonCatalogService {
 
     @Override
@@ -35,31 +34,26 @@ public class DefaultAddonFallbackService implements AddonCatalogService {
         return 0;
     }
 
-    @Nonnull
     @Override
     public List<AddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Nonnull
     @Override
     public AddonRecord getAddonDependency(String moduleId) throws AddonCatalogServiceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Nonnull
     @Override
     public String getAddonFile(String moduleId) throws AddonCatalogServiceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Nonnull
     @Override
     public List<UpdateRecord> getUpdateRecords() throws AddonCatalogServiceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Nonnull
     @Override
     public String getModuleDetails(String id) throws AddonCatalogServiceException {
         throw new UnsupportedOperationException("Not supported yet.");

@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.action.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
 /**
  * Manager for action context registration.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ActionContextRegistration {
 
     /**

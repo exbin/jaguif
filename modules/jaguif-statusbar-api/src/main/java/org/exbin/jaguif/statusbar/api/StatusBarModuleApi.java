@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.statusbar.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.context.api.ContextRegistration;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.context.api.ContextRegistration;
 /**
  * Support for status bar.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface StatusBarModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(StatusBarModuleApi.class);
@@ -35,7 +35,7 @@ public interface StatusBarModuleApi extends Module {
      *
      * @return status bar management interface
      */
-    @Nonnull
+    @NonNull
     StatusBarManagement getMainStatusBarManager();
 
     /**
@@ -43,7 +43,7 @@ public interface StatusBarModuleApi extends Module {
      *
      * @return status bar manager
      */
-    @Nonnull
+    @NonNull
     StatusBarManagement createStatusBarManager();
 
     /**
@@ -52,7 +52,7 @@ public interface StatusBarModuleApi extends Module {
      * @param moduleId module id
      * @return status bar definition
      */
-    @Nonnull
+    @NonNull
     StatusBarDefinitionManagement getMainStatusBarDefinition(String moduleId);
 
     /**
@@ -62,7 +62,7 @@ public interface StatusBarModuleApi extends Module {
      * @param moduleId module id
      * @return status bar definition
      */
-    @Nonnull
+    @NonNull
     StatusBarDefinitionManagement getMainStatusBarDefinition(String statusBarId, String moduleId);
 
     /**
@@ -73,7 +73,7 @@ public interface StatusBarModuleApi extends Module {
      * @param moduleId module id
      * @return
      */
-    @Nonnull
+    @NonNull
     StatusBarDefinitionManagement createStatusBarDefinition(StatusBarManagement statusBarManagement, String statusBarId, String moduleId);
 
     /**
@@ -100,6 +100,6 @@ public interface StatusBarModuleApi extends Module {
      * @param contextRegistration context registration
      * @return status bar
      */
-    @Nonnull
+    @NonNull
     StatusBar createStatusBar(String statusBarId, ContextRegistration contextRegistration);
 }

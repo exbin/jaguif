@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.annotation.concurrent.Immutable;
 
 /**
@@ -29,6 +29,6 @@ public interface ItemSequenceContribution extends SequenceContribution {
      *
      * @return item contribution id
      */
-    @Nonnull
+    @NonNull
     String getContributionId();
 }

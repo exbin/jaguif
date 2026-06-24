@@ -20,8 +20,8 @@ import java.awt.BorderLayout;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.text.encoding.settings.TextEncodingOptions;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.text.encoding.settings.TextEncodingsInference;
 /**
  * Text encoding settings panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextEncodingSettingsPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextEncodingSettingsPanel.class);
@@ -62,7 +62,7 @@ public class TextEncodingSettingsPanel extends javax.swing.JPanel implements Set
         super.add(encodingPanel, BorderLayout.CENTER);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

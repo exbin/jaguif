@@ -17,7 +17,7 @@ package org.exbin.jaguif.text.font.settings;
 
 import java.awt.Font;
 import java.util.Optional;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.options.settings.api.InferenceOptions;
 
 /**
@@ -30,7 +30,7 @@ public interface TextFontInference extends InferenceOptions {
      *
      * @return font value
      */
-    @Nonnull
+    @NonNull
     Optional<Font> getCurrentFont();
 
     /**
@@ -38,6 +38,6 @@ public interface TextFontInference extends InferenceOptions {
      *
      * @return font value
      */
-    @Nonnull
+    @NonNull
     Optional<Font> getDefaultFont();
 }

@@ -17,7 +17,7 @@ package org.exbin.jaguif.toolbar;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractButton;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarComponent;
 /**
  * Icon toolbar sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class IconToolBarSequenceOutput implements ContributionSequenceOutput {
 
     protected final JToolBar toolBar;

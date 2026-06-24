@@ -17,9 +17,9 @@ package org.exbin.jaguif.docking;
 
 import java.awt.Component;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextActivable;
@@ -42,14 +42,14 @@ import org.exbin.jaguif.utils.WindowClosingListener;
  * Default implementation of the document docking supporting single document
  * only.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, DocumentDocking, WindowClosingListener {
 
     protected final DockingPanel docking = new DockingPanel();
     protected Document currentDocument = null;
     protected ActiveContextManagement contextManager = null;
 
-    @Nonnull
+    @NonNull
     @Override
     public Component getComponent() {
         return docking;
@@ -116,13 +116,13 @@ public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, D
         contextManager.changeActiveState(ContextDocument.class, (ContextDocument) document);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<Document> getActiveDocument() {
         return Optional.ofNullable(currentDocument);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<Document> openNewDocument() {
         if (currentDocument != null) {

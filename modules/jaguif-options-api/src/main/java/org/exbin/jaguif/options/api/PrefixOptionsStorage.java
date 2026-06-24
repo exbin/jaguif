@@ -16,14 +16,14 @@
 package org.exbin.jaguif.options.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Options storage with key prefix.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class PrefixOptionsStorage implements OptionsStorage {
 
     protected final OptionsStorage optionsStorage;
@@ -44,13 +44,13 @@ public class PrefixOptionsStorage implements OptionsStorage {
         return optionsStorage.exists(prefix + key);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<String> get(String key) {
         return optionsStorage.get(prefix + key);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String get(String key, String def) {
         return optionsStorage.get(prefix + key, def);
@@ -61,7 +61,7 @@ public class PrefixOptionsStorage implements OptionsStorage {
         return optionsStorage.getBoolean(prefix + key, def);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public byte[] getByteArray(String key, byte[] def) {
         return optionsStorage.getByteArray(prefix + key, def);

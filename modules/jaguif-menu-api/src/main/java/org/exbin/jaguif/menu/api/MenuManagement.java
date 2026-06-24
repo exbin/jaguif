@@ -16,9 +16,9 @@
 package org.exbin.jaguif.menu.api;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Interface for menus management.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface MenuManagement {
 
     /**
@@ -107,7 +107,7 @@ public interface MenuManagement {
      * @param subMenuName sub menu name
      * @return sub menu contribution
      */
-    @Nonnull
+    @NonNull
     SubMenuContribution registerMenuItem(String menuId, String moduleId, String subMenuId, String subMenuName);
 
     /**
@@ -119,7 +119,7 @@ public interface MenuManagement {
      * @param subMenuAction sub menu action
      * @return sub menu contribution
      */
-    @Nonnull
+    @NonNull
     SubMenuContribution registerMenuItem(String menuId, String moduleId, String subMenuId, Action subMenuAction);
 
     /**
@@ -130,7 +130,7 @@ public interface MenuManagement {
      * @param menuProvider menu provider
      * @return sub menu contribution
      */
-    @Nonnull
+    @NonNull
     DirectMenuContribution registerMenuItem(String menuId, String moduleId, MenuItemProvider menuProvider);
 
     /**
@@ -141,7 +141,7 @@ public interface MenuManagement {
      * @param groupId group id
      * @return group contribution
      */
-    @Nonnull
+    @NonNull
     GroupSequenceContribution registerMenuGroup(String menuId, String moduleId, String groupId);
 
     /**
@@ -157,6 +157,6 @@ public interface MenuManagement {
      *
      * @return menu contributions
      */
-    @Nonnull
+    @NonNull
     List<SequenceContribution> getContributions();
 }

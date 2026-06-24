@@ -18,15 +18,15 @@ package org.exbin.jaguif.options;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 
 /**
  * Memory options storage.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MemoryOptionsStorage implements OptionsStorage {
 
     private final Map<String, Object> values = new HashMap<>();
@@ -40,7 +40,7 @@ public class MemoryOptionsStorage implements OptionsStorage {
         return values.containsKey(key);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<String> get(String key) {
         Object value = values.get(key);
@@ -51,15 +51,15 @@ public class MemoryOptionsStorage implements OptionsStorage {
         return Optional.of(valueAsString(value));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String get(String key, String def) {
         Object value = values.getOrDefault(key, def);
         return valueAsString(value);
     }
 
-    @Nonnull
-    private static String valueAsString(@Nonnull Object value) {
+    @NonNull
+    private static String valueAsString(@NonNull Object value) {
         if (value instanceof String) {
             return (String) value;
         }
@@ -72,7 +72,7 @@ public class MemoryOptionsStorage implements OptionsStorage {
         return (Boolean) values.getOrDefault(key, def);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public byte[] getByteArray(String key, byte[] def) {
         return (byte[]) values.getOrDefault(key, def);

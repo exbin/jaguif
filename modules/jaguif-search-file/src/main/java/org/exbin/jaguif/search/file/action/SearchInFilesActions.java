@@ -16,8 +16,8 @@
 package org.exbin.jaguif.search.file.action;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 /**
  * Find/replace actions for searching.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SearchInFilesActions {
 
     private ResourceBundle resourceBundle;
@@ -45,14 +45,14 @@ public class SearchInFilesActions {
         this.resourceBundle = resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     public Action createFindInFilesAction() {
         FindInFilesAction findInFilesAction = new FindInFilesAction();
         findInFilesAction.init(resourceBundle);
         return findInFilesAction;
     }
 
-    @Nonnull
+    @NonNull
     public Action createReplaceInFilesAction() {
         ReplaceInFilesAction replaceInFilesAction = new ReplaceInFilesAction();
         replaceInFilesAction.init(resourceBundle);
@@ -95,13 +95,13 @@ public class SearchInFilesActions {
 
         public static final String CONTRIBUTION_ID = "findInFiles";
 
-        @Nonnull
+        @NonNull
         @Override
         public Action createAction() {
             return createFindInFilesAction();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;
@@ -112,13 +112,13 @@ public class SearchInFilesActions {
 
         public static final String CONTRIBUTION_ID = "replaceInFiles";
 
-        @Nonnull
+        @NonNull
         @Override
         public Action createAction() {
             return createReplaceInFilesAction();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;

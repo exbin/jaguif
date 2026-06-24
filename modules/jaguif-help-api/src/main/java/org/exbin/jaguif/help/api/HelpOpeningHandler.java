@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.help.api;
 
-import javax.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Link to help page.

@@ -16,8 +16,8 @@
 package org.exbin.jaguif.project.api;
 
 import java.util.Collection;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 /**
  * Interface for framework project module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ProjectModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ProjectModuleApi.class);
@@ -37,20 +37,20 @@ public interface ProjectModuleApi extends Module {
 
     void registerProjectType(ProjectType projectType);
 
-    @Nonnull
+    @NonNull
     Collection<ProjectCategory> getProjectCategories();
 
-    @Nonnull
+    @NonNull
     Collection<ProjectType> getProjectTypes();
 
     void registerMenuFileHandlingActions();
 
-    @Nonnull
+    @NonNull
     AbstractAction createNewProjectAction();
 
-    @Nonnull
+    @NonNull
     AbstractAction createOpenProjectAction();
 
-    @Nonnull
+    @NonNull
     AbstractAction createSaveProjectAction();
 }

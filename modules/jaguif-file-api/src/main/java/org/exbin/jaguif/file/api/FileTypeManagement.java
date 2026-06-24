@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.file.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JFileChooser;
 
 /**
  * Interface for file types management.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface FileTypeManagement {
 
     /**
@@ -81,6 +81,6 @@ public interface FileTypeManagement {
      *
      * @return window title
      */
-    @Nonnull
+    @NonNull
     String getWindowTitle();
 }

@@ -16,9 +16,9 @@
 package org.exbin.jaguif.options.settings.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.ModuleUtils;
 /**
  * Interface for framework options settings module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface OptionsSettingsModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OptionsSettingsModuleApi.class);
@@ -37,7 +37,7 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return options settings manager
      */
-    @Nonnull
+    @NonNull
     OptionsSettingsManagement getMainSettingsManager();
 
     /**
@@ -46,7 +46,7 @@ public interface OptionsSettingsModuleApi extends Module {
      * @param moduleId module id
      * @return
      */
-    @Nonnull
+    @NonNull
     OptionsSettingsManagement getSettingsManagement(String moduleId);
 
     /**
@@ -54,7 +54,7 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return options action
      */
-    @Nonnull
+    @NonNull
     Action createSettingsAction();
 
     /**
@@ -72,7 +72,7 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return options settings panel type
      */
-    @Nonnull
+    @NonNull
     SettingsPanelType getSettingsPanelType();
 
     /**
@@ -87,7 +87,7 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return caption
      */
-    @Nonnull
+    @NonNull
     Optional<String> getOptionsRootCaption();
 
     /**
@@ -103,6 +103,6 @@ public interface OptionsSettingsModuleApi extends Module {
      * @param settingsOptionsProvider settings options provider
      * @return settings options overrides
      */
-    @Nonnull
+    @NonNull
     SettingsOptionsOverrides createSettingsOptionsOverrides(SettingsOptionsProvider settingsOptionsProvider);
 }

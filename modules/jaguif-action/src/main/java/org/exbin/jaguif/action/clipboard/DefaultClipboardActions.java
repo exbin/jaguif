@@ -16,8 +16,7 @@
 package org.exbin.jaguif.action.clipboard;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
@@ -25,7 +24,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 /**
  * Clipboard actions.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultClipboardActions implements ClipboardOperationActions {
 
     protected ResourceBundle resourceBundle;
@@ -37,7 +36,6 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         this.resourceBundle = resourceBundle;
     }
 
-    @Nonnull
     @Override
     public Action createCutAction() {
         CutAction cutAction = new CutAction();
@@ -45,7 +43,6 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         return cutAction;
     }
 
-    @Nonnull
     @Override
     public Action createCopyAction() {
         CopyAction copyAction = new CopyAction();
@@ -53,7 +50,6 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         return copyAction;
     }
 
-    @Nonnull
     @Override
     public Action createPasteAction() {
         PasteAction pasteAction = new PasteAction();
@@ -61,7 +57,6 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         return pasteAction;
     }
 
-    @Nonnull
     @Override
     public Action createDeleteAction() {
         DeleteAction deleteAction = new DeleteAction();
@@ -69,7 +64,6 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         return deleteAction;
     }
 
-    @Nonnull
     @Override
     public Action createSelectAllAction() {
         SelectAllAction selectAllAction = new SelectAllAction();
@@ -77,17 +71,15 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         return selectAllAction;
     }
 
-    @Nonnull
     @Override
     public ActionSequenceContribution createCutContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+
             @Override
             public Action createAction() {
                 return createCutAction();
             }
 
-            @Nonnull
             @Override
             public String getContributionId() {
                 return CutAction.ACTION_ID;
@@ -95,17 +87,15 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         };
     }
 
-    @Nonnull
     @Override
     public ActionSequenceContribution createCopyContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+
             @Override
             public Action createAction() {
                 return createCopyAction();
             }
 
-            @Nonnull
             @Override
             public String getContributionId() {
                 return CopyAction.ACTION_ID;
@@ -113,17 +103,15 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         };
     }
 
-    @Nonnull
     @Override
     public ActionSequenceContribution createPasteContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+
             @Override
             public Action createAction() {
                 return createPasteAction();
             }
 
-            @Nonnull
             @Override
             public String getContributionId() {
                 return PasteAction.ACTION_ID;
@@ -131,17 +119,15 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         };
     }
 
-    @Nonnull
     @Override
     public ActionSequenceContribution createDeleteContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+
             @Override
             public Action createAction() {
                 return createDeleteAction();
             }
 
-            @Nonnull
             @Override
             public String getContributionId() {
                 return DeleteAction.ACTION_ID;
@@ -149,17 +135,15 @@ public class DefaultClipboardActions implements ClipboardOperationActions {
         };
     }
 
-    @Nonnull
     @Override
     public ActionSequenceContribution createSelectAllContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+
             @Override
             public Action createAction() {
                 return createSelectAllAction();
             }
 
-            @Nonnull
             @Override
             public String getContributionId() {
                 return SelectAllAction.ACTION_ID;

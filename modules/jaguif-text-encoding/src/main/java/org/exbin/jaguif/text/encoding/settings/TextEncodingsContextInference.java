@@ -17,8 +17,8 @@ package org.exbin.jaguif.text.encoding.settings;
 
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.text.encoding.CharsetListEncodingState;
 import org.exbin.jaguif.text.encoding.ContextEncoding;
 import org.exbin.jaguif.context.api.ContextStateProvider;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Text editor encodings context inference.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextEncodingsContextInference implements TextEncodingsInference {
 
     protected ContextStateProvider contextProvider;
@@ -35,7 +35,7 @@ public class TextEncodingsContextInference implements TextEncodingsInference {
         this.contextProvider = contextProvider;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<List<String>> getEncodings() {
         ContextEncoding contextEncoding = contextProvider.getActiveState(ContextEncoding.class);

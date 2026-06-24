@@ -26,14 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 
 /**
  * Addon update changes.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonUpdateChanges {
 
     public static final String ADDON_UPDATES_DIR = "addons_update";
@@ -43,22 +43,22 @@ public class AddonUpdateChanges {
     protected final List<String> updateFiles = new ArrayList<>();
     protected final List<String> removeFiles = new ArrayList<>();
 
-    @Nonnull
+    @NonNull
     public List<String> getInstallAddons() {
         return installAddons;
     }
 
-    @Nonnull
+    @NonNull
     public List<String> getRemoveAddons() {
         return removeAddons;
     }
 
-    @Nonnull
+    @NonNull
     public List<String> getUpdateFiles() {
         return updateFiles;
     }
 
-    @Nonnull
+    @NonNull
     public List<String> getRemoveFiles() {
         return removeFiles;
     }

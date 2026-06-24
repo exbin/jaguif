@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.document.text;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Text position status interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface TextPositionStatusApi {
 
     /**

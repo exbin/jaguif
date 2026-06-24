@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Cart operation.
@@ -27,6 +27,6 @@ public interface CartOperation {
      *
      * @return operation variant
      */
-    @Nonnull
+    @NonNull
     CartOperationVariant getVariant();
 }

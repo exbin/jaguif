@@ -16,15 +16,15 @@
 package org.exbin.jaguif.document.recent.settings;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * Options for recently opened files.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class RecentFilesOptions implements SettingsOptions {
 
     public static final String KEY_RECENT_FILE_PATH_PREFIX = "recentFile.path.";
@@ -37,17 +37,17 @@ public class RecentFilesOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<String> getFilePath(int index) {
         return storage.get(KEY_RECENT_FILE_PATH_PREFIX + String.valueOf(index));
     }
 
-    @Nonnull
+    @NonNull
     public Optional<String> getModuleName(int index) {
         return storage.get(KEY_RECENT_FILE_MODULE_PREFIX + String.valueOf(index));
     }
 
-    @Nonnull
+    @NonNull
     public Optional<String> getFileMode(int index) {
         return storage.get(KEY_RECENT_FILE_MODE_PREFIX + String.valueOf(index));
     }

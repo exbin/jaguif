@@ -30,14 +30,14 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.table.AbstractTableModel;
 
 /**
  * Table model for encoding / character sets.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EncodingsTableModel extends AbstractTableModel {
 
     private final Map<String, EncodingRecord> encodings = new HashMap<>();
@@ -88,7 +88,7 @@ public class EncodingsTableModel extends AbstractTableModel {
         this.resourceBundle = resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getColumnName(int column) {
         switch (column) {
@@ -131,7 +131,7 @@ public class EncodingsTableModel extends AbstractTableModel {
         return 4;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         String name = filtered.get(rowIndex);

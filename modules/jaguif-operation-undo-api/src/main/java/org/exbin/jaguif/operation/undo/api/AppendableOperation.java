@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.operation.undo.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.operation.api.Operation;
 
 /**
  * Interface for appendable operation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AppendableOperation {
 
     /**

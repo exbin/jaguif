@@ -20,9 +20,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.prefs.AbstractPreferences;
 import java.util.prefs.BackingStoreException;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Stub preferences class.
@@ -33,7 +33,7 @@ public class StubPreferences extends PreferencesWrapper {
         super(new StubPreferencesImpl());
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static final class StubPreferencesImpl extends AbstractPreferences {
 
         private final Map<String, String> spiValues;
@@ -75,7 +75,7 @@ public class StubPreferences extends PreferencesWrapper {
             return (String[]) keySet.toArray(new String[0]);
         }
 
-        @Nonnull
+        @NonNull
         @Override
         protected String[] childrenNamesSpi() throws BackingStoreException {
             return new String[0];

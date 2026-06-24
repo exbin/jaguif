@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SubSequenceContribution;
 import org.exbin.jaguif.contribution.api.TreeContributionSequenceOutput;
@@ -31,7 +31,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 /**
  * Settings sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SettingsSequenceOutput implements TreeContributionSequenceOutput {
 
     protected SettingsPageReceiver settingsPageReceiver;
@@ -70,7 +70,7 @@ public class SettingsSequenceOutput implements TreeContributionSequenceOutput {
         // TODO
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution) {
         SettingsPageContribution pageContribution = (SettingsPageContribution) subContribution;

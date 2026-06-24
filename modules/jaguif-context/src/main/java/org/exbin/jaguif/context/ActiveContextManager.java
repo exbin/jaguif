@@ -20,9 +20,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.StateUpdateType;
 import org.exbin.jaguif.context.api.ContextChangeListener;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.context.api.ContextChangeListener;
 /**
  * Default active context manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ActiveContextManager implements ActiveContextManagement {
 
     protected final Map<Class<?>, Object> activeStates = new HashMap<>();
@@ -42,7 +42,7 @@ public class ActiveContextManager implements ActiveContextManagement {
         return (T) activeStates.get(stateClass);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Collection<Class<?>> getStateClasses() {
         List<Class<?>> stateClasses = new ArrayList<>();

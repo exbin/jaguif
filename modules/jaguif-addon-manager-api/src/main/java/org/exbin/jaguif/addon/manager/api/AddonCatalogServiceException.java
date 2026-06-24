@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addon catalog service exception.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonCatalogServiceException extends Exception {
 
     public AddonCatalogServiceException() {

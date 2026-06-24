@@ -16,8 +16,8 @@
 package org.exbin.jaguif.document.text.settings;
 
 import java.awt.Color;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.document.text.TextColorState;
 import org.exbin.jaguif.options.settings.api.SettingsApplier;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Text color options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextColorSettingsApplier implements SettingsApplier {
 
     public static final String APPLIER_ID = "textColor";

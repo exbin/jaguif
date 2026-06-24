@@ -22,16 +22,16 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
 import org.exbin.jaguif.utils.UiUtils;
 
 /**
  * Simple header panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class WindowHeaderPanel extends javax.swing.JPanel {
 
     private BackgroundDecorationMode decorationMode = BackgroundDecorationMode.COLOR_BOTTOM_RIGHT_TRANSITION;
@@ -127,7 +127,7 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 
-    @Nonnull
+    @NonNull
     public String getTitle() {
         return titleLabel.getText();
     }
@@ -136,7 +136,7 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
         titleLabel.setText(title);
     }
 
-    @Nonnull
+    @NonNull
     public String getDescription() {
         return descriptionTextArea.getText();
     }
@@ -145,7 +145,7 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
         descriptionTextArea.setText(description);
     }
 
-    @Nonnull
+    @NonNull
     public Optional<Icon> getIcon() {
         return Optional.ofNullable(iconLabel.getIcon());
     }
@@ -155,7 +155,7 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
         iconLabel.setPreferredSize(new Dimension(icon == null ? 0 : 64, 64));
     }
 
-    @Nonnull
+    @NonNull
     public BackgroundDecorationMode getDecorationMode() {
         return decorationMode;
     }
@@ -233,7 +233,7 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
     /**
      * Interface for decoration provider.
      */
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface WindowHeaderDecorationProvider {
 
         /**

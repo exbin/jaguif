@@ -16,13 +16,13 @@
 package org.exbin.jaguif.addon.manager.operation.model;
 
 import java.net.URL;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Download item record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DownloadItemRecord {
 
     private Status status = Status.UNCHECKED;
@@ -36,7 +36,7 @@ public class DownloadItemRecord {
         this.fileName = fileName;
     }
 
-    @Nonnull
+    @NonNull
     public Status getStatus() {
         return status;
     }
@@ -45,7 +45,7 @@ public class DownloadItemRecord {
         this.status = status;
     }
 
-    @Nonnull
+    @NonNull
     public String getDescription() {
         return description;
     }
@@ -54,7 +54,7 @@ public class DownloadItemRecord {
         this.description = description;
     }
 
-    @Nonnull
+    @NonNull
     public String getFileName() {
         return fileName;
     }

@@ -18,8 +18,8 @@ package org.exbin.jaguif.ui.theme;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.DesktopUtils;
 
 /**
@@ -35,7 +35,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
  * See MacOS Metal framework:
  * <a href="https://openjdk.org/projects/lanai/">Project Lanai</a>
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public enum GuiRenderingMethod {
 
     DEFAULT(""),
@@ -53,12 +53,12 @@ public enum GuiRenderingMethod {
         this.propertyValue = propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public String getPropertyValue() {
         return propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public static Optional<GuiRenderingMethod> fromPropertyValue(String propertyValue) {
         for (GuiRenderingMethod method : values()) {
             if (propertyValue.equals(method.getPropertyValue())) {
@@ -69,7 +69,7 @@ public enum GuiRenderingMethod {
         return Optional.empty();
     }
 
-    @Nonnull
+    @NonNull
     public static List<GuiRenderingMethod> getAvailableMethods() {
         List<GuiRenderingMethod> methods = new ArrayList<>();
 

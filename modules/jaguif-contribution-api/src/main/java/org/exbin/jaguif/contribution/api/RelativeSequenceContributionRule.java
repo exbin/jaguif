@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Sequence contribution rule for item relative position.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class RelativeSequenceContributionRule implements SequenceContributionRule {
 
@@ -39,7 +39,7 @@ public class RelativeSequenceContributionRule implements SequenceContributionRul
      *
      * @return next to mode
      */
-    @Nonnull
+    @NonNull
     public NextToMode getNextToMode() {
         return nextToMode;
     }
@@ -49,7 +49,7 @@ public class RelativeSequenceContributionRule implements SequenceContributionRul
      *
      * @return contribution id
      */
-    @Nonnull
+    @NonNull
     public String getContributionId() {
         return contributionId;
     }

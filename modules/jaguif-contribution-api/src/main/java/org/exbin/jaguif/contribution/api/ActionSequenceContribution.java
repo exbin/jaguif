@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 
 /**
@@ -28,6 +28,6 @@ public interface ActionSequenceContribution extends ItemSequenceContribution {
      *
      * @return action
      */
-    @Nonnull
+    @NonNull
     Action createAction();
 }

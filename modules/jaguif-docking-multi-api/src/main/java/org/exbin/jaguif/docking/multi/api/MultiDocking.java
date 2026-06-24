@@ -16,8 +16,8 @@
 package org.exbin.jaguif.docking.multi.api;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.docking.api.ContextDocking;
 import org.exbin.jaguif.docking.api.DocumentDocking;
 import org.exbin.jaguif.document.api.Document;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.document.api.Document;
 /**
  * Interface for editor view handling.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface MultiDocking extends ContextDocking, DocumentDocking {
 
     /**
@@ -33,7 +33,7 @@ public interface MultiDocking extends ContextDocking, DocumentDocking {
      *
      * @return list of documents
      */
-    @Nonnull
+    @NonNull
     List<Document> getDocuments();
 
     /**

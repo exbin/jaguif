@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.document.text.settings;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.text.settings.gui.TextColorSettingsPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
@@ -24,12 +24,12 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 /**
  * Text color settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextColorSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "text.color";
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsComponent createComponent() {
         return new TextColorSettingsPanel();

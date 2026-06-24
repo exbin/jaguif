@@ -16,8 +16,8 @@
 package org.exbin.jaguif.document.syntax;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Document syntax module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DocumentSyntaxModule implements Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(DocumentSyntaxModule.class);
@@ -36,7 +36,7 @@ public class DocumentSyntaxModule implements Module {
     public DocumentSyntaxModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DocumentSyntaxModule.class);

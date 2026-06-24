@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.help.local;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 /**
  * Local help module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class HelpLocalModule {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpLocalModule.class);
@@ -37,7 +37,7 @@ public class HelpLocalModule {
     public HelpLocalModule() {
     }
 
-    @Nonnull
+    @NonNull
     public HelpLocalAction createHelpLocalAction() {
         HelpLocalAction helpAction = new HelpLocalAction();
         helpAction.init();

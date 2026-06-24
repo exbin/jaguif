@@ -19,13 +19,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JToggleButton;
 
 /**
  * Addons manager cart button.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CartButton extends JToggleButton {
 
     protected int changesCount = 0;

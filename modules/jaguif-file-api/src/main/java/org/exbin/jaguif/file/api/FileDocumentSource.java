@@ -17,16 +17,16 @@ package org.exbin.jaguif.file.api;
 
 import java.io.File;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import org.exbin.jaguif.document.api.DocumentSource;
 
 /**
  * File document source.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class FileDocumentSource implements DocumentSource {
 
@@ -43,12 +43,12 @@ public class FileDocumentSource implements DocumentSource {
         this.fileType = fileType;
     }
 
-    @Nonnull
+    @NonNull
     public File getFile() {
         return file;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<FileType> getFileType() {
         return Optional.ofNullable(fileType);
     }

@@ -20,9 +20,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
 import org.exbin.jaguif.context.api.ContextStateUpdateListener;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.context.service.ContextMessagingService;
 /**
  * Context update manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ContextUpdateManager implements ContextUpdateManagement {
 
     public static final String DEFAULT_GROUP = "";
@@ -101,7 +101,7 @@ public class ContextUpdateManager implements ContextUpdateManagement {
         messagingService.notifyStateUpdated(listeners, contextInstance, updateType);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public <T> List<ContextStateChangeListener<?>> getChangeListeners(String groupId, Class<T> contextClass) {
         List<ContextStateChangeListener<?>> listeners = null;
@@ -117,7 +117,7 @@ public class ContextUpdateManager implements ContextUpdateManagement {
         return listeners;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public <T> List<ContextStateUpdateListener<?>> getUpdateListeners(String groupId, Class<T> contextClass) {
         List<ContextStateUpdateListener<?>> listeners = null;

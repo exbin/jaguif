@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.operation.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Operation providing title.
@@ -27,6 +27,6 @@ public interface TitledOperation {
      *
      * @return title
      */
-    @Nonnull
+    @NonNull
     String getTitle();
 }

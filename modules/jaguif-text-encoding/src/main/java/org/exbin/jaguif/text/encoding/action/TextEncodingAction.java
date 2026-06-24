@@ -19,7 +19,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.api.ActionConsts;
@@ -38,7 +38,7 @@ import org.exbin.jaguif.context.api.StateUpdateType;
 /**
  * Text encoding action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextEncodingAction extends AbstractAction {
 
     public static final String ACTION_ID = "textEncoding";

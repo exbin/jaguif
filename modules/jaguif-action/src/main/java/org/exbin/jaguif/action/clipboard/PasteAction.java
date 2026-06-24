@@ -17,8 +17,8 @@ package org.exbin.jaguif.action.clipboard;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationController;
 /**
  * Paste from clipboard action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class PasteAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "paste";

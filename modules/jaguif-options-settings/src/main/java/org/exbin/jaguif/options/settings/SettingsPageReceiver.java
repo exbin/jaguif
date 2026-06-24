@@ -16,13 +16,13 @@
 package org.exbin.jaguif.options.settings;
 
 import java.util.List;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for options settings panel page receiver.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SettingsPageReceiver {
 
     /**

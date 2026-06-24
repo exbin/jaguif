@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
 import org.exbin.jaguif.context.api.ContextStateUpdateListener;
@@ -28,7 +28,7 @@ import org.exbin.jaguif.context.api.ContextStateUpdateListener;
 /**
  * Context update record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ContextUpdateRecord implements ContextChangeRegistration {
 
     protected final Map<Class<?>, List<ContextStateChangeListener<?>>> contextChangeListeners = new HashMap<>();

@@ -18,7 +18,7 @@ package org.exbin.jaguif.action.manager.gui;
 import java.awt.Component;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import javax.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableCellRenderer;

@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.addon.manager.operation;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.UpdateAvailabilityManager;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.operation.api.TitledOperation;
 /**
  * Operation to get available updates from catalog.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CatalogAvailableUpdatesOperation implements Runnable, CancellableOperation, TitledOperation {
 
     protected final AddonCatalogService addonCatalogService;
@@ -64,13 +64,13 @@ public class CatalogAvailableUpdatesOperation implements Runnable, CancellableOp
         return cancelled;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getTitle() {
         return addonManager.getResourceBundle().getString("catalogAvailableUpdatesOperation");
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface Output {
 
         void latestVersionsChanged();

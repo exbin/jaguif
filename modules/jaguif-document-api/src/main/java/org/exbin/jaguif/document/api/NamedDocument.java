@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.document.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface for named document.
@@ -27,6 +27,6 @@ public interface NamedDocument extends Document {
      *
      * @return document name
      */
-    @Nonnull
+    @NonNull
     String getDocumentName();
 }

@@ -16,14 +16,14 @@
 package org.exbin.jaguif.utils;
 
 import java.util.Objects;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Object handling utilities.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ObjectUtils {
 
     public static final String NULL_FIELD_ERROR = "Field cannot be null";
@@ -31,12 +31,12 @@ public class ObjectUtils {
     private ObjectUtils() {
     }
 
-    @Nonnull
+    @NonNull
     public static <T> T requireNonNull(@Nullable T object) {
         return Objects.requireNonNull(object, NULL_FIELD_ERROR);
     }
 
-    @Nonnull
+    @NonNull
     public static <T> T requireNonNull(@Nullable T object, String message) {
         return Objects.requireNonNull(object, message);
     }
@@ -51,7 +51,7 @@ public class ObjectUtils {
         throw getInvalidTypeException(enumObject);
     }
 
-    @Nonnull
+    @NonNull
     public static IllegalStateException getInvalidTypeException(Enum<?> enumObject) {
         return new IllegalStateException("Unexpected " + enumObject.getDeclaringClass().getName() + " value " + enumObject.name());
     }

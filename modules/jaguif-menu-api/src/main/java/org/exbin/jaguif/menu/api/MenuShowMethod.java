@@ -16,7 +16,7 @@
 package org.exbin.jaguif.menu.api;
 
 import java.awt.Component;
-import javax.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Menu show method.

@@ -18,8 +18,8 @@ package org.exbin.jaguif.document.text.settings.gui;
 import java.awt.BorderLayout;
 import java.awt.event.ItemEvent;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.settings.TextColorOptions;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 /**
  * Text color settings panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextColorSettingsPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextColorSettingsPanel.class);
@@ -49,7 +49,7 @@ public class TextColorSettingsPanel extends javax.swing.JPanel implements Settin
         super.add(colorPanel, BorderLayout.CENTER);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

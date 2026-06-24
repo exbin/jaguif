@@ -32,9 +32,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -54,7 +53,7 @@ import org.xml.sax.SAXException;
 /**
  * Addon catalog service implementation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultAddonCatalogService implements AddonCatalogService {
 
     protected String addonServiceUrl;
@@ -90,7 +89,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         }
     }
 
-    @Nonnull
     @Override
     public List<AddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException {
         List<AddonRecord> searchResult = new ArrayList<>();
@@ -190,7 +188,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         return searchResult;
     }
 
-    @Nonnull
     @Override
     public AddonRecord getAddonDependency(String addonId) throws AddonCatalogServiceException {
         URL requestUrl = createApiCall("=addondep", "id=" + addonId);
@@ -268,7 +265,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         throw new AddonCatalogServiceException("No record for addon: " + addonId);
     }
 
-    @Nonnull
     @Override
     public String getAddonFile(String addonId) throws AddonCatalogServiceException {
         URL requestUrl = createApiCall("addonfile", "id=" + addonId);
@@ -283,7 +279,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         }
     }
 
-    @Nonnull
     @Override
     public List<UpdateRecord> getUpdateRecords() throws AddonCatalogServiceException {
         List<UpdateRecord> records = new ArrayList<>();
@@ -304,7 +299,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         return records;
     }
 
-    @Nonnull
     @Override
     public String getModuleDetails(String addonId) throws AddonCatalogServiceException {
         URL requestUrl = createApiCall("addondetail", "id=" + addonId);
@@ -325,7 +319,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         }
     }
 
-    @Nonnull
     @Override
     public URL getLicenseDownloadUrl(String remoteFilePath) throws AddonCatalogServiceException {
         String licenseDownloadPrefix = addonServiceUrl + "license/";
@@ -336,7 +329,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         }
     }
 
-    @Nonnull
     @Override
     public String getCatalogPageUrl() {
         return catalogPageUrl;
@@ -350,12 +342,10 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         iconChangeListeners.remove(listener);
     }
 
-    @Nonnull
     public URL createApiCall(String operation) throws AddonCatalogServiceException {
         return createApiCall(operation, null);
     }
 
-    @Nonnull
     public URL createApiCall(String operation, @Nullable String parameters) throws AddonCatalogServiceException {
         try {
             return new URI(addonServiceUrl + "api/?op=" + operation + (parameters == null ? "" : "&" + parameters)).toURL();

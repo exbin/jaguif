@@ -16,7 +16,7 @@
 package org.exbin.jaguif.action.manager.gui;
 
 import java.util.List;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.KeyStroke;
 import org.exbin.jaguif.action.manager.model.KeyMapRecord;
 import org.exbin.jaguif.action.manager.model.KeyMapTableModel;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.action.manager.model.KeyMapTableModel;
 /**
  * Keymap table panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class KeyMapTablePanel extends javax.swing.JPanel {
 
     private final KeyMapTableModel tableModel = new KeyMapTableModel();

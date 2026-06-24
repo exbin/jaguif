@@ -17,15 +17,15 @@ package org.exbin.jaguif.file.api;
 
 import java.io.File;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Open file result.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class OpenFileResult {
 
@@ -46,17 +46,17 @@ public class OpenFileResult {
      *
      * @return result type
      */
-    @Nonnull
+    @NonNull
     public ResultType getResultType() {
         return resultType;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<File> getSelectedFile() {
         return Optional.ofNullable(selectedFile);
     }
 
-    @Nonnull
+    @NonNull
     public Optional<FileType> getFileType() {
         return Optional.ofNullable(fileType);
     }

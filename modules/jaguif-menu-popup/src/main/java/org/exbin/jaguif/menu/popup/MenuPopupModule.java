@@ -18,9 +18,9 @@ package org.exbin.jaguif.menu.popup;
 import java.awt.Component;
 import java.awt.datatransfer.StringSelection;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
 import javax.swing.JViewport;
 import org.exbin.jaguif.App;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.action.api.ContextRegistrationProvider;
 /**
  * Implementation of framework popup module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MenuPopupModule implements MenuPopupModuleApi {
 
     private java.util.ResourceBundle resourceBundle = null;
@@ -46,7 +46,7 @@ public class MenuPopupModule implements MenuPopupModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(MenuPopupModule.class);
@@ -86,7 +86,7 @@ public class MenuPopupModule implements MenuPopupModuleApi {
         DefaultPopupMenu.getInstance().fillDefaultEditPopupMenu(popupMenu, position);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JPopupMenu createLinkPopupMenu(String targetURL) {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
@@ -111,7 +111,7 @@ public class MenuPopupModule implements MenuPopupModuleApi {
         return popupMenu;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JPopupMenu createComponentPopupMenu(String popupMenuId, ContextRegistrationProvider ContextRegistrationProvider) {
         return new JPopupMenu() {

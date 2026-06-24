@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.notification.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Support module api for notifications.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface NotificationModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(NotificationModuleApi.class);

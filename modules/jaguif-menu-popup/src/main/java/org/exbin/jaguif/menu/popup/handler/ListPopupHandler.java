@@ -17,7 +17,7 @@ package org.exbin.jaguif.menu.popup.handler;
 
 import java.awt.datatransfer.StringSelection;
 import java.util.List;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
 import org.exbin.jaguif.utils.ClipboardUtils;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 /**
  * Popup handler for JList.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ListPopupHandler implements TextClipboardOperationController {
 
     private final JList<?> listComp;

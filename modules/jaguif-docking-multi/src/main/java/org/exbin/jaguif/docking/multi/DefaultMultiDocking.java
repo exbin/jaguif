@@ -29,9 +29,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
@@ -63,7 +63,7 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 /**
  * Default implementation of the document docking supporting multiple documents.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, WindowClosingListener {
 
     protected final List<Document> openDocuments = new ArrayList<>();
@@ -125,19 +125,19 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
         });
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Component getComponent() {
         return docking;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<Document> getActiveDocument() {
         return Optional.ofNullable(getDocument());
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<Document> openNewDocument() {
         DocumentModuleApi documentModule = App.getModule(DocumentModuleApi.class);
@@ -182,7 +182,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<Document> getDocuments() {
         return openDocuments;
@@ -356,7 +356,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
         return openDocuments.get(activeIndex);
     }
 
-    @Nonnull
+    @NonNull
     private String getDocumentTitle(Document document) {
         if (!(document instanceof FileDocument)) {
             return "";

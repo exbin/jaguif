@@ -27,6 +27,6 @@ dependencies {
     api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-utils')
     api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-contribution-api')
     api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-context-api')
-    compileOnly group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+    compileOnly group: 'org.jspecify', name: 'jspecify', version: '1.0.0'
     testImplementation group : 'junit', name: 'junit', version: '4.13.2'
 }

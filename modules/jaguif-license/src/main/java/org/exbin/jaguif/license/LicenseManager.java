@@ -19,15 +19,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.license.api.LicenseManagement;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.license.api.LicenseRecord;
 
 /**
  * License management.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class LicenseManager implements LicenseManagement {
 
     protected final Map<String, LicenseRecord> licenseRecords = new HashMap<>();
@@ -37,7 +37,7 @@ public class LicenseManager implements LicenseManagement {
         licenseRecords.put(licenseRecord.getId(), licenseRecord);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<LicenseRecord> getRecords() {
         List<LicenseRecord> records = new ArrayList<>();

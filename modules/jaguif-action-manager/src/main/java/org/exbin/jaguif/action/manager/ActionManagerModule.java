@@ -16,8 +16,7 @@
 package org.exbin.jaguif.action.manager;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.action.manager.settings.ActionManagerOptions;
@@ -32,7 +31,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 /**
  * Action manager module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ActionManagerModule implements org.exbin.jaguif.Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ActionManagerModule.class);
@@ -47,7 +46,6 @@ public class ActionManagerModule implements org.exbin.jaguif.Module {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ActionManagerModule.class);

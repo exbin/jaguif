@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.language.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Icon set provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface IconSetProvider {
 
     /**
@@ -30,7 +30,7 @@ public interface IconSetProvider {
      *
      * @return id
      */
-    @Nonnull
+    @NonNull
     String getId();
 
     /**
@@ -38,7 +38,7 @@ public interface IconSetProvider {
      *
      * @return name
      */
-    @Nonnull
+    @NonNull
     String getName();
 
     /**

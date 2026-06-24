@@ -18,15 +18,15 @@ package org.exbin.jaguif.language.api;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework language module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface LanguageModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(LanguageModuleApi.class);
@@ -36,7 +36,7 @@ public interface LanguageModuleApi extends Module {
      *
      * @return resource bundle
      */
-    @Nonnull
+    @NonNull
     ResourceBundle getAppBundle();
 
     /**
@@ -53,7 +53,7 @@ public interface LanguageModuleApi extends Module {
      * @param targetClass target class
      * @return resource bundle
      */
-    @Nonnull
+    @NonNull
     ResourceBundle getBundle(Class<?> targetClass);
 
     /**
@@ -63,7 +63,7 @@ public interface LanguageModuleApi extends Module {
      * @param bundleName bundle name
      * @return resource bundle
      */
-    @Nonnull
+    @NonNull
     ResourceBundle getResourceBundleByBundleName(String bundleName);
 
     /**
@@ -72,7 +72,7 @@ public interface LanguageModuleApi extends Module {
      * @param actionTitle action title
      * @return enhanced action title
      */
-    @Nonnull
+    @NonNull
     String getActionWithDialogText(String actionTitle);
 
     /**
@@ -82,7 +82,7 @@ public interface LanguageModuleApi extends Module {
      * @param key resource key
      * @return enhanced action title
      */
-    @Nonnull
+    @NonNull
     String getActionWithDialogText(ResourceBundle bundle, String key);
 
     /**
@@ -97,7 +97,7 @@ public interface LanguageModuleApi extends Module {
      *
      * @return language providers
      */
-    @Nonnull
+    @NonNull
     List<LanguageProvider> getLanguagePlugins();
 
     /**
@@ -112,7 +112,7 @@ public interface LanguageModuleApi extends Module {
      *
      * @return icon set providers
      */
-    @Nonnull
+    @NonNull
     List<IconSetProvider> getIconSets();
 
     /**

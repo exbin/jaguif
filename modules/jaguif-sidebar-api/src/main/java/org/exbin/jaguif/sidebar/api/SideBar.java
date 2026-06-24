@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.sidebar.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
 /**
  * Interface for sidebar.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SideBar {
 
     /**
@@ -31,7 +31,7 @@ public interface SideBar {
      *
      * @return tool bar
      */
-    @Nonnull
+    @NonNull
     JToolBar getToolBar();
 
     /**
@@ -39,7 +39,7 @@ public interface SideBar {
      *
      * @return side bar panel
      */
-    @Nonnull
+    @NonNull
     JPanel getSideBarPanel();
 
     /**

@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 
 /**
  * Addons list component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonsListComponent {
 
     /**

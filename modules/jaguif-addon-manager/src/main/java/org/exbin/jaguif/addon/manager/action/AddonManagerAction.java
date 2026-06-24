@@ -16,7 +16,7 @@
 package org.exbin.jaguif.addon.manager.action;
 
 import java.awt.event.ActionEvent;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.api.ActionConsts;
@@ -37,7 +37,7 @@ import org.exbin.jaguif.help.api.HelpLink;
 /**
  * Addon manager action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonManagerAction extends AbstractAction {
 
     public static final String ACTION_ID = "addonManager";

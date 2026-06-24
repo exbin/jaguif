@@ -18,8 +18,8 @@ package org.exbin.jaguif.sidebar;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -47,7 +47,7 @@ import org.exbin.jaguif.sidebar.api.SideBarComponent;
 /**
  * Sidebar toolbar sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
 
     protected final SideBar sideBar;
@@ -119,7 +119,7 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         return sideBar.getToolBar().getComponentCount() == 0;
     }
 
-    @Nonnull
+    @NonNull
     protected static JComponent createSideBarComponent(Action action) {
         ActionType actionType = (ActionType) action.getValue(ActionConsts.ACTION_TYPE);
         JComponent sideBarItem;
@@ -176,7 +176,7 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         targetSideBar.addSeparator();
     }
 
-    @Nonnull
+    @NonNull
     protected static JComponent createDefaultSideBarItem(Action action) {
         JButton newItem = new JButton(action);
         newItem.setFocusable(false);
@@ -197,7 +197,7 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     @Immutable
     public static class SideToolBarComponent {
 
@@ -209,12 +209,12 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
             this.action = action;
         }
 
-        @Nonnull
+        @NonNull
         public JComponent getComponent() {
             return component;
         }
 
-        @Nonnull
+        @NonNull
         public Action getAction() {
             return action;
         }

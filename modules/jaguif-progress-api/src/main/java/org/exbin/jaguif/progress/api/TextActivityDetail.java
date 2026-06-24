@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.progress.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Operation activity detail.
@@ -27,6 +27,6 @@ public interface TextActivityDetail extends ActivityDetail {
      *
      * @return activity detail
      */
-    @Nonnull
+    @NonNull
     String getText();
 }

@@ -16,15 +16,15 @@
 package org.exbin.jaguif.addon.manager.operation.gui;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 
 /**
  * Panel for addon installation / update operation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonOperationSuccessPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationSuccessPanel.class);
@@ -33,7 +33,7 @@ public class AddonOperationSuccessPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

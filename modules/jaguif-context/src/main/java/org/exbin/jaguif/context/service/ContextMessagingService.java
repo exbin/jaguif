@@ -18,8 +18,8 @@ package org.exbin.jaguif.context.service;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
 import org.exbin.jaguif.context.api.ContextStateUpdateListener;
 import org.exbin.jaguif.context.api.StateUpdateType;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.context.api.StateUpdateType;
 /**
  * Context messaging service.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ContextMessagingService {
 
     protected MessagingThread messagingThread;
@@ -59,7 +59,7 @@ public class ContextMessagingService {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class MessagingThread extends Thread {
 
         private Object contextInstance;

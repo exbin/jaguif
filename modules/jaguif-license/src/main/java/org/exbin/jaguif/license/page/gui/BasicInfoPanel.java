@@ -18,7 +18,7 @@ package org.exbin.jaguif.license.page.gui;
 import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Basic application information panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class BasicInfoPanel extends javax.swing.JPanel {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(BasicInfoPanel.class);

@@ -17,8 +17,8 @@ package org.exbin.jaguif.operation.manager.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.operation.manager.OperationManagerModule;
@@ -37,7 +37,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 /**
  * Undo manager action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UndoManagerAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "editUndoManager";
@@ -65,7 +65,7 @@ public class UndoManagerAction extends AbstractAction implements ActionContextCh
         windowHandler.showCentered(dialogParentComponent.getComponent());
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

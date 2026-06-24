@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.project.gui;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Project types panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ProjectTypesPanel extends javax.swing.JPanel {
 
     public ProjectTypesPanel() {

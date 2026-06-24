@@ -28,9 +28,9 @@ import java.awt.event.WindowEvent;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -49,7 +49,7 @@ import javax.swing.text.JTextComponent;
 /**
  * Utility static methods usable for windows and dialogs.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class WindowUtils {
 
     public static final String ESC_CANCEL_KEY = "esc-cancel";
@@ -60,7 +60,7 @@ public class WindowUtils {
     private WindowUtils() {
     }
 
-    public static void invokeWindow(final @Nonnull Window window) {
+    public static void invokeWindow(final @NonNull Window window) {
         if (lookAndFeel != null) {
             try {
                 javax.swing.UIManager.setLookAndFeel(lookAndFeel);
@@ -84,7 +84,7 @@ public class WindowUtils {
         });
     }
 
-    public static void invokeWindow(final @Nonnull JComponent component) {
+    public static void invokeWindow(final @NonNull JComponent component) {
         JDialog dialog = new JDialog();
         Dimension size = component.getPreferredSize();
         if (size.width < 10) {
@@ -112,7 +112,7 @@ public class WindowUtils {
         window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
     }
 
-    @Nonnull
+    @NonNull
     public static JDialog createBasicDialog() {
         JDialog dialog = new JDialog(new javax.swing.JFrame(), true);
         dialog.setSize(640, 480);
@@ -154,7 +154,7 @@ public class WindowUtils {
                 UiUtils.doButtonClick(cancelButton);
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public Optional<JButton> getDefaultButton() {
                 return Optional.empty();
@@ -222,7 +222,7 @@ public class WindowUtils {
         });
     }
 
-    @Nonnull
+    @NonNull
     public static WindowPosition getWindowPosition(Window window) {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice[] screenDevices = ge.getScreenDevices();

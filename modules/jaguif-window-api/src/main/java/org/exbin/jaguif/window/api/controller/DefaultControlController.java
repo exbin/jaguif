@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.window.api.controller;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.OkCancelControlComponent;
 
 /**
  * Controller for default control panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface DefaultControlController {
 
     /**
@@ -34,7 +34,7 @@ public interface DefaultControlController {
     /**
      * Interface for control component.
      */
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface DefaultControlComponent extends OkCancelControlComponent {
 
         /**

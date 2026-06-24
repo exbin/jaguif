@@ -24,8 +24,7 @@ import java.net.URISyntaxException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JPopupMenu;
 import javax.swing.event.HyperlinkEvent;
@@ -42,7 +41,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
 /**
  * Addon details panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonDetailsPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonDetailsPanel.class);
@@ -85,7 +84,6 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
         });
     }
 
-    @Nonnull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -313,7 +311,7 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel versionLabel;
     // End of variables declaration//GEN-END:variables
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface Controller {
 
         void addToCart(AddonOperationVariant variant);

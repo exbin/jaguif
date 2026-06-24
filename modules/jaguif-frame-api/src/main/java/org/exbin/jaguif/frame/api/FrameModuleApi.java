@@ -19,8 +19,8 @@ import java.awt.Frame;
 import java.awt.Image;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JComponent;
 import org.exbin.jaguif.Module;
@@ -31,7 +31,7 @@ import org.exbin.jaguif.utils.WindowClosingListener;
 /**
  * Interface for framework frame module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface FrameModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(FrameModuleApi.class);
@@ -49,7 +49,7 @@ public interface FrameModuleApi extends Module {
      *
      * @return resource bundle
      */
-    @Nonnull
+    @NonNull
     ResourceBundle getResourceBundle();
 
     /**
@@ -57,7 +57,7 @@ public interface FrameModuleApi extends Module {
      *
      * @return frame controller
      */
-    @Nonnull
+    @NonNull
     FrameController getFrameController();
 
     /**
@@ -79,7 +79,7 @@ public interface FrameModuleApi extends Module {
      *
      * @return frame
      */
-    @Nonnull
+    @NonNull
     Frame getFrame();
 
     /**
@@ -87,7 +87,7 @@ public interface FrameModuleApi extends Module {
      *
      * @return exit action
      */
-    @Nonnull
+    @NonNull
     Action createExitAction();
 
     /**
@@ -165,7 +165,7 @@ public interface FrameModuleApi extends Module {
      *
      * @return icon if assigned
      */
-    @Nonnull
+    @NonNull
     Optional<Image> getApplicationIcon();
 
     /**

@@ -17,12 +17,12 @@ package org.exbin.jaguif.utils;
 
 import java.awt.Component;
 import java.awt.Container;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Recursive interface for panels creating lazy components.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class RecursiveLazyComponentListener implements LazyComponentListener {
 
     private final LazyComponentListener listener;

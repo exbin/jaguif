@@ -21,8 +21,8 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.addon.manager.api.CartOperation;
 /**
  * Addon operation service.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonOperationService {
 
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationService.class);
@@ -51,7 +51,7 @@ public class AddonOperationService {
         this.addonManager = addonManager;
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -60,7 +60,7 @@ public class AddonOperationService {
         this.addonCatalogService = addonCatalogService;
     }
 
-    @Nonnull
+    @NonNull
     public AddonModificationsOperation performAddonOperations(List<CartOperation> operations) {
         AddonModificationsOperation modifications = createOperation();
         for (CartOperation operation : operations) {
@@ -85,14 +85,14 @@ public class AddonOperationService {
         return modifications;
     }
 
-    @Nonnull
+    @NonNull
     public AddonModificationsOperation installItem(ItemRecord item, Component parentComponent) {
         AddonModificationsOperation operation = createOperation();
         operation.installItem(item);
         return operation;
     }
 
-    @Nonnull
+    @NonNull
     public AddonModificationsOperation updateItem(ItemRecord item) {
         AddonModificationsOperation operation = createOperation();
         AddonRecord addonRecord;
@@ -105,14 +105,14 @@ public class AddonOperationService {
         return operation;
     }
 
-    @Nonnull
+    @NonNull
     public AddonModificationsOperation removeItem(ItemRecord item) {
         AddonModificationsOperation operation = createOperation();
         operation.removeItem(item);
         return operation;
     }
 
-    @Nonnull
+    @NonNull
     public AddonModificationsOperation installAddons(Set<String> toInstall) {
         List<ItemRecord> installedAddons = addonManager.getInstalledAddons();
         AddonModificationsOperation operation = createOperation();
@@ -142,7 +142,7 @@ public class AddonOperationService {
         return operation;
     }
 
-    @Nonnull
+    @NonNull
     public AddonModificationsOperation updateAddons(Set<String> toUpdate) {
         List<ItemRecord> installedAddons = addonManager.getInstalledAddons();
         AddonModificationsOperation operation = createOperation();
@@ -174,7 +174,7 @@ public class AddonOperationService {
         return operation;
     }
 
-    @Nonnull
+    @NonNull
     private AddonModificationsOperation createOperation() {
         AddonUpdateChanges addonUpdateChanges = addonManager.getAddonUpdateChanges();
         ApplicationModulesUsage applicationModulesUsage = addonManager.getApplicationModulesUsage();

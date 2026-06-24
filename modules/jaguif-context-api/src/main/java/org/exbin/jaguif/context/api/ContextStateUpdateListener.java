@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.context.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Listener for context state update.
  *
  * @param <T> instance type
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContextStateUpdateListener<T> {
 
     /**

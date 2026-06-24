@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.operation.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework operation module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface OperationModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OperationModuleApi.class);

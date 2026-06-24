@@ -16,7 +16,7 @@
 package org.exbin.jaguif.project.gui;
 
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.tree.TreeModel;
 import org.exbin.jaguif.App;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * New project panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class NewProjectPanel extends javax.swing.JPanel {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(NewProjectPanel.class);

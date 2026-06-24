@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.ComponentResourceProvider;
 
 /**
  * Interface for basic options settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SettingsComponent extends ComponentResourceProvider {
 
     /**

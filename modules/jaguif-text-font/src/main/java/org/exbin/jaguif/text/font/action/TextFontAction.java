@@ -18,7 +18,7 @@ package org.exbin.jaguif.text.font.action;
 import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.api.ActionConsts;
@@ -41,7 +41,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 /**
  * Text font action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextFontAction extends AbstractAction {
 
     public static final String ACTION_ID = "textFont";

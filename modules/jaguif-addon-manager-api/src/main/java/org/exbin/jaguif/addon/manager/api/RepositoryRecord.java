@@ -17,14 +17,14 @@ package org.exbin.jaguif.addon.manager.api;
 
 import java.net.URL;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addon repository record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class RepositoryRecord {
 
     private String id;
@@ -35,7 +35,7 @@ public class RepositoryRecord {
         this.id = id;
     }
 
-    @Nonnull
+    @NonNull
     public String getId() {
         return id;
     }
@@ -44,7 +44,7 @@ public class RepositoryRecord {
         this.id = id;
     }
 
-    @Nonnull
+    @NonNull
     public String getName() {
         return name;
     }
@@ -53,7 +53,7 @@ public class RepositoryRecord {
         this.name = name;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<URL> getRepositoryUrl() {
         return Optional.ofNullable(repositoryUrl);
     }

@@ -17,8 +17,7 @@ package org.exbin.jaguif.addon.manager.gui;
 
 import java.awt.Font;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
@@ -29,7 +28,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Component for list of cart operations.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonCartComponent extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonCartComponent.class);
@@ -77,7 +76,6 @@ public class AddonCartComponent extends javax.swing.JPanel {
         }
     }
 
-    @Nonnull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

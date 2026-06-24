@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.document.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for document receiver.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface DocumentReceiver {
 
     /**

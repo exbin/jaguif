@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.addon.manager;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Application modules usage.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ApplicationModulesUsage {
 
     /**

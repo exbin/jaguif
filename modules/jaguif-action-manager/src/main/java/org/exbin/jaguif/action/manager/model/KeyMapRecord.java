@@ -15,16 +15,15 @@
  */
 package org.exbin.jaguif.action.manager.model;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
 /**
  * Key map record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class KeyMapRecord {
 
     private final String name;
@@ -39,7 +38,6 @@ public class KeyMapRecord {
         this.shortcut = shortcut;
     }
 
-    @Nonnull
     public String getName() {
         return name;
     }
@@ -49,7 +47,6 @@ public class KeyMapRecord {
         return icon;
     }
 
-    @Nonnull
     public String getType() {
         return type;
     }

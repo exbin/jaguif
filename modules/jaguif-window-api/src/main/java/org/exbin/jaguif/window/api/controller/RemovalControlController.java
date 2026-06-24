@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.window.api.controller;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.OkCancelControlComponent;
 
 /**
  * Controller for control panel with support for remove action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface RemovalControlController {
 
     /**
@@ -34,7 +34,7 @@ public interface RemovalControlController {
     /**
      * Interface for control component.
      */
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface RemovalControlComponent extends OkCancelControlComponent {
 
         /**

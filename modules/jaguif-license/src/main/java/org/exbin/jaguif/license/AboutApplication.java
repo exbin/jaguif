@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.license;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.license.action.AboutAction;
@@ -30,12 +30,12 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 /**
  * Manager for data about the application.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AboutApplication {
 
     protected JComponent sideComponent = null;
 
-    @Nonnull
+    @NonNull
     public AboutAction createAboutAction() {
         AboutAction aboutAction = new AboutAction();
         if (sideComponent != null) {
@@ -48,7 +48,7 @@ public class AboutApplication {
         this.sideComponent = sideComponent;
     }
 
-    @Nonnull
+    @NonNull
     public JComponent createAboutPanel() {
         AboutPanel aboutPanel = new AboutPanel();
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);

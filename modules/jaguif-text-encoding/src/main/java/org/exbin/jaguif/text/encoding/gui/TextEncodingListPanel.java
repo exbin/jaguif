@@ -17,8 +17,8 @@ package org.exbin.jaguif.text.encoding.gui;
 
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 import javax.swing.event.ListSelectionEvent;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 /**
  * Text encoding selection panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextEncodingListPanel extends javax.swing.JPanel implements SettingsComponent {
 
     private SettingsModifiedListener settingsModifiedListener;
@@ -84,7 +84,7 @@ public class TextEncodingListPanel extends javax.swing.JPanel implements Setting
         this.controller = controller;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
@@ -291,7 +291,7 @@ public class TextEncodingListPanel extends javax.swing.JPanel implements Setting
         encodingsList.repaint();
     }
 
-    @Nonnull
+    @NonNull
     public List<String> getEncodingList() {
         return ((EncodingsListModel) encodingsList.getModel()).getCharsets();
     }
@@ -322,13 +322,13 @@ public class TextEncodingListPanel extends javax.swing.JPanel implements Setting
         ((EncodingsListModel) encodingsList.getModel()).addAll(encodings, encodingsList.isSelectionEmpty() ? -1 : encodingsList.getSelectedIndex());
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public static interface EncodingsUpdate {
 
         void update(List<String> encodings);
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public static interface Controller {
 
         void addEncodings(List<String> usedEncodings, EncodingsUpdate encodingsUpdate);

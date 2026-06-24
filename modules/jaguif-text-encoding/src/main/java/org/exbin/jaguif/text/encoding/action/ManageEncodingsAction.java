@@ -20,7 +20,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.JPanel;
 import org.exbin.jaguif.App;
@@ -46,7 +46,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 /**
  * Manage encodings action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ManageEncodingsAction extends AbstractAction {
 
     public static final String ACTION_ID = "manageEncodings";

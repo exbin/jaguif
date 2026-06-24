@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.document.api.EditableDocument;
 /**
  * Save as file action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SaveAsFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "saveAsFile";

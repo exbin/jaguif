@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.document.text.settings;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.text.settings.gui.TextAppearanceSettingsPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
@@ -24,12 +24,12 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 /**
  * Text appearance settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextAppearanceSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "text.appearance";
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsComponent createComponent() {
         return new TextAppearanceSettingsPanel();

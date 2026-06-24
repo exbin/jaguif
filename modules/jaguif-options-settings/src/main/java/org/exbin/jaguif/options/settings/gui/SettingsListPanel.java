@@ -23,9 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -42,7 +42,7 @@ import org.exbin.jaguif.options.settings.SettingsPageReceiver;
 /**
  * Panel for settings list options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SettingsListPanel extends javax.swing.JPanel implements SettingsPageReceiver, LazyComponentsIssuable {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SettingsListPanel.class);
@@ -98,7 +98,7 @@ public class SettingsListPanel extends javax.swing.JPanel implements SettingsPag
         rootCaption = resourceBundle.getString("options.root.caption");
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -206,7 +206,7 @@ public class SettingsListPanel extends javax.swing.JPanel implements SettingsPag
         }
     }
 
-    @Nonnull
+    @NonNull
     public Collection<SettingsPage> getSettingsPages() {
         return settingsPages;
     }

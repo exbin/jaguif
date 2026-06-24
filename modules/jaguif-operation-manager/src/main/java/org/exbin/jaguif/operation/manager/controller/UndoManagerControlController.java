@@ -15,18 +15,18 @@
  */
 package org.exbin.jaguif.operation.manager.controller;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.OkCancelControlComponent;
 
 /**
  * Controller for undo manager control panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UndoManagerControlController {
 
     void controlActionPerformed(ControlActionType actionType);
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface UndoManagerControlComponent extends OkCancelControlComponent {
 
         void performClick(ControlActionType actionType);

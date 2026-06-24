@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.operation.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Observable operation interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface StateObservableOperation {
 
     /**

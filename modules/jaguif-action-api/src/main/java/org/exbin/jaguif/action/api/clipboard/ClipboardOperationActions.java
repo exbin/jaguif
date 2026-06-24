@@ -15,13 +15,14 @@
  */
 package org.exbin.jaguif.action.api.clipboard;
 
-import javax.annotation.Nonnull;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for clipboard editing actions.
  */
+@NullMarked
 public interface ClipboardOperationActions {
 
     /**
@@ -29,7 +30,6 @@ public interface ClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createCutAction();
 
     /**
@@ -37,7 +37,6 @@ public interface ClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createCopyAction();
 
     /**
@@ -45,7 +44,6 @@ public interface ClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createPasteAction();
 
     /**
@@ -53,7 +51,6 @@ public interface ClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createDeleteAction();
 
     /**
@@ -61,15 +58,13 @@ public interface ClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createSelectAllAction();
-    
+
     /**
      * Creates cut to clipboard contribution.
      *
      * @return contribution instance
      */
-    @Nonnull
     ActionSequenceContribution createCutContribution();
 
     /**
@@ -77,7 +72,6 @@ public interface ClipboardOperationActions {
      *
      * @return contribution instance
      */
-    @Nonnull
     ActionSequenceContribution createCopyContribution();
 
     /**
@@ -85,7 +79,6 @@ public interface ClipboardOperationActions {
      *
      * @return contribution instance
      */
-    @Nonnull
     ActionSequenceContribution createPasteContribution();
 
     /**
@@ -93,7 +86,6 @@ public interface ClipboardOperationActions {
      *
      * @return contribution instance
      */
-    @Nonnull
     ActionSequenceContribution createDeleteContribution();
 
     /**
@@ -101,6 +93,5 @@ public interface ClipboardOperationActions {
      *
      * @return contribution instance
      */
-    @Nonnull
     ActionSequenceContribution createSelectAllContribution();
 }

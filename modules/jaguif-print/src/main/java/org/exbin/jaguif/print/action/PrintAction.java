@@ -24,7 +24,7 @@ import java.awt.print.PrinterJob;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -40,7 +40,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
  * 
  * @author ExBin Project (https://exbin.org)
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class PrintAction extends AbstractAction {
 
     public static final String ACTION_ID = "print";

@@ -17,8 +17,8 @@ package org.exbin.jaguif.window.api.gui;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.CloseControlController;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.window.api.controller.CloseControlController;
 /**
  * Basic close control panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CloseControlPanel extends FooterControlPanel implements CloseControlController.CloseControlComponent {
 
     private CloseControlController controller;
@@ -73,7 +73,7 @@ public class CloseControlPanel extends FooterControlPanel implements CloseContro
         performCloseClick();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(closeButton);

@@ -22,21 +22,18 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.Enumeration;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
 
 /**
  * Basic framework application.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class BasicApplication {
 
     public static final String PLUGINS_DIRECTORY = "plugins";
@@ -81,12 +78,10 @@ public class BasicApplication {
         App.setModuleProvider(moduleProvider);
     }
 
-    @Nonnull
     public static BasicApplication createApplication(Class manifestClass) {
         return BasicApplication.createApplication(manifestClass, null);
     }
 
-    @Nonnull
     public static BasicApplication createApplication(Class manifestClass, @Nullable ResourceBundle appBundle) {
         try {
             DynamicClassLoader dynamicClassLoader = new DynamicClassLoader(manifestClass);
@@ -103,7 +98,6 @@ public class BasicApplication {
         }
     }
 
-    @Nonnull
     public File getAppDirectory() {
         if (appDirectory == null) {
             appDirectory = new File("");

@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.context.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for context support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContextModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ContextModuleApi.class);
@@ -33,7 +33,7 @@ public interface ContextModuleApi extends Module {
      *
      * @return context manager
      */
-    @Nonnull
+    @NonNull
     ActiveContextManagement getMainContextManager();
 
     /**
@@ -41,7 +41,7 @@ public interface ContextModuleApi extends Module {
      *
      * @return context manager
      */
-    @Nonnull
+    @NonNull
     ActiveContextManagement createContextManager();
 
     /**
@@ -49,7 +49,7 @@ public interface ContextModuleApi extends Module {
      *
      * @return context registrator
      */
-    @Nonnull
+    @NonNull
     ContextRegistration createContextRegistrator();
 
     /**
@@ -58,7 +58,7 @@ public interface ContextModuleApi extends Module {
      * @param contextManager context manager
      * @return context registrator
      */
-    @Nonnull
+    @NonNull
     ContextRegistration createContextRegistrator(ActiveContextManagement contextManager);
 
     /**
@@ -69,7 +69,7 @@ public interface ContextModuleApi extends Module {
      * @param contextManagement context management
      * @return context registrator
      */
-    @Nonnull
+    @NonNull
     ContextRegistration createContextRegistrator(String recordId, ContextUpdateManagement contextUpdateManagement, ActiveContextManagement contextManagement);
 
     /**
@@ -77,7 +77,7 @@ public interface ContextModuleApi extends Module {
      *
      * @return context update manager
      */
-    @Nonnull
+    @NonNull
     ContextUpdateManagement createContextUpdateManagement();
 
     /**
@@ -86,7 +86,7 @@ public interface ContextModuleApi extends Module {
      * @param contextManagement context management
      * @return context update manager
      */
-    @Nonnull
+    @NonNull
     ContextUpdateManagement createContextUpdateManagement(ActiveContextManagement contextManagement);
 
     /**
@@ -95,6 +95,6 @@ public interface ContextModuleApi extends Module {
      * @param parentContextManager parent context manager
      * @return context manager
      */
-    @Nonnull
+    @NonNull
     ActiveContextManagement createChildContextManager(ActiveContextManagement parentContextManager);
 }

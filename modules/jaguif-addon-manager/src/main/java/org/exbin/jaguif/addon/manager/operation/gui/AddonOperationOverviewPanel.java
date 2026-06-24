@@ -16,8 +16,8 @@
 package org.exbin.jaguif.addon.manager.operation.gui;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Panel for addon installation / update operation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonOperationOverviewPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationOverviewPanel.class);
@@ -39,7 +39,7 @@ public class AddonOperationOverviewPanel extends javax.swing.JPanel {
         operationsList.setModel(new DefaultListModel<>());
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

@@ -16,8 +16,8 @@
 package org.exbin.jaguif.document;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.DocumentManagement;
 import org.exbin.jaguif.document.api.DocumentModuleApi;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 /**
  * Implementation of the document module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DocumentModule implements DocumentModuleApi {
 
     private ResourceBundle resourceBundle;
@@ -44,7 +44,7 @@ public class DocumentModule implements DocumentModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DocumentModule.class);
@@ -53,7 +53,7 @@ public class DocumentModule implements DocumentModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public DocumentManagement getMainDocumentManager() {
         if (mainDocumentManager == null) {
@@ -63,13 +63,13 @@ public class DocumentModule implements DocumentModuleApi {
         return mainDocumentManager;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public EmptyDocumentSource createEmptyDocumentSource() {
         return getMainDocumentManager().createEmptyDocumentSource();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getNewDocumentNamePrefix() {
         return getResourceBundle().getString("newFileTitlePrefix");

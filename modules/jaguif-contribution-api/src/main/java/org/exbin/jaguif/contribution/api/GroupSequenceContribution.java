@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Sequence contribution for items group.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class GroupSequenceContribution implements SequenceContribution {
 
@@ -37,7 +37,7 @@ public class GroupSequenceContribution implements SequenceContribution {
      *
      * @return group id
      */
-    @Nonnull
+    @NonNull
     public String getGroupId() {
         return groupId;
     }

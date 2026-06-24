@@ -16,11 +16,12 @@
 package org.exbin.jaguif.action.api;
 
 import java.awt.Component;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for dialog parent component.
  */
+@NullMarked
 public interface DialogParentComponent {
 
     /**
@@ -28,6 +29,5 @@ public interface DialogParentComponent {
      *
      * @return component
      */
-    @Nonnull
     Component getComponent();
 }

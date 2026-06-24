@@ -16,16 +16,16 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addons management local state interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonsManagementLocalState extends AddonsManagementContext {
 
-    @Nonnull
+    @NonNull
     List<ItemRecord> getInstalledAddons();
 
     boolean isModuleInstalled(String moduleId);

@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.search.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework search module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SearchModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(SearchModuleApi.class);

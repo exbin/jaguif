@@ -16,8 +16,8 @@
 package org.exbin.jaguif.addon.manager.settings.gui;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerOptions;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -28,7 +28,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 /**
  * Addon manager settings panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonManagerSettingsPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManagerSettingsPanel.class);
@@ -39,7 +39,7 @@ public class AddonManagerSettingsPanel extends javax.swing.JPanel implements Set
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

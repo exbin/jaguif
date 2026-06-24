@@ -19,9 +19,8 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import org.exbin.jaguif.Module;
 
@@ -30,7 +29,7 @@ import org.exbin.jaguif.Module;
  *
  * @author ExBin Project (http://exbin.org)
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class BasicModuleRecord implements ModuleRecord {
 
     private String moduleId = "";
@@ -57,7 +56,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.classLoader = classLoader;
     }
 
-    @Nonnull
     @Override
     public String getModuleId() {
         return moduleId;
@@ -67,7 +65,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.moduleId = moduleId;
     }
 
-    @Nonnull
     @Override
     public ModuleType getType() {
         return type;
@@ -77,7 +74,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.type = type;
     }
 
-    @Nonnull
     @Override
     public ModuleFileLocation getFileLocation() {
         return fileLocation;
@@ -87,7 +83,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.fileLocation = fileLocation;
     }
 
-    @Nonnull
     @Override
     public String getName() {
         return name;
@@ -97,7 +92,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.name = name;
     }
 
-    @Nonnull
     @Override
     public String getVersion() {
         return version;
@@ -107,7 +101,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.version = version;
     }
 
-    @Nonnull
     public ClassLoader getClassLoader() {
         if (classLoader == null) {
             throw new IllegalStateException("Attempt to use uninitialized module: " + moduleId);
@@ -119,7 +112,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.classLoader = classLoader;
     }
 
-    @Nonnull
     @Override
     public Optional<String> getProvider() {
         return Optional.ofNullable(provider);
@@ -129,7 +121,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.provider = provider;
     }
 
-    @Nonnull
     @Override
     public Optional<String> getHomepage() {
         return Optional.ofNullable(homepage);
@@ -139,7 +130,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.homepage = homepage;
     }
 
-    @Nonnull
     @Override
     public Optional<String> getDescription() {
         return Optional.ofNullable(description);
@@ -149,7 +139,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.description = description;
     }
 
-    @Nonnull
     @Override
     public Optional<ImageIcon> getIcon() {
         return Optional.ofNullable(icon);
@@ -159,7 +148,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.icon = icon;
     }
 
-    @Nonnull
     @Override
     public List<String> getDependencyModuleIds() {
         return dependencyModuleIds;
@@ -170,13 +158,11 @@ public class BasicModuleRecord implements ModuleRecord {
         this.dependencyModuleIds.addAll(dependencyModuleIds);
     }
 
-    @Nonnull
     @Override
     public List<String> getOptionalModuleIds() {
         return optionalModuleIds;
     }
 
-    @Nonnull
     @Override
     public List<String> getDependencyLibraries() {
         return dependencyLibraries;
@@ -187,7 +173,6 @@ public class BasicModuleRecord implements ModuleRecord {
         this.dependencyLibraries.addAll(dependencyLibraries);
     }
 
-    @Nonnull
     @Override
     public Module getModule() {
         return module;
@@ -197,7 +182,7 @@ public class BasicModuleRecord implements ModuleRecord {
         this.module = module;
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public static class ModuleLink implements Module {
 
         private final URI moduleLink;
@@ -208,7 +193,6 @@ public class BasicModuleRecord implements ModuleRecord {
             this.preloaded = preloaded;
         }
 
-        @Nonnull
         public URI getModuleLink() {
             return moduleLink;
         }

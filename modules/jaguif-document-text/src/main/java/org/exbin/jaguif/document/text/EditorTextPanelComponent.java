@@ -20,8 +20,8 @@ import java.awt.Font;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.nio.charset.Charset;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JTextArea;
 import javax.swing.text.DefaultEditorKit;
 import org.exbin.jaguif.document.text.gui.TextPanel;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 /**
  * Text panel component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EditorTextPanelComponent implements ContextComponent, TextPanelComponent, TextClipboardOperationController, CharsetEncodingState, TextAppearanceState, TextColorState, TextFontState {
 
     private final TextPanel textPanel;
@@ -44,7 +44,7 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         this.textPanel = textPanel;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TextPanel getTextPanel() {
         return textPanel;
@@ -107,7 +107,7 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         return textPanel.getTextArea().isEditable();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getEncoding() {
         return textPanel.getCharset().name();
@@ -118,13 +118,13 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         textPanel.setCharset(Charset.forName(encoding));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Font getCurrentFont() {
         return textPanel.getCurrentFont();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Font getDefaultFont() {
         return textPanel.getDefaultFont();
@@ -145,13 +145,13 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         textPanel.setWordWrapMode(mode);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Color[] getCurrentTextColors() {
         return textPanel.getCurrentColors();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Color[] getDefaultTextColors() {
         return textPanel.getDefaultColors();

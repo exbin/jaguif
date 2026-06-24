@@ -19,8 +19,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleProvider;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
@@ -37,7 +36,7 @@ import org.exbin.jaguif.operation.api.TitledOperation;
 /**
  * Operation to search in catalog.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CatalogSearchOperation implements Runnable, CancellableOperation, ProgressOperation, TitledOperation {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CatalogSearchOperation.class);
@@ -87,7 +86,6 @@ public class CatalogSearchOperation implements Runnable, CancellableOperation, P
         return cancelled;
     }
 
-    @Nonnull
     @Override
     public String getTitle() {
         return resourceBundle.getString("operation.name");
@@ -98,7 +96,6 @@ public class CatalogSearchOperation implements Runnable, CancellableOperation, P
         return -1;
     }
 
-    @ParametersAreNonnullByDefault
     public interface Output {
 
         void outputItems(List<AddonRecord> addonItems);

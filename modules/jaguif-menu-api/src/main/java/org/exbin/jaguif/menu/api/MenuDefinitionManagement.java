@@ -16,8 +16,8 @@
 package org.exbin.jaguif.menu.api;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 /**
  * Interface for registered menu management.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface MenuDefinitionManagement {
 
     /**
@@ -42,7 +42,7 @@ public interface MenuDefinitionManagement {
      * @param menuProvider menu provider
      * @return menu contribution
      */
-    @Nonnull
+    @NonNull
     DirectMenuContribution registerMenuItem(MenuItemProvider menuProvider);
 
     /**
@@ -52,7 +52,7 @@ public interface MenuDefinitionManagement {
      * @param subMenuAction sub-menu action
      * @return menu contribution
      */
-    @Nonnull
+    @NonNull
     SubMenuContribution registerMenuItem(String subMenuId, Action subMenuAction);
 
     /**
@@ -62,7 +62,7 @@ public interface MenuDefinitionManagement {
      * @param subMenuName sub-menu name
      * @return menu contribution
      */
-    @Nonnull
+    @NonNull
     SubMenuContribution registerMenuItem(String subMenuId, String subMenuName);
 
     /**
@@ -71,7 +71,7 @@ public interface MenuDefinitionManagement {
      * @param groupId group id
      * @return menu contribution
      */
-    @Nonnull
+    @NonNull
     GroupSequenceContribution registerMenuGroup(String groupId);
 
     /**
@@ -96,7 +96,7 @@ public interface MenuDefinitionManagement {
      * @param subMenuId submenu id
      * @return menu management
      */
-    @Nonnull
+    @NonNull
     MenuDefinitionManagement getSubMenu(String subMenuId);
 
     /**
@@ -104,6 +104,6 @@ public interface MenuDefinitionManagement {
      *
      * @return menu contributions
      */
-    @Nonnull
+    @NonNull
     List<SequenceContribution> getContributions();
 }

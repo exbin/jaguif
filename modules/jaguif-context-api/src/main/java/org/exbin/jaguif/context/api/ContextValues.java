@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.context.api;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for context related class providing property values.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContextValues {
 
     /**

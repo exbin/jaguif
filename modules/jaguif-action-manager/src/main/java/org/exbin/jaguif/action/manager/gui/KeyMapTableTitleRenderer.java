@@ -17,7 +17,7 @@ package org.exbin.jaguif.action.manager.gui;
 
 import java.awt.Component;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;

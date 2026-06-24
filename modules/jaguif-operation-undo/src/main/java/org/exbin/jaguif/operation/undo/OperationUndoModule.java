@@ -16,8 +16,8 @@
 package org.exbin.jaguif.operation.undo;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.GroupSequenceContributionRule;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 /**
  * Implementation of undo/redo support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class OperationUndoModule implements OperationUndoModuleApi {
 
     private java.util.ResourceBundle resourceBundle = null;
@@ -47,7 +47,7 @@ public class OperationUndoModule implements OperationUndoModuleApi {
     public OperationUndoModule() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
@@ -90,17 +90,17 @@ public class OperationUndoModule implements OperationUndoModuleApi {
         mgmt.registerToolBarRule(contribution, new GroupSequenceContributionRule(OperationUndoModuleApi.UNDO_TOOL_BAR_GROUP_ID));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public UndoActions createUndoActions() {
         return new UndoActions() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createUndoAction() {
                 return OperationUndoModule.this.createUndoAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public Action createRedoAction() {
                 return OperationUndoModule.this.createRedoAction();
@@ -108,12 +108,12 @@ public class OperationUndoModule implements OperationUndoModuleApi {
         };
     }
 
-    @Nonnull
+    @NonNull
     public UndoAction createUndoAction() {
         return new UndoAction();
     }
 
-    @Nonnull
+    @NonNull
     public RedoAction createRedoAction() {
         return new RedoAction();
     }

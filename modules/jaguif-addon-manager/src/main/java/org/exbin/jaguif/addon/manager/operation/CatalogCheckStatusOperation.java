@@ -18,8 +18,8 @@ package org.exbin.jaguif.addon.manager.operation;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
 import org.exbin.jaguif.addon.manager.AddonManager;
@@ -31,7 +31,7 @@ import org.exbin.jaguif.operation.api.TitledOperation;
 /**
  * Operation to check status of catalog.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CatalogCheckStatusOperation implements Runnable, CancellableOperation, TitledOperation {
 
     protected final AddonManager addonManager;
@@ -68,7 +68,7 @@ public class CatalogCheckStatusOperation implements Runnable, CancellableOperati
         return cancelled;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getTitle() {
         return addonManager.getResourceBundle().getString("catalogCheckStatusOperation");

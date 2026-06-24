@@ -25,8 +25,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.text.Document;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.TextDocument;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Text file properties panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextPropertiesPanel extends javax.swing.JPanel {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextPropertiesPanel.class);
@@ -192,7 +192,7 @@ public class TextPropertiesPanel extends javax.swing.JPanel {
         }
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

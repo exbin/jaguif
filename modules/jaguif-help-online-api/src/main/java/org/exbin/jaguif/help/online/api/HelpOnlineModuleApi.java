@@ -16,9 +16,9 @@
 package org.exbin.jaguif.help.online.api;
 
 import java.net.URL;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.help.api.HelpLink;
 /**
  * Interface for framework online help support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface HelpOnlineModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpOnlineModuleApi.class);
@@ -47,7 +47,7 @@ public interface HelpOnlineModuleApi extends Module {
      *
      * @return online help action
      */
-    @Nonnull
+    @NonNull
     Action createOnlineHelpAction();
 
     /**

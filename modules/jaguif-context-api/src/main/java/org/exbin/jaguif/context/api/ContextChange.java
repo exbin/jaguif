@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.context.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Context changes registration interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContextChange {
 
     /**

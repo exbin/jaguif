@@ -17,7 +17,7 @@ package org.exbin.jaguif.docking.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.document.api.Document;
 /**
  * Close file action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CloseFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "fileClose";

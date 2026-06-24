@@ -17,13 +17,13 @@ package org.exbin.jaguif.frame;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 
 /**
  * Status bar handler.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class StatusBarHandler {
 
     private final ApplicationFrame frame;

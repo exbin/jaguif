@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.help.local.contribution;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.help.local.action.HelpLocalAction;
@@ -27,7 +27,7 @@ public class HelpLocalContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "help";
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         HelpLocalAction action = new HelpLocalAction();
@@ -35,7 +35,7 @@ public class HelpLocalContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

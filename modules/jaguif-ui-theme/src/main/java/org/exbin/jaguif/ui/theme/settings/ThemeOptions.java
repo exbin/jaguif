@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.ui.theme.settings;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * UI theme options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ThemeOptions implements SettingsOptions {
 
     public static final String KEY_LOOK_AND_FEEL = "lookAndFeel";
@@ -41,7 +41,7 @@ public class ThemeOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @Nonnull
+    @NonNull
     public String getLookAndFeel() {
         return storage.get(KEY_LOOK_AND_FEEL, "");
     }
@@ -50,7 +50,7 @@ public class ThemeOptions implements SettingsOptions {
         storage.put(KEY_LOOK_AND_FEEL, lookAndFeel);
     }
 
-    @Nonnull
+    @NonNull
     public String getIconSet() {
         return storage.get(KEY_ICONSET, "");
     }
@@ -59,7 +59,7 @@ public class ThemeOptions implements SettingsOptions {
         storage.put(KEY_ICONSET, iconSet);
     }
 
-    @Nonnull
+    @NonNull
     public String getRenderingMode() {
         return storage.get(KEY_RENDERING_MODE, "");
     }
@@ -68,7 +68,7 @@ public class ThemeOptions implements SettingsOptions {
         storage.put(KEY_RENDERING_MODE, renderingMode);
     }
 
-    @Nonnull
+    @NonNull
     public String getGuiScaling() {
         return storage.get(KEY_RENDERING_SCALING, "");
     }
@@ -85,7 +85,7 @@ public class ThemeOptions implements SettingsOptions {
         storage.putFloat(KEY_RENDERING_SCALING_RATE, guiScalingRate);
     }
 
-    @Nonnull
+    @NonNull
     public String getFontAntialiasing() {
         return storage.get(KEY_RENDERING_FONT_ANTIALIASING, "");
     }
@@ -102,7 +102,7 @@ public class ThemeOptions implements SettingsOptions {
         storage.putBoolean(KEY_RENDERING_USE_SCREEN_MENU_BAR, use);
     }
 
-    @Nonnull
+    @NonNull
     public String getMacOsAppearance() {
         return storage.get(KEY_RENDERING_MACOS_APPEARANCE, "");
     }

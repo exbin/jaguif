@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.tabpages.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
 /**
  * Default action tab pages item contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultActionTabPagesContribution implements ActionTabPagesContribution {
 
     protected final String contributionId;
@@ -33,13 +33,13 @@ public class DefaultActionTabPagesContribution implements ActionTabPagesContribu
         this.actionCreator = actionCreator;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         return actionCreator.createAction();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return contributionId;
@@ -47,7 +47,7 @@ public class DefaultActionTabPagesContribution implements ActionTabPagesContribu
 
     public interface ActionCreator {
 
-        @Nonnull
+        @NonNull
         Action createAction();
     }
 }

@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.file.settings;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.file.FileDialogsType;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptions;
 /**
  * File settings options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FileOptions implements SettingsOptions {
 
     public static final String KEY_FILE_DIALOGS = "fileDialogs";
@@ -35,7 +35,7 @@ public class FileOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @Nonnull
+    @NonNull
     public String getFileDialogs() {
         return storage.get(KEY_FILE_DIALOGS, FileDialogsType.SWING.name());
     }

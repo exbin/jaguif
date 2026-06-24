@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.utils;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Some simple static methods usable for version.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class VersionUtils {
     
     public static final String SNAPSHOT_VERSION_SUFFIX = "-SNAPSHOT";

@@ -26,8 +26,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.model.AddonUpdateChanges;
@@ -73,7 +72,7 @@ import org.exbin.jaguif.window.api.gui.MultiStepControlPanel;
 /**
  * Addon manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonManager implements AddonsManagementCartController, AddonsManagementLocalState {
 
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManager.class);
@@ -138,12 +137,10 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         pagesDefinitions.registerTabPagesContribution(pageContribution);
     }
 
-    @Nonnull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
 
-    @Nonnull
     public AddonsManagerPanel getManagerPanel() {
         if (managerPanel != null) {
             return managerPanel;
@@ -255,17 +252,14 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         }
     }
 
-    @Nonnull
     public UpdateAvailabilityManager getAvailableModuleUpdates() {
         return addonsState.getAvailableModuleUpdates();
     }
 
-    @Nonnull
     public AddonUpdateChanges getAddonUpdateChanges() {
         return addonsState.getAddonUpdateChanges();
     }
 
-    @Nonnull
     public ApplicationModulesUsage getApplicationModulesUsage() {
         return addonsState.getApplicationModulesUsage();
     }
@@ -457,7 +451,6 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         return false;
     }
 
-    @Nonnull
     @Override
     public List<ItemRecord> getInstalledAddons() {
         return addonsState.getInstalledAddons();
@@ -467,7 +460,6 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         addonsState.addUpdateAvailabilityListener(listener);
     }
 
-    @Nonnull
     @Override
     public List<CartOperation> getCartOperations() {
         return cartOperations;
@@ -489,7 +481,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         runOperation(new CatalogModuleDetailOperation(addonCatalogService, this, itemRecord, (details) -> addonsPanel.setModuleDetail(itemRecord, details)));
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface AddonManagerStatusListener {
 
         void setProgressStatus(String status);

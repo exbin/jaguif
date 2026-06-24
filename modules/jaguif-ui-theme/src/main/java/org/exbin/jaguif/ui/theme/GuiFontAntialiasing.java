@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Enumeration of rendering methods.
@@ -29,7 +29,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
  * <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/2d/flags.html">JavaSE
  * 8 2D Technology</a>
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public enum GuiFontAntialiasing {
 
     DEFAULT(""),
@@ -47,12 +47,12 @@ public enum GuiFontAntialiasing {
         this.propertyValue = propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public String getPropertyValue() {
         return propertyValue;
     }
 
-    @Nonnull
+    @NonNull
     public static Optional<GuiFontAntialiasing> fromPropertyValue(String propertyValue) {
         for (GuiFontAntialiasing method : values()) {
             if (propertyValue.equals(method.getPropertyValue())) {
@@ -63,7 +63,7 @@ public enum GuiFontAntialiasing {
         return Optional.empty();
     }
 
-    @Nonnull
+    @NonNull
     public static List<GuiFontAntialiasing> getAvailable() {
         return new ArrayList<>(Arrays.asList(values()));
     }

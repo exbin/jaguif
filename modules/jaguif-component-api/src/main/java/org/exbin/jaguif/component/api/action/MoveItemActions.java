@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.component.api.action;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
@@ -31,7 +31,7 @@ public interface MoveItemActions {
      *
      * @return move up action
      */
-    @Nonnull
+    @NonNull
     Action createMoveUpAction();
 
     /**
@@ -39,7 +39,7 @@ public interface MoveItemActions {
      *
      * @return move down action
      */
-    @Nonnull
+    @NonNull
     Action createMoveDownAction();
 
     /**
@@ -47,7 +47,7 @@ public interface MoveItemActions {
      *
      * @return move top action
      */
-    @Nonnull
+    @NonNull
     Action createMoveTopAction();
 
     /**
@@ -55,7 +55,7 @@ public interface MoveItemActions {
      *
      * @return move bottom action
      */
-    @Nonnull
+    @NonNull
     Action createMoveBottomAction();
 
     /**
@@ -63,7 +63,7 @@ public interface MoveItemActions {
      *
      * @return move up contribution
      */
-    @Nonnull
+    @NonNull
     SequenceContribution createMoveUpContribution();
 
     /**
@@ -71,7 +71,7 @@ public interface MoveItemActions {
      *
      * @return move down contribution
      */
-    @Nonnull
+    @NonNull
     SequenceContribution createMoveDownContribution();
 
     /**
@@ -79,7 +79,7 @@ public interface MoveItemActions {
      *
      * @return move top contribution
      */
-    @Nonnull
+    @NonNull
     SequenceContribution createMoveTopContribution();
 
     /**
@@ -87,7 +87,7 @@ public interface MoveItemActions {
      *
      * @return move bottom contribution
      */
-    @Nonnull
+    @NonNull
     SequenceContribution createMoveBottomContribution();
 
     /**

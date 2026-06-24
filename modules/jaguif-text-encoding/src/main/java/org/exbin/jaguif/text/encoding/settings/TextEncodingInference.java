@@ -16,7 +16,7 @@
 package org.exbin.jaguif.text.encoding.settings;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.options.settings.api.InferenceOptions;
 
 /**
@@ -24,6 +24,6 @@ import org.exbin.jaguif.options.settings.api.InferenceOptions;
  */
 public interface TextEncodingInference extends InferenceOptions {
 
-    @Nonnull
+    @NonNull
     Optional<String> getEncoding();
 }

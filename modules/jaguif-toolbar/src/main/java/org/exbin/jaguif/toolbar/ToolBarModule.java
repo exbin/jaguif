@@ -16,8 +16,8 @@
 package org.exbin.jaguif.toolbar;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JToolBar;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 /**
  * Implementation of tool bar module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ToolBarModule implements ToolBarModuleApi {
 
     private ToolBarManager mainToolBarManager = null;
@@ -47,7 +47,7 @@ public class ToolBarModule implements ToolBarModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ToolBarModule.class);
@@ -56,7 +56,7 @@ public class ToolBarModule implements ToolBarModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ToolBarManager getMainToolBarManager() {
         if (mainToolBarManager == null) {
@@ -66,7 +66,7 @@ public class ToolBarModule implements ToolBarModuleApi {
         return mainToolBarManager;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ToolBarManagement createToolBarManager() {
         return new ToolBarManager();
@@ -82,13 +82,13 @@ public class ToolBarModule implements ToolBarModuleApi {
         ToolBarModule.this.getMainToolBarManager().registerToolBar(toolBarId, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ToolBarDefinitionManagement getMainToolBarDefinition(String moduleId) {
         return new ToolBarDefinitionManager(getMainToolBarManager(), MAIN_TOOL_BAR_ID, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ToolBarDefinitionManagement createToolBarDefinition(ToolBarManagement toolBarManagement, String toolBarId, String moduleId) {
         return new ToolBarDefinitionManager(toolBarManagement, toolBarId, moduleId);

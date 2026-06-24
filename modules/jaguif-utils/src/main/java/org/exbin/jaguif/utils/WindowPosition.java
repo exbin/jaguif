@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.utils;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Structure for window position.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class WindowPosition {
 
     protected int screenIndex;

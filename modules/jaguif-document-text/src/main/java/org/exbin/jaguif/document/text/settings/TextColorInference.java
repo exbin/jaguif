@@ -16,7 +16,7 @@
 package org.exbin.jaguif.document.text.settings;
 
 import java.awt.Color;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.options.settings.api.InferenceOptions;
 
 /**
@@ -29,7 +29,7 @@ public interface TextColorInference extends InferenceOptions {
      *
      * @return array of 5 colors
      */
-    @Nonnull
+    @NonNull
     Color[] getCurrentTextColors();
 
     /**
@@ -37,6 +37,6 @@ public interface TextColorInference extends InferenceOptions {
      *
      * @return array of 5 colors
      */
-    @Nonnull
+    @NonNull
     Color[] getDefaultTextColors();
 }

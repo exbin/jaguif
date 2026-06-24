@@ -17,18 +17,18 @@ package org.exbin.jaguif.text.encoding;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Text encoding.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextEncodingList implements CharsetListEncodingState {
 
     protected final List<String> encodings = new ArrayList<>();
 
-    @Nonnull
+    @NonNull
     @Override
     public List<String> getEncodings() {
         return encodings;

@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.api.ActionConsts;
@@ -49,7 +49,7 @@ import org.exbin.jaguif.frame.api.FrameController;
 /**
  * Options settings action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SettingsAction extends AbstractAction {
 
     public static final String ACTION_ID = "settings";
@@ -225,7 +225,7 @@ public class SettingsAction extends AbstractAction {
         this.dialogParentComponent = dialogParentComponent;
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface SettingsPagesProvider {
 
         void registerSettingsPages(SettingsPageReceiver settingsPageReceiver);

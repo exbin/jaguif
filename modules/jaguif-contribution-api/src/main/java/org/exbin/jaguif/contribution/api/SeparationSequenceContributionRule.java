@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Sequence contribution rule for items separation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class SeparationSequenceContributionRule implements SequenceContributionRule {
 
@@ -37,7 +37,7 @@ public class SeparationSequenceContributionRule implements SequenceContributionR
      *
      * @return separation mode
      */
-    @Nonnull
+    @NonNull
     public SeparationMode getSeparationMode() {
         return separationMode;
     }

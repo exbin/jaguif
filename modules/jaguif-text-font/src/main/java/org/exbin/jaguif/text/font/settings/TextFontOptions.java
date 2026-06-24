@@ -20,16 +20,16 @@ import java.awt.font.TextAttribute;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * Text font options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextFontOptions implements SettingsOptions {
 
     public static final String KEY_TEXT_FONT_PREFIX = "textFont.";
@@ -57,14 +57,14 @@ public class TextFontOptions implements SettingsOptions {
         storage.putBoolean(KEY_TEXT_FONT_DEFAULT, defaultFont);
     }
 
-    @Nonnull
+    @NonNull
     public Font getFont(Font initialFont) {
         Map<TextAttribute, Object> attribs = getFontAttributes();
         Font font = initialFont.deriveFont(attribs);
         return font;
     }
 
-    @Nonnull
+    @NonNull
     public Map<TextAttribute, Object> getFontAttributes() {
         Map<TextAttribute, Object> attribs = new HashMap<>();
         Optional<String> fontFamily = storage.get(KEY_TEXT_FONT_FAMILY);

@@ -15,19 +15,19 @@
  */
 package org.exbin.jaguif.document;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.api.EmptyDocumentSource;
 
 /**
  * Default empty document source.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultEmptyDocumentSource implements EmptyDocumentSource {
 
     protected String documentTitle = "";
 
-    @Nonnull
+    @NonNull
     @Override
     public String getDocumentTitle() {
         return documentTitle;

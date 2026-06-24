@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.document.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for document support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface DocumentModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(DocumentModuleApi.class);
@@ -36,7 +36,7 @@ public interface DocumentModuleApi extends Module {
      *
      * @return document manager
      */
-    @Nonnull
+    @NonNull
     DocumentManagement getMainDocumentManager();
 
     /**
@@ -44,14 +44,14 @@ public interface DocumentModuleApi extends Module {
      *
      * @return empty document source
      */
-    @Nonnull
+    @NonNull
     EmptyDocumentSource createEmptyDocumentSource();
 
     /**
      * Returns new document name prefix.
      * @return name prefix
      */
-    @Nonnull
+    @NonNull
     String getNewDocumentNamePrefix();
     
     /**

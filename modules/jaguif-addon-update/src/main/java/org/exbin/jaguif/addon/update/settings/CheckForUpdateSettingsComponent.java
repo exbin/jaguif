@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.update.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.update.settings.gui.ApplicationUpdateSettingsPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
@@ -23,7 +23,7 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 /**
  * Check for update on start settings page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CheckForUpdateSettingsComponent implements SettingsComponentProvider {
     
     public static final String COMPONENT_ID = "checkForUpdate";

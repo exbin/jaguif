@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.file.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface for file types.
@@ -28,6 +28,6 @@ public interface FileType {
      *
      * @return file type ID
      */
-    @Nonnull
+    @NonNull
     String getFileTypeId();
 }

@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.action.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.context.api.ContextRegistration;
 
 /**
@@ -28,6 +28,6 @@ public interface ContextRegistrationProvider {
      *
      * @return context registration
      */
-    @Nonnull
+    @NonNull
     ContextRegistration getRegistration();
 }

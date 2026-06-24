@@ -16,8 +16,7 @@
 package org.exbin.jaguif.addon.fallback;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
 import org.exbin.jaguif.Module;
@@ -26,7 +25,7 @@ import org.exbin.jaguif.ModuleUtils;
 /**
  * Addon manager fallback module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonFallbackModule implements Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonFallbackModule.class);
@@ -35,13 +34,11 @@ public class AddonFallbackModule implements Module {
     public AddonFallbackModule() {
     }
 
-    @Nonnull
     public String getManualLegacyUrl() {
         ResourceBundle appBundle = App.getAppBundle();
         return manualLegacyGitHubUrl + appBundle.getString(ApplicationBundleKeys.APPLICATION_RELEASE);
     }
 
-    @Nonnull
     public String getManualLegacyGitHubUrl() {
         return manualLegacyGitHubUrl;
     }
@@ -49,5 +46,4 @@ public class AddonFallbackModule implements Module {
     public void setManualLegacyGitHubUrl(String manualLegacyGitHubUrl) {
         this.manualLegacyGitHubUrl = manualLegacyGitHubUrl;
     }
-
 }

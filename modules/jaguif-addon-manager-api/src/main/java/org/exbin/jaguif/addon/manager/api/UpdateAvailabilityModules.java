@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Available module updates.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UpdateAvailabilityModules extends UpdateAvailabilityContext {
 
     /**

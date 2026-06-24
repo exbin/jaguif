@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.sidebar;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.sidebar.api.SideBarManagement;
 /**
  * Default side bar definition manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SideBarDefinitionManager implements SideBarDefinitionManagement {
 
     protected final SideBarManagement sideBarManager;
@@ -44,7 +44,7 @@ public class SideBarDefinitionManager implements SideBarDefinitionManagement {
         sideBarManager.registerSideBarContribution(sideBarId, moduleId, contribution);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public GroupSequenceContribution registerSideBarGroup(String groupId) {
         return sideBarManager.registerSideBarGroup(sideBarId, moduleId, groupId);

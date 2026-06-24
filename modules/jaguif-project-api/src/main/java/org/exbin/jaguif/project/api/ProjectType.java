@@ -16,14 +16,14 @@
 package org.exbin.jaguif.project.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 
 /**
  * Project type interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ProjectType {
 
     /**
@@ -31,7 +31,7 @@ public interface ProjectType {
      *
      * @return project type id
      */
-    @Nonnull
+    @NonNull
     String getId();
 
     /**
@@ -39,7 +39,7 @@ public interface ProjectType {
      *
      * @return
      */
-    @Nonnull
+    @NonNull
     ProjectCategory getCategory();
 
     /**
@@ -47,7 +47,7 @@ public interface ProjectType {
      *
      * @return name
      */
-    @Nonnull
+    @NonNull
     String getName();
 
     /**
@@ -55,6 +55,6 @@ public interface ProjectType {
      *
      * @return component
      */
-    @Nonnull
+    @NonNull
     Optional<JComponent> getNewProjectComponent();
 }

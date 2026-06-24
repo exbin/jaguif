@@ -33,9 +33,8 @@ import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -51,7 +50,7 @@ import org.xml.sax.SAXException;
 /**
  * Basic module provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class BasicModuleProvider implements ModuleProvider {
 
     private Class manifestClass;
@@ -89,7 +88,6 @@ public class BasicModuleProvider implements ModuleProvider {
         }
     }
 
-    @Nonnull
     @Override
     public <T extends Module> T getModule(Class<T> interfaceClass) {
         try {
@@ -109,7 +107,6 @@ public class BasicModuleProvider implements ModuleProvider {
         throw new IllegalArgumentException("Module for class " + interfaceClass.getCanonicalName() + " was not found.");
     }
 
-    @Nonnull
     @Override
     public Class getManifestClass() {
         return manifestClass;
@@ -166,12 +163,10 @@ public class BasicModuleProvider implements ModuleProvider {
         addModulesFromManifest(manifestClass);
     }
 
-    @Nonnull
     public ClassLoader getContextClassLoader() {
         return contextClassLoader;
     }
 
-    @Nonnull
     private Module loadModule(BasicModuleRecord moduleRecord) {
         Module module = moduleRecord.getModule();
         String moduleId = moduleRecord.getModuleId();
@@ -262,7 +257,6 @@ public class BasicModuleProvider implements ModuleProvider {
      *
      * @param libraryUri library URI
      */
-    @Nonnull
     private BasicModuleRecord addModulePlugin(URI libraryUri, ModuleFileLocation fileLocation, boolean preloaded) {
         final BasicModuleRecord moduleRecord = new BasicModuleRecord();
         moduleRecord.setFileLocation(fileLocation);
@@ -500,7 +494,6 @@ public class BasicModuleProvider implements ModuleProvider {
      * @return application module record
      * @throws IllegalArgumentException when module not found
      */
-    @Nonnull
     public Module getModuleById(String moduleId) {
         ModuleRecord moduleRecord = getModuleRecordById(moduleId);
         if (moduleRecord == null) {
@@ -519,7 +512,6 @@ public class BasicModuleProvider implements ModuleProvider {
      *
      * @return list of modules
      */
-    @Nonnull
     public List<ModuleRecord> getModulesList() {
         return new ArrayList<>(modules.values());
     }
@@ -538,7 +530,6 @@ public class BasicModuleProvider implements ModuleProvider {
         libraries.put(libraryFileName, libraryRecord);
     }
 
-    @Nonnull
     public static String mavenCodeToFileName(String mavenCode) {
         int namePos = mavenCode.indexOf(":");
         int versionPos = mavenCode.indexOf(":", namePos + 1);

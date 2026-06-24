@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
@@ -47,7 +47,7 @@ import org.exbin.jaguif.contribution.api.TreeContributionSequenceBuilder;
 /**
  * Default menus manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MenuManager implements MenuManagement {
 
     protected final TreeContributionSequenceBuilder builder;
@@ -124,7 +124,7 @@ public class MenuManager implements MenuManagement {
         definition.addContribution(contribution);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SubMenuContribution registerMenuItem(String menuId, String moduleId, String subMenuId, String subMenuName) {
         Action subMenuAction = new AbstractAction(subMenuName) {
@@ -135,7 +135,7 @@ public class MenuManager implements MenuManagement {
         return registerMenuItem(menuId, moduleId, subMenuId, subMenuAction);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SubMenuContribution registerMenuItem(String menuId, String moduleId, String subMenuId, Action subMenuAction) {
         ContributionDefinition definition = contributionManagement.getDefinition(menuId);
@@ -148,7 +148,7 @@ public class MenuManager implements MenuManagement {
         return menuContribution;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public DirectMenuContribution registerMenuItem(String menuId, String moduleId, MenuItemProvider menuItemProvider) {
         ContributionDefinition definition = contributionManagement.getDefinition(menuId);
@@ -161,7 +161,7 @@ public class MenuManager implements MenuManagement {
         return menuContribution;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public GroupSequenceContribution registerMenuGroup(String menuId, String moduleId, String groupId) {
         return contributionManagement.registerContributionGroup(menuId, moduleId, groupId);
@@ -172,7 +172,7 @@ public class MenuManager implements MenuManagement {
         contributionManagement.registerContributionRule(contribution, rule);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<SequenceContribution> getContributions() {
         List<ContributionDefinition> definitions = contributionManagement.getAllDefinitions();

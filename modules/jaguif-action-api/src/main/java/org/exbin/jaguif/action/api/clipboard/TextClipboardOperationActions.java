@@ -15,12 +15,13 @@
  */
 package org.exbin.jaguif.action.api.clipboard;
 
-import javax.annotation.Nonnull;
 import javax.swing.Action;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for clipboard editing actions.
  */
+@NullMarked
 public interface TextClipboardOperationActions {
 
     /**
@@ -28,7 +29,6 @@ public interface TextClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createCutAction();
 
     /**
@@ -36,7 +36,6 @@ public interface TextClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createCopyAction();
 
     /**
@@ -44,7 +43,6 @@ public interface TextClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createPasteAction();
 
     /**
@@ -52,7 +50,6 @@ public interface TextClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createDeleteAction();
 
     /**
@@ -60,6 +57,5 @@ public interface TextClipboardOperationActions {
      *
      * @return action instance
      */
-    @Nonnull
     Action createSelectAllAction();
 }

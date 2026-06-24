@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.print.contribution;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -29,7 +29,7 @@ public class PrintContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "print";
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         PrintModuleApi printModule = App.getModule(PrintModuleApi.class);
@@ -38,7 +38,7 @@ public class PrintContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

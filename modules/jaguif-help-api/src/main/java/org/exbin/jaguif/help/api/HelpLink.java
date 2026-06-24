@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.help.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Link to help page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class HelpLink {
 
@@ -38,12 +38,12 @@ public class HelpLink {
         this("", helpId);
     }
 
-    @Nonnull
+    @NonNull
     public String getModule() {
         return module;
     }
 
-    @Nonnull
+    @NonNull
     public String getHelpId() {
         return helpId;
     }

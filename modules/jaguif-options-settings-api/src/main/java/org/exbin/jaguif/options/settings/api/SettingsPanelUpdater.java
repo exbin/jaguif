@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
@@ -24,7 +24,7 @@ import javax.swing.JTextArea;
 /**
  * Updater for settings panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SettingsPanelUpdater {
 
     protected final SettingsModifiedListener modifiedListener;

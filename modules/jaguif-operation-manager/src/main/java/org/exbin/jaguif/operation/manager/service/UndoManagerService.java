@@ -16,13 +16,13 @@
 package org.exbin.jaguif.operation.manager.service;
 
 import java.awt.Component;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.operation.api.Command;
 
 /**
  * Interface for undo manager service.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UndoManagerService {
 
     public void exportCommand(Component parentComponent, Command command);

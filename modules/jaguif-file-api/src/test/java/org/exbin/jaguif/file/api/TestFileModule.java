@@ -20,21 +20,21 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Test implementation of file module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TestFileModule implements FileModuleApi {
 
     @Override
     public void addFileType(FileType fileType) {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Collection<FileType> getFileTypes() {
         return new ArrayList<>();
@@ -57,13 +57,13 @@ public class TestFileModule implements FileModuleApi {
         throw new UnsupportedOperationException();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Map<String, FileDialogsProvider> getFileDialogsProviders() {
         throw new UnsupportedOperationException();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getFileDialogProviderId() {
         throw new UnsupportedOperationException();
@@ -74,7 +74,7 @@ public class TestFileModule implements FileModuleApi {
         throw new UnsupportedOperationException();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public FileDialogsProvider getFileDialogsProvider() {
         throw new UnsupportedOperationException();
@@ -100,7 +100,7 @@ public class TestFileModule implements FileModuleApi {
         throw new UnsupportedOperationException();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SaveModifiedResult showSaveModified(Component parentComponent) {
         throw new UnsupportedOperationException();

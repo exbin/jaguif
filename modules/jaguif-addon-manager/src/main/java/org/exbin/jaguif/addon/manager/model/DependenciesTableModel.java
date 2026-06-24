@@ -18,9 +18,9 @@ package org.exbin.jaguif.addon.manager.model;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.table.AbstractTableModel;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -28,7 +28,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Addon dependency record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DependenciesTableModel extends AbstractTableModel {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DependenciesTableModel.class);
@@ -53,7 +53,7 @@ public class DependenciesTableModel extends AbstractTableModel {
         return 3;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
@@ -67,7 +67,7 @@ public class DependenciesTableModel extends AbstractTableModel {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
@@ -82,7 +82,7 @@ public class DependenciesTableModel extends AbstractTableModel {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         DependencyRecord record = dependencies.get(rowIndex);

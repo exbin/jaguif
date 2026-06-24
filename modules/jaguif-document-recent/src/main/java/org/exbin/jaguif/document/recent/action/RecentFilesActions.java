@@ -24,9 +24,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JMenu;
@@ -43,7 +43,7 @@ import org.exbin.jaguif.options.api.OptionsStorage;
 /**
  * Recent files actions.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class RecentFilesActions {
 
     protected ResourceBundle resourceBundle;
@@ -67,7 +67,7 @@ public class RecentFilesActions {
         });
     }
 
-    @Nonnull
+    @NonNull
     public JMenu createOpenRecentMenu() {
         Action fileOpenRecentAction = new AbstractAction(resourceBundle.getString("openRecentMenu.text")) {
             @Override
@@ -256,12 +256,12 @@ public class RecentFilesActions {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface FilesController {
 
         void openRecentFile(URI fileUri, @Nullable FileType fileType);
 
-        @Nonnull
+        @NonNull
         List<FileType> getRegisteredFileTypes();
     }
 }

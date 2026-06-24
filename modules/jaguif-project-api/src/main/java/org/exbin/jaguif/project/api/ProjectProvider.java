@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.project.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Project interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ProjectProvider {
 
-    @Nonnull
+    @NonNull
     ProjectType getProjectType();
 }

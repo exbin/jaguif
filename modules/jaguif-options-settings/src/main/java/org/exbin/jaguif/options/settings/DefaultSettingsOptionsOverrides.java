@@ -18,8 +18,8 @@ package org.exbin.jaguif.options.settings;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.settings.api.InferenceOptions;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsOverrides;
@@ -28,7 +28,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 /**
  * Default settings options settingsOverrides.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultSettingsOptionsOverrides implements SettingsOptionsOverrides {
 
     protected final SettingsOptionsProvider settingsOptionsProvider;
@@ -49,7 +49,7 @@ public class DefaultSettingsOptionsOverrides implements SettingsOptionsOverrides
         inferenceOverrides.put(inferenceClass, overrideClass);
     }
 
-    @Nonnull
+    @NonNull
     @SuppressWarnings("unchecked")
     @Override
     public <T extends SettingsOptions> T getSettingsOptions(Class<T> settingsClass) {
@@ -61,7 +61,7 @@ public class DefaultSettingsOptionsOverrides implements SettingsOptionsOverrides
         return (T) settingsOptionsProvider.getSettingsOptions(settingsClass);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     @SuppressWarnings("unchecked")
     public <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass) {

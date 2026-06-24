@@ -15,8 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.contribution;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.addon.manager.action.AddonManagerAction;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -24,19 +23,17 @@ import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 /**
  * Addon manager contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonManagerContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "addonManager";
 
-    @Nonnull
     @Override
     public Action createAction() {
         AddonManagerAction action = new AddonManagerAction();
         return action;
     }
 
-    @Nonnull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

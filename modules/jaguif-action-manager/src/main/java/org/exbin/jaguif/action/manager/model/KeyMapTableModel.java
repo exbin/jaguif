@@ -17,9 +17,8 @@ package org.exbin.jaguif.action.manager.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.KeyStroke;
 import javax.swing.table.AbstractTableModel;
 import org.exbin.jaguif.App;
@@ -28,7 +27,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Key map table model.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class KeyMapTableModel extends AbstractTableModel {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(KeyMapTableModel.class);
@@ -49,7 +48,6 @@ public class KeyMapTableModel extends AbstractTableModel {
         super.setValueAt(aValue, rowIndex, columnIndex);
     }
 
-    @Nonnull
     @Override
     public String getColumnName(int column) {
         switch (column) {
@@ -79,7 +77,6 @@ public class KeyMapTableModel extends AbstractTableModel {
         return null;
     }
 
-    @Nonnull
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
@@ -94,7 +91,6 @@ public class KeyMapTableModel extends AbstractTableModel {
         return String.class;
     }
 
-    @Nonnull
     public List<KeyMapRecord> getRecords() {
         return records;
     }

@@ -22,8 +22,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.LauncherModule;
 import org.exbin.jaguif.Module;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.ModuleProvider;
 /**
  * Some simple static methods usable for testing windows and dialogs.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TestApplication {
 
     private static final String MODULE_ID = "MODULE_ID";
@@ -55,7 +55,7 @@ public class TestApplication {
 
     private void attachModuleProvider() {
         App.setModuleProvider(new ModuleProvider() {
-            @Nonnull
+            @NonNull
             @Override
             public Class getManifestClass() {
                 return TestApplication.this.getClass();
@@ -78,7 +78,7 @@ public class TestApplication {
                 }
             }
 
-            @Nonnull
+            @NonNull
             @Override
             @SuppressWarnings("unchecked")
             public <T extends Module> T getModule(Class<T> interfaceClass) {

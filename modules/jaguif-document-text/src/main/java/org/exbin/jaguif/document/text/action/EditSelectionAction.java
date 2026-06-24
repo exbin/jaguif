@@ -19,7 +19,7 @@ import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
@@ -41,7 +41,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 /**
  * Edit selection action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EditSelectionAction extends AbstractAction {
 
     public static final String ACTION_ID = "editSelection";

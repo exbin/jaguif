@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.document.text.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.document.text.TextAppearanceState;
 import org.exbin.jaguif.options.settings.api.SettingsApplier;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Text appearance settings applier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextAppearanceSettingsApplier implements SettingsApplier {
 
     public static final String APPLIER_ID = "textAppearance";

@@ -16,8 +16,8 @@
 package org.exbin.jaguif.menu.popup.api;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.action.api.ContextRegistrationProvider;
 /**
  * Interface for framework popup module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface MenuPopupModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(MenuPopupModuleApi.class);
@@ -81,7 +81,7 @@ public interface MenuPopupModuleApi extends Module {
      * @param targetURL target URL
      * @return popup menu
      */
-    @Nonnull
+    @NonNull
     JPopupMenu createLinkPopupMenu(String targetURL);
 
     /**
@@ -91,6 +91,6 @@ public interface MenuPopupModuleApi extends Module {
      * @param actionContextRegistrar action context register
      * @return popup menu
      */
-    @Nonnull
+    @NonNull
     JPopupMenu createComponentPopupMenu(String popupMenuId, ContextRegistrationProvider actionContextRegistrar);
 }

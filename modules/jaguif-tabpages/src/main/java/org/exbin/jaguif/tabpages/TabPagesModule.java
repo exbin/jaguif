@@ -16,8 +16,8 @@
 package org.exbin.jaguif.tabpages;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.context.api.ContextRegistration;
@@ -31,7 +31,7 @@ import org.exbin.jaguif.tabpages.gui.TabbedPagesPanel;
 /**
  * Implementation of tab pages module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TabPagesModule implements TabPagesModuleApi {
 
     private TabPagesManager mainTabPagesManager = null;
@@ -43,7 +43,7 @@ public class TabPagesModule implements TabPagesModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TabPagesModule.class);
@@ -52,7 +52,7 @@ public class TabPagesModule implements TabPagesModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TabPagesManagement getMainTabPagesManager() {
         if (mainTabPagesManager == null) {
@@ -62,7 +62,7 @@ public class TabPagesModule implements TabPagesModuleApi {
         return mainTabPagesManager;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TabPagesManagement createTabPagesManager() {
         return new TabPagesManager();
@@ -78,31 +78,31 @@ public class TabPagesModule implements TabPagesModuleApi {
         TabPagesModule.this.getMainTabPagesManager().registerTabPages(tabPagesId, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TabPagesDefinitionManagement getMainTabPagesDefinition(String moduleId) {
         return new TabPagesDefinitionManager(getMainTabPagesManager(), MAIN_TAB_PAGES_ID, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TabPagesDefinitionManagement getMainTabPagesDefinition(String tabPagesId, String moduleId) {
         return new TabPagesDefinitionManager(getMainTabPagesManager(), tabPagesId, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TabPagesDefinitionManagement createTabPagesDefinition(TabPagesManagement tabPagesManagement, String tabPagesId, String moduleId) {
         return new TabPagesDefinitionManager(tabPagesManagement, tabPagesId, moduleId);
     }
     
-    @Nonnull
+    @NonNull
     @Override
     public TabbedPagesPanel createTabbedPagesPanel() {
         return new TabbedPagesPanel();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OptTabbedPagesPanel createOptTabbedPagesPanel() {
         return new OptTabbedPagesPanel();

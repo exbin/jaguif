@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.tabpages.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.context.api.ContextRegistration;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.context.api.ContextRegistration;
 /**
  * Interface for tab pages support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface TabPagesModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(TabPagesModuleApi.class);
@@ -35,7 +35,7 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tab pages management interface
      */
-    @Nonnull
+    @NonNull
     TabPagesManagement getMainTabPagesManager();
 
     /**
@@ -43,7 +43,7 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tab pages manager
      */
-    @Nonnull
+    @NonNull
     TabPagesManagement createTabPagesManager();
 
     /**
@@ -52,7 +52,7 @@ public interface TabPagesModuleApi extends Module {
      * @param moduleId module id
      * @return tab pages management interface
      */
-    @Nonnull
+    @NonNull
     TabPagesDefinitionManagement getMainTabPagesDefinition(String moduleId);
 
     /**
@@ -62,7 +62,7 @@ public interface TabPagesModuleApi extends Module {
      * @param moduleId module id
      * @return tab pages management interface
      */
-    @Nonnull
+    @NonNull
     TabPagesDefinitionManagement getMainTabPagesDefinition(String tabPagesId, String moduleId);
 
     /**
@@ -73,7 +73,7 @@ public interface TabPagesModuleApi extends Module {
      * @param moduleId module id
      * @return tab pages management interface
      */
-    @Nonnull
+    @NonNull
     TabPagesDefinitionManagement createTabPagesDefinition(TabPagesManagement tabPagesManagement, String tabPagesId, String moduleId);
 
     /**
@@ -98,7 +98,7 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tabbed pages panel
      */
-    @Nonnull
+    @NonNull
     TabPages createTabbedPagesPanel();
 
     /**
@@ -107,6 +107,6 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tabbed pages panel
      */
-    @Nonnull
+    @NonNull
     TabPages createOptTabbedPagesPanel();
 }

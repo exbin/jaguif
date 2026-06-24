@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.operation.manager.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.ModuleUtils;
 /**
  * Interface for framework operation manager module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface OperationManagerModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OperationManagerModuleApi.class);
@@ -39,6 +39,6 @@ public interface OperationManagerModuleApi extends Module {
      *
      * @return undo manager action
      */
-    @Nonnull
+    @NonNull
     Action createUndoManagerAction();
 }

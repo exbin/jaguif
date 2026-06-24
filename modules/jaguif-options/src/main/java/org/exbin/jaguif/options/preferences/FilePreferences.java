@@ -32,9 +32,9 @@ import java.util.logging.Logger;
 import java.util.prefs.AbstractPreferences;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -58,7 +58,7 @@ import org.xml.sax.SAXParseException;
 /**
  * File preferences class.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FilePreferences extends AbstractPreferences {
 
     private static final String MAP_XML_VERSION_ATTRIBUTE = "MAP_XML_VERSION";
@@ -97,7 +97,7 @@ public class FilePreferences extends AbstractPreferences {
         }
     }
 
-    @Nonnull
+    @NonNull
     private File createPreferenceFile() {
         return FilePreferencesFactory.getPreferencesFile(absolutePath());
     }
@@ -134,21 +134,21 @@ public class FilePreferences extends AbstractPreferences {
         flush();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected String[] keysSpi() throws BackingStoreException {
         Set<String> keySet = spiValues.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected String[] childrenNamesSpi() throws BackingStoreException {
         Set<String> keySet = children.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected AbstractPreferences childSpi(String name) {
         FilePreferences child = children.get(name);
@@ -214,7 +214,7 @@ public class FilePreferences extends AbstractPreferences {
      * @param qname root node qualified name
      * @return XML document
      */
-    @Nonnull
+    @NonNull
     private static Document createPreferencesDoc(String qname) {
         try {
             DOMImplementation di = DocumentBuilderFactory.newInstance().
@@ -316,7 +316,7 @@ public class FilePreferences extends AbstractPreferences {
      * Loads an XML document from specified input stream, which must have the
      * requisite DTD URI.
      */
-    @Nonnull
+    @NonNull
     private static Document loadPrefsDoc(InputStream in)
             throws SAXException, IOException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -334,10 +334,10 @@ public class FilePreferences extends AbstractPreferences {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class Resolver implements EntityResolver {
 
-        @Nonnull
+        @NonNull
         @Override
         public InputSource resolveEntity(String publicId, String systemId)
                 throws SAXException {
@@ -350,7 +350,7 @@ public class FilePreferences extends AbstractPreferences {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class RethrowErrorHandler implements ErrorHandler {
 
         @Override

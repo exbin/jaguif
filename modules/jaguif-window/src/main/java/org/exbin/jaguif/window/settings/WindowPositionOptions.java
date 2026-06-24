@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.window.settings;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 import org.exbin.jaguif.utils.WindowPosition;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.utils.WindowPosition;
 /**
  * Window position options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class WindowPositionOptions implements SettingsOptions {
 
     public static final String KEY_SCREEN_INDEX = "screenIndex";
@@ -53,7 +53,7 @@ public class WindowPositionOptions implements SettingsOptions {
         storage.putBoolean(KEY_MAXIMIZED, windowPosition.isMaximized());
     }
 
-    @Nonnull
+    @NonNull
     public WindowPosition getWindowPosition() {
         WindowPosition windowPosition = new WindowPosition();
         getWindowPosition(windowPosition);

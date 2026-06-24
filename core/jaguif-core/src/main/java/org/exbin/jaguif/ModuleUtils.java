@@ -15,13 +15,12 @@
  */
 package org.exbin.jaguif;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Framework module utilities class.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ModuleUtils {
 
     private static final String API_CLASS_EXT = "Api";
@@ -33,7 +32,6 @@ public class ModuleUtils {
      * @param moduleClass module class
      * @return string ID
      */
-    @Nonnull
     public static String getModuleIdByApi(Class moduleClass) {
         String packageName = moduleClass.getPackage().getName();
         String className = moduleClass.getSimpleName();

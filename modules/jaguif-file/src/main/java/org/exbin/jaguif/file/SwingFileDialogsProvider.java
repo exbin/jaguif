@@ -19,9 +19,9 @@ import java.awt.Component;
 import org.exbin.jaguif.file.api.FileDialogsProvider;
 import java.io.File;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import org.exbin.jaguif.file.api.FileType;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.file.api.UsedDirectoryApi;
 /**
  * Swing file dialogs provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SwingFileDialogsProvider implements FileDialogsProvider {
 
     public static final String ALL_FILES_FILTER = "AllFilesFilter";
@@ -42,13 +42,13 @@ public class SwingFileDialogsProvider implements FileDialogsProvider {
         this.resourceBundle = resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getProviderName() {
         return resourceBundle.getString("fileDialogs.swing");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OpenFileResult showOpenFileDialog(Component parentComponent, FileTypes fileTypes, @Nullable File selectedFile, @Nullable UsedDirectoryApi usedDirectory, @Nullable String dialogName) {
         JFileChooser openFileChooser = new JFileChooser();
@@ -103,7 +103,6 @@ public class SwingFileDialogsProvider implements FileDialogsProvider {
         }
     }
 
-    @Nonnull
     private static OpenFileResult.ResultType dialogResultToResultType(int dialogResult) {
         OpenFileResult.ResultType resultType;
         switch (dialogResult) {
@@ -122,7 +121,7 @@ public class SwingFileDialogsProvider implements FileDialogsProvider {
         return resultType;
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public class AllFilesFilter extends FileFilter implements FileType {
 
         @Override
@@ -130,13 +129,13 @@ public class SwingFileDialogsProvider implements FileDialogsProvider {
             return true;
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getDescription() {
             return resourceBundle.getString("AllFilesFilter.description");
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getFileTypeId() {
             return ALL_FILES_FILTER;

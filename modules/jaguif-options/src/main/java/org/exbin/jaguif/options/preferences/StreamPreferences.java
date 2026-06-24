@@ -26,9 +26,9 @@ import java.util.logging.Logger;
 import java.util.prefs.AbstractPreferences;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -44,7 +44,7 @@ import org.xml.sax.SAXParseException;
 /**
  * Preferences over input stream.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class StreamPreferences extends AbstractPreferences {
 
     public static final String PRECERENCES_DTD_URI = "http://java.sun.com/dtd/preferences.dtd";
@@ -111,21 +111,21 @@ public class StreamPreferences extends AbstractPreferences {
         flush();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected String[] keysSpi() throws BackingStoreException {
         Set<String> keySet = spiValues.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected String[] childrenNamesSpi() throws BackingStoreException {
         Set<String> keySet = children.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     protected AbstractPreferences childSpi(String name) {
         throw throwCannotEdit();
@@ -177,7 +177,7 @@ public class StreamPreferences extends AbstractPreferences {
      * Loads an XML document from specified input stream, which must have the
      * requisite DTD URI.
      */
-    @Nonnull
+    @NonNull
     private static Document loadPrefsDoc(InputStream in)
             throws SAXException, IOException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -195,15 +195,15 @@ public class StreamPreferences extends AbstractPreferences {
         }
     }
 
-    @Nonnull
+    @NonNull
     private static IllegalStateException throwCannotEdit() {
         return new IllegalStateException("Cannot edit stream preferences");
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class Resolver implements EntityResolver {
 
-        @Nonnull
+        @NonNull
         @Override
         public InputSource resolveEntity(String publicId, String systemId)
                 throws SAXException {
@@ -216,7 +216,7 @@ public class StreamPreferences extends AbstractPreferences {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class RethrowErrorHandler implements ErrorHandler {
 
         @Override

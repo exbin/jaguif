@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.progress;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.progress.api.ProgressModuleApi;
 
 /**
  * Support for operations with progress state module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ProgressModule implements ProgressModuleApi {
 
 }

@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.document.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface for document source.
@@ -27,6 +27,6 @@ public interface EmptyDocumentSource extends DocumentSource {
      *
      * @return document title
      */
-    @Nonnull
+    @NonNull
     String getDocumentTitle();
 }

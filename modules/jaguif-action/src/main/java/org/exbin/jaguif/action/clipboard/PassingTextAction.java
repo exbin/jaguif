@@ -16,14 +16,14 @@
 package org.exbin.jaguif.action.clipboard;
 
 import java.awt.event.ActionEvent;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.text.TextAction;
 
 /**
  * Passing text actions.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class PassingTextAction extends TextAction {
 
     private final TextAction parentAction;

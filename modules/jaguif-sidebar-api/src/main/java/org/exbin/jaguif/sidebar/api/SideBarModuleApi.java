@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.sidebar.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.context.api.ContextRegistration;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.docking.api.SidePanelDocking;
 /**
  * Interface for side bar support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SideBarModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(SideBarModuleApi.class);
@@ -36,7 +36,7 @@ public interface SideBarModuleApi extends Module {
      *
      * @return side bar management interface
      */
-    @Nonnull
+    @NonNull
     SideBarManagement getMainSideBarManager();
 
     /**
@@ -44,7 +44,7 @@ public interface SideBarModuleApi extends Module {
      *
      * @return side bar manager
      */
-    @Nonnull
+    @NonNull
     SideBarManagement createSideBarManager();
 
     /**
@@ -53,7 +53,7 @@ public interface SideBarModuleApi extends Module {
      * @param moduleId module id
      * @return side bar management interface
      */
-    @Nonnull
+    @NonNull
     SideBarDefinitionManagement getMainSideBarDefinition(String moduleId);
 
     /**
@@ -64,7 +64,7 @@ public interface SideBarModuleApi extends Module {
      * @param moduleId module id
      * @return side bar management interface
      */
-    @Nonnull
+    @NonNull
     SideBarDefinitionManagement createSideBarDefinition(SideBarManagement sideBarManagement, String sideBarId, String moduleId);
 
     /**

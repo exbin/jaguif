@@ -16,8 +16,8 @@
 package org.exbin.jaguif.operation.manager.gui;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.operation.manager.controller.UndoManagerControlControlle
 /**
  * Undo management control panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UndoManagerControlPanel extends javax.swing.JPanel implements UndoManagerControlController.UndoManagerControlComponent {
 
     private final java.util.ResourceBundle resourceBundle;
@@ -126,7 +126,7 @@ public class UndoManagerControlPanel extends javax.swing.JPanel implements UndoM
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(closeButton);

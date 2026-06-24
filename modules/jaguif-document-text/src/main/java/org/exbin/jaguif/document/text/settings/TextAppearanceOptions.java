@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.document.text.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 
 /**
  * Text appearance options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextAppearanceOptions implements SettingsOptions {
 
     public static final String KEY_TEXT_WORD_WRAPPING = "textAppearance.wordWrap";

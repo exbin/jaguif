@@ -17,8 +17,8 @@ package org.exbin.jaguif.print;
 
 import org.exbin.jaguif.print.action.PrintAction;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.print.contribution.PrintContribution;
 /**
  * Print module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class PrintModule implements PrintModuleApi {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(PrintModule.class);
@@ -42,7 +42,7 @@ public class PrintModule implements PrintModuleApi {
     public PrintModule() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
@@ -52,7 +52,7 @@ public class PrintModule implements PrintModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     public PrintAction createPrintAction() {
         PrintAction printAction = new PrintAction();
         printAction.init(getResourceBundle());

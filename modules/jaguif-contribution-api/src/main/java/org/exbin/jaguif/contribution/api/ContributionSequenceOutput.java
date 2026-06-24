@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 
 /**
  * Interface for contribution sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContributionSequenceOutput extends Module {
 
     /**

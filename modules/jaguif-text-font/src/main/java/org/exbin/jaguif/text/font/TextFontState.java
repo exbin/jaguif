@@ -16,14 +16,14 @@
 package org.exbin.jaguif.text.font;
 
 import java.awt.Font;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.StateUpdateType;
 
 /**
  * Text font state interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface TextFontState extends ContextFont {
 
     /**
@@ -31,7 +31,7 @@ public interface TextFontState extends ContextFont {
      *
      * @return font value
      */
-    @Nonnull
+    @NonNull
     Font getCurrentFont();
 
     /**
@@ -39,7 +39,7 @@ public interface TextFontState extends ContextFont {
      *
      * @return font value
      */
-    @Nonnull
+    @NonNull
     Font getDefaultFont();
 
     /**

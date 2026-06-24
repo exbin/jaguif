@@ -27,9 +27,9 @@ import java.net.URI;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.operation.undo.api.UndoRedoState;
 import org.exbin.jaguif.action.api.DialogParentComponent;
 import org.exbin.jaguif.operation.undo.api.UndoRedoController;
@@ -51,7 +51,7 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 /**
  * Text document.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SyntaxTextDocument implements ContextDocument, ComponentDocument, FileDocument, EditableDocument {
 
     protected final SyntaxTextPanel textPanel = new SyntaxTextPanel();
@@ -112,13 +112,13 @@ public class SyntaxTextDocument implements ContextDocument, ComponentDocument, F
         notifyUndoChanged();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SyntaxTextPanel getComponent() {
         return textPanel;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<DocumentSource> getDocumentSource() {
         return Optional.ofNullable(documentSource);
@@ -184,13 +184,13 @@ public class SyntaxTextDocument implements ContextDocument, ComponentDocument, F
         notifyUndoChanged();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<URI> getFileUri() {
         return Optional.ofNullable(null);
     }
 
-    @Nonnull
+    @NonNull
     public String getTitle() {
         // TODO
         URI fileUri = null;

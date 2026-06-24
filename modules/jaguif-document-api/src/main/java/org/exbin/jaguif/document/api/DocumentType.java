@@ -16,13 +16,13 @@
 package org.exbin.jaguif.document.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for document types.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface DocumentType {
 
     /**
@@ -30,7 +30,7 @@ public interface DocumentType {
      *
      * @return document type ID
      */
-    @Nonnull
+    @NonNull
     String getTypeId();
 
     /**
@@ -38,7 +38,7 @@ public interface DocumentType {
      *
      * @return new document
      */
-    @Nonnull
+    @NonNull
     Document createDefaultDocument();
 
     /**
@@ -47,6 +47,6 @@ public interface DocumentType {
      * @param documentSource document source
      * @return document
      */
-    @Nonnull
+    @NonNull
     Optional<Document> createDocument(DocumentSource documentSource);
 }

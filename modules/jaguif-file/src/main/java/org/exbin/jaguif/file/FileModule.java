@@ -28,9 +28,9 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.Document;
@@ -56,7 +56,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 /**
  * Framework file module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FileModule implements FileModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "file";
@@ -70,7 +70,7 @@ public class FileModule implements FileModuleApi {
     public FileModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FileModule.class);
@@ -84,7 +84,7 @@ public class FileModule implements FileModuleApi {
         registeredFileTypes.add(fileType);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Collection<FileType> getFileTypes() {
         return Collections.unmodifiableCollection(registeredFileTypes);
@@ -95,13 +95,13 @@ public class FileModule implements FileModuleApi {
         fileDialogsProviders.put(providerId, provider);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Map<String, FileDialogsProvider> getFileDialogsProviders() {
         return fileDialogsProviders;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getFileDialogProviderId() {
         return fileDialogProviderId;
@@ -112,7 +112,7 @@ public class FileModule implements FileModuleApi {
         this.fileDialogProviderId = fileDialogProviderId;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public FileDialogsProvider getFileDialogsProvider() {
         FileDialogsProvider fileDialogsProvider = fileDialogsProviders.get(fileDialogProviderId);
@@ -192,7 +192,7 @@ public class FileModule implements FileModuleApi {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SaveModifiedResult showSaveModified(Component parentComponent) {
         getResourceBundle();

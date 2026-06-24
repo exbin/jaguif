@@ -16,14 +16,14 @@
 package org.exbin.jaguif.text.encoding;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.StateUpdateType;
 
 /**
  * Charset encoding list state interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface CharsetListEncodingState {
 
     /**
@@ -31,7 +31,7 @@ public interface CharsetListEncodingState {
      *
      * @return font
      */
-    @Nonnull
+    @NonNull
     List<String> getEncodings();
 
     /**

@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.packs;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -28,7 +28,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 /**
  * Addon manager with support for packs.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonPacksModule implements Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonPacksModule.class);

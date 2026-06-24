@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.license.contribution;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.license.action.AboutAction;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -27,14 +27,14 @@ public class AboutContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "about";
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         AboutAction action = new AboutAction();
         return action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.menu.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 
 /**
  * Listener for action update when menu is created.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ActionMenuCreation {
 
     /**

@@ -23,9 +23,9 @@ import java.awt.Frame;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.SwingUtilities;
 import org.exbin.jaguif.file.api.FileTypes;
 import org.exbin.jaguif.file.api.OpenFileResult;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.file.api.UsedDirectoryApi;
 /**
  * AWT file dialogs provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AwtFileDialogsProvider implements FileDialogsProvider {
 
     protected final ResourceBundle resourceBundle;
@@ -43,13 +43,13 @@ public class AwtFileDialogsProvider implements FileDialogsProvider {
         this.resourceBundle = resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getProviderName() {
         return resourceBundle.getString("fileDialogs.awt");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OpenFileResult showOpenFileDialog(Component parentComponent, FileTypes fileTypes, @Nullable File selectedFile, @Nullable UsedDirectoryApi usedDirectory, @Nullable String dialogName) {
         Component rootComponent = SwingUtilities.getRoot(parentComponent);

@@ -17,9 +17,9 @@ package org.exbin.jaguif.menu.api;
 
 import java.util.Map;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
 import javax.swing.JMenuBar;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 /**
  * Interface for menu support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface MenuModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(MenuModuleApi.class);
@@ -55,7 +55,7 @@ public interface MenuModuleApi extends Module {
      * @param action action
      * @return menu item
      */
-    @Nonnull
+    @NonNull
     JMenuItem actionToMenuItem(Action action);
 
     /**
@@ -65,7 +65,7 @@ public interface MenuModuleApi extends Module {
      * @param buttonGroups button groups
      * @return menu item
      */
-    @Nonnull
+    @NonNull
     JMenuItem actionToMenuItem(Action action, @Nullable Map<String, ButtonGroup> buttonGroups);
 
     /**
@@ -73,7 +73,7 @@ public interface MenuModuleApi extends Module {
      *
      * @return menu management interface
      */
-    @Nonnull
+    @NonNull
     MenuManagement getMainMenuManager();
 
     /**
@@ -81,7 +81,7 @@ public interface MenuModuleApi extends Module {
      *
      * @return menu manager
      */
-    @Nonnull
+    @NonNull
     MenuManagement createMenuManager();
 
     /**
@@ -90,7 +90,7 @@ public interface MenuModuleApi extends Module {
      * @param moduleId module id
      * @return menu management definition
      */
-    @Nonnull
+    @NonNull
     MenuDefinitionManagement getMainMenuDefinition(String moduleId);
 
     /**
@@ -100,7 +100,7 @@ public interface MenuModuleApi extends Module {
      * @param moduleId module id
      * @return menu management definition
      */
-    @Nonnull
+    @NonNull
     MenuDefinitionManagement getMainMenuDefinition(String menuId, String moduleId);
 
     /**
@@ -111,7 +111,7 @@ public interface MenuModuleApi extends Module {
      * @param moduleId module id
      * @return menu management definition
      */
-    @Nonnull
+    @NonNull
     MenuDefinitionManagement createMenuDefinition(MenuManagement menuManagement, String menuId, String moduleId);
 
     /**
@@ -172,7 +172,7 @@ public interface MenuModuleApi extends Module {
      *
      * @return popup menu builder
      */
-    @Nonnull
+    @NonNull
     MenuBuilder getMenuBuilder();
 
     /**
@@ -187,7 +187,7 @@ public interface MenuModuleApi extends Module {
      *
      * @return resource bundle
      */
-    @Nonnull
+    @NonNull
     ResourceBundle getResourceBundle();
 
     /**

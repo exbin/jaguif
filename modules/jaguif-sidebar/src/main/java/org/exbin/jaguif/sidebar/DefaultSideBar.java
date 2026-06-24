@@ -17,9 +17,9 @@ package org.exbin.jaguif.sidebar;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import org.exbin.jaguif.docking.api.SidePanelDocking;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.sidebar.api.SideBarComponent;
 /**
  * Default docking sidebar.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultSideBar implements SideBar {
 
     protected final SidePanelDocking docking;
@@ -46,7 +46,7 @@ public class DefaultSideBar implements SideBar {
         toolBar.setFocusable(false);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JToolBar getToolBar() {
         return toolBar;
@@ -71,7 +71,7 @@ public class DefaultSideBar implements SideBar {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JPanel getSideBarPanel() {
         return sideBarPanel;

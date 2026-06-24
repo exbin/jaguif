@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.utils.VersionUtils;
@@ -37,7 +37,7 @@ import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
 /**
  * Manager for available module updates.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UpdateAvailabilityManager implements UpdateAvailabilityModules {
 
     protected static final String MODULE_UPDATES_FILE = "available-updates.cfg";
@@ -135,7 +135,7 @@ public class UpdateAvailabilityManager implements UpdateAvailabilityModules {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface AvailableModulesChangeListener {
 
         void changed(UpdateAvailabilityManager availableModuleUpdates);

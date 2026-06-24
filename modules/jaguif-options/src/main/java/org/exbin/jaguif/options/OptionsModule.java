@@ -20,8 +20,8 @@ import org.exbin.jaguif.options.preferences.FilePreferencesFactory;
 import org.exbin.jaguif.options.preferences.PreferencesWrapper;
 import org.exbin.jaguif.options.preferences.StreamPreferences;
 import java.io.InputStream;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.options.preferences.FilePreferences;
 /**
  * Implementation of options module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class OptionsModule implements OptionsModuleApi {
 
     private OptionsStorage appOptions;
@@ -61,7 +61,7 @@ public class OptionsModule implements OptionsModuleApi {
         appOptions = new PreferencesWrapper(new FilePreferences(null, "", preferencesFile));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OptionsStorage getAppOptions() {
         if (appOptions == null) {
@@ -70,14 +70,14 @@ public class OptionsModule implements OptionsModuleApi {
         return appOptions;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OptionsStorage createStreamPreferencesStorage(InputStream inputStream) {
         java.util.prefs.Preferences filePreferences = new StreamPreferences(inputStream);
         return new PreferencesWrapper(filePreferences);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OptionsStorage createMemoryStorage() {
         return new MemoryOptionsStorage();

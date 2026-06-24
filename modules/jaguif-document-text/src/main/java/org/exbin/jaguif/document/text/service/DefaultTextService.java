@@ -16,17 +16,17 @@
 package org.exbin.jaguif.document.text.service;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JTextArea;
 
 /**
  * Default implemention of text search service.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultTextService implements TextSearchService {
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<FoundMatch> findText(JTextArea textArea, FindTextParameters findTextParameters) {
         String text = textArea.getText();

@@ -16,15 +16,15 @@
 package org.exbin.jaguif.operation.undo.api;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework undo/redo module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface OperationUndoModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OperationUndoModuleApi.class);
@@ -36,7 +36,7 @@ public interface OperationUndoModuleApi extends Module {
      *
      * @return resource bundle
      */
-    @Nonnull
+    @NonNull
     ResourceBundle getResourceBundle();
 
     /**
@@ -54,6 +54,6 @@ public interface OperationUndoModuleApi extends Module {
      *
      * @return undo actions set
      */
-    @Nonnull
+    @NonNull
     UndoActions createUndoActions();
 }

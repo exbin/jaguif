@@ -17,7 +17,7 @@ package org.exbin.jaguif.search.file.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.search.file.api.SearchInFilesController;
 /**
  * Find in files action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FindInFilesAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "findInFiles";

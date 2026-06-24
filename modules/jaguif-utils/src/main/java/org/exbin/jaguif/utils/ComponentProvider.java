@@ -16,7 +16,7 @@
 package org.exbin.jaguif.utils;
 
 import java.awt.Component;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface for component provider.
@@ -28,6 +28,6 @@ public interface ComponentProvider {
      *
      * @return component
      */
-    @Nonnull
+    @NonNull
     Component getComponent();
 }

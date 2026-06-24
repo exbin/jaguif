@@ -15,9 +15,9 @@
  */
 package org.exbin.jaguif.sidebar.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
 import javax.swing.JComponent;
 import org.exbin.jaguif.context.api.ContextValues;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.context.api.ContextValues;
 /**
  * Interface for sidebar component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SideBarComponent extends ContextValues {
 
     /**
@@ -64,7 +64,7 @@ public interface SideBarComponent extends ContextValues {
      *
      * @return component instance
      */
-    @Nonnull
+    @NonNull
     JComponent getComponent();
 
     /**

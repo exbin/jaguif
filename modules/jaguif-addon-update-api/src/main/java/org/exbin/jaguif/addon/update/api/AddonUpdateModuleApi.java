@@ -17,9 +17,9 @@ package org.exbin.jaguif.addon.update.api;
 
 import java.awt.Frame;
 import java.net.URL;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.ModuleUtils;
 /**
  * Interface of the addon update checking module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonUpdateModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonUpdateModuleApi.class);
@@ -37,7 +37,7 @@ public interface AddonUpdateModuleApi extends Module {
      *
      * @return action
      */
-    @Nonnull
+    @NonNull
     Action getCheckUpdateAction();
 
     /**

@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.tabpages;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesManagement;
 /**
  * Default tab pages manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TabPagesManager implements TabPagesManagement {
 
     protected final ContributionSequenceBuilder builder;
@@ -66,7 +66,7 @@ public class TabPagesManager implements TabPagesManagement {
         definition.addContribution(contribution);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public GroupSequenceContribution registerTabPagesGroup(String tabPagesId, String moduleId, String groupId) {
         return contributionManagement.registerContributionGroup(tabPagesId, moduleId, groupId);

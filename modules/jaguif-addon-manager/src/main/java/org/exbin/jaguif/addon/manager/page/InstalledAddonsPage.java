@@ -18,8 +18,8 @@ package org.exbin.jaguif.addon.manager.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonOperation;
@@ -44,7 +44,7 @@ import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
 /**
  * Installed addons manager page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class InstalledAddonsPage extends AbstractTabPagesComponent implements AddonManagerPage {
 
     public static final String PAGE_ID = "installedAddons";
@@ -69,7 +69,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
                 return InstalledAddonsPage.this.getItemsCount();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public ItemRecord getItem(int index) {
                 return InstalledAddonsPage.this.getItem(index);
@@ -118,7 +118,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         return installedAddons.size();
     }
 
-    @Nonnull
+    @NonNull
     private ItemRecord getItem(int index) {
         List<ItemRecord> installedAddons = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
         if (filterItems != null) {
@@ -141,7 +141,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         notifyItemsChanged();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         return listComponent.getComponent();
@@ -161,7 +161,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     public void refreshContent() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Runnable createFilterOperation(Object filter) {
         return () -> {
@@ -169,7 +169,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         };
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Runnable createSearchOperation(String search) {
         return () -> {
@@ -205,13 +205,13 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @Nonnull
+        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new InstalledAddonsPage();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

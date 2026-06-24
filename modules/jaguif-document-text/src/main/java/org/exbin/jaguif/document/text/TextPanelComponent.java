@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.document.text;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.document.text.gui.TextPanel;
 
 /**
@@ -28,6 +28,6 @@ public interface TextPanelComponent {
      *
      * @return text panel
      */
-    @Nonnull
+    @NonNull
     TextPanel getTextPanel();
 }

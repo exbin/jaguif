@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.component.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.StateUpdateType;
 
 /**
  * Interface for edit item context.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContextEditItem {
 
     /**

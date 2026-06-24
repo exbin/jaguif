@@ -18,8 +18,8 @@ package org.exbin.jaguif.window.api.gui;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Footer control panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FooterControlPanel extends JPanel {
 
     protected final java.util.ResourceBundle resourceBundle;
@@ -48,7 +48,7 @@ public class FooterControlPanel extends JPanel {
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

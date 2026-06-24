@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Sequence contribution rule for sub sequence.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class SubSequenceContributionRule implements SequenceContributionRule {
 
@@ -32,7 +32,7 @@ public class SubSequenceContributionRule implements SequenceContributionRule {
         this.subContributionId = subContributionId;
     }
 
-    @Nonnull
+    @NonNull
     public String getSubContributionId() {
         return subContributionId;
     }

@@ -16,14 +16,14 @@
 package org.exbin.jaguif.context.api;
 
 import java.util.Collection;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for context state management.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ActiveContextManagement extends ContextStateProvider {
 
     /**
@@ -31,7 +31,7 @@ public interface ActiveContextManagement extends ContextStateProvider {
      *
      * @return state classes
      */
-    @Nonnull
+    @NonNull
     Collection<Class<?>> getStateClasses();
 
     /**

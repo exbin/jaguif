@@ -22,9 +22,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.language.api.ApplicationInfoKeys;
 import org.exbin.jaguif.language.api.IconSetProvider;
 import org.exbin.jaguif.language.api.LanguageModifier;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.language.api.LanguageProvider;
 /**
  * Language module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class LanguageModule implements LanguageModuleApi {
 
     private ResourceBundle appBundle;
@@ -48,7 +48,7 @@ public class LanguageModule implements LanguageModuleApi {
     public LanguageModule() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getAppBundle() {
         if (appBundle == null) {
@@ -62,7 +62,7 @@ public class LanguageModule implements LanguageModuleApi {
         this.appBundle = appBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getBundle(Class<?> targetClass) {
         if (languageClassLoader == null && iconSetProvider == null) {
@@ -77,7 +77,7 @@ public class LanguageModule implements LanguageModuleApi {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundleByBundleName(String bundleName) {
         if (languageClassLoader == null) {
@@ -87,12 +87,12 @@ public class LanguageModule implements LanguageModuleApi {
         }
     }
 
-    @Nonnull
+    @NonNull
     private ResourceBundle getResourceBundleForLanguage(String bundleName) {
         return languageClassLoader == null ? ResourceBundle.getBundle(bundleName, getLanguageBundleLocale()) : ResourceBundle.getBundle(bundleName, getLanguageBundleLocale(), languageClassLoader);
     }
 
-    @Nonnull
+    @NonNull
     public Optional<ClassLoader> getLanguageClassLoader() {
         return Optional.ofNullable(languageClassLoader);
     }
@@ -101,7 +101,7 @@ public class LanguageModule implements LanguageModuleApi {
         this.languageClassLoader = languageClassLoader;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<Locale> getLanguageLocale() {
         return Optional.ofNullable(languageLocale);
     }
@@ -198,7 +198,7 @@ public class LanguageModule implements LanguageModuleApi {
      * @param targetClass target class
      * @return name path
      */
-    @Nonnull
+    @NonNull
     public static String getClassNamePath(Class<?> targetClass) {
         return targetClass.getCanonicalName().replace(".", "/");
     }
@@ -210,14 +210,14 @@ public class LanguageModule implements LanguageModuleApi {
      * @param targetClass target class
      * @return base name string
      */
-    @Nonnull
+    @NonNull
     public static String getResourceBaseNameBundleByClass(Class<?> targetClass) {
         String classNamePath = getClassNamePath(targetClass);
         int classNamePos = classNamePath.lastIndexOf("/");
         return classNamePath.substring(0, classNamePos + 1) + "resources" + classNamePath.substring(classNamePos);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getActionWithDialogText(String actionTitle) {
         if (languageModifier != null) {
@@ -227,7 +227,7 @@ public class LanguageModule implements LanguageModuleApi {
         return actionTitle + "...";
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getActionWithDialogText(ResourceBundle bundle, String key) {
         if (languageModifier != null) {
@@ -242,13 +242,13 @@ public class LanguageModule implements LanguageModuleApi {
         languagePlugins.add(languageProvider);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<LanguageProvider> getLanguagePlugins() {
         return languagePlugins;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<IconSetProvider> getIconSets() {
         return iconSets;
@@ -271,7 +271,7 @@ public class LanguageModule implements LanguageModuleApi {
         iconSetProvider = null;
     }
 
-    @Nonnull
+    @NonNull
     public Locale getLanguageBundleLocale() {
         return languageLocale == null ? Locale.getDefault() : languageLocale;
     }

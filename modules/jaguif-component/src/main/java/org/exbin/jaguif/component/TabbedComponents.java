@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.component;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Tabbed components.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TabbedComponents {
 
     

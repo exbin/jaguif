@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.utils;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Listener for window closing.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface WindowClosingListener {
 
     /**

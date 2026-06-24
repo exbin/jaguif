@@ -17,9 +17,9 @@ package org.exbin.jaguif.menu;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
 import javax.swing.JMenu;
@@ -43,7 +43,7 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 /**
  * Menu sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MenuSequenceOutput implements TreeContributionSequenceOutput {
 
     protected final JMenu menu;
@@ -157,12 +157,12 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
         menu.addSeparator();
     }
 
-    @Nonnull
+    @NonNull
     public JMenu getMenu() {
         return menu;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution) {
         return new MenuSequenceOutput(((SubMenuContribution) subContribution).getSubMenu().get(), contextRegistration, creationContext, buttonGroups, isPopup);
@@ -173,7 +173,7 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
         return menu.getItemCount() == 0;
     }
 
-    @Nonnull
+    @NonNull
     public static JMenuItem createMenuItem(Action action, Map<String, ButtonGroup> buttonGroups) {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         JMenuItem menuItem = menuModule.actionToMenuItem(action, buttonGroups);

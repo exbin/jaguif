@@ -16,15 +16,15 @@
 package org.exbin.jaguif.document.text.gui;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 
 /**
  * Find text panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FindTextPanel extends javax.swing.JPanel {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FindTextPanel.class);
@@ -33,7 +33,7 @@ public class FindTextPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -170,7 +170,7 @@ public class FindTextPanel extends javax.swing.JPanel {
         textToFindTextField.selectAll();
     }
 
-    @Nonnull
+    @NonNull
     public String getFindText() {
         return textToFindTextField.getText();
     }
@@ -188,7 +188,7 @@ public class FindTextPanel extends javax.swing.JPanel {
         performReplaceCheckBoxActionPerformed(null);
     }
 
-    @Nonnull
+    @NonNull
     public String getReplaceText() {
         return textToReplaceTextField.getText();
     }

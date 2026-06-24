@@ -27,9 +27,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.basic.BasicApplication;
 import org.exbin.jaguif.basic.DynamicClassLoader;
@@ -37,7 +36,7 @@ import org.exbin.jaguif.basic.DynamicClassLoader;
 /**
  * Addon supporting framework application.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonApplication extends BasicApplication {
 
     public static final String ADDONS_DIRECTORY = "addons";
@@ -54,12 +53,10 @@ public class AddonApplication extends BasicApplication {
         super(dynamicClassLoader, manifestClass, appBundle);
     }
 
-    @Nonnull
     public static AddonApplication createApplication(Class manifestClass) {
         return AddonApplication.createApplication(manifestClass, null);
     }
 
-    @Nonnull
     public static AddonApplication createApplication(Class manifestClass, @Nullable ResourceBundle appBundle) {
         try {
             DynamicClassLoader dynamicClassLoader = new DynamicClassLoader(manifestClass);

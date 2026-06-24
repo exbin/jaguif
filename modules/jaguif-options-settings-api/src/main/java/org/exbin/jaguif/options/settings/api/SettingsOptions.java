@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for settings options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SettingsOptions {
 
     /**

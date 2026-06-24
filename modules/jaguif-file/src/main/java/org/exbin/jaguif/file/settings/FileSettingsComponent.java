@@ -18,8 +18,8 @@ package org.exbin.jaguif.file.settings;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.file.api.FileDialogsProvider;
 import org.exbin.jaguif.file.api.FileModuleApi;
@@ -30,12 +30,12 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 /**
  * File settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FileSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "file";
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsComponent createComponent() {
         FileSettingsPanel fileSettingsPanel = new FileSettingsPanel();

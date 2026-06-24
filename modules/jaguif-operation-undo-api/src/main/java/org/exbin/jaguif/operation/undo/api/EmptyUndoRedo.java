@@ -18,14 +18,14 @@ package org.exbin.jaguif.operation.undo.api;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.operation.api.Command;
 
 /**
  * Empty implementation of undo handling.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EmptyUndoRedo implements UndoRedo {
 
     @Override
@@ -52,13 +52,13 @@ public class EmptyUndoRedo implements UndoRedo {
         command.execute();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<Command> getCommandList() {
         return Collections.emptyList();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<Command> getTopUndoCommand() {
         return Optional.empty();

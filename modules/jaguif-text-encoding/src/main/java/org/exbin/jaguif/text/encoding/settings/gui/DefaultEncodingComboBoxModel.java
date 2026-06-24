@@ -17,9 +17,9 @@ package org.exbin.jaguif.text.encoding.settings.gui;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
@@ -28,7 +28,7 @@ import org.exbin.jaguif.text.encoding.EncodingsManager;
 /**
  * Text editor encodings options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
 
     private List<String> availableEncodings = new ArrayList<>();
@@ -54,7 +54,7 @@ public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
         return availableEncodings.size();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getElementAt(int index) {
         return availableEncodings.get(index);
@@ -70,7 +70,7 @@ public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
         dataListeners.remove(listener);
     }
 
-    @Nonnull
+    @NonNull
     public List<String> getAvailableEncodings() {
         return availableEncodings;
     }
@@ -91,7 +91,7 @@ public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
         }
     }
 
-    @Nonnull
+    @NonNull
     public String getSelectedEncoding() {
         return selectedEncoding;
     }

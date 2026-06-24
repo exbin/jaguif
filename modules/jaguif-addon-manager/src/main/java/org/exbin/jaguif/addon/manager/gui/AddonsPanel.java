@@ -18,8 +18,8 @@ package org.exbin.jaguif.addon.manager.gui;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JComponent;
 import javax.swing.JList;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Addons list with details panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonsPanel extends javax.swing.JPanel implements AddonsListComponent {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsPanel.class);
@@ -53,7 +53,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
             private final AddonItemComponent addonItemPanel = new AddonItemComponent();
 
-            @Nonnull
+            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 ItemRecord record = (ItemRecord) value;
@@ -66,7 +66,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
         });
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         return this;
@@ -81,7 +81,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
                 return AddonsPanel.this.controller.getItemsCount();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public ItemRecord getItem(int index) {
                 return AddonsPanel.this.controller.getItem(index);
@@ -110,7 +110,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
         });
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

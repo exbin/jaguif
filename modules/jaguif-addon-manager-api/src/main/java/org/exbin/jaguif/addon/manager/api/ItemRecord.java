@@ -16,15 +16,15 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 
 /**
  * Addon item record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ItemRecord {
 
     private String id;
@@ -48,7 +48,7 @@ public class ItemRecord {
         this.name = name;
     }
 
-    @Nonnull
+    @NonNull
     public String getId() {
         return id;
     }
@@ -57,7 +57,7 @@ public class ItemRecord {
         this.id = id;
     }
 
-    @Nonnull
+    @NonNull
     public String getName() {
         return name;
     }
@@ -66,7 +66,7 @@ public class ItemRecord {
         this.name = name;
     }
 
-    @Nonnull
+    @NonNull
     public String getVersion() {
         return version;
     }
@@ -107,7 +107,7 @@ public class ItemRecord {
         this.addon = addon;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<ImageIcon> getIcon() {
         return Optional.ofNullable(icon);
     }
@@ -116,7 +116,7 @@ public class ItemRecord {
         this.icon = icon;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<String> getProvider() {
         return Optional.ofNullable(provider);
     }
@@ -125,7 +125,7 @@ public class ItemRecord {
         this.provider = provider;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<String> getHomepage() {
         return Optional.ofNullable(homepage);
     }
@@ -134,7 +134,7 @@ public class ItemRecord {
         this.homepage = homepage;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<String> getDescription() {
         return Optional.ofNullable(description);
     }

@@ -17,13 +17,13 @@ package org.exbin.jaguif.docking.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Docking panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DockingPanel extends javax.swing.JPanel {
 
     protected Component sideToolBar = null;

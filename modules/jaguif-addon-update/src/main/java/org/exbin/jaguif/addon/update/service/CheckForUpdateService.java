@@ -16,15 +16,15 @@
 package org.exbin.jaguif.addon.update.service;
 
 import java.net.URL;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.update.api.VersionNumbers;
 
 /**
  * Check for update service.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface CheckForUpdateService {
 
     /**
@@ -32,7 +32,7 @@ public interface CheckForUpdateService {
      *
      * @return check for updates result
      */
-    @Nonnull
+    @NonNull
     CheckForUpdateResult checkForUpdate();
 
     /**
@@ -40,7 +40,7 @@ public interface CheckForUpdateService {
      *
      * @return version
      */
-    @Nonnull
+    @NonNull
     VersionNumbers getCurrentVersion();
 
     /**
@@ -78,7 +78,7 @@ public interface CheckForUpdateService {
         UPDATE_FOUND
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface BackgroundCheckListener {
 
         void checkFinished(CheckForUpdateResult result, VersionNumbers updateVersion);

@@ -19,9 +19,9 @@ import org.exbin.jaguif.addon.update.api.VersionNumbers;
 import java.awt.Frame;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.update.service.CheckForUpdateService;
 import org.exbin.jaguif.addon.update.service.DefaultCheckForUpdateService;
@@ -45,7 +45,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 /**
  * Implementation of framework check update module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonUpdateModule implements AddonUpdateModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "checkForUpdate";
@@ -63,7 +63,7 @@ public class AddonUpdateModule implements AddonUpdateModuleApi {
     public AddonUpdateModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonUpdateModule.class);
@@ -72,7 +72,7 @@ public class AddonUpdateModule implements AddonUpdateModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public CheckForUpdateAction getCheckUpdateAction() {
         if (checkUpdateAction == null) {
@@ -107,7 +107,7 @@ public class AddonUpdateModule implements AddonUpdateModuleApi {
         settingsManagement.registerSettingsRule(settingsComponent, new SettingsPageContributionRule(pageContribution));
     }
 
-    @Nonnull
+    @NonNull
     public VersionNumbers getCurrentVersion() {
         ResourceBundle appBundle = App.getAppBundle();
         String releaseString = appBundle.getString(ApplicationBundleKeys.APPLICATION_RELEASE);
@@ -130,7 +130,7 @@ public class AddonUpdateModule implements AddonUpdateModuleApi {
         return checkUpdateUrl;
     }
 
-    @Nonnull
+    @NonNull
     public CheckForUpdateService getCheckForUpdateService() {
         if (checkForUpdateService == null) {
             checkForUpdateService = new DefaultCheckForUpdateService(this);

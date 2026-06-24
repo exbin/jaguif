@@ -16,15 +16,15 @@
 package org.exbin.jaguif.ui.theme.api;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework UI theme module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UiThemeModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(UiThemeModuleApi.class);
@@ -41,7 +41,7 @@ public interface UiThemeModuleApi extends Module {
      *
      * @return list of look and feel providers
      */
-    @Nonnull
+    @NonNull
     List<LafProvider> getLafProviders();
 
     /**

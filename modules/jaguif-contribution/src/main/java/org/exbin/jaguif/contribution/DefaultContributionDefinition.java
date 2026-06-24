@@ -20,8 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 /**
  * Contribution definition.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultContributionDefinition implements ContributionDefinition {
 
     protected final List<SequenceContribution> contributions = new ArrayList<>();
@@ -38,7 +38,7 @@ public class DefaultContributionDefinition implements ContributionDefinition {
     public DefaultContributionDefinition() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<SequenceContribution> getContributions() {
         return contributions;
@@ -62,12 +62,12 @@ public class DefaultContributionDefinition implements ContributionDefinition {
         return contributions.contains(contribution);
     }
 
-    @Nonnull
+    @NonNull
     public Map<SequenceContribution, List<SequenceContributionRule>> getRules() {
         return rules;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<List<SequenceContributionRule>> getContributionRules(SequenceContribution contribution) {
         return Optional.ofNullable(rules.get(contribution));

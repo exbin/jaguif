@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.context.api;
 
-import javax.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Listener for active context state changes.

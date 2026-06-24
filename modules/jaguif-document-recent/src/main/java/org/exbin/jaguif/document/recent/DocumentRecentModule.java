@@ -19,9 +19,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -43,7 +43,7 @@ import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
 /**
  * Recent documents module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DocumentRecentModule implements Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(DocumentRecentModule.class);
@@ -54,7 +54,7 @@ public class DocumentRecentModule implements Module {
     public DocumentRecentModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DocumentRecentModule.class);
@@ -80,7 +80,7 @@ public class DocumentRecentModule implements Module {
         mgmt.registerMenuRule(contribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.AFTER, "openFile")); // OpenFileAction.ACTION_ID
     }
 
-    @Nonnull
+    @NonNull
     public RecentFilesActions getRecentFilesActions() {
         if (recentFilesActions == null) {
             recentFilesActions = new RecentFilesActions();
@@ -91,7 +91,7 @@ public class DocumentRecentModule implements Module {
                     fileModule.openFile(fileUri);
                 }
 
-                @Nonnull
+                @NonNull
                 @Override
                 public List<FileType> getRegisteredFileTypes() {
                     FileModuleApi fileModule = App.getModule(FileModuleApi.class);

@@ -16,15 +16,15 @@
 package org.exbin.jaguif.file.api;
 
 import java.net.URI;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import org.exbin.jaguif.document.api.SourceIdentifier;
 
 /**
  * File source identifier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class FileSourceIdentifier implements SourceIdentifier {
 
@@ -34,7 +34,7 @@ public class FileSourceIdentifier implements SourceIdentifier {
         this.fileUri = fileUri;
     }
 
-    @Nonnull
+    @NonNull
     public URI getFileUri() {
         return fileUri;
     }

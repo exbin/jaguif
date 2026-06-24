@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif.document.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for editable document.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface EditableDocument extends LoadableDocument {
 
     /**

@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.ui.theme.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Look&amp;feel provider.
@@ -27,7 +27,7 @@ public interface LafProvider {
      *
      * @return string identifier
      */
-    @Nonnull
+    @NonNull
     String getLafId();
 
     /**
@@ -35,7 +35,7 @@ public interface LafProvider {
      *
      * @return name
      */
-    @Nonnull
+    @NonNull
     String getLafName();
 
     /**

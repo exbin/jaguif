@@ -16,8 +16,8 @@
 package org.exbin.jaguif.license.page;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.license.page.gui.BasicInfoPanel;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 /**
  * Basic application information page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class BasicInfoPage extends AbstractTabPagesComponent {
 
     public static final String PAGE_ID = "basicInfo";
@@ -41,7 +41,7 @@ public class BasicInfoPage extends AbstractTabPagesComponent {
         putValue(KEY_NAME, resourceBundle.getString("pageName"));
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         if (!variablesLoaded) {
@@ -53,13 +53,13 @@ public class BasicInfoPage extends AbstractTabPagesComponent {
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @Nonnull
+        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new BasicInfoPage();
         }
 
-        @Nonnull
+        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

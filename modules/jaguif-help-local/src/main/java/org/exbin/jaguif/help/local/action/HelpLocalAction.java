@@ -23,8 +23,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.help.CSH;
 import javax.help.HelpBroker;
 import javax.help.HelpSet;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Local help action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class HelpLocalAction extends AbstractAction {
 
     public static final String ACTION_ID = "help";

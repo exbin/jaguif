@@ -18,8 +18,7 @@ package org.exbin.jaguif.addon.catalog.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.catalog.operation.CatalogSearchOperation;
@@ -46,7 +45,7 @@ import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
 /**
  * Addons manager page.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonsCatalogPage extends AbstractTabPagesComponent implements AddonManagerPage {
 
     public static final String PAGE_ID = "addonsCatalog";
@@ -72,7 +71,6 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
                 return AddonsCatalogPage.this.getItemsCount();
             }
 
-            @Nonnull
             @Override
             public ItemRecord getItem(int index) {
                 return AddonsCatalogPage.this.getItem(index);
@@ -108,7 +106,6 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         });
     }
 
-    @Nonnull
     @Override
     public JComponent getComponent() {
         return listComponent.getComponent();
@@ -143,7 +140,6 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         })); */
     }
 
-    @Nonnull
     @Override
     public Runnable createFilterOperation(Object filter) {
         return () -> {
@@ -151,7 +147,6 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         };
     }
 
-    @Nonnull
     @Override
     public Runnable createSearchOperation(String search) {
         return new CatalogSearchOperation(addonCatalogService, null, null, search, this::setAddonItems); // addonManager
@@ -173,7 +168,6 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         return addonItems.size();
     }
 
-    @Nonnull
     private ItemRecord getItem(int index) {
         return addonItems.get(index);
     }
@@ -210,13 +204,11 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @Nonnull
         @Override
         public TabPagesComponent createComponent() {
             return new AddonsCatalogPage();
         }
 
-        @Nonnull
         @Override
         public String getContributionId() {
             return PAGE_ID;

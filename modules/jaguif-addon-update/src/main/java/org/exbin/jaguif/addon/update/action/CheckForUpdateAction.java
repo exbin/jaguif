@@ -20,9 +20,9 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.api.ActionConsts;
@@ -43,7 +43,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 /**
  * Check for update action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CheckForUpdateAction extends AbstractAction {
 
     public static final String ACTION_ID = "checkForUpdate";
@@ -89,7 +89,7 @@ public class CheckForUpdateAction extends AbstractAction {
         dialog.dispose();
     }
 
-    @Nonnull
+    @NonNull
     public VersionNumbers getCurrentVersion() {
         LanguageModuleApi languageModule = App.getModule(LanguageModuleApi.class);
         ResourceBundle appBundle = languageModule.getAppBundle();
@@ -112,7 +112,7 @@ public class CheckForUpdateAction extends AbstractAction {
         this.checkForUpdateService = checkForUpdateService;
     }
 
-    @Nonnull
+    @NonNull
     public CheckForUpdateService getCheckForUpdateService() {
         return checkForUpdateService;
     }

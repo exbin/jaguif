@@ -16,13 +16,13 @@
 package org.exbin.jaguif.file.api;
 
 import java.net.URI;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for last used file listener.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface FileUsageListener {
 
     /**

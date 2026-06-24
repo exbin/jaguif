@@ -18,7 +18,7 @@ package org.exbin.jaguif.docking.action;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -36,7 +36,7 @@ import org.exbin.jaguif.document.api.DocumentModuleApi;
 /**
  * Open file action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class OpenFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "openFile";

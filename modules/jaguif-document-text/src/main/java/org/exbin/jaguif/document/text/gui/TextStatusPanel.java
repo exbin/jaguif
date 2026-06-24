@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.document.text.gui;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.TextPositionStatusApi;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.text.encoding.CharsetEncodingState;
 /**
  * Text editor status panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextStatusPanel extends javax.swing.JPanel implements TextPositionStatusApi, CharsetEncodingState {
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextStatusPanel.class);
@@ -95,7 +95,7 @@ public class TextStatusPanel extends javax.swing.JPanel implements TextPositionS
         documentCursorPositionTextField.setText(textPosition);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getEncoding() {
         String text = documentEncodingTextField.getText();

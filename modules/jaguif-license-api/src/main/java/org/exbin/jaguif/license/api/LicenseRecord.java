@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.license.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface of the license record.
@@ -27,7 +27,7 @@ public interface LicenseRecord {
      *
      * @return identifier
      */
-    @Nonnull
+    @NonNull
     String getId();
 
     /**
@@ -35,6 +35,6 @@ public interface LicenseRecord {
      *
      * @return license name
      */
-    @Nonnull
+    @NonNull
     String getName();
 }

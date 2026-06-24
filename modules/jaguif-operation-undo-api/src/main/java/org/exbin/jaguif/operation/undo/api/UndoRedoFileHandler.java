@@ -16,7 +16,7 @@
 package org.exbin.jaguif.operation.undo.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface for framework undo/redo module.
@@ -28,6 +28,6 @@ public interface UndoRedoFileHandler {
      *
      * @return undo handler
      */
-    @Nonnull
+    @NonNull
     Optional<UndoRedoState> getUndoRedo();
 }

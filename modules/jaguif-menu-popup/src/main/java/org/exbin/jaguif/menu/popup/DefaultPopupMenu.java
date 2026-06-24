@@ -29,9 +29,9 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ActionMap;
@@ -64,7 +64,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 /**
  * Utilities for default menu generation.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultPopupMenu {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DefaultPopupMenu.class);
@@ -105,7 +105,7 @@ public class DefaultPopupMenu {
     protected DefaultPopupMenu() {
     }
 
-    @Nonnull
+    @NonNull
     public static synchronized DefaultPopupMenu getInstance() {
         if (instance == null) {
             instance = new DefaultPopupMenu();
@@ -143,7 +143,7 @@ public class DefaultPopupMenu {
         menu.add(createCopyTextMenuAction(handler));
     }
 
-    @Nonnull
+    @NonNull
     public Action createCopyTextMenuAction(final TextActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action copyImageMenuAction = new AbstractAction(POPUP_COPY_TEXT_ACTION_NAME) {
@@ -168,7 +168,7 @@ public class DefaultPopupMenu {
         menu.add(createOpenLinkMenuAction(handler));
     }
 
-    @Nonnull
+    @NonNull
     public Action createCopyLinkMenuAction(final LinkActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action copyLinkMenuAction = new AbstractAction(POPUP_COPY_LINK_ACTION_NAME) {
@@ -183,7 +183,7 @@ public class DefaultPopupMenu {
         return copyLinkMenuAction;
     }
 
-    @Nonnull
+    @NonNull
     public Action createOpenLinkMenuAction(final LinkActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action openLinkMenuAction = new DefaultPopupClipboardAction(POPUP_OPEN_LINK_ACTION_NAME) {
@@ -206,7 +206,7 @@ public class DefaultPopupMenu {
         menu.add(createCopyImageMenuAction(handler));
     }
 
-    @Nonnull
+    @NonNull
     public Action createCopyImageMenuAction(final ImageActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action copyImageMenuAction = new AbstractAction(POPUP_COPY_IMAGE_ACTION_NAME) {
@@ -689,7 +689,7 @@ public class DefaultPopupMenu {
         return SwingUtilities.getDeepestComponentAt(e.getComponent(), e.getX(), e.getY());
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public class PopupEventQueue extends EventQueue {
 
         @Override
@@ -703,7 +703,7 @@ public class DefaultPopupMenu {
     /**
      * Clipboard action for default popup menu.
      */
-    @ParametersAreNonnullByDefault
+    @NullMarked
     protected static abstract class DefaultPopupClipboardAction extends AbstractAction {
 
         protected TextClipboardOperationController clipboardHandler;

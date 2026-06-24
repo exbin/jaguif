@@ -20,7 +20,7 @@ import java.awt.Cursor;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.ComponentDocument;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 /**
  * Multi document panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MultiDocumentPanel extends javax.swing.JPanel {
 
     protected Controller controller;
@@ -199,7 +199,7 @@ public class MultiDocumentPanel extends javax.swing.JPanel {
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface Controller {
 
         void activeIndexChanged(int index);

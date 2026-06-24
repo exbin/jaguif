@@ -20,9 +20,9 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -38,7 +38,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 /**
  * Implementation of the online help support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class HelpOnlineModule implements HelpOnlineModuleApi {
 
     private URL helpUrl;
@@ -46,7 +46,7 @@ public class HelpOnlineModule implements HelpOnlineModuleApi {
     public HelpOnlineModule() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OnlineHelpAction createOnlineHelpAction() {
         OnlineHelpAction onlineHelpAction = new OnlineHelpAction();

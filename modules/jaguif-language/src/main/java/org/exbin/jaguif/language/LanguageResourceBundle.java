@@ -21,9 +21,9 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.language.api.IconSetProvider;
 
 /**
@@ -32,7 +32,7 @@ import org.exbin.jaguif.language.api.IconSetProvider;
  * Resource bundle which looks for language resources first and main resources
  * as fallback.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class LanguageResourceBundle extends ResourceBundle {
 
     protected final ResourceBundle mainResourceBundle;
@@ -66,7 +66,7 @@ public class LanguageResourceBundle extends ResourceBundle {
         return object;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Enumeration<String> getKeys() {
         Set<String> keys = new HashSet<>();

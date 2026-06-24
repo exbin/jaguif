@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.license.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JComponent;
 import org.exbin.jaguif.Module;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.ModuleUtils;
 /**
  * Interface of the license management module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface LicenseModuleApi extends Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(LicenseModuleApi.class);
@@ -37,7 +37,7 @@ public interface LicenseModuleApi extends Module {
      *
      * @return license management
      */
-    @Nonnull
+    @NonNull
     LicenseManagement getLicenseManagement();
 
     /**
@@ -45,7 +45,7 @@ public interface LicenseModuleApi extends Module {
      *
      * @return action
      */
-    @Nonnull
+    @NonNull
     Action createAboutAction();
 
     /**
@@ -65,7 +65,7 @@ public interface LicenseModuleApi extends Module {
      *
      * @return about panel
      */
-    @Nonnull
+    @NonNull
     JComponent createAboutPanel();
 
     /**

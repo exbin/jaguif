@@ -16,14 +16,14 @@
 package org.exbin.jaguif.options.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Options storage interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface OptionsStorage {
 
     /**
@@ -39,15 +39,15 @@ public interface OptionsStorage {
      */
     boolean exists(String key);
 
-    @Nonnull
+    @NonNull
     Optional<String> get(String key);
 
-    @Nonnull
+    @NonNull
     String get(String key, String def);
 
     boolean getBoolean(String key, boolean def);
 
-    @Nonnull
+    @NonNull
     byte[] getByteArray(String key, byte[] def);
 
     double getDouble(String key, double def);

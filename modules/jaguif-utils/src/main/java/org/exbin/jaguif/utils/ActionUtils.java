@@ -20,14 +20,14 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ActionMap;
 import javax.swing.text.JTextComponent;
 
 /**
  * Some simple static methods usable for actions, menus and toolbars.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ActionUtils {
 
     private ActionUtils() {

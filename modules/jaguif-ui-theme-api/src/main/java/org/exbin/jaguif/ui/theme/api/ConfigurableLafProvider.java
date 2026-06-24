@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.ui.theme.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 
 /**
@@ -28,6 +28,6 @@ public interface ConfigurableLafProvider extends LafProvider {
      *
      * @return component provider
      */
-    @Nonnull
+    @NonNull
     SettingsComponentProvider getSettingsComponentProvider();
 }

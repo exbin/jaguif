@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 /**
  * Panel for addons cart operations panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonsCartPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsCartPanel.class);
@@ -51,7 +51,6 @@ public class AddonsCartPanel extends javax.swing.JPanel {
 
             private final AddonCartComponent component = new AddonCartComponent();
 
-            @Nonnull
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 AddonOperation record = (AddonOperation) value;
@@ -64,7 +63,6 @@ public class AddonsCartPanel extends javax.swing.JPanel {
         });
     }
 
-    @Nonnull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -82,7 +80,7 @@ public class AddonsCartPanel extends javax.swing.JPanel {
         updateState();
     }
 
-    @Nonnull
+    @NonNull
     public List<AddonOperation> getCartItems() {
         List<AddonOperation> items = new ArrayList<>();
         DefaultListModel<AddonOperation> model = (DefaultListModel<AddonOperation>) itemsList.getModel();

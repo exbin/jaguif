@@ -18,8 +18,7 @@ package org.exbin.jaguif.action.manager.settings;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
@@ -39,12 +38,11 @@ import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 /**
  * Action manager settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class KeyMapSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "keymap";
 
-    @Nonnull
     @Override
     public SettingsComponent createComponent() {
         KeyMapSettingsPanel panel = new KeyMapSettingsPanel();

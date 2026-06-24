@@ -16,12 +16,12 @@
 package org.exbin.jaguif.menu.popup;
 
 import java.awt.Point;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for link handler for visual component / context menu.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface PositionLinkActionsHandler {
 
     /**

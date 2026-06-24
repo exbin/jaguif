@@ -17,13 +17,13 @@ package org.exbin.jaguif.project.api;
 
 import java.awt.Image;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Project category interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ProjectCategory {
 
     /**
@@ -31,7 +31,7 @@ public interface ProjectCategory {
      *
      * @return identifier
      */
-    @Nonnull
+    @NonNull
     String getId();
 
     /**
@@ -39,7 +39,7 @@ public interface ProjectCategory {
      *
      * @return category name
      */
-    @Nonnull
+    @NonNull
     String getName();
 
     /**
@@ -47,6 +47,6 @@ public interface ProjectCategory {
      *
      * @return icon
      */
-    @Nonnull
+    @NonNull
     Optional<Image> getIcon();
 }

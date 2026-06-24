@@ -18,15 +18,15 @@ package org.exbin.jaguif.frame.api;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextUpdateManagement;
 
 /**
  * Interface for frame controller.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface FrameController extends ContextFrame {
 
     /**
@@ -34,7 +34,7 @@ public interface FrameController extends ContextFrame {
      *
      * @return frame
      */
-    @Nonnull
+    @NonNull
     Frame getFrame();
 
     /**
@@ -89,7 +89,7 @@ public interface FrameController extends ContextFrame {
      *
      * @return component
      */
-    @Nonnull
+    @NonNull
     Component getMainPanel();
 
     /**
@@ -126,7 +126,7 @@ public interface FrameController extends ContextFrame {
      *
      * @return context manager
      */
-    @Nonnull
+    @NonNull
     ActiveContextManagement getContextManager();
 
     /**
@@ -134,6 +134,6 @@ public interface FrameController extends ContextFrame {
      *
      * @return action manager
      */
-    @Nonnull
+    @NonNull
     ContextUpdateManagement getUpdateManager();
 }

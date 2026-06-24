@@ -19,9 +19,9 @@ import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.text.font.settings.TextFontOptions;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.text.font.settings.TextFontInference;
 /**
  * Text font settings panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextFontSettingsPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextFontSettingsPanel.class);
@@ -47,7 +47,7 @@ public class TextFontSettingsPanel extends javax.swing.JPanel implements Setting
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
@@ -293,7 +293,7 @@ public class TextFontSettingsPanel extends javax.swing.JPanel implements Setting
         settingsModifiedListener = listener;
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface Controller {
 
         @Nullable

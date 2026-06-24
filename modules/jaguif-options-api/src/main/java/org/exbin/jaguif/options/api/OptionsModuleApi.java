@@ -16,15 +16,15 @@
 package org.exbin.jaguif.options.api;
 
 import java.io.InputStream;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework options module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface OptionsModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OptionsModuleApi.class);
@@ -55,7 +55,7 @@ public interface OptionsModuleApi extends Module {
      *
      * @return application options
      */
-    @Nonnull
+    @NonNull
     OptionsStorage getAppOptions();
 
     /**
@@ -63,7 +63,7 @@ public interface OptionsModuleApi extends Module {
      *
      * @return options storage
      */
-    @Nonnull
+    @NonNull
     OptionsStorage createMemoryStorage();
 
     /**
@@ -73,6 +73,6 @@ public interface OptionsModuleApi extends Module {
      * @param inputStream input stream
      * @return options storage
      */
-    @Nonnull
+    @NonNull
     OptionsStorage createStreamPreferencesStorage(InputStream inputStream);
 }

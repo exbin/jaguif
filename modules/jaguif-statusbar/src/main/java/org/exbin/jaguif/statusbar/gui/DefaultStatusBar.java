@@ -17,8 +17,8 @@ package org.exbin.jaguif.statusbar.gui;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -28,13 +28,13 @@ import org.exbin.jaguif.statusbar.api.StatusBar;
 /**
  * Status bar component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultStatusBar implements StatusBar {
 
     protected final List<JComponent> statusBarComponents = new ArrayList<>();
     protected JComponent statusBarComponent;
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         if (statusBarComponent == null) {
@@ -75,7 +75,7 @@ public class DefaultStatusBar implements StatusBar {
         return statusBarComponents.size();
     }
     
-    @Nonnull
+    @NonNull
     protected JPanel createPanel() {
         return new JPanel();
     }

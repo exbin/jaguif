@@ -16,7 +16,7 @@
 package org.exbin.jaguif.utils;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.JButton;
 
 /**
@@ -39,6 +39,6 @@ public interface OkCancelControlComponent {
      *
      * @return default button
      */
-    @Nonnull
+    @NonNull
     Optional<JButton> getDefaultButton();
 }

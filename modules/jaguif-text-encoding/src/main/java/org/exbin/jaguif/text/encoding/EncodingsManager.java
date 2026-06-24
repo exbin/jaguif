@@ -22,8 +22,8 @@ import java.awt.event.MouseEvent;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
@@ -43,7 +43,7 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 /**
  * Encodings manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EncodingsManager {
 
     public static final String ENCODING_UTF8 = "UTF-8"; //NOI18N
@@ -113,12 +113,12 @@ public class EncodingsManager {
         EncodingsManager.this.rebuildEncodings();
     }
 
-    @Nonnull
+    @NonNull
     public JMenu getToolsEncodingMenu() {
         return toolsEncodingMenu;
     }
 
-    @Nonnull
+    @NonNull
     public ManageEncodingsAction getManageEncodingsAction() {
         return manageEncodingsAction;
     }

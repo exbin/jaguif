@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.file.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.file.FileModule;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * File settings applier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FileSettingsApplier implements SettingsApplier {
 
     public static final String APPLIER_ID = "fileManager";

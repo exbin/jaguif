@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 
 /**
  * Interface for tree contribution sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface TreeContributionSequenceOutput extends Module {
 
     /**
@@ -53,7 +53,7 @@ public interface TreeContributionSequenceOutput extends Module {
      * @param subContribution sub contribution
      * @return sequence output
      */
-    @Nonnull
+    @NonNull
     TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution);
 
     /**

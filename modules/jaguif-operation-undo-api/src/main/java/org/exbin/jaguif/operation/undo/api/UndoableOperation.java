@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.operation.undo.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.operation.api.Operation;
 
 /**
@@ -28,6 +28,6 @@ public interface UndoableOperation extends Operation {
      *
      * @return undo operation
      */
-    @Nonnull
+    @NonNull
     UndoableOperation executeWithUndo();
 }

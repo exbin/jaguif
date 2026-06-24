@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.utils;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 
 /**
  * Implementation of framework utilities module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UtilsModule implements Module {
 
     public UtilsModule() {
@@ -31,7 +31,7 @@ public class UtilsModule implements Module {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     public static TestApplication createTestApplication() {
         return new TestApplication();
     }

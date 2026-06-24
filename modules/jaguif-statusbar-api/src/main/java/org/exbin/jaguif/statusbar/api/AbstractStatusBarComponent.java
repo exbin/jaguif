@@ -17,13 +17,13 @@ package org.exbin.jaguif.statusbar.api;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Abstract status bar component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public abstract class AbstractStatusBarComponent implements StatusBarComponent {
 
     protected final Map<String, Object> propertyList = new HashMap<>();

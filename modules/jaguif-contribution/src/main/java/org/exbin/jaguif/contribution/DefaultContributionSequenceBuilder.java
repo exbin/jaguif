@@ -24,9 +24,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.ContributionSequenceBuilder;
 import org.exbin.jaguif.contribution.api.ContributionSequenceOutput;
@@ -42,7 +42,7 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 /**
  * Contribution sequence builder.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultContributionSequenceBuilder implements ContributionSequenceBuilder {
 
     public DefaultContributionSequenceBuilder() {
@@ -250,7 +250,7 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
         }
     }
 
-    @Nonnull
+    @NonNull
     private static BuilderGroupRecord createGroup(BuilderRecord builderRecord, @Nullable String groupId) {
         if (groupId == null) {
             groupId = "";
@@ -276,7 +276,7 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
         Set<String> processedContributions = new HashSet<>();
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class BuilderGroupRecord extends BuilderContributionRecord {
 
         SectionProcessingState processingState = SectionProcessingState.START;
@@ -294,7 +294,7 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
         END
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     private static class BuilderItemContributionRecord extends BuilderContributionRecord {
 
         final ItemSequenceContribution contribution;
@@ -304,7 +304,7 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
             contributionId = contribution.getContributionId();
         }
 
-        @Nonnull
+        @NonNull
         public ItemSequenceContribution getContribution() {
             return contribution;
         }

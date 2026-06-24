@@ -17,7 +17,7 @@ package org.exbin.jaguif.search.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -31,7 +31,7 @@ import org.exbin.jaguif.search.api.FindSearchController;
 /**
  * Search find previous action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EditFindPreviousAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "searchFindPrevious";

@@ -22,9 +22,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.StateUpdateType;
 import org.exbin.jaguif.context.api.ContextChangeListener;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.context.api.ContextChangeListener;
 /**
  * Child active context manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ChildActiveContextManager implements ActiveContextManagement {
 
     protected final ActiveContextManagement parentContextManager;
@@ -44,7 +44,7 @@ public class ChildActiveContextManager implements ActiveContextManagement {
         this.parentContextManager = parentContextManager;
         parentContextManager.addChangeListener(new ContextChangeListener() {
             @Override
-            public <T> void notifyStateChanged(@Nonnull Class<T> stateClass, @Nullable T activeState) {
+            public <T> void notifyStateChanged(@NonNull Class<T> stateClass, @Nullable T activeState) {
                 if (childStates.contains(stateClass)) {
                     return;
                 }
@@ -74,7 +74,7 @@ public class ChildActiveContextManager implements ActiveContextManagement {
         return parentContextManager.getActiveState(stateClass);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Collection<Class<?>> getStateClasses() {
         List<Class<?>> stateClasses = new ArrayList<>();

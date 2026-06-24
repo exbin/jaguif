@@ -17,7 +17,7 @@ package org.exbin.jaguif.operation.undo.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.operation.undo.api.ContextUndoRedo;
 /**
  * Redo action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class RedoAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "editRedo";

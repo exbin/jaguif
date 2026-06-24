@@ -17,20 +17,20 @@ package org.exbin.jaguif.file;
 
 import java.io.File;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.file.api.UsedDirectoryApi;
 
 /**
  * File used directory.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultLastUsedDirectory implements UsedDirectoryApi {
 
     protected File lastUsedDirectory = null;
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<File> getLastUsedDirectory() {
         return Optional.ofNullable(lastUsedDirectory);

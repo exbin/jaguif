@@ -17,15 +17,15 @@ package org.exbin.jaguif.component.api;
 
 import org.exbin.jaguif.component.api.action.MoveItemActions;
 import org.exbin.jaguif.component.api.action.EditItemActions;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework component module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ComponentModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ComponentModuleApi.class);
@@ -36,7 +36,7 @@ public interface ComponentModuleApi extends Module {
      * @param editItemActionsHandler move item actions handler
      * @return edit item actions set
      */
-    @Nonnull
+    @NonNull
     EditItemActions createEditItemActions(ContextEditItem editItemActionsHandler);
 
     /**
@@ -45,6 +45,6 @@ public interface ComponentModuleApi extends Module {
      * @param moveItemActionsHandler move item actions handler
      * @return move item actions set
      */
-    @Nonnull
+    @NonNull
     MoveItemActions createMoveItemActions(ContextMoveItem moveItemActionsHandler);
 }

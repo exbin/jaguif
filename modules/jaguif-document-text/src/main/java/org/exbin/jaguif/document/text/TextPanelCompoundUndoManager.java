@@ -16,7 +16,7 @@
 package org.exbin.jaguif.document.text;
 
 import java.util.ArrayList;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.operation.undo.api.UndoRedoChangeListener;
 /**
  * Undo Manager with compound operations.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextPanelCompoundUndoManager extends AbstractUndoableEdit implements UndoableEditListener {
 
     private DocumentEvent.EventType lastEditType = null;

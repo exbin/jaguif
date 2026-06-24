@@ -16,13 +16,13 @@
 package org.exbin.jaguif.license.api;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface of the license management.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface LicenseManagement {
 
     /**
@@ -37,7 +37,7 @@ public interface LicenseManagement {
      *
      * @return license records
      */
-    @Nonnull
+    @NonNull
     List<LicenseRecord> getRecords();
 
     /**

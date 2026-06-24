@@ -17,8 +17,8 @@ package org.exbin.jaguif.document.text.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -43,7 +43,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
  * <p>
  * TODO: Drop in favor of exbin-framework-search
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FindReplaceActions {
 
     private ResourceBundle resourceBundle;
@@ -81,28 +81,28 @@ public class FindReplaceActions {
         dialog.showCentered(dialogParentComponent.getComponent());
     }
 
-    @Nonnull
+    @NonNull
     public EditFindAction createEditFindAction() {
         EditFindAction editFindAction = new EditFindAction();
         editFindAction.init(resourceBundle);
         return editFindAction;
     }
 
-    @Nonnull
+    @NonNull
     public EditFindAgainAction createEditFindAgainAction() {
         EditFindAgainAction editFindAgainAction = new EditFindAgainAction();
         editFindAgainAction.init(resourceBundle);
         return editFindAgainAction;
     }
 
-    @Nonnull
+    @NonNull
     public EditReplaceAction createEditReplaceAction() {
         EditReplaceAction editReplaceAction = new EditReplaceAction();
         editReplaceAction.init(resourceBundle);
         return editReplaceAction;
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public class EditFindAction extends AbstractAction {
 
         public static final String ACTION_ID = "editFind";
@@ -139,7 +139,7 @@ public class FindReplaceActions {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public class EditFindAgainAction extends AbstractAction {
 
         public static final String ACTION_ID = "editFindAgain";
@@ -175,7 +175,7 @@ public class FindReplaceActions {
         }
     }
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public class EditReplaceAction extends AbstractAction {
 
         public static final String ACTION_ID = "editReplace";

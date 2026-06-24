@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.ui.api;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for framework UI module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface UiModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(UiModuleApi.class);

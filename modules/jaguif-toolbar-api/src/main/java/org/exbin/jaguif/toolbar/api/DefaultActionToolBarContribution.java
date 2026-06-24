@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.toolbar.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
 /**
  * Default action toolbar item contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultActionToolBarContribution implements ActionToolBarContribution {
 
     protected final String contributionId;
@@ -33,13 +33,13 @@ public class DefaultActionToolBarContribution implements ActionToolBarContributi
         this.actionCreator = actionCreator;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         return actionCreator.createAction();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return contributionId;
@@ -47,7 +47,7 @@ public class DefaultActionToolBarContribution implements ActionToolBarContributi
 
     public interface ActionCreator {
 
-        @Nonnull
+        @NonNull
         Action createAction();
     }
 }

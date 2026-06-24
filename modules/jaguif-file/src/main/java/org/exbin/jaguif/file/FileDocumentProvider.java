@@ -17,8 +17,8 @@ package org.exbin.jaguif.file;
 
 import java.io.File;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.Document;
 import org.exbin.jaguif.document.api.DocumentProvider;
@@ -38,12 +38,12 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 /**
  * File document provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FileDocumentProvider implements DocumentProvider {
     
     private final UsedDirectoryApi usedDirectory = new DefaultLastUsedDirectory();
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<DocumentSource> createDocumentSource(SourceIdentifier source) {
         if (source instanceof FileSourceIdentifier) {
@@ -53,7 +53,7 @@ public class FileDocumentProvider implements DocumentProvider {
         return Optional.empty();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<DocumentSource> performOpenDefaultDocument() {
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);        
@@ -67,7 +67,7 @@ public class FileDocumentProvider implements DocumentProvider {
         return Optional.empty();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<DocumentSource> performSaveAsDefaultDocument(Document document) {
         File suggestedFile = null;

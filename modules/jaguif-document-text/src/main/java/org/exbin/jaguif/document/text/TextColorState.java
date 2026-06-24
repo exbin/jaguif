@@ -16,14 +16,14 @@
 package org.exbin.jaguif.document.text;
 
 import java.awt.Color;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.StateUpdateType;
 
 /**
  * Text color panel API.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface TextColorState {
 
     /**
@@ -31,7 +31,7 @@ public interface TextColorState {
      *
      * @return array of 5 colors
      */
-    @Nonnull
+    @NonNull
     Color[] getCurrentTextColors();
 
     /**
@@ -39,7 +39,7 @@ public interface TextColorState {
      *
      * @return array of 5 colors
      */
-    @Nonnull
+    @NonNull
     Color[] getDefaultTextColors();
 
     /**

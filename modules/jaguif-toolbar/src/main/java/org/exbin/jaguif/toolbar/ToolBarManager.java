@@ -17,8 +17,8 @@ package org.exbin.jaguif.toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JToolBar;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.contribution.api.ContributionSequenceBuilder;
 /**
  * Default toolbar manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ToolBarManager implements ToolBarManagement {
 
     protected final ContributionSequenceBuilder builder;
@@ -75,7 +75,7 @@ public class ToolBarManager implements ToolBarManagement {
         definition.addContribution(contribution);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public GroupSequenceContribution registerToolBarGroup(String toolBarId, String moduleId, String groupId) {
         return contributionManagement.registerContributionGroup(toolBarId, moduleId, groupId);
@@ -86,7 +86,7 @@ public class ToolBarManager implements ToolBarManagement {
         contributionManagement.registerContributionRule(contribution, rule);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public List<SequenceContribution> getContributions() {
         List<ContributionDefinition> definitions = contributionManagement.getAllDefinitions();

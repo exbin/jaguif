@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import org.exbin.jaguif.contribution.api.SubSequenceContributionRule;
 
 /**
  * Settings page contribution rule.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class SettingsPageContributionRule extends SubSequenceContributionRule {
 
@@ -48,7 +48,7 @@ public class SettingsPageContributionRule extends SubSequenceContributionRule {
         this(pageContribution.getContributionId(), parameter);
     }
 
-    @Nonnull
+    @NonNull
     public Parameter getParameter() {
         return parameter;
     }

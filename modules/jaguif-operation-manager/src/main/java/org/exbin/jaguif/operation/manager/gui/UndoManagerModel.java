@@ -17,9 +17,9 @@ package org.exbin.jaguif.operation.manager.gui;
 
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractListModel;
 import org.exbin.jaguif.operation.api.Command;
 import org.exbin.jaguif.operation.undo.api.UndoRedo;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.operation.undo.api.UndoRedo;
 /**
  * List model for undo manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UndoManagerModel extends AbstractListModel<String> {
 
     private UndoRedo undoRedo = null;
@@ -71,7 +71,7 @@ public class UndoManagerModel extends AbstractListModel<String> {
         return (int) undoRedo.getCommandPosition();
     }
 
-    @Nonnull
+    @NonNull
     private List<Command> getList() {
         return Objects.requireNonNull(undoRedo.getCommandList());
     }

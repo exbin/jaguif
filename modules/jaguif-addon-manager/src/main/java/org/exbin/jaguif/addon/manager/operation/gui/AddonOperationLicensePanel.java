@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.ListSelectionEvent;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
 /**
  * Addons operation license approval panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonOperationLicensePanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationLicensePanel.class);
@@ -72,7 +72,7 @@ public class AddonOperationLicensePanel extends javax.swing.JPanel {
         });
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addon dependency record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DependencyRecord {
 
     private String id;
@@ -37,7 +37,7 @@ public class DependencyRecord {
         this.id = id;
     }
 
-    @Nonnull
+    @NonNull
     public String getId() {
         return id;
     }
@@ -46,7 +46,7 @@ public class DependencyRecord {
         this.id = id;
     }
 
-    @Nonnull
+    @NonNull
     public Type getType() {
         return type;
     }

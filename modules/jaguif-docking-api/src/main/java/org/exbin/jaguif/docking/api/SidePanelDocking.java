@@ -16,14 +16,14 @@
 package org.exbin.jaguif.docking.api;
 
 import java.awt.Component;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextActivable;
 
 /**
  * Interface for side panel docking.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface SidePanelDocking extends ContextActivable {
 
     /**

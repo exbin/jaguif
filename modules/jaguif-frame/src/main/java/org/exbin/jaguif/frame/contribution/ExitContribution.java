@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.frame.contribution;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
@@ -28,14 +28,14 @@ public class ExitContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "exit";
 
-    @Nonnull
+    @NonNull
     @Override
     public Action createAction() {
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         return frameModule.createExitAction();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

@@ -16,13 +16,13 @@
 package org.exbin.jaguif.document.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for document provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface DocumentProvider {
 
     /**
@@ -31,7 +31,7 @@ public interface DocumentProvider {
      * @param source document source
      * @return document or empty if failed / cancelled
      */
-    @Nonnull
+    @NonNull
     Optional<DocumentSource> createDocumentSource(SourceIdentifier source);
 
     /**
@@ -39,7 +39,7 @@ public interface DocumentProvider {
      *
      * @return document source or empty if failed / cancelled
      */
-    @Nonnull
+    @NonNull
     Optional<DocumentSource> performOpenDefaultDocument();
 
     /**
@@ -48,6 +48,6 @@ public interface DocumentProvider {
      * @param document refered document
      * @return document source or empty if failed / cancelled
      */
-    @Nonnull
+    @NonNull
     Optional<DocumentSource> performSaveAsDefaultDocument(Document document);
 }

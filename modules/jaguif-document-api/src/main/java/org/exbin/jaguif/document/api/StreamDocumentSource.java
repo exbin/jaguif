@@ -17,7 +17,7 @@ package org.exbin.jaguif.document.api;
 
 import java.io.InputStream;
 import java.io.OutputStream;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface for stream access document source.
@@ -29,7 +29,7 @@ public interface StreamDocumentSource extends DocumentSource {
      *
      * @return document title
      */
-    @Nonnull
+    @NonNull
     String getDocumentTitle();
 
     /**
@@ -37,7 +37,7 @@ public interface StreamDocumentSource extends DocumentSource {
      *
      * @return input stream
      */
-    @Nonnull
+    @NonNull
     InputStream openInputStream();
 
     /**
@@ -45,6 +45,6 @@ public interface StreamDocumentSource extends DocumentSource {
      *
      * @return output stream
      */
-    @Nonnull
+    @NonNull
     OutputStream openOutputStream();
 }

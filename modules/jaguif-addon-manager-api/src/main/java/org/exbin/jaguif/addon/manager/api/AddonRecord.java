@@ -18,14 +18,14 @@ package org.exbin.jaguif.addon.manager.api;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addon record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonRecord extends ItemRecord {
 
     private RepositoryRecord repository;
@@ -38,7 +38,7 @@ public class AddonRecord extends ItemRecord {
         super(id, name);
     }
 
-    @Nonnull
+    @NonNull
     public RepositoryRecord getRepository() {
         return repository;
     }
@@ -47,7 +47,7 @@ public class AddonRecord extends ItemRecord {
         this.repository = repository;
     }
 
-    @Nonnull
+    @NonNull
     public List<DependencyRecord> getDependencies() {
         return dependencies;
     }
@@ -56,7 +56,7 @@ public class AddonRecord extends ItemRecord {
         this.dependencies = dependencies;
     }
 
-    @Nonnull
+    @NonNull
     public String getLicense() {
         return license;
     }
@@ -65,7 +65,7 @@ public class AddonRecord extends ItemRecord {
         this.license = license;
     }
 
-    @Nonnull
+    @NonNull
     public Optional<String> getLicenseSpdx() {
         return Optional.ofNullable(licenseSpdx);
     }
@@ -74,7 +74,7 @@ public class AddonRecord extends ItemRecord {
         this.licenseSpdx = licenseSpdx;
     }
 
-    @Nonnull
+    @NonNull
     public String getLicenseRemoteFile() {
         return licenseRemoteFile;
     }

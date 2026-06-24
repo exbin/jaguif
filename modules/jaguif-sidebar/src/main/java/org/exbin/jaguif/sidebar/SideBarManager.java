@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.sidebar;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.frame.api.FrameController;
 /**
  * Default sidebar manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SideBarManager implements SideBarManagement {
 
     protected final ContributionSequenceBuilder builder;
@@ -73,7 +73,7 @@ public class SideBarManager implements SideBarManagement {
         definition.addContribution(contribution);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public GroupSequenceContribution registerSideBarGroup(String sideBarId, String moduleId, String groupId) {
         return contributionManagement.registerContributionGroup(sideBarId, moduleId, groupId);
@@ -84,7 +84,7 @@ public class SideBarManager implements SideBarManagement {
         contributionManagement.registerContributionRule(contribution, rule);
     }
 
-    @Nonnull
+    @NonNull
     public SideBar createSideToolBar(SidePanelDocking docking) {
         SideBar sideBar = new DefaultSideBar(docking);
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);

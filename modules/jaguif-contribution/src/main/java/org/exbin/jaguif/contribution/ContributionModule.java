@@ -16,8 +16,8 @@
 package org.exbin.jaguif.contribution;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.ContributionManagement;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.contribution.api.TreeContributionSequenceBuilder;
 /**
  * Implementation of contribution module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ContributionModule implements ContributionModuleApi {
 
     private ResourceBundle resourceBundle;
@@ -41,7 +41,7 @@ public class ContributionModule implements ContributionModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ContributionModule.class);
@@ -50,31 +50,31 @@ public class ContributionModule implements ContributionModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ContributionDefinition createContributionDefinition() {
         return new DefaultContributionDefinition();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ContributionManagement createContributionManager() {
         return new ContributionManager();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ContributionSequenceBuilder createContributionSequenceBuilder() {
         return new DefaultContributionSequenceBuilder();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TreeContributionManagement createTreeContributionManager() {
         return new TreeContributionManager();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TreeContributionSequenceBuilder createTreeContributionSequenceBuilder() {
         return new DefaultTreeContributionSequenceBuilder();

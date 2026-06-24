@@ -17,7 +17,7 @@ package org.exbin.jaguif.license.action;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
@@ -36,7 +36,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 /**
  * About application action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AboutAction extends AbstractAction {
 
     public static final String ACTION_ID = "about";

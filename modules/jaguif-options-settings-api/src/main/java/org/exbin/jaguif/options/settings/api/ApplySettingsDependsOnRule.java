@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
 /**
  * Apply settings dependency rule.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class ApplySettingsDependsOnRule {
 
@@ -32,7 +32,7 @@ public class ApplySettingsDependsOnRule {
         this.dependOnPageId = dependOnPageId;
     }
 
-    @Nonnull
+    @NonNull
     public String getDependOnPageId() {
         return dependOnPageId;
     }

@@ -17,8 +17,7 @@ package org.exbin.jaguif.action.clipboard;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.SwingUtilities;
@@ -34,7 +33,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationActions;
 /**
  * Clipboard actions for text component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultTextClipboardActions implements TextClipboardOperationActions {
 
     public static final String EDIT_SELECT_ALL_ACTION_ID = "editSelectAll";
@@ -83,7 +82,6 @@ public class DefaultTextClipboardActions implements TextClipboardOperationAction
         }
     }
 
-    @Nonnull
     @Override
     public Action createCutAction() {
         PassingTextAction cutTextAction = new PassingTextAction(new DefaultEditorKit.CutAction());
@@ -95,7 +93,6 @@ public class DefaultTextClipboardActions implements TextClipboardOperationAction
         return cutTextAction;
     }
 
-    @Nonnull
     @Override
     public Action createCopyAction() {
         PassingTextAction copyTextAction = new PassingTextAction(new DefaultEditorKit.CopyAction());
@@ -107,7 +104,6 @@ public class DefaultTextClipboardActions implements TextClipboardOperationAction
         return copyTextAction;
     }
 
-    @Nonnull
     @Override
     public Action createPasteAction() {
         PassingTextAction pasteTextAction = new PassingTextAction(new DefaultEditorKit.PasteAction());
@@ -119,7 +115,6 @@ public class DefaultTextClipboardActions implements TextClipboardOperationAction
         return pasteTextAction;
     }
 
-    @Nonnull
     @Override
     public Action createDeleteAction() {
         PassingTextAction deleteTextAction = new PassingTextAction(new TextAction(DELETE_ACTION) {
@@ -140,7 +135,6 @@ public class DefaultTextClipboardActions implements TextClipboardOperationAction
         return deleteTextAction;
     }
 
-    @Nonnull
     @Override
     public Action createSelectAllAction() {
         PassingTextAction selectAllTextAction = new PassingTextAction(new TextAction(SELECT_ALL_ACTION) {

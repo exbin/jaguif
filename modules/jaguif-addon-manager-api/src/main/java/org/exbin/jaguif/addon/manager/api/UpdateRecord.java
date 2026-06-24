@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addon update record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UpdateRecord {
 
     private String moduleId;
@@ -32,7 +32,7 @@ public class UpdateRecord {
         this.version = version;
     }
 
-    @Nonnull
+    @NonNull
     public String getModuleId() {
         return moduleId;
     }
@@ -41,7 +41,7 @@ public class UpdateRecord {
         this.moduleId = moduleId;
     }
 
-    @Nonnull
+    @NonNull
     public String getVersion() {
         return version;
     }

@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.toolbar;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JComponent;
 import jdk.nashorn.internal.ir.annotations.Immutable;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarComponent;
 /**
  * Default toolbar definition manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class DefaultToolBarComponent implements ToolBarComponent {
 
@@ -37,13 +37,13 @@ public class DefaultToolBarComponent implements ToolBarComponent {
         this.action = action;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         return component;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Action getAction() {
         return action;

@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.ui.api;
 
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 import javax.swing.JComponent;
 
 /**
@@ -28,6 +28,6 @@ public interface View {
      *
      * @return component
      */
-    @Nonnull
+    @NonNull
     JComponent getComponent();
 }

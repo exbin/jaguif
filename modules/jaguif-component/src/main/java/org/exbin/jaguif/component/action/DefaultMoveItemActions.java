@@ -16,8 +16,8 @@
 package org.exbin.jaguif.component.action;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.component.ComponentModule;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 /**
  * Item movement default action set.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DefaultMoveItemActions implements MoveItemActions {
 
     public static final String GROUP_ID = "moveItem";
@@ -41,7 +41,7 @@ public class DefaultMoveItemActions implements MoveItemActions {
     public DefaultMoveItemActions() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MoveUpAction createMoveUpAction() {
         MoveUpAction moveUpAction = new MoveUpAction();
@@ -49,7 +49,7 @@ public class DefaultMoveItemActions implements MoveItemActions {
         return moveUpAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MoveDownAction createMoveDownAction() {
         MoveDownAction moveDownAction = new MoveDownAction();
@@ -57,7 +57,7 @@ public class DefaultMoveItemActions implements MoveItemActions {
         return moveDownAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MoveTopAction createMoveTopAction() {
         MoveTopAction moveTopAction = new MoveTopAction();
@@ -65,7 +65,7 @@ public class DefaultMoveItemActions implements MoveItemActions {
         return moveTopAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MoveBottomAction createMoveBottomAction() {
         MoveBottomAction moveBottomAction = new MoveBottomAction();
@@ -73,17 +73,17 @@ public class DefaultMoveItemActions implements MoveItemActions {
         return moveBottomAction;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SequenceContribution createMoveUpContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createAction() {
                 return createMoveUpAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public String getContributionId() {
                 return MoveUpAction.ACTION_ID;
@@ -91,17 +91,17 @@ public class DefaultMoveItemActions implements MoveItemActions {
         };
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SequenceContribution createMoveDownContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createAction() {
                 return createMoveDownAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public String getContributionId() {
                 return MoveDownAction.ACTION_ID;
@@ -109,17 +109,17 @@ public class DefaultMoveItemActions implements MoveItemActions {
         };
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SequenceContribution createMoveTopContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createAction() {
                 return createMoveTopAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public String getContributionId() {
                 return MoveTopAction.ACTION_ID;
@@ -127,17 +127,17 @@ public class DefaultMoveItemActions implements MoveItemActions {
         };
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SequenceContribution createMoveBottomContribution() {
         return new ActionSequenceContribution() {
-            @Nonnull
+            @NonNull
             @Override
             public Action createAction() {
                 return createMoveBottomAction();
             }
 
-            @Nonnull
+            @NonNull
             @Override
             public String getContributionId() {
                 return MoveBottomAction.ACTION_ID;

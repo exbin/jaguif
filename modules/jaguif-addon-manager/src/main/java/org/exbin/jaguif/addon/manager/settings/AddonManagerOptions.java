@@ -16,8 +16,8 @@
 package org.exbin.jaguif.addon.manager.settings;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptions;
 /**
  * Addon manager options.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonManagerOptions implements SettingsOptions {
 
     public static final String KEY_ACTIVATED_VERSION = "addonManager.activatedVersion";
@@ -37,7 +37,7 @@ public class AddonManagerOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @Nonnull
+    @NonNull
     public String getActivatedVersion() {
         ResourceBundle appBundle = App.getAppBundle();
         String defaultVersion = appBundle.getString(ApplicationBundleKeys.APPLICATION_RELEASE) + "-SNAPSHOT";

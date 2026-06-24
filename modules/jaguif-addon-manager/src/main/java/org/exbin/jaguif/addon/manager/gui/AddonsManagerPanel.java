@@ -20,8 +20,8 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -37,7 +37,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 /**
  * Addons manager panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonsManagerPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsManagerPanel.class);
@@ -123,7 +123,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         });
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -146,10 +146,10 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         }
     }
 
-    @Nonnull
+    @NonNull
     public TabPages getTabPages() {
         return new TabPages() {
-            @Nonnull
+            @NonNull
             @Override
             public JComponent getComponent() {
                 return tabPages.getComponent();
@@ -188,7 +188,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         };
     }
 
-    @Nonnull
+    @NonNull
     public AddonManagerPage getActiveTab() {
         int activeIndex = tabPages.getActivePageIndex();
         return managerTabs.get(activeIndex);
@@ -292,7 +292,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
     private javax.swing.JTextField searchTextField;
     // End of variables declaration//GEN-END:variables
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public interface Controller {
 
         void openCatalog();

@@ -17,9 +17,9 @@ package org.exbin.jaguif.menu;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
 import javax.swing.JMenu;
@@ -40,7 +40,7 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 /**
  * Menu bar sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
 
     protected final JMenuBar menuBar;
@@ -100,7 +100,7 @@ public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
     public void addSeparator() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution) {
         return new MenuSequenceOutput(((SubMenuContribution) subContribution).getSubMenu().get(), contextRegistration, creationContext, buttonGroups);

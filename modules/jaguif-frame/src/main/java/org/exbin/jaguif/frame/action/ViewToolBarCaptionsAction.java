@@ -17,7 +17,7 @@ package org.exbin.jaguif.frame.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JMenuItem;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.frame.api.FrameController;
 /**
  * View tool bar captions action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ViewToolBarCaptionsAction extends AbstractAction {
 
     public static final String ACTION_ID = "viewToolBarCaptions";

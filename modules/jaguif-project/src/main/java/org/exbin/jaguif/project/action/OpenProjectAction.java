@@ -18,7 +18,7 @@ package org.exbin.jaguif.project.action;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.utils.ActionUtils;
 /**
  * Open project action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class OpenProjectAction extends AbstractAction {
 
     public static final String ACTION_ID = "openProject";

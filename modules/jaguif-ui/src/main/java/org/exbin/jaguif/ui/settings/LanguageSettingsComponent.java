@@ -21,8 +21,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -35,12 +35,12 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 /**
  * Language settings component.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class LanguageSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "language";
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsComponent createComponent() {
         LanguageSettingsPanel panel = new LanguageSettingsPanel();

@@ -17,14 +17,14 @@ package org.exbin.jaguif.frame;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.WindowClosingListener;
 import org.exbin.jaguif.frame.api.FrameController;
 
 /**
  * Frame exit handler.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FrameClosingHandler {
 
     private final List<WindowClosingListener> closingListeners = new ArrayList<>();

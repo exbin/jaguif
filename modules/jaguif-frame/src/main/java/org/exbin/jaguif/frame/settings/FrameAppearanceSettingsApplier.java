@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.frame.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.settings.api.SettingsApplier;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.frame.api.ContextFrame;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Frame appearance settings applier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FrameAppearanceSettingsApplier implements SettingsApplier {
 
     public static final String APPLIER_ID = "frameAppearance";

@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.addon.manager.settings;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.settings.gui.AddonManagerSettingsPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
@@ -24,12 +24,12 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 /**
  * Addon manager settings component provider.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonManagerSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "addonManager";
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsComponent createComponent() {
         return new AddonManagerSettingsPanel();

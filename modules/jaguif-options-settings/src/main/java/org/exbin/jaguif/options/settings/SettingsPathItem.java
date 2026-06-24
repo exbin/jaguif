@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.options.settings;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Record for path in settings tree.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SettingsPathItem {
 
     private String groupId;
@@ -40,7 +40,7 @@ public class SettingsPathItem {
         this.name = name;
     }
 
-    @Nonnull
+    @NonNull
     public String getGroupId() {
         return groupId;
     }

@@ -17,8 +17,8 @@ package org.exbin.jaguif.window.api.gui;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.RemovalControlController;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.window.api.controller.RemovalControlController;
 /**
  * Basic control panel with support for removal.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class RemovalControlPanel extends FooterControlPanel implements RemovalControlController.RemovalControlComponent {
 
     private RemovalControlController controller;
@@ -108,7 +108,7 @@ public class RemovalControlPanel extends FooterControlPanel implements RemovalCo
         performClick(RemovalControlController.ControlActionType.CANCEL);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(okButton);

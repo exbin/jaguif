@@ -17,15 +17,16 @@ package org.exbin.jaguif.basic;
 
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
 import javax.swing.ImageIcon;
 import org.exbin.jaguif.Module;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for record about single module.
  *
  * @author ExBin Project (http://exbin.org)
  */
+@NullMarked
 public interface ModuleRecord {
 
     /**
@@ -33,7 +34,6 @@ public interface ModuleRecord {
      *
      * @return module ID
      */
-    @Nonnull
     String getModuleId();
 
     /**
@@ -41,7 +41,6 @@ public interface ModuleRecord {
      *
      * @return module type
      */
-    @Nonnull
     ModuleType getType();
 
     /**
@@ -49,7 +48,6 @@ public interface ModuleRecord {
      *
      * @return module instance
      */
-    @Nonnull
     Module getModule();
 
     /**
@@ -57,7 +55,6 @@ public interface ModuleRecord {
      *
      * @return file location
      */
-    @Nonnull
     ModuleFileLocation getFileLocation();
 
     /**
@@ -65,7 +62,6 @@ public interface ModuleRecord {
      *
      * @return module name
      */
-    @Nonnull
     String getName();
 
     /**
@@ -73,7 +69,6 @@ public interface ModuleRecord {
      *
      * @return module version
      */
-    @Nonnull
     String getVersion();
 
     /**
@@ -81,7 +76,6 @@ public interface ModuleRecord {
      *
      * @return description text
      */
-    @Nonnull
     Optional<String> getDescription();
 
     /**
@@ -89,7 +83,6 @@ public interface ModuleRecord {
      *
      * @return icon if present
      */
-    @Nonnull
     Optional<ImageIcon> getIcon();
 
     /**
@@ -97,7 +90,6 @@ public interface ModuleRecord {
      *
      * @return module provider
      */
-    @Nonnull
     Optional<String> getProvider();
 
     /**
@@ -105,7 +97,6 @@ public interface ModuleRecord {
      *
      * @return module homepage
      */
-    @Nonnull
     Optional<String> getHomepage();
 
     /**
@@ -113,7 +104,6 @@ public interface ModuleRecord {
      *
      * @return list of dependecy module identifiers
      */
-    @Nonnull
     List<String> getDependencyModuleIds();
 
     /**
@@ -121,7 +111,6 @@ public interface ModuleRecord {
      *
      * @return list of dependecy libraries
      */
-    @Nonnull
     List<String> getDependencyLibraries();
 
     /**
@@ -129,6 +118,5 @@ public interface ModuleRecord {
      *
      * @return list of module identifiers
      */
-    @Nonnull
     List<String> getOptionalModuleIds();
 }

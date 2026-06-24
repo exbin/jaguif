@@ -16,8 +16,8 @@
 package org.exbin.jaguif.license;
 
 import com.formdev.flatlaf.extras.FlatDesktop;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.license.action.AboutAction;
@@ -42,7 +42,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 /**
  * License management module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class LicenseModule implements LicenseModuleApi {
 
     private LicenseManager licenseManager;
@@ -54,7 +54,7 @@ public class LicenseModule implements LicenseModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public LicenseManagement getLicenseManagement() {
         if (licenseManager == null) {
@@ -64,7 +64,7 @@ public class LicenseModule implements LicenseModuleApi {
         return licenseManager;
     }
 
-    @Nonnull
+    @NonNull
     private AboutApplication getAboutApplication() {
         if (aboutApplication == null) {
             aboutApplication = new AboutApplication();
@@ -73,7 +73,7 @@ public class LicenseModule implements LicenseModuleApi {
         return aboutApplication;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public AboutAction createAboutAction() {
         return getAboutApplication().createAboutAction();
@@ -126,7 +126,7 @@ public class LicenseModule implements LicenseModuleApi {
         getAboutApplication().setAboutDialogSideComponent(sideComponent);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent createAboutPanel() {
         return getAboutApplication().createAboutPanel();

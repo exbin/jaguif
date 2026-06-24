@@ -16,13 +16,13 @@
 package org.exbin.jaguif.addon.manager.operation.model;
 
 import java.net.URL;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * License item record.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class LicenseItemRecord {
 
     private String name;
@@ -35,7 +35,7 @@ public class LicenseItemRecord {
         this.remoteFile = remoteFile;
     }
 
-    @Nonnull
+    @NonNull
     public String getName() {
         return name;
     }
@@ -44,7 +44,7 @@ public class LicenseItemRecord {
         this.name = name;
     }
 
-    @Nonnull
+    @NonNull
     public String getRemoteFile() {
         return remoteFile;
     }
@@ -53,7 +53,7 @@ public class LicenseItemRecord {
         this.remoteFile = remoteFile;
     }
 
-    @Nonnull
+    @NonNull
     public URL getUrl() {
         return url;
     }

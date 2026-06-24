@@ -17,15 +17,15 @@ package org.exbin.jaguif.addon.catalog.api;
 
 import java.awt.Frame;
 import java.net.URL;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface of the addon update checking module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonCatalogModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonCatalogModuleApi.class);

@@ -17,7 +17,7 @@ package org.exbin.jaguif.tabpages;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.contribution.api.ContributionSequenceOutput;
@@ -32,7 +32,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 /**
  * Tab pages sequence output.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TabPagesSequenceOutput implements ContributionSequenceOutput {
 
     protected final TabPages tabPages;

@@ -16,8 +16,8 @@
 package org.exbin.jaguif.search.file;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.search.file.action.SearchInFilesActions;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.search.api.SearchModuleApi;
 /**
  * Implementation of framework search module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SearchFileModule implements SearchModuleApi {
 
     private java.util.ResourceBundle resourceBundle = null;
@@ -36,7 +36,7 @@ public class SearchFileModule implements SearchModuleApi {
     public SearchFileModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SearchFileModule.class);
@@ -45,7 +45,7 @@ public class SearchFileModule implements SearchModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     public SearchInFilesActions getFindReplaceActions() {
         if (findReplaceActions == null) {
             findReplaceActions = new SearchInFilesActions();

@@ -16,22 +16,22 @@
 package org.exbin.jaguif.document.text.service;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import javax.swing.JTextArea;
 
 /**
  * Text search service.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface TextSearchService {
 
-    @Nonnull
+    @NonNull
     Optional<FoundMatch> findText(JTextArea textArea, FindTextParameters findTextParameters);
 
-    @ParametersAreNonnullByDefault
+    @NullMarked
     public static class FindTextParameters {
 
         private int startFrom;
@@ -48,7 +48,7 @@ public interface TextSearchService {
             return searchFromStart;
         }
 
-        @Nonnull
+        @NonNull
         public String getFindText() {
             return findText;
         }
@@ -57,7 +57,7 @@ public interface TextSearchService {
             return shallReplace;
         }
 
-        @Nonnull
+        @NonNull
         public Optional<String> getReplaceText() {
             return Optional.ofNullable(replaceText);
         }

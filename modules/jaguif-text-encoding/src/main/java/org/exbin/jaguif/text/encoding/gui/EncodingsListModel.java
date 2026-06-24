@@ -18,15 +18,15 @@ package org.exbin.jaguif.text.encoding.gui;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractListModel;
 
 /**
  * List model for encoding / character sets.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EncodingsListModel extends AbstractListModel<String> {
 
     protected final List<String> charsets = new ArrayList<>();
@@ -36,13 +36,13 @@ public class EncodingsListModel extends AbstractListModel<String> {
         return charsets.size();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getElementAt(int index) {
         return charsets.get(index);
     }
 
-    @Nonnull
+    @NonNull
     public List<String> getCharsets() {
         return charsets;
     }

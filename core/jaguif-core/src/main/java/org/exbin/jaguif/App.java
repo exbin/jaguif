@@ -18,13 +18,12 @@ package org.exbin.jaguif;
 import java.io.File;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Framework application.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public final class App {
 
     private static ModuleProvider moduleProvider = null;
@@ -51,7 +50,6 @@ public final class App {
         moduleProvider.launch(launcherModuleId, args);
     }
 
-    @Nonnull
     public static <T extends Module> T getModule(Class<T> interfaceClass) {
         if (moduleProvider != null) {
             return moduleProvider.getModule(interfaceClass);
@@ -60,17 +58,14 @@ public final class App {
         throw createNotInitializedException();
     }
 
-    @Nonnull
     public static ModuleProvider getModuleProvider() {
         return Objects.requireNonNull(moduleProvider);
     }
 
-    @Nonnull
     public static File getConfigDirectory() {
         return Objects.requireNonNull(configDirectory);
     }
 
-    @Nonnull
     public static ResourceBundle getAppBundle() {
         return Objects.requireNonNull(appBundle);
     }

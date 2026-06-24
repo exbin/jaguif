@@ -16,9 +16,9 @@
 package org.exbin.jaguif.menu;
 
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.menu.api.MenuManagement;
 /**
  * Default menu definition manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MenuDefinitionManager implements MenuDefinitionManagement {
 
     protected final MenuManagement menuManager;
@@ -61,7 +61,7 @@ public class MenuDefinitionManager implements MenuDefinitionManagement {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public DirectMenuContribution registerMenuItem(MenuItemProvider menuItemProvider) {
         DirectMenuContribution contribution = menuManager.registerMenuItem(menuId, moduleId, menuItemProvider);
@@ -71,7 +71,7 @@ public class MenuDefinitionManager implements MenuDefinitionManagement {
         return contribution;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SubMenuContribution registerMenuItem(String subMenuId, Action subMenuAction) {
         SubMenuContribution contribution = menuManager.registerMenuItem(menuId, moduleId, subMenuId, subMenuAction);
@@ -81,7 +81,7 @@ public class MenuDefinitionManager implements MenuDefinitionManagement {
         return contribution;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SubMenuContribution registerMenuItem(String subMenuId, String subMenuName) {
         SubMenuContribution contribution = menuManager.registerMenuItem(menuId, moduleId, subMenuId, subMenuName);
@@ -91,7 +91,7 @@ public class MenuDefinitionManager implements MenuDefinitionManagement {
         return contribution;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public GroupSequenceContribution registerMenuGroup(String groupId) {
         GroupSequenceContribution contribution = menuManager.registerMenuGroup(menuId, moduleId, groupId);
@@ -111,13 +111,13 @@ public class MenuDefinitionManager implements MenuDefinitionManagement {
         menuManager.registerMenuRule(contribution, rule);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MenuDefinitionManagement getSubMenu(String subMenuId) {
         return new MenuDefinitionManager(menuManager, menuId, moduleId, subMenuId);
     }
     
-    @Nonnull
+    @NonNull
     @Override
     public List<SequenceContribution> getContributions() {
         return menuManager.getContributions();

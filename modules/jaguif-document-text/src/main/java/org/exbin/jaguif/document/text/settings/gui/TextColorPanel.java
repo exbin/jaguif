@@ -20,8 +20,8 @@ import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import org.exbin.jaguif.App;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.document.text.settings.TextColorInference;
 /**
  * Text color selection panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextColorPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected SettingsModifiedListener settingsModifiedListener;
@@ -47,7 +47,7 @@ public class TextColorPanel extends javax.swing.JPanel implements SettingsCompon
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
@@ -571,7 +571,7 @@ public class TextColorPanel extends javax.swing.JPanel implements SettingsCompon
         setFoundBackgroundColor(colors[4]);
     }
 
-    @Nonnull
+    @NonNull
     public Color[] getArrayFromColors() {
         Color[] colors = new Color[5];
         colors[0] = getTextColor();

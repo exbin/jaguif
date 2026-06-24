@@ -16,8 +16,7 @@
 package org.exbin.jaguif.action.api;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import org.exbin.jaguif.Module;
@@ -30,7 +29,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationActions;
 /**
  * Interface for action support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ActionModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ActionModuleApi.class);
@@ -59,7 +58,6 @@ public interface ActionModuleApi extends Module {
      *
      * @return clipboard editing actions
      */
-    @Nonnull
     ClipboardOperationActions getClipboardOperationActions();
 
     /**
@@ -67,7 +65,6 @@ public interface ActionModuleApi extends Module {
      *
      * @return clipboard/editing text actions.
      */
-    @Nonnull
     TextClipboardOperationActions getClipboardTextOperationActions();
 
     /**
@@ -76,7 +73,6 @@ public interface ActionModuleApi extends Module {
      * @param actionId action ID
      * @return image icon
      */
-    @Nonnull
     ImageIcon getClipboardActionIcon(String actionId);
 
     /**

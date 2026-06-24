@@ -15,12 +15,12 @@
  */
 package org.exbin.jaguif;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Launch module interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface LauncherModule extends Module {
 
     /**

@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.ui.api.UiModuleApi;
@@ -33,7 +33,7 @@ import org.exbin.jaguif.ui.settings.LanguageSettingsComponent;
 /**
  * Module for user interface handling.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UiModule implements UiModuleApi {
 
     private ResourceBundle resourceBundle;
@@ -44,7 +44,7 @@ public class UiModule implements UiModuleApi {
     public UiModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(UiModule.class);

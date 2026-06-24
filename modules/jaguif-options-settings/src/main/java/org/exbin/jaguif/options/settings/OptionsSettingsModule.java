@@ -18,9 +18,9 @@ package org.exbin.jaguif.options.settings;
 import com.formdev.flatlaf.extras.FlatDesktop;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextModuleApi;
@@ -44,7 +44,7 @@ import org.exbin.jaguif.options.settings.contribution.SettingsContribution;
 /**
  * Implementation of framework options settings module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class OptionsSettingsModule implements OptionsSettingsModuleApi {
 
     public static final String OPTIONS_PANEL_KEY = "options";
@@ -59,7 +59,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
     public OptionsSettingsModule() {
     }
 
-    @Nonnull
+    @NonNull
     private ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(OptionsSettingsModule.class);
@@ -68,7 +68,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public OptionsSettingsManager getMainSettingsManager() {
         if (optionsSettingsManager == null) {
@@ -78,7 +78,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         return optionsSettingsManager;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsAction createSettingsAction() {
         SettingsAction optionsAction = new SettingsAction();
@@ -133,7 +133,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsPanelType getSettingsPanelType() {
         return settingsPanelType;
@@ -144,7 +144,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         this.settingsPanelType = settingsPanelType;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<String> getOptionsRootCaption() {
         return Optional.ofNullable(optionsRootCaption);
@@ -155,7 +155,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         this.optionsRootCaption = optionsRootCaption;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public SettingsOptionsOverrides createSettingsOptionsOverrides(SettingsOptionsProvider settingsOptionsProvider) {
         return new DefaultSettingsOptionsOverrides(settingsOptionsProvider);

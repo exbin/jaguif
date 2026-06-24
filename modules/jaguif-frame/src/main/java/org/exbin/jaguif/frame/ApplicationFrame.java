@@ -21,9 +21,9 @@ import java.awt.Frame;
 import java.awt.Rectangle;
 import java.beans.PropertyChangeEvent;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
@@ -49,7 +49,7 @@ import org.exbin.jaguif.frame.api.FrameController;
 /**
  * Basic appplication frame.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ApplicationFrame extends javax.swing.JFrame implements FrameController, WindowHeaderPanel.WindowHeaderDecorationProvider {
 
     private FrameClosingHandler exitHandler;
@@ -206,7 +206,7 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         });
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Frame getFrame() {
         return this;
@@ -265,7 +265,7 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Component getMainPanel() {
         return mainComponent;
@@ -336,13 +336,13 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         this.exitHandler = exitHandler;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ActiveContextManagement getContextManager() {
         return frameContextManager;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ContextUpdateManagement getUpdateManager() {
         return updateManager;

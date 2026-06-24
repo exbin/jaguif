@@ -16,8 +16,8 @@
 package org.exbin.jaguif.docking.api;
 
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.api.Document;
 import org.exbin.jaguif.utils.ComponentProvider;
 import org.exbin.jaguif.context.api.StateUpdateType;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.context.api.StateUpdateType;
 /**
  * Interface for document docking.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface DocumentDocking extends ComponentProvider {
 
     /**
@@ -33,7 +33,7 @@ public interface DocumentDocking extends ComponentProvider {
      *
      * @return active document
      */
-    @Nonnull
+    @NonNull
     Optional<Document> getActiveDocument();
 
     /**
@@ -55,7 +55,7 @@ public interface DocumentDocking extends ComponentProvider {
      *
      * @return new document
      */
-    @Nonnull
+    @NonNull
     Optional<Document> openNewDocument();
 
     /**

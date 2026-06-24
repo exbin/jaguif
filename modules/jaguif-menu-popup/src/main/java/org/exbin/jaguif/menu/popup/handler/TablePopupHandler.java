@@ -16,7 +16,7 @@
 package org.exbin.jaguif.menu.popup.handler;
 
 import java.awt.datatransfer.StringSelection;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import org.exbin.jaguif.utils.ClipboardUtils;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 /**
  * Popup handler for table.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TablePopupHandler implements TextClipboardOperationController {
 
     private final JTable tableComp;

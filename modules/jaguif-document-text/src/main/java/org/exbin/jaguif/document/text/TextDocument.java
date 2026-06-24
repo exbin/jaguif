@@ -27,9 +27,9 @@ import java.net.URI;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.text.gui.TextPanel;
 import org.exbin.jaguif.operation.undo.api.UndoRedoState;
 import org.exbin.jaguif.action.api.DialogParentComponent;
@@ -50,7 +50,7 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 /**
  * Text document.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextDocument implements NamedDocument, ContextDocument, ComponentDocument, FileDocument, EditableDocument {
 
     protected final TextPanel textPanel = new TextPanel();
@@ -100,13 +100,13 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         notifyUndoChanged();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public TextPanel getComponent() {
         return textPanel;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<DocumentSource> getDocumentSource() {
         return Optional.ofNullable(documentSource);
@@ -172,19 +172,19 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         notifyUndoChanged();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<URI> getFileUri() {
         return Optional.ofNullable(null);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getDocumentName() {
         return getTitle();
     }
 
-    @Nonnull
+    @NonNull
     public String getTitle() {
         // TODO
         URI fileUri = null;

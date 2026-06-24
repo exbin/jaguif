@@ -19,16 +19,16 @@ import java.awt.Component;
 import java.net.URI;
 import java.util.Collection;
 import java.util.Map;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
  * Interface for file support module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface FileModuleApi extends Module {
 
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(FileModuleApi.class);
@@ -45,7 +45,7 @@ public interface FileModuleApi extends Module {
      *
      * @return file types
      */
-    @Nonnull
+    @NonNull
     Collection<FileType> getFileTypes();
 
     /**
@@ -61,7 +61,7 @@ public interface FileModuleApi extends Module {
      *
      * @return file dialogs providers
      */
-    @Nonnull
+    @NonNull
     Map<String, FileDialogsProvider> getFileDialogsProviders();
 
     /**
@@ -69,7 +69,7 @@ public interface FileModuleApi extends Module {
      *
      * @return file dialog provider id
      */
-    @Nonnull
+    @NonNull
     String getFileDialogProviderId();
 
     /**
@@ -84,7 +84,7 @@ public interface FileModuleApi extends Module {
      *
      * @return file dialog provider
      */
-    @Nonnull
+    @NonNull
     FileDialogsProvider getFileDialogsProvider();
 
     /**
@@ -139,7 +139,7 @@ public interface FileModuleApi extends Module {
      * @param parentComponent
      * @return
      */
-    @Nonnull
+    @NonNull
     SaveModifiedResult showSaveModified(Component parentComponent);
 
     /**

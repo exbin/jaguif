@@ -16,14 +16,14 @@
 package org.exbin.jaguif.addon.manager.model;
 
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractListModel;
 
 /**
  * Addons list model.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonsListModel extends AbstractListModel<ItemRecord> {
 
     protected RecordsProvider provider;
@@ -48,7 +48,7 @@ public class AddonsListModel extends AbstractListModel<ItemRecord> {
         return size;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ItemRecord getElementAt(int index) {
         try {
@@ -62,7 +62,7 @@ public class AddonsListModel extends AbstractListModel<ItemRecord> {
 
         int getItemsCount();
 
-        @Nonnull
+        @NonNull
         ItemRecord getItem(int index);
     }
 }

@@ -16,8 +16,8 @@
 package org.exbin.jaguif.operation.manager.gui;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.operation.manager.service.UndoManagerService;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -27,7 +27,7 @@ import org.exbin.jaguif.operation.undo.api.UndoRedo;
 /**
  * Undo management panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class UndoManagerPanel extends javax.swing.JPanel {
 
     private UndoManagerModel undoModel = new UndoManagerModel();
@@ -38,7 +38,7 @@ public class UndoManagerPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

@@ -16,8 +16,7 @@
 package org.exbin.jaguif.addon.catalog.settings.gui;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.catalog.settings.AddonCatalogOptions;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -28,18 +27,17 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 /**
  * Addon manager settings panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonCatalogSettingsPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonCatalogSettingsPanel.class);
 
     protected SettingsModifiedListener settingsModifiedListener;
-    
+
     public AddonCatalogSettingsPanel() {
         initComponents();
     }
 
-    @Nonnull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

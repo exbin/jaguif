@@ -22,8 +22,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
 import org.exbin.jaguif.App;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.window.api.controller.CloseControlController;
 /**
  * Control panel for addons manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class AddonsManagerControlPanel extends javax.swing.JPanel implements CloseControlController.CloseControlComponent {
 
     protected final java.util.ResourceBundle resourceBundle;
@@ -56,7 +56,7 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
         initComponents();
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -335,7 +335,7 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
         UiUtils.doButtonClick(closeButton);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(refreshButton);

@@ -17,9 +17,9 @@ package org.exbin.jaguif.menu;
 
 import java.util.Map;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
 import javax.swing.JMenuBar;
@@ -45,7 +45,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 /**
  * Implementation of menu module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MenuModule implements MenuModuleApi {
 
     private MenuBuilder menuBuilder = null;
@@ -58,7 +58,7 @@ public class MenuModule implements MenuModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
@@ -68,19 +68,19 @@ public class MenuModule implements MenuModuleApi {
         return resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JMenuItem actionToMenuItem(Action action) {
         return actionToMenuItem(action, null);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JMenuItem actionToMenuItem(Action action, @Nullable Map<String, ButtonGroup> buttonGroups) {
         return actionToMenuItemInt(action, buttonGroups);
     }
 
-    @Nonnull
+    @NonNull
     private JMenuItem actionToMenuItemInt(Action action, @Nullable Map<String, ButtonGroup> buttonGroups) {
         JMenuItem menuItem;
         ActionType actionType = (ActionType) action.getValue(ActionConsts.ACTION_TYPE);
@@ -124,7 +124,7 @@ public class MenuModule implements MenuModuleApi {
         return menuItem;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MenuManager getMainMenuManager() {
         if (mainMenuManager == null) {
@@ -134,25 +134,25 @@ public class MenuModule implements MenuModuleApi {
         return mainMenuManager;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MenuManagement createMenuManager() {
         return new MenuManager();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MenuDefinitionManagement getMainMenuDefinition(String moduleId) {
         return new MenuDefinitionManager(MenuModule.this.getMainMenuManager(), MAIN_MENU_ID, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MenuDefinitionManagement getMainMenuDefinition(String menuId, String moduleId) {
         return new MenuDefinitionManager(MenuModule.this.getMainMenuManager(), menuId, moduleId);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MenuDefinitionManagement createMenuDefinition(MenuManagement menuManagement, String menuId, String moduleId) {
         return new MenuDefinitionManager(menuManagement, menuId, moduleId);
@@ -188,7 +188,7 @@ public class MenuModule implements MenuModuleApi {
         MenuModule.this.getMainMenuManager().buildMenu(targetMenuBar, menuId, contextRegistration, creationContext);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public MenuBuilder getMenuBuilder() {
         if (menuBuilder == null) {

@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Contribution sequence builder.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ContributionSequenceBuilder {
 
     /**

@@ -18,8 +18,8 @@ package org.exbin.jaguif.document;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.Document;
 import org.exbin.jaguif.document.api.DocumentManagement;
@@ -34,7 +34,7 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 /**
  * Document manager.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DocumentManager implements DocumentManagement {
 
     protected final List<DocumentProvider> documentProviders = new ArrayList<>();
@@ -53,13 +53,13 @@ public class DocumentManager implements DocumentManagement {
         documentTypes.add(documentType);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Document createDefaultDocument() {
         return documentTypes.get(0).createDefaultDocument();
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Document createDocumentForSource(SourceIdentifier sourceIdentifier) {
         for (DocumentProvider documentProvider : documentProviders) {
@@ -75,7 +75,7 @@ public class DocumentManager implements DocumentManagement {
         throw new IllegalStateException("Unsupported document source");
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public EmptyDocumentSource createEmptyDocumentSource() {
         DocumentModuleApi documentModule = App.getModule(DocumentModuleApi.class);
@@ -85,7 +85,7 @@ public class DocumentManager implements DocumentManagement {
         return emptyDocumentSource;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<Document> openDefaultDocument() {
         Optional<DocumentSource> documentSource = documentProviders.get(0).performOpenDefaultDocument();
@@ -97,7 +97,7 @@ public class DocumentManager implements DocumentManagement {
         return document;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<DocumentSource> saveDocumentAs(Document document) {
         return documentProviders.get(0).performSaveAsDefaultDocument(document);

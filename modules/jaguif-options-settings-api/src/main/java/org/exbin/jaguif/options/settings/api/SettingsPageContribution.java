@@ -16,16 +16,16 @@
 package org.exbin.jaguif.options.settings.api;
 
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import org.exbin.jaguif.contribution.api.SubSequenceContribution;
 
 /**
  * Settings page contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 @Immutable
 public class SettingsPageContribution implements SubSequenceContribution {
 
@@ -37,7 +37,7 @@ public class SettingsPageContribution implements SubSequenceContribution {
         this.resourceBundle = resourceBundle;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getContributionId() {
         return pageId;

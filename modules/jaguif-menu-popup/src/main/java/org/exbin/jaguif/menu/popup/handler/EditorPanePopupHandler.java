@@ -29,8 +29,8 @@ import java.net.URL;
 import java.util.Dictionary;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.SwingUtilities;
@@ -56,7 +56,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 /**
  * Popup handler for JEditorPane.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class EditorPanePopupHandler implements TextClipboardOperationController, LinkActionsHandler, PositionLinkActionsHandler, ImageActionsHandler, PositionImageActionsHandler {
 
     private static final String MAP_PROPERTY = "__MAP__";

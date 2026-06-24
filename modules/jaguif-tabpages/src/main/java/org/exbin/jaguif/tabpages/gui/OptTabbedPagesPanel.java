@@ -18,8 +18,8 @@ package org.exbin.jaguif.tabpages.gui;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
 import javax.swing.JComponent;
 import org.exbin.jaguif.tabpages.api.TabPages;
@@ -29,7 +29,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 /**
  * Panel for multiple pages organized by tabs.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class OptTabbedPagesPanel extends javax.swing.JPanel implements TabPages {
 
     protected final List<TabPagesChangeListener> pageChangeListeners = new ArrayList<>();
@@ -44,7 +44,7 @@ public class OptTabbedPagesPanel extends javax.swing.JPanel implements TabPages 
         });
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public JComponent getComponent() {
         return this;

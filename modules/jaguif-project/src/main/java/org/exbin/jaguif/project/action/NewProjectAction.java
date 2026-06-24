@@ -20,7 +20,7 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -38,7 +38,7 @@ import org.exbin.jaguif.window.api.controller.DefaultControlController;
 /**
  * New project action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class NewProjectAction extends AbstractAction {
 
     public static final String ACTION_ID = "newProject";

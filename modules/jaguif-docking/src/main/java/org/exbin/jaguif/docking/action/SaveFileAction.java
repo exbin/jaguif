@@ -18,7 +18,7 @@ package org.exbin.jaguif.docking.action;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 /**
  * Save file action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class SaveFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "saveFile";

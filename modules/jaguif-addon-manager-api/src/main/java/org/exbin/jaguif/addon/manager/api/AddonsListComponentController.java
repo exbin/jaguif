@@ -15,18 +15,18 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addons list component controller.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonsListComponentController {
 
     int getItemsCount();
 
-    @Nonnull
+    @NonNull
     ItemRecord getItem(int index);
 
     void addToCart(ItemRecord itemRecord, AddonOperationVariant variant);

@@ -17,8 +17,8 @@ package org.exbin.jaguif.window.api.gui;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.OptionsControlController;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.window.api.controller.OptionsControlController;
 /**
  * Default control panel for options dialogs.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class OptionsControlPanel extends FooterControlPanel implements OptionsControlController.OptionsControlComponent {
 
     private OptionsControlController controller;
@@ -108,7 +108,7 @@ public class OptionsControlPanel extends FooterControlPanel implements OptionsCo
         performClick(OptionsControlController.ControlActionType.CANCEL);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(saveButton);

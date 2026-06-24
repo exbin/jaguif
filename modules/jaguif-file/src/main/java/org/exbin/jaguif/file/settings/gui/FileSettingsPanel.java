@@ -18,9 +18,9 @@ package org.exbin.jaguif.file.settings.gui;
 import java.awt.Component;
 import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 /**
  * Data inspector options panel.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class FileSettingsPanel extends javax.swing.JPanel implements SettingsComponent {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FileSettingsPanel.class);
@@ -50,7 +50,7 @@ public class FileSettingsPanel extends javax.swing.JPanel implements SettingsCom
     private void init() {
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
@@ -63,7 +63,7 @@ public class FileSettingsPanel extends javax.swing.JPanel implements SettingsCom
         });
         fileDialogsComboBox.setModel(fileDialogsComboBoxModel);
         fileDialogsComboBox.setRenderer(new DefaultListCellRenderer() {
-            @Nonnull
+            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (index >= 0) {

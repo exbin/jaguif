@@ -17,12 +17,12 @@ package org.exbin.jaguif.menu.popup.api;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for popup event trigger dispatcher.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ComponentPopupEventDispatcher {
 
     /**

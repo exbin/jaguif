@@ -15,13 +15,12 @@
  */
 package org.exbin.jaguif;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Module provider interface.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ModuleProvider {
 
     /**
@@ -29,7 +28,6 @@ public interface ModuleProvider {
      *
      * @return manifest class
      */
-    @Nonnull
     Class getManifestClass();
 
     /**
@@ -54,6 +52,5 @@ public interface ModuleProvider {
      * @param interfaceClass module class or interface
      * @return module instance
      */
-    @Nonnull
     <T extends Module> T getModule(Class<T> interfaceClass);
 }

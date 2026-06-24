@@ -34,8 +34,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.editor.api.EditorProvider;
@@ -46,7 +46,7 @@ import org.exbin.jaguif.docking.api.DockingModuleApi;
 /**
  * Implementation of docking module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class DockingLayoutModule implements DockingModuleApi {
 
     public static final String FILE_EXIT_GROUP_ID = MODULE_ID + ".exit";
@@ -64,7 +64,7 @@ public class DockingLayoutModule implements DockingModuleApi {
     public DockingLayoutModule() {
     }
 
-    @Nonnull
+    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(this.getClass());
@@ -110,7 +110,7 @@ public class DockingLayoutModule implements DockingModuleApi {
         area.deploy(grid);
     }
 
-/*    @Nonnull
+/*    @NonNull
     @Override
     public EditorViewHandling getEditorViewHandling() {
         return new EditorViewHandling() {

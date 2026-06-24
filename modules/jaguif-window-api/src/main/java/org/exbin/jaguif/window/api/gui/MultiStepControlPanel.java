@@ -17,8 +17,8 @@ package org.exbin.jaguif.window.api.gui;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.MultiStepControlController;
@@ -26,7 +26,7 @@ import org.exbin.jaguif.window.api.controller.MultiStepControlController;
 /**
  * Multi-step control panel for options dialogs.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class MultiStepControlPanel extends FooterControlPanel implements MultiStepControlController.MultiStepControlComponent {
 
     private MultiStepControlController controller;
@@ -124,7 +124,7 @@ public class MultiStepControlPanel extends FooterControlPanel implements MultiSt
         performClick(MultiStepControlController.ControlActionType.CANCEL);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(finishButton);

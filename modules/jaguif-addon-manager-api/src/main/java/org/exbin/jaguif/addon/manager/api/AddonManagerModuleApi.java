@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.ModuleUtils;
 /**
  * Interface of the addon manager module.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonManagerModuleApi extends Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonManagerModuleApi.class);
@@ -35,7 +35,7 @@ public interface AddonManagerModuleApi extends Module {
      *
      * @return addon manager action
      */
-    @Nonnull
+    @NonNull
     Action createAddonManagerAction();
 
     /**
@@ -72,7 +72,7 @@ public interface AddonManagerModuleApi extends Module {
      *
      * @return link
      */
-    @Nonnull
+    @NonNull
     String getManualLegacyUrl();
 
     /**
@@ -80,6 +80,6 @@ public interface AddonManagerModuleApi extends Module {
      *
      * @return addons list component
      */
-    @Nonnull
+    @NonNull
     AddonsListComponent createAddonsListComponent();
 }

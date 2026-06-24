@@ -17,8 +17,8 @@ package org.exbin.jaguif.addon.manager.operation;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
@@ -30,7 +30,7 @@ import org.exbin.jaguif.operation.api.TitledOperation;
 /**
  * Operation to receive details about module from catalog.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class CatalogModuleDetailOperation implements Runnable, CancellableOperation, ProgressOperation, TitledOperation {
 
     protected final AddonManager addonManager;
@@ -68,7 +68,7 @@ public class CatalogModuleDetailOperation implements Runnable, CancellableOperat
         return cancelled;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public String getTitle() {
         return addonManager.getResourceBundle().getString("catalogModuleDetailOperation");

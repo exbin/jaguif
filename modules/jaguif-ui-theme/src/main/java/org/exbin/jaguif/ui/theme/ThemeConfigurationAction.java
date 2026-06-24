@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.ui.theme;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.ui.theme.api.ConfigurableLafProvider;
 
 /**
  * Theme configuration action.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ThemeConfigurationAction {
 
     /**

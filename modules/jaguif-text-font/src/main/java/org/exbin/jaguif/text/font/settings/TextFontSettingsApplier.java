@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.text.font.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.options.settings.api.SettingsApplier;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
@@ -25,7 +25,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * Text font settings applier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class TextFontSettingsApplier implements SettingsApplier {
 
     public static final String APPLIER_ID = "textFont";

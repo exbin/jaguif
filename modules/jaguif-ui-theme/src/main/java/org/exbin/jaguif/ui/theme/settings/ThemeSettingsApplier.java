@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.ui.theme.settings;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.options.settings.api.SettingsApplier;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
@@ -24,7 +24,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 /**
  * UI theme settings applier.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public class ThemeSettingsApplier implements SettingsApplier {
 
     public static final String APPLIER_ID = "theme";

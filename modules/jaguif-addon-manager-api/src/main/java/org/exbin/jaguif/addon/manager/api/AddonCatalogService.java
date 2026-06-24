@@ -17,13 +17,13 @@ package org.exbin.jaguif.addon.manager.api;
 
 import java.net.URL;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Addon catalog service.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface AddonCatalogService {
 
     /**
@@ -43,7 +43,7 @@ public interface AddonCatalogService {
      * @return list of found addons
      * @throws AddonCatalogServiceException when service fails
      */
-    @Nonnull
+    @NonNull
     List<AddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException;
 
     /**
@@ -54,7 +54,7 @@ public interface AddonCatalogService {
      * @return addon record
      * @throws AddonCatalogServiceException when service fails
      */
-    @Nonnull
+    @NonNull
     AddonRecord getAddonDependency(String moduleId) throws AddonCatalogServiceException;
 
     /**
@@ -64,7 +64,7 @@ public interface AddonCatalogService {
      * @return addon filename
      * @throws AddonCatalogServiceException when service fails
      */
-    @Nonnull
+    @NonNull
     String getAddonFile(String moduleId) throws AddonCatalogServiceException;
 
     /**
@@ -73,7 +73,7 @@ public interface AddonCatalogService {
      * @return update records
      * @throws AddonCatalogServiceException when service fails
      */
-    @Nonnull
+    @NonNull
     List<UpdateRecord> getUpdateRecords() throws AddonCatalogServiceException;
 
     /**
@@ -83,7 +83,7 @@ public interface AddonCatalogService {
      * @return details text
      * @throws AddonCatalogServiceException when service fails
      */
-    @Nonnull
+    @NonNull
     String getModuleDetails(String id) throws AddonCatalogServiceException;
 
     /**
@@ -93,7 +93,7 @@ public interface AddonCatalogService {
      * @throws AddonCatalogServiceException when service fails
      * @return download URL
      */
-    @Nonnull
+    @NonNull
     URL getFileDownloadUrl(String remoteFilePath) throws AddonCatalogServiceException;
 
     /**
@@ -103,7 +103,7 @@ public interface AddonCatalogService {
      * @throws AddonCatalogServiceException when service fails
      * @return download URL
      */
-    @Nonnull
+    @NonNull
     URL getLicenseDownloadUrl(String remoteFilePath) throws AddonCatalogServiceException;
 
     /**
@@ -113,6 +113,6 @@ public interface AddonCatalogService {
      */
     String getCatalogPageUrl();
 
-//    @Nonnull
+//    @NonNull
 //    CancellableOperation createIconsDownloadOperation(List<AddonRecord> records);
 }

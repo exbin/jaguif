@@ -17,7 +17,7 @@ package org.exbin.jaguif.file.api;
 
 import java.net.URI;
 import java.util.Optional;
-import javax.annotation.Nonnull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Interface for file document.
@@ -29,6 +29,6 @@ public interface FileDocument {
      *
      * @return file URI
      */
-    @Nonnull
+    @NonNull
     Optional<URI> getFileUri();
 }

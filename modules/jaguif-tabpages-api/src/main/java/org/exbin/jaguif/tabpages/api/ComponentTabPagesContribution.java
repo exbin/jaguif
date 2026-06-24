@@ -15,14 +15,14 @@
  */
 package org.exbin.jaguif.tabpages.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 
 /**
  * Tab pages item contribution.
  */
-@ParametersAreNonnullByDefault
+@NullMarked
 public interface ComponentTabPagesContribution extends ItemSequenceContribution {
 
     /**
@@ -30,6 +30,6 @@ public interface ComponentTabPagesContribution extends ItemSequenceContribution 
      *
      * @return tab pages component
      */
-    @Nonnull
+    @NonNull
     TabPagesComponent createComponent();
 }
