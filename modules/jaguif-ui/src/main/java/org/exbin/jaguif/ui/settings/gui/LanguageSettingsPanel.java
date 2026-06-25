@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -54,7 +53,6 @@ public class LanguageSettingsPanel extends javax.swing.JPanel implements Setting
         initComponents();
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

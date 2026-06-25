@@ -18,7 +18,6 @@ package org.exbin.jaguif.menu.popup;
 import java.awt.Component;
 import java.awt.datatransfer.StringSelection;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
@@ -46,7 +45,6 @@ public class MenuPopupModule implements MenuPopupModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(MenuPopupModule.class);
@@ -86,7 +84,6 @@ public class MenuPopupModule implements MenuPopupModuleApi {
         DefaultPopupMenu.getInstance().fillDefaultEditPopupMenu(popupMenu, position);
     }
 
-    @NonNull
     @Override
     public JPopupMenu createLinkPopupMenu(String targetURL) {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
@@ -111,7 +108,6 @@ public class MenuPopupModule implements MenuPopupModuleApi {
         return popupMenu;
     }
 
-    @NonNull
     @Override
     public JPopupMenu createComponentPopupMenu(String popupMenuId, ContextRegistrationProvider ContextRegistrationProvider) {
         return new JPopupMenu() {

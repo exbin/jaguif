@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -25,7 +24,6 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public interface AddonsManagementLocalState extends AddonsManagementContext {
 
-    @NonNull
     List<ItemRecord> getInstalledAddons();
 
     boolean isModuleInstalled(String moduleId);

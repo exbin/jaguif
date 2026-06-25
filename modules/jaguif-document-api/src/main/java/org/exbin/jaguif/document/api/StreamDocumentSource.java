@@ -17,11 +17,12 @@ package org.exbin.jaguif.document.api;
 
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for stream access document source.
  */
+@NullMarked
 public interface StreamDocumentSource extends DocumentSource {
 
     /**
@@ -29,7 +30,6 @@ public interface StreamDocumentSource extends DocumentSource {
      *
      * @return document title
      */
-    @NonNull
     String getDocumentTitle();
 
     /**
@@ -37,7 +37,6 @@ public interface StreamDocumentSource extends DocumentSource {
      *
      * @return input stream
      */
-    @NonNull
     InputStream openInputStream();
 
     /**
@@ -45,6 +44,5 @@ public interface StreamDocumentSource extends DocumentSource {
      *
      * @return output stream
      */
-    @NonNull
     OutputStream openOutputStream();
 }

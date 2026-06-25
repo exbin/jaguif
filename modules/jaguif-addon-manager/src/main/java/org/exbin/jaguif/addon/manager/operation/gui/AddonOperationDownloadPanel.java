@@ -18,7 +18,6 @@ package org.exbin.jaguif.addon.manager.operation.gui;
 import java.awt.Component;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListCellRenderer;
@@ -51,7 +50,6 @@ public class AddonOperationDownloadPanel extends javax.swing.JPanel {
             private final ImageIcon inprogressIcon = new ImageIcon(getClass().getResource(resourceBundle.getString("downloadItem.inprogress.icon")));
             private final ImageIcon doneIcon = new ImageIcon(getClass().getResource(resourceBundle.getString("downloadItem.done.icon")));
 
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (value instanceof DownloadItemRecord) {
@@ -81,7 +79,6 @@ public class AddonOperationDownloadPanel extends javax.swing.JPanel {
         downloadItemsList.setModel(listModel);
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

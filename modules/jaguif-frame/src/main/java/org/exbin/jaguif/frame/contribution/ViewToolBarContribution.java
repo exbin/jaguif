@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.frame.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.frame.action.ViewToolBarAction;
 import org.exbin.jaguif.frame.api.FrameModuleApi;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * View tool bar contribution.
  */
+@NullMarked
 public class ViewToolBarContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "viewToolBar";
 
-    @NonNull
     @Override
     public Action createAction() {
         ViewToolBarAction action = new ViewToolBarAction();
@@ -38,7 +38,6 @@ public class ViewToolBarContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

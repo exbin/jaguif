@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
 import javax.swing.event.HyperlinkEvent;
@@ -72,7 +71,6 @@ public class AddonOperationLicensePanel extends javax.swing.JPanel {
         });
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

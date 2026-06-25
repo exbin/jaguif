@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -42,7 +41,6 @@ public class StartupOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @NonNull
     public StartupBehavior getStartupBehavior() {
         StartupBehavior defaultBehavior = StartupBehavior.NEW_FILE;
         try {
@@ -57,7 +55,6 @@ public class StartupOptions implements SettingsOptions {
         storage.put(KEY_STARTUP_BEHAVIOR, behavior.name());
     }
 
-    @NonNull
     public List<URI> getLastSessionFiles() {
         int count = storage.getInt(KEY_SESSION_FILE_COUNT, 0);
         List<URI> fileUris = new ArrayList<>();

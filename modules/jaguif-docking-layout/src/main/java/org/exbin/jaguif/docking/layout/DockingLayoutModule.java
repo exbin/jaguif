@@ -34,7 +34,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
@@ -64,7 +63,6 @@ public class DockingLayoutModule implements DockingModuleApi {
     public DockingLayoutModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(this.getClass());
@@ -110,8 +108,7 @@ public class DockingLayoutModule implements DockingModuleApi {
         area.deploy(grid);
     }
 
-/*    @NonNull
-    @Override
+/*  @Override
     public EditorViewHandling getEditorViewHandling() {
         return new EditorViewHandling() {
 

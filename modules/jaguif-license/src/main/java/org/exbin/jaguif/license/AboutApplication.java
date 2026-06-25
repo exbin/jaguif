@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.license;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
@@ -35,7 +34,6 @@ public class AboutApplication {
 
     protected JComponent sideComponent = null;
 
-    @NonNull
     public AboutAction createAboutAction() {
         AboutAction aboutAction = new AboutAction();
         if (sideComponent != null) {
@@ -48,7 +46,6 @@ public class AboutApplication {
         this.sideComponent = sideComponent;
     }
 
-    @NonNull
     public JComponent createAboutPanel() {
         AboutPanel aboutPanel = new AboutPanel();
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);

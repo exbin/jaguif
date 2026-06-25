@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.statusbar.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -62,7 +61,6 @@ public interface StatusBarManagement {
      * @param groupId group id
      * @return group contribution
      */
-    @NonNull
     GroupSequenceContribution registerStatusBarGroup(String statusBarId, String pluginId, String groupId);
 
     /**

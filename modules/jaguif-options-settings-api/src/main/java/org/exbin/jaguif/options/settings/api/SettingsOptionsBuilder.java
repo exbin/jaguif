@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 
@@ -32,6 +31,5 @@ public interface SettingsOptionsBuilder<T extends SettingsOptions> {
      * @param optionsStorage storage options
      * @return settings options instance
      */
-    @NonNull
     T createInstance(OptionsStorage optionsStorage);
 }

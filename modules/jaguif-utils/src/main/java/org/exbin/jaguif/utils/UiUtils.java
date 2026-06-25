@@ -22,7 +22,6 @@ import java.awt.Window;
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
@@ -80,7 +79,6 @@ public class UiUtils {
      * @param clazz class type
      * @return class instance
      */
-    @NonNull
     @SuppressWarnings("unchecked")
     public static <T> T createInUiThread(Class<T> clazz) {
         if (SwingUtilities.isEventDispatchThread()) {
@@ -113,7 +111,6 @@ public class UiUtils {
      * @param instanceCreator instance creator
      * @return class instance
      */
-    @NonNull
     @SuppressWarnings("unchecked")
     public static <T> T createInUiThread(InstanceCreator<T> instanceCreator) {
         if (SwingUtilities.isEventDispatchThread()) {
@@ -187,7 +184,6 @@ public class UiUtils {
 
     public interface InstanceCreator<U> {
 
-        @NonNull
         U createInstance();
     }
 }

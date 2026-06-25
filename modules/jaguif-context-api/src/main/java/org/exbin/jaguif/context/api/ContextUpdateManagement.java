@@ -16,7 +16,6 @@
 package org.exbin.jaguif.context.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -82,7 +81,6 @@ public interface ContextUpdateManagement {
      * @param contextClass context class
      * @return context change listeners
      */
-    @NonNull
     <T> List<ContextStateChangeListener<?>> getChangeListeners(String groupId, Class<T> contextClass);
 
     /**
@@ -93,6 +91,5 @@ public interface ContextUpdateManagement {
      * @param contextClass context class
      * @return context update listeners
      */
-    @NonNull
     <T> List<ContextStateUpdateListener<?>> getUpdateListeners(String grouoId, Class<T> contextClass);
 }

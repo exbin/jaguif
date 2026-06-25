@@ -23,7 +23,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.SwingUtilities;
@@ -108,7 +107,6 @@ public class SettingsTreePanel extends javax.swing.JPanel implements SettingsPag
         });
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -211,7 +209,6 @@ public class SettingsTreePanel extends javax.swing.JPanel implements SettingsPag
         optionsTree.setSelectionRow(0);
     }
 
-    @NonNull
     public Collection<SettingsPage> getSettingsPages() {
         return settingsPages.values();
     }
@@ -282,7 +279,6 @@ public class SettingsTreePanel extends javax.swing.JPanel implements SettingsPag
             this.name = name;
         }
 
-        @NonNull
         public String getName() {
             return name;
         }

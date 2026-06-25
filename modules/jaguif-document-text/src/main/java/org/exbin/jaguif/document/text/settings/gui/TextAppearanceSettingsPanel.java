@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.text.settings.gui;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.settings.TextAppearanceOptions;
@@ -38,7 +37,6 @@ public class TextAppearanceSettingsPanel extends javax.swing.JPanel implements S
         initComponents();
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

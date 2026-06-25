@@ -15,11 +15,12 @@
  */
 package org.exbin.jaguif.progress.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Operation activity detail.
  */
+@NullMarked
 public interface TextActivityDetail extends ActivityDetail {
 
     /**
@@ -27,6 +28,5 @@ public interface TextActivityDetail extends ActivityDetail {
      *
      * @return activity detail
      */
-    @NonNull
     String getText();
 }

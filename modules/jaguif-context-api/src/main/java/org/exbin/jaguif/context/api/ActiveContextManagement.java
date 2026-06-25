@@ -16,7 +16,6 @@
 package org.exbin.jaguif.context.api;
 
 import java.util.Collection;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -31,7 +30,6 @@ public interface ActiveContextManagement extends ContextStateProvider {
      *
      * @return state classes
      */
-    @NonNull
     Collection<Class<?>> getStateClasses();
 
     /**

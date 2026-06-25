@@ -18,7 +18,6 @@ package org.exbin.jaguif.addon.manager.model;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.table.AbstractTableModel;
@@ -53,7 +52,6 @@ public class DependenciesTableModel extends AbstractTableModel {
         return 3;
     }
 
-    @NonNull
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
@@ -67,7 +65,6 @@ public class DependenciesTableModel extends AbstractTableModel {
         }
     }
 
-    @NonNull
     @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
@@ -82,7 +79,6 @@ public class DependenciesTableModel extends AbstractTableModel {
         }
     }
 
-    @NonNull
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         DependencyRecord record = dependencies.get(rowIndex);

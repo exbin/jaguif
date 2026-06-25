@@ -15,12 +15,13 @@
  */
 package org.exbin.jaguif.ui.theme.api;
 
-import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Look&amp;feel provider with support for additional settings.
  */
+@NullMarked
 public interface ConfigurableLafProvider extends LafProvider {
 
     /**
@@ -28,6 +29,5 @@ public interface ConfigurableLafProvider extends LafProvider {
      *
      * @return component provider
      */
-    @NonNull
     SettingsComponentProvider getSettingsComponentProvider();
 }

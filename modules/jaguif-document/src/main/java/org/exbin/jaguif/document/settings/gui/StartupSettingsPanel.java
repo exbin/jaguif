@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.settings.gui;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.settings.StartupOptions;
@@ -45,7 +44,6 @@ public class StartupSettingsPanel extends javax.swing.JPanel implements Settings
 
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

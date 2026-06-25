@@ -16,7 +16,6 @@
 package org.exbin.jaguif.options.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -35,13 +34,11 @@ public class EmptyOptionsStorage implements OptionsStorage {
         return false;
     }
 
-    @NonNull
     @Override
     public Optional<String> get(String key) {
         return Optional.empty();
     }
 
-    @NonNull
     @Override
     public String get(String key, String def) {
         return def;
@@ -52,7 +49,6 @@ public class EmptyOptionsStorage implements OptionsStorage {
         return def;
     }
 
-    @NonNull
     @Override
     public byte[] getByteArray(String key, byte[] def) {
         return def;

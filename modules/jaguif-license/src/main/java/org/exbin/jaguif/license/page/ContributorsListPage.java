@@ -16,7 +16,6 @@
 package org.exbin.jaguif.license.page;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
@@ -44,7 +43,6 @@ public class ContributorsListPage extends AbstractTabPagesComponent {
         putValue(KEY_NAME, resourceBundle.getString("pageName"));
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         if (!contentLoaded) {
@@ -63,13 +61,11 @@ public class ContributorsListPage extends AbstractTabPagesComponent {
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new ContributorsListPage();
         }
 
-        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

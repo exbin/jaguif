@@ -16,7 +16,6 @@
 package org.exbin.jaguif.options.settings.api;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
@@ -37,7 +36,6 @@ public class SettingsPageContribution implements SubSequenceContribution {
         this.resourceBundle = resourceBundle;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return pageId;

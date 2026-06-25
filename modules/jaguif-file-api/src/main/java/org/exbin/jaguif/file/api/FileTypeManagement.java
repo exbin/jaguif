@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.file.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JFileChooser;
 
@@ -81,6 +80,5 @@ public interface FileTypeManagement {
      *
      * @return window title
      */
-    @NonNull
     String getWindowTitle();
 }

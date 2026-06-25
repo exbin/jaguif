@@ -15,11 +15,12 @@
  */
 package org.exbin.jaguif.operation.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Operation interface.
  */
+@NullMarked
 public interface Operation {
 
     /**
@@ -27,7 +28,6 @@ public interface Operation {
      *
      * @return operation type
      */
-    @NonNull
     OperationType getType();
 
     /**

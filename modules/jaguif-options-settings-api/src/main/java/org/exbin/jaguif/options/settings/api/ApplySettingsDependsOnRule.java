@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
@@ -32,7 +31,6 @@ public class ApplySettingsDependsOnRule {
         this.dependOnPageId = dependOnPageId;
     }
 
-    @NonNull
     public String getDependOnPageId() {
         return dependOnPageId;
     }

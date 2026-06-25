@@ -17,7 +17,6 @@ package org.exbin.jaguif.ui.model;
 
 import java.util.Locale;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
@@ -44,17 +43,14 @@ public class LanguageRecord {
         this.note = note;
     }
 
-    @NonNull
     public Locale getLocale() {
         return locale;
     }
 
-    @NonNull
     public Optional<ImageIcon> getFlag() {
         return Optional.ofNullable(flag);
     }
 
-    @NonNull
     public Optional<String> getNote() {
         return Optional.ofNullable(note);
     }
@@ -66,7 +62,6 @@ public class LanguageRecord {
      *
      * @return representation text
      */
-    @NonNull
     public String getText() {
         if (locale.equals(Locale.ROOT)) {
             return "";

@@ -17,7 +17,6 @@ package org.exbin.jaguif.options.settings.api;
 
 import java.util.Collection;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
@@ -55,7 +54,6 @@ public interface OptionsSettingsManagement {
      * @param componentProvider component provider
      * @return contribution instance
      */
-    @NonNull
     SettingsComponentContribution registerComponent(String contributionId, SettingsComponentProvider componentProvider);
 
     /**
@@ -71,7 +69,6 @@ public interface OptionsSettingsManagement {
      * @param groupId group id
      * @return contribution instance
      */
-    @NonNull
     GroupSequenceContribution registerGroup(String groupId);
 
     /**
@@ -96,7 +93,6 @@ public interface OptionsSettingsManagement {
      * @param settingsClass settings class
      * @return options settings builder
      */
-    @NonNull
     SettingsOptionsBuilder getSettingsOptionsBuilder(Class<? extends SettingsOptions> settingsClass);
 
     /**
@@ -106,7 +102,6 @@ public interface OptionsSettingsManagement {
      * @param inferenceClass inference class
      * @return inference options instance
      */
-    @NonNull
     <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass);
 
     /**
@@ -114,7 +109,6 @@ public interface OptionsSettingsManagement {
      *
      * @return options settings classes
      */
-    @NonNull
     Collection<Class<? extends SettingsOptions>> getOptionsClasses();
 
     /**
@@ -178,6 +172,5 @@ public interface OptionsSettingsManagement {
      *
      * @return settings options provider
      */
-    @NonNull
     SettingsOptionsProvider getSettingsOptionsProvider();
 }

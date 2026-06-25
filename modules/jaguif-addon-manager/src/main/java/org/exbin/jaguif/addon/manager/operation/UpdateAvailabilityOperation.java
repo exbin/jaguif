@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.api.UpdateRecord;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
@@ -60,12 +59,10 @@ public class UpdateAvailabilityOperation implements Runnable, CancellableOperati
         return cancelled;
     }
 
-    @NonNull
     public List<UpdateRecord> getUpdateRecords() {
         return updateRecords;
     }
 
-    @NonNull
     public Map<String, String> getLatestVersions() {
         Map<String, String> latestVersions = new HashMap<>();
         if (updateRecords != null) {

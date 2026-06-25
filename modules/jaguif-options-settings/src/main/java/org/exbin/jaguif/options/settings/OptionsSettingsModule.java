@@ -18,7 +18,6 @@ package org.exbin.jaguif.options.settings;
 import com.formdev.flatlaf.extras.FlatDesktop;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
@@ -59,7 +58,6 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
     public OptionsSettingsModule() {
     }
 
-    @NonNull
     private ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(OptionsSettingsModule.class);
@@ -68,7 +66,6 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public OptionsSettingsManager getMainSettingsManager() {
         if (optionsSettingsManager == null) {
@@ -78,7 +75,6 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         return optionsSettingsManager;
     }
 
-    @NonNull
     @Override
     public SettingsAction createSettingsAction() {
         SettingsAction optionsAction = new SettingsAction();
@@ -133,7 +129,6 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         }
     }
 
-    @NonNull
     @Override
     public SettingsPanelType getSettingsPanelType() {
         return settingsPanelType;
@@ -144,7 +139,6 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         this.settingsPanelType = settingsPanelType;
     }
 
-    @NonNull
     @Override
     public Optional<String> getOptionsRootCaption() {
         return Optional.ofNullable(optionsRootCaption);
@@ -155,7 +149,6 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         this.optionsRootCaption = optionsRootCaption;
     }
 
-    @NonNull
     @Override
     public SettingsOptionsOverrides createSettingsOptionsOverrides(SettingsOptionsProvider settingsOptionsProvider) {
         return new DefaultSettingsOptionsOverrides(settingsOptionsProvider);

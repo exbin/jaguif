@@ -16,7 +16,6 @@
 package org.exbin.jaguif.text.encoding.settings;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.text.encoding.CharsetEncodingState;
 import org.exbin.jaguif.text.encoding.ContextEncoding;
@@ -34,7 +33,6 @@ public class TextEncodingContextInference implements TextEncodingInference {
         this.contextProvider = contextProvider;
     }
 
-    @NonNull
     @Override
     public Optional<String> getEncoding() {
         ContextEncoding contextEncoding = contextProvider.getActiveState(ContextEncoding.class);

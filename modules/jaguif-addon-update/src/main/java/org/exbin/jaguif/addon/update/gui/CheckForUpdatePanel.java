@@ -17,7 +17,6 @@ package org.exbin.jaguif.addon.update.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
@@ -41,7 +40,6 @@ public class CheckForUpdatePanel extends javax.swing.JPanel implements Hyperlink
         initComponents();
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

@@ -19,7 +19,6 @@ import java.text.ParseException;
 import org.exbin.jaguif.document.text.RelativePositionMode;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.SpinnerNumberModel;
@@ -95,7 +94,6 @@ public class EditSelectionPanel extends javax.swing.JPanel {
         });
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -498,7 +496,6 @@ public class EditSelectionPanel extends javax.swing.JPanel {
         updateStartTargetPosition();
     }
 
-    @NonNull
     public Optional<SelectionRange> getSelectionRange() {
         return Optional.of(new SelectionRange(getStartTargetPosition(), getEndTargetPosition()));
     }

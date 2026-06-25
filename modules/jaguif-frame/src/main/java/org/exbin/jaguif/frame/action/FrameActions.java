@@ -16,7 +16,6 @@
 package org.exbin.jaguif.frame.action;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -34,21 +33,18 @@ public class FrameActions {
         this.resourceBundle = resourceBundle;
     }
 
-    @NonNull
     public ViewToolBarAction createViewToolBarAction() {
         ViewToolBarAction viewToolBarAction = new ViewToolBarAction();
         viewToolBarAction.init(resourceBundle);
         return viewToolBarAction;
     }
 
-    @NonNull
     public ViewToolBarCaptionsAction createViewToolBarCaptionsAction() {
         ViewToolBarCaptionsAction viewToolBarCaptionsAction = new ViewToolBarCaptionsAction();
         viewToolBarCaptionsAction.init(resourceBundle);
         return viewToolBarCaptionsAction;
     }
 
-    @NonNull
     public ViewStatusBarAction createViewStatusBarAction() {
         ViewStatusBarAction viewStatusBarAction = new ViewStatusBarAction();
         viewStatusBarAction.init(resourceBundle);

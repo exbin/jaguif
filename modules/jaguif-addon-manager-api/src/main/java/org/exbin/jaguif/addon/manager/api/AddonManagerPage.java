@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 
@@ -48,7 +47,6 @@ public interface AddonManagerPage extends TabPagesComponent {
      * @param filter filter condition
      * @return operation
      */
-    @NonNull
     Runnable createFilterOperation(Object filter);
 
     /**
@@ -57,6 +55,5 @@ public interface AddonManagerPage extends TabPagesComponent {
      * @param search search condition
      * @return operation
      */
-    @NonNull
     Runnable createSearchOperation(String search);
 }

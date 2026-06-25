@@ -18,7 +18,6 @@ package org.exbin.jaguif.document.text.gui;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
@@ -113,7 +112,6 @@ public class TextGoToPanel extends javax.swing.JPanel {
     private javax.swing.JSpinner posLineSpinner;
     // End of variables declaration//GEN-END:variables
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

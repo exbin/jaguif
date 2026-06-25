@@ -26,7 +26,6 @@ import java.nio.charset.Charset;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -150,7 +149,6 @@ public class TextPanel extends javax.swing.JPanel {
         }
     }
 
-    @NonNull
     public Color[] getCurrentColors() {
         Color[] colors = new Color[5];
         colors[0] = textArea.getForeground();
@@ -161,7 +159,6 @@ public class TextPanel extends javax.swing.JPanel {
         return colors;
     }
 
-    @NonNull
     public Color[] getDefaultColors() {
         return defaultColors;
     }
@@ -212,12 +209,10 @@ public class TextPanel extends javax.swing.JPanel {
         textArea.setCaretPosition(textArea.getCaretPosition() + charPos - 1);
     }
 
-    @NonNull
     public JTextArea getTextArea() {
         return textArea;
     }
 
-    @NonNull
     public JTextComponent getTextComponent() {
         return textArea;
     }
@@ -238,7 +233,6 @@ public class TextPanel extends javax.swing.JPanel {
         return textArea.getFont();
     }
 
-    @NonNull
     public Color getFoundTextBackgroundColor() {
         return foundTextBackgroundColor;
     }
@@ -289,7 +283,6 @@ public class TextPanel extends javax.swing.JPanel {
         firePropertyChange("modified", oldValue, this.modified);
     }
 
-    @NonNull
     public TextPanelCompoundUndoManager getUndo() {
         return undoManagement;
     }
@@ -298,7 +291,6 @@ public class TextPanel extends javax.swing.JPanel {
         textArea.setComponentPopupMenu(menu);
     }
 
-    @NonNull
     public Point getCaretPosition() {
         int line;
         int caretPosition = textArea.getCaretPosition();
@@ -316,7 +308,6 @@ public class TextPanel extends javax.swing.JPanel {
         textArea.getCaret().addChangeListener(listener);
     }
 
-    @NonNull
     public Charset getCharset() {
         return charset;
     }
@@ -325,7 +316,6 @@ public class TextPanel extends javax.swing.JPanel {
         this.charset = charset;
     }
 
-    @NonNull
     public Font getDefaultFont() {
         return defaultFont;
     }

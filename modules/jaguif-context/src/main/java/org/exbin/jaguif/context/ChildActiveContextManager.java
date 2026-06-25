@@ -22,7 +22,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
@@ -44,7 +43,7 @@ public class ChildActiveContextManager implements ActiveContextManagement {
         this.parentContextManager = parentContextManager;
         parentContextManager.addChangeListener(new ContextChangeListener() {
             @Override
-            public <T> void notifyStateChanged(@NonNull Class<T> stateClass, @Nullable T activeState) {
+            public <T> void notifyStateChanged(Class<T> stateClass, @Nullable T activeState) {
                 if (childStates.contains(stateClass)) {
                     return;
                 }
@@ -74,7 +73,6 @@ public class ChildActiveContextManager implements ActiveContextManagement {
         return parentContextManager.getActiveState(stateClass);
     }
 
-    @NonNull
     @Override
     public Collection<Class<?>> getStateClasses() {
         List<Class<?>> stateClasses = new ArrayList<>();

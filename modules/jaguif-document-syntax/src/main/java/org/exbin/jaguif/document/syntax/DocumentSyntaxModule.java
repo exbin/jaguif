@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.syntax;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.Module;
@@ -36,7 +35,6 @@ public class DocumentSyntaxModule implements Module {
     public DocumentSyntaxModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DocumentSyntaxModule.class);

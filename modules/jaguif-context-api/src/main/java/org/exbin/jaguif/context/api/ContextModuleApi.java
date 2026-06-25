@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.context.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -33,7 +32,6 @@ public interface ContextModuleApi extends Module {
      *
      * @return context manager
      */
-    @NonNull
     ActiveContextManagement getMainContextManager();
 
     /**
@@ -41,7 +39,6 @@ public interface ContextModuleApi extends Module {
      *
      * @return context manager
      */
-    @NonNull
     ActiveContextManagement createContextManager();
 
     /**
@@ -49,7 +46,6 @@ public interface ContextModuleApi extends Module {
      *
      * @return context registrator
      */
-    @NonNull
     ContextRegistration createContextRegistrator();
 
     /**
@@ -58,7 +54,6 @@ public interface ContextModuleApi extends Module {
      * @param contextManager context manager
      * @return context registrator
      */
-    @NonNull
     ContextRegistration createContextRegistrator(ActiveContextManagement contextManager);
 
     /**
@@ -69,7 +64,6 @@ public interface ContextModuleApi extends Module {
      * @param contextManagement context management
      * @return context registrator
      */
-    @NonNull
     ContextRegistration createContextRegistrator(String recordId, ContextUpdateManagement contextUpdateManagement, ActiveContextManagement contextManagement);
 
     /**
@@ -77,7 +71,6 @@ public interface ContextModuleApi extends Module {
      *
      * @return context update manager
      */
-    @NonNull
     ContextUpdateManagement createContextUpdateManagement();
 
     /**
@@ -86,7 +79,6 @@ public interface ContextModuleApi extends Module {
      * @param contextManagement context management
      * @return context update manager
      */
-    @NonNull
     ContextUpdateManagement createContextUpdateManagement(ActiveContextManagement contextManagement);
 
     /**
@@ -95,6 +87,5 @@ public interface ContextModuleApi extends Module {
      * @param parentContextManager parent context manager
      * @return context manager
      */
-    @NonNull
     ActiveContextManagement createChildContextManager(ActiveContextManagement parentContextManager);
 }

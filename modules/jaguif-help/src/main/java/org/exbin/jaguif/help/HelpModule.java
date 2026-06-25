@@ -20,7 +20,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
@@ -45,7 +44,6 @@ public class HelpModule implements HelpModuleApi {
     public HelpModule() {
     }
 
-    @NonNull
     private ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(HelpModule.class);
@@ -54,7 +52,6 @@ public class HelpModule implements HelpModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public JButton createHelpButton() {
         // TODO Change button shape to rounded
@@ -92,7 +89,6 @@ public class HelpModule implements HelpModuleApi {
         }
     }
 
-    @NonNull
     @Override
     public Optional<HelpOpeningHandler> getHelpOpeningHandler() {
         return Optional.ofNullable(helpOpeningHandler);
@@ -103,7 +99,6 @@ public class HelpModule implements HelpModuleApi {
         this.helpOpeningHandler = helpOpeningHandler;
     }
 
-    @NonNull
     @Override
     public Optional<HelpOpeningHandler> getFallbackOpeningHandler() {
         return Optional.ofNullable(fallbackOpeningHandler);

@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.toolbar;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -37,13 +36,11 @@ public class DefaultToolBarComponent implements ToolBarComponent {
         this.action = action;
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         return component;
     }
 
-    @NonNull
     @Override
     public Action getAction() {
         return action;

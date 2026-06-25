@@ -16,7 +16,6 @@
 package org.exbin.jaguif.ui.theme.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -41,7 +40,6 @@ public interface UiThemeModuleApi extends Module {
      *
      * @return list of look and feel providers
      */
-    @NonNull
     List<LafProvider> getLafProviders();
 
     /**

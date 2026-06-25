@@ -25,7 +25,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.text.Document;
 import org.exbin.jaguif.App;
@@ -192,7 +191,6 @@ public class TextPropertiesPanel extends javax.swing.JPanel {
         }
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

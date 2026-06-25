@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -30,7 +29,6 @@ public interface DocumentType {
      *
      * @return document type ID
      */
-    @NonNull
     String getTypeId();
 
     /**
@@ -38,7 +36,6 @@ public interface DocumentType {
      *
      * @return new document
      */
-    @NonNull
     Document createDefaultDocument();
 
     /**
@@ -47,6 +44,5 @@ public interface DocumentType {
      * @param documentSource document source
      * @return document
      */
-    @NonNull
     Optional<Document> createDocument(DocumentSource documentSource);
 }

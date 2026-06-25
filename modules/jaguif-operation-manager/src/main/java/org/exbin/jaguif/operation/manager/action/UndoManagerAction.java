@@ -17,7 +17,6 @@ package org.exbin.jaguif.operation.manager.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.App;
@@ -65,7 +64,6 @@ public class UndoManagerAction extends AbstractAction implements ActionContextCh
         windowHandler.showCentered(dialogParentComponent.getComponent());
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

@@ -28,7 +28,6 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
@@ -70,7 +69,6 @@ public class FileModule implements FileModuleApi {
     public FileModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FileModule.class);
@@ -84,7 +82,6 @@ public class FileModule implements FileModuleApi {
         registeredFileTypes.add(fileType);
     }
 
-    @NonNull
     @Override
     public Collection<FileType> getFileTypes() {
         return Collections.unmodifiableCollection(registeredFileTypes);
@@ -95,13 +92,11 @@ public class FileModule implements FileModuleApi {
         fileDialogsProviders.put(providerId, provider);
     }
 
-    @NonNull
     @Override
     public Map<String, FileDialogsProvider> getFileDialogsProviders() {
         return fileDialogsProviders;
     }
 
-    @NonNull
     @Override
     public String getFileDialogProviderId() {
         return fileDialogProviderId;
@@ -112,7 +107,6 @@ public class FileModule implements FileModuleApi {
         this.fileDialogProviderId = fileDialogProviderId;
     }
 
-    @NonNull
     @Override
     public FileDialogsProvider getFileDialogsProvider() {
         FileDialogsProvider fileDialogsProvider = fileDialogsProviders.get(fileDialogProviderId);
@@ -192,7 +186,6 @@ public class FileModule implements FileModuleApi {
         }
     }
 
-    @NonNull
     @Override
     public SaveModifiedResult showSaveModified(Component parentComponent) {
         getResourceBundle();

@@ -20,7 +20,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
@@ -46,7 +45,6 @@ public class HelpOnlineModule implements HelpOnlineModuleApi {
     public HelpOnlineModule() {
     }
 
-    @NonNull
     @Override
     public OnlineHelpAction createOnlineHelpAction() {
         OnlineHelpAction onlineHelpAction = new OnlineHelpAction();

@@ -17,11 +17,12 @@ package org.exbin.jaguif.file.api;
 
 import java.net.URI;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for file document.
  */
+@NullMarked
 public interface FileDocument {
 
     /**
@@ -29,6 +30,5 @@ public interface FileDocument {
      *
      * @return file URI
      */
-    @NonNull
     Optional<URI> getFileUri();
 }

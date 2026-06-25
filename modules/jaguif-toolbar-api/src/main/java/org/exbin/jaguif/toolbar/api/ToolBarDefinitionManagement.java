@@ -16,7 +16,6 @@
 package org.exbin.jaguif.toolbar.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -41,7 +40,6 @@ public interface ToolBarDefinitionManagement {
      * @param groupId group id
      * @return toolbar contribution
      */
-    @NonNull
     GroupSequenceContribution registerToolBarGroup(String groupId);
 
     /**
@@ -57,6 +55,5 @@ public interface ToolBarDefinitionManagement {
      *
      * @return tool bar contributions
      */
-    @NonNull
     List<SequenceContribution> getContributions();
 }

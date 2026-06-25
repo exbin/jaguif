@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
@@ -34,12 +33,10 @@ public class ApplySettingsContribution {
         this.settingsApplier = settingsApplier;
     }
 
-    @NonNull
     public String getContributionId() {
         return contributionId;
     }
 
-    @NonNull
     public SettingsApplier getSettingsApplier() {
         return settingsApplier;
     }

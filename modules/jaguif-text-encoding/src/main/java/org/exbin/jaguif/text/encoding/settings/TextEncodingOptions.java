@@ -18,7 +18,6 @@ package org.exbin.jaguif.text.encoding.settings;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.text.encoding.EncodingsManager;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -40,7 +39,6 @@ public class TextEncodingOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @NonNull
     public String getDefaultEncoding() {
         return storage.get(KEY_TEXT_ENCODING_DEFAULT, EncodingsManager.ENCODING_UTF8);
     }
@@ -49,7 +47,6 @@ public class TextEncodingOptions implements SettingsOptions {
         storage.put(KEY_TEXT_ENCODING_DEFAULT, encodingName);
     }
 
-    @NonNull
     public String getSelectedEncoding() {
         return storage.get(KEY_TEXT_ENCODING_SELECTED, EncodingsManager.ENCODING_UTF8);
     }
@@ -58,7 +55,6 @@ public class TextEncodingOptions implements SettingsOptions {
         storage.put(KEY_TEXT_ENCODING_SELECTED, encodingName);
     }
 
-    @NonNull
     public List<String> getEncodings() {
         List<String> encodings = new ArrayList<>();
         Optional<String> value;

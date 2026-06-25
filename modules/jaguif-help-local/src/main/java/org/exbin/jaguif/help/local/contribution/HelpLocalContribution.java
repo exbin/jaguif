@@ -15,19 +15,19 @@
  */
 package org.exbin.jaguif.help.local.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.help.local.action.HelpLocalAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Local help contribution.
  */
+@NullMarked
 public class HelpLocalContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "help";
 
-    @NonNull
     @Override
     public Action createAction() {
         HelpLocalAction action = new HelpLocalAction();
@@ -35,7 +35,6 @@ public class HelpLocalContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

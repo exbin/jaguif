@@ -15,13 +15,13 @@
  */
 package org.exbin.jaguif.license.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface of the license record.
  */
+@NullMarked
 public interface CustomLicenseRecord extends LicenseRecord {
 
-    @NonNull
     String getLicenseText();
 }

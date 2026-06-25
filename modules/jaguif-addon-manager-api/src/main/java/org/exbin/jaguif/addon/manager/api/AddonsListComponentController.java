@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -26,7 +25,6 @@ public interface AddonsListComponentController {
 
     int getItemsCount();
 
-    @NonNull
     ItemRecord getItem(int index);
 
     void addToCart(ItemRecord itemRecord, AddonOperationVariant variant);

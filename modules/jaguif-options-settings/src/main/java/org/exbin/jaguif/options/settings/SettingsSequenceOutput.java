@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SubSequenceContribution;
@@ -70,7 +69,6 @@ public class SettingsSequenceOutput implements TreeContributionSequenceOutput {
         // TODO
     }
 
-    @NonNull
     @Override
     public TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution) {
         SettingsPageContribution pageContribution = (SettingsPageContribution) subContribution;

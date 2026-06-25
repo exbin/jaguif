@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -46,6 +45,5 @@ public interface AddonsManagementCartController extends AddonsManagementContext 
      *
      * @return cart operations
      */
-    @NonNull
     List<CartOperation> getCartOperations();
 }

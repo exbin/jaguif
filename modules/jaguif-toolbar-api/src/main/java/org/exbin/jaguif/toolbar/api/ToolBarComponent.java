@@ -15,18 +15,17 @@
  */
 package org.exbin.jaguif.toolbar.api;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import javax.swing.JComponent;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Action toolbar component.
  */
+@NullMarked
 public interface ToolBarComponent {
 
-    @NonNull
     JComponent getComponent();
 
-    @NonNull
     Action getAction();
 }

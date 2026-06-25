@@ -18,7 +18,6 @@ package org.exbin.jaguif.language.api;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -36,7 +35,6 @@ public interface LanguageModuleApi extends Module {
      *
      * @return resource bundle
      */
-    @NonNull
     ResourceBundle getAppBundle();
 
     /**
@@ -53,7 +51,6 @@ public interface LanguageModuleApi extends Module {
      * @param targetClass target class
      * @return resource bundle
      */
-    @NonNull
     ResourceBundle getBundle(Class<?> targetClass);
 
     /**
@@ -63,7 +60,6 @@ public interface LanguageModuleApi extends Module {
      * @param bundleName bundle name
      * @return resource bundle
      */
-    @NonNull
     ResourceBundle getResourceBundleByBundleName(String bundleName);
 
     /**
@@ -72,7 +68,6 @@ public interface LanguageModuleApi extends Module {
      * @param actionTitle action title
      * @return enhanced action title
      */
-    @NonNull
     String getActionWithDialogText(String actionTitle);
 
     /**
@@ -82,7 +77,6 @@ public interface LanguageModuleApi extends Module {
      * @param key resource key
      * @return enhanced action title
      */
-    @NonNull
     String getActionWithDialogText(ResourceBundle bundle, String key);
 
     /**
@@ -97,7 +91,6 @@ public interface LanguageModuleApi extends Module {
      *
      * @return language providers
      */
-    @NonNull
     List<LanguageProvider> getLanguagePlugins();
 
     /**
@@ -112,7 +105,6 @@ public interface LanguageModuleApi extends Module {
      *
      * @return icon set providers
      */
-    @NonNull
     List<IconSetProvider> getIconSets();
 
     /**

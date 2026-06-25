@@ -18,7 +18,6 @@ package org.exbin.jaguif.window.api.gui;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -48,7 +47,6 @@ public class FooterControlPanel extends JPanel {
         initComponents();
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

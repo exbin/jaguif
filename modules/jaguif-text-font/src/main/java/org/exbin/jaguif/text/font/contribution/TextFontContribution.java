@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.text.font.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.text.font.TextFontModule;
 import org.exbin.jaguif.text.font.action.TextFontAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Text font contribution.
  */
+@NullMarked
 public class TextFontContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "textFont";
 
-    @NonNull
     @Override
     public Action createAction() {
         TextFontAction action = new TextFontAction();
@@ -38,7 +38,6 @@ public class TextFontContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

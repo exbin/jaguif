@@ -17,7 +17,6 @@ package org.exbin.jaguif.text.encoding.gui;
 
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
@@ -84,7 +83,6 @@ public class TextEncodingListPanel extends javax.swing.JPanel implements Setting
         this.controller = controller;
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
@@ -291,7 +289,6 @@ public class TextEncodingListPanel extends javax.swing.JPanel implements Setting
         encodingsList.repaint();
     }
 
-    @NonNull
     public List<String> getEncodingList() {
         return ((EncodingsListModel) encodingsList.getModel()).getCharsets();
     }

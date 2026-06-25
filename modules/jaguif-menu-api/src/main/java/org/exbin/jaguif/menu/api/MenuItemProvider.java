@@ -15,12 +15,13 @@
  */
 package org.exbin.jaguif.menu.api;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.JMenuItem;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Menu item provider.
  */
+@NullMarked
 public interface MenuItemProvider {
 
     /**
@@ -28,6 +29,5 @@ public interface MenuItemProvider {
      *
      * @return menu item
      */
-    @NonNull
     JMenuItem createMenuItem();
 }

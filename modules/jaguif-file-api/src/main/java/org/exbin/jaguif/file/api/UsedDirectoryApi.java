@@ -17,7 +17,6 @@ package org.exbin.jaguif.file.api;
 
 import java.io.File;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -32,7 +31,6 @@ public interface UsedDirectoryApi {
      *
      * @return directory or empty
      */
-    @NonNull
     Optional<File> getLastUsedDirectory();
 
     /**

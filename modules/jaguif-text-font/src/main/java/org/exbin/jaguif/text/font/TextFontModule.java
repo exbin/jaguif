@@ -16,7 +16,6 @@
 package org.exbin.jaguif.text.font;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.Module;
@@ -47,7 +46,6 @@ public class TextFontModule implements Module {
     public TextFontModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextFontModule.class);
@@ -73,7 +71,6 @@ public class TextFontModule implements Module {
         settingsManagement.registerSettingsRule(settingsComponent, new SettingsPageContributionRule(pageContribution));
     }
 
-    @NonNull
     public TextFontAction createTextFontAction() {
         TextFontAction textFontAction = new TextFontAction();
         textFontAction.init(getResourceBundle());

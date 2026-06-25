@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
@@ -125,19 +124,16 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
         });
     }
 
-    @NonNull
     @Override
     public Component getComponent() {
         return docking;
     }
 
-    @NonNull
     @Override
     public Optional<Document> getActiveDocument() {
         return Optional.ofNullable(getDocument());
     }
 
-    @NonNull
     @Override
     public Optional<Document> openNewDocument() {
         DocumentModuleApi documentModule = App.getModule(DocumentModuleApi.class);
@@ -182,7 +178,6 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
         }
     }
 
-    @NonNull
     @Override
     public List<Document> getDocuments() {
         return openDocuments;
@@ -356,7 +351,6 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
         return openDocuments.get(activeIndex);
     }
 
-    @NonNull
     private String getDocumentTitle(Document document) {
         if (!(document instanceof FileDocument)) {
             return "";

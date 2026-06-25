@@ -22,25 +22,18 @@ import java.awt.SystemColor;
 import java.awt.event.FocusListener;
 import java.awt.print.PrinterException;
 import java.nio.charset.Charset;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
-import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextArea;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Document;
-import javax.swing.text.Highlighter.Highlight;
 import javax.swing.text.JTextComponent;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.text.encoding.EncodingsManager;
 import org.exbin.jaguif.document.syntax.TextPanelCompoundUndoManager;
@@ -119,7 +112,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         }
     }
 
-    @NonNull
     public Color[] getCurrentColors() {
         Color[] colors = new Color[5];
         colors[0] = textArea.getForeground();
@@ -130,7 +122,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         return colors;
     }
 
-    @NonNull
     public Color[] getDefaultColors() {
         return defaultColors;
     }
@@ -181,12 +172,10 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         textArea.setCaretPosition(textArea.getCaretPosition() + charPos - 1);
     }
 
-    @NonNull
     public JTextArea getTextArea() {
         return textArea;
     }
 
-    @NonNull
     public JTextComponent getTextComponent() {
         return textArea;
     }
@@ -207,7 +196,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         return textArea.getFont();
     }
 
-    @NonNull
     public Color getFoundTextBackgroundColor() {
         return foundTextBackgroundColor;
     }
@@ -258,7 +246,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         firePropertyChange("modified", oldValue, this.modified);
     }
 
-    @NonNull
     public TextPanelCompoundUndoManager getUndo() {
         return undoManagement;
     }
@@ -267,7 +254,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         textArea.setComponentPopupMenu(menu);
     }
 
-    @NonNull
     public Point getCaretPosition() {
         int line;
         int caretPosition = textArea.getCaretPosition();
@@ -285,7 +271,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         textArea.getCaret().addChangeListener(listener);
     }
 
-    @NonNull
     public Charset getCharset() {
         return charset;
     }
@@ -294,7 +279,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         this.charset = charset;
     }
 
-    @NonNull
     public Font getDefaultFont() {
         return defaultFont;
     }
@@ -314,7 +298,7 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
         }
     }
 
-/*    public void registerTextStatus(TextStatusPanel textStatusPanel) {
+    /*    public void registerTextStatus(TextStatusPanel textStatusPanel) {
         this.textStatus = textStatusPanel;
         attachCaretListener((ChangeEvent e) -> {
             Point pos = getCaretPosition();
@@ -325,7 +309,6 @@ public class SyntaxTextPanel extends javax.swing.JPanel {
             textStatus.setEncoding(getCharset().name());
         });
     } */
-
     public void addTextAreaFocusListener(FocusListener focusListener) {
         textArea.addFocusListener(focusListener);
     }

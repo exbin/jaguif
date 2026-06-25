@@ -15,12 +15,13 @@
  */
 package org.exbin.jaguif.action.api;
 
-import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.context.api.ContextRegistration;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Provider for context registration.
  */
+@NullMarked
 public interface ContextRegistrationProvider {
 
     /**
@@ -28,6 +29,5 @@ public interface ContextRegistrationProvider {
      *
      * @return context registration
      */
-    @NonNull
     ContextRegistration getRegistration();
 }

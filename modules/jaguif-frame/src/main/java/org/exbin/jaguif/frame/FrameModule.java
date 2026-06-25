@@ -24,7 +24,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -90,7 +89,6 @@ public class FrameModule implements FrameModuleApi {
     public FrameModule() {
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
@@ -129,7 +127,6 @@ public class FrameModule implements FrameModuleApi {
         toolBarModule.registerToolBar(ToolBarModuleApi.MAIN_TOOL_BAR_ID, MODULE_ID);
     }
 
-    @NonNull
     @Override
     public Frame getFrame() {
         return getFrameController().getFrame();
@@ -157,7 +154,6 @@ public class FrameModule implements FrameModuleApi {
         windowPositionOptions.setWindowPosition(windowPosition);
     }
 
-    @NonNull
     @Override
     public Action createExitAction() {
         Action exitAction = new AbstractAction() {
@@ -225,7 +221,6 @@ public class FrameModule implements FrameModuleApi {
         }
     }
 
-    @NonNull
     @Override
     public FrameController getFrameController() {
         if (applicationFrame == null) {
@@ -237,7 +232,6 @@ public class FrameModule implements FrameModuleApi {
             ActiveContextManagement contextManager = applicationFrame.getContextManager();
             contextManager.changeActiveState(ContextFrame.class, applicationFrame);
             contextManager.changeActiveState(DialogParentComponent.class, new DialogParentComponent() {
-                @NonNull
                 @Override
                 public Component getComponent() {
                     return applicationFrame;
@@ -275,7 +269,6 @@ public class FrameModule implements FrameModuleApi {
         getExitHandler().removeClosingListener(listener);
     }
 
-    @NonNull
     private FrameClosingHandler getExitHandler() {
         if (exitHandler == null) {
             exitHandler = new FrameClosingHandler();
@@ -287,7 +280,6 @@ public class FrameModule implements FrameModuleApi {
         return exitHandler;
     }
 
-    @NonNull
     private StatusBarHandler getStatusBarHandler() {
         getFrameController();
         if (statusBarHandler == null) {
@@ -307,7 +299,6 @@ public class FrameModule implements FrameModuleApi {
         getStatusBarHandler().switchStatusBar(statusBarId);
     }
 
-    @NonNull
     public FrameActions getFrameActions() {
         if (frameActions == null) {
             frameActions = new FrameActions();
@@ -369,7 +360,6 @@ public class FrameModule implements FrameModuleApi {
         this.undecorated = true;
     }
 
-    @NonNull
     @Override
     public Optional<Image> getApplicationIcon() {
         return Optional.ofNullable(appIcon);

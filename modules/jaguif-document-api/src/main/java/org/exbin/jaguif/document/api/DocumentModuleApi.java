@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.document.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -36,7 +35,6 @@ public interface DocumentModuleApi extends Module {
      *
      * @return document manager
      */
-    @NonNull
     DocumentManagement getMainDocumentManager();
 
     /**
@@ -44,16 +42,15 @@ public interface DocumentModuleApi extends Module {
      *
      * @return empty document source
      */
-    @NonNull
     EmptyDocumentSource createEmptyDocumentSource();
 
     /**
      * Returns new document name prefix.
+     *
      * @return name prefix
      */
-    @NonNull
     String getNewDocumentNamePrefix();
-    
+
     /**
      * Registers settings options and panels.
      */

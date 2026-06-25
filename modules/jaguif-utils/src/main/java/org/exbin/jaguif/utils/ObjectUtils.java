@@ -16,7 +16,6 @@
 package org.exbin.jaguif.utils;
 
 import java.util.Objects;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -31,12 +30,10 @@ public class ObjectUtils {
     private ObjectUtils() {
     }
 
-    @NonNull
     public static <T> T requireNonNull(@Nullable T object) {
         return Objects.requireNonNull(object, NULL_FIELD_ERROR);
     }
 
-    @NonNull
     public static <T> T requireNonNull(@Nullable T object, String message) {
         return Objects.requireNonNull(object, message);
     }
@@ -51,7 +48,6 @@ public class ObjectUtils {
         throw getInvalidTypeException(enumObject);
     }
 
-    @NonNull
     public static IllegalStateException getInvalidTypeException(Enum<?> enumObject) {
         return new IllegalStateException("Unexpected " + enumObject.getDeclaringClass().getName() + " value " + enumObject.name());
     }

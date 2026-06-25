@@ -20,7 +20,6 @@ import java.awt.Font;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.nio.charset.Charset;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JTextArea;
 import javax.swing.text.DefaultEditorKit;
@@ -44,7 +43,6 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         this.textPanel = textPanel;
     }
 
-    @NonNull
     @Override
     public TextPanel getTextPanel() {
         return textPanel;
@@ -107,7 +105,6 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         return textPanel.getTextArea().isEditable();
     }
 
-    @NonNull
     @Override
     public String getEncoding() {
         return textPanel.getCharset().name();
@@ -118,13 +115,11 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         textPanel.setCharset(Charset.forName(encoding));
     }
 
-    @NonNull
     @Override
     public Font getCurrentFont() {
         return textPanel.getCurrentFont();
     }
 
-    @NonNull
     @Override
     public Font getDefaultFont() {
         return textPanel.getDefaultFont();
@@ -145,13 +140,11 @@ public class EditorTextPanelComponent implements ContextComponent, TextPanelComp
         textPanel.setWordWrapMode(mode);
     }
 
-    @NonNull
     @Override
     public Color[] getCurrentTextColors() {
         return textPanel.getCurrentColors();
     }
 
-    @NonNull
     @Override
     public Color[] getDefaultTextColors() {
         return textPanel.getDefaultColors();

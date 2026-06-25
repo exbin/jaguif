@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.tabpages.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
@@ -64,7 +63,6 @@ public interface TabPagesComponent extends ContextValues {
      *
      * @return component instance
      */
-    @NonNull
     JComponent getComponent();
 
     /**

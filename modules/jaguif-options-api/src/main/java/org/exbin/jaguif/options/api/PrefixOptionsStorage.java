@@ -16,7 +16,6 @@
 package org.exbin.jaguif.options.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -44,13 +43,11 @@ public class PrefixOptionsStorage implements OptionsStorage {
         return optionsStorage.exists(prefix + key);
     }
 
-    @NonNull
     @Override
     public Optional<String> get(String key) {
         return optionsStorage.get(prefix + key);
     }
 
-    @NonNull
     @Override
     public String get(String key, String def) {
         return optionsStorage.get(prefix + key, def);
@@ -61,7 +58,6 @@ public class PrefixOptionsStorage implements OptionsStorage {
         return optionsStorage.getBoolean(prefix + key, def);
     }
 
-    @NonNull
     @Override
     public byte[] getByteArray(String key, byte[] def) {
         return optionsStorage.getByteArray(prefix + key, def);

@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.docking.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.Module;
@@ -51,7 +50,6 @@ public interface DockingModuleApi extends Module {
      *
      * @return document docking
      */
-    @NonNull
     DocumentDocking createDefaultDocking();
 
     /**
@@ -59,7 +57,6 @@ public interface DockingModuleApi extends Module {
      *
      * @return action
      */
-    @NonNull
     AbstractAction createNewFileAction();
 
     /**
@@ -67,7 +64,6 @@ public interface DockingModuleApi extends Module {
      *
      * @return action
      */
-    @NonNull
     AbstractAction createOpenFileAction();
 
     /**
@@ -75,7 +71,6 @@ public interface DockingModuleApi extends Module {
      *
      * @return action
      */
-    @NonNull
     AbstractAction createSaveFileAction();
 
     /**
@@ -83,7 +78,6 @@ public interface DockingModuleApi extends Module {
      *
      * @return action
      */
-    @NonNull
     AbstractAction createSaveAsFileAction();
 
     /**
@@ -91,6 +85,5 @@ public interface DockingModuleApi extends Module {
      *
      * @return close file action
      */
-    @NonNull
     AbstractAction createCloseFileAction();
 }

@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -44,7 +43,6 @@ public interface DocumentManagement {
      *
      * @return document
      */
-    @NonNull
     Document createDefaultDocument();
 
     /**
@@ -53,7 +51,6 @@ public interface DocumentManagement {
      * @param source document source
      * @return document
      */
-    @NonNull
     Document createDocumentForSource(SourceIdentifier source);
 
     /**
@@ -61,7 +58,6 @@ public interface DocumentManagement {
      *
      * @return empty document source
      */
-    @NonNull
     EmptyDocumentSource createEmptyDocumentSource();
 
     /**
@@ -70,7 +66,6 @@ public interface DocumentManagement {
      *
      * @return document or empty if failed / cancelled
      */
-    @NonNull
     Optional<Document> openDefaultDocument();
 
     /**
@@ -79,7 +74,6 @@ public interface DocumentManagement {
      * @param document document to save
      * @return document source if selected
      */
-    @NonNull
     Optional<DocumentSource> saveDocumentAs(Document document);
 
     /**

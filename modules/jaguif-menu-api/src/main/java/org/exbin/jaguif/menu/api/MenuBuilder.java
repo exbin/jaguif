@@ -15,14 +15,15 @@
  */
 package org.exbin.jaguif.menu.api;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Menu builder.
  */
+@NullMarked
 public interface MenuBuilder {
 
     /**
@@ -30,7 +31,6 @@ public interface MenuBuilder {
      *
      * @return new instance of menu
      */
-    @NonNull
     JMenu createMenu();
 
     /**
@@ -38,7 +38,6 @@ public interface MenuBuilder {
      *
      * @return new instance of popup menu
      */
-    @NonNull
     JPopupMenu createPopupMenu();
 
     /**
@@ -46,7 +45,6 @@ public interface MenuBuilder {
      *
      * @return new instance of menu item
      */
-    @NonNull
     JMenuItem createMenuItem();
 
     /**
@@ -54,7 +52,6 @@ public interface MenuBuilder {
      *
      * @return new instance of check box menu item
      */
-    @NonNull
     JMenuItem createCheckBoxMenuItem();
 
     /**
@@ -62,7 +59,6 @@ public interface MenuBuilder {
      *
      * @return new instance of radio button menu item
      */
-    @NonNull
     JMenuItem createRadioButtonMenuItem();
 
     /**
@@ -71,6 +67,5 @@ public interface MenuBuilder {
      * @param showMethod show method
      * @return new instance of popup menu
      */
-    @NonNull
     JPopupMenu createPopupMenu(MenuShowMethod showMethod);
 }

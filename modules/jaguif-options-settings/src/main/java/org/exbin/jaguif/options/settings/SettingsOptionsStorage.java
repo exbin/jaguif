@@ -18,7 +18,6 @@ package org.exbin.jaguif.options.settings;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
@@ -59,7 +58,6 @@ public class SettingsOptionsStorage implements SettingsOptionsProvider {
         return (T) instance;
     }
 
-    @NonNull
     @Override
     public <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass) {
         return mainSettingsManager.getInferenceOptions(inferenceClass);

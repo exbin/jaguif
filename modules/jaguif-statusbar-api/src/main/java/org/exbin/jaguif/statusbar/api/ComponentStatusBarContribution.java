@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.statusbar.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 
@@ -30,6 +29,5 @@ public interface ComponentStatusBarContribution extends ItemSequenceContribution
      *
      * @return status bar component
      */
-    @NonNull
     StatusBarComponent createComponent();
 }

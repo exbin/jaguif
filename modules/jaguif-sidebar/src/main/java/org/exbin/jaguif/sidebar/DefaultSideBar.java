@@ -17,7 +17,6 @@ package org.exbin.jaguif.sidebar;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JPanel;
@@ -46,7 +45,6 @@ public class DefaultSideBar implements SideBar {
         toolBar.setFocusable(false);
     }
 
-    @NonNull
     @Override
     public JToolBar getToolBar() {
         return toolBar;
@@ -71,7 +69,6 @@ public class DefaultSideBar implements SideBar {
         }
     }
 
-    @NonNull
     @Override
     public JPanel getSideBarPanel() {
         return sideBarPanel;

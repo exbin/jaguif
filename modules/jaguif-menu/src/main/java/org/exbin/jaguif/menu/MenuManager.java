@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
@@ -124,7 +123,6 @@ public class MenuManager implements MenuManagement {
         definition.addContribution(contribution);
     }
 
-    @NonNull
     @Override
     public SubMenuContribution registerMenuItem(String menuId, String moduleId, String subMenuId, String subMenuName) {
         Action subMenuAction = new AbstractAction(subMenuName) {
@@ -135,7 +133,6 @@ public class MenuManager implements MenuManagement {
         return registerMenuItem(menuId, moduleId, subMenuId, subMenuAction);
     }
 
-    @NonNull
     @Override
     public SubMenuContribution registerMenuItem(String menuId, String moduleId, String subMenuId, Action subMenuAction) {
         ContributionDefinition definition = contributionManagement.getDefinition(menuId);
@@ -148,7 +145,6 @@ public class MenuManager implements MenuManagement {
         return menuContribution;
     }
 
-    @NonNull
     @Override
     public DirectMenuContribution registerMenuItem(String menuId, String moduleId, MenuItemProvider menuItemProvider) {
         ContributionDefinition definition = contributionManagement.getDefinition(menuId);
@@ -161,7 +157,6 @@ public class MenuManager implements MenuManagement {
         return menuContribution;
     }
 
-    @NonNull
     @Override
     public GroupSequenceContribution registerMenuGroup(String menuId, String moduleId, String groupId) {
         return contributionManagement.registerContributionGroup(menuId, moduleId, groupId);
@@ -172,7 +167,6 @@ public class MenuManager implements MenuManagement {
         contributionManagement.registerContributionRule(contribution, rule);
     }
 
-    @NonNull
     @Override
     public List<SequenceContribution> getContributions() {
         List<ContributionDefinition> definitions = contributionManagement.getAllDefinitions();

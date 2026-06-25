@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.document.text.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.document.text.DocumentTextModule;
 import org.exbin.jaguif.document.text.action.TextColorAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Text color contribution.
  */
+@NullMarked
 public class TextColorContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "textColor";
 
-    @NonNull
     @Override
     public Action createAction() {
         TextColorAction action = new TextColorAction();
@@ -38,7 +38,6 @@ public class TextColorContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.settings.gui;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerOptions;
@@ -39,7 +38,6 @@ public class AddonManagerSettingsPanel extends javax.swing.JPanel implements Set
         initComponents();
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

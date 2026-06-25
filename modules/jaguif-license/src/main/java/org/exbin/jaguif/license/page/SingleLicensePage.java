@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
@@ -50,7 +49,6 @@ public class SingleLicensePage extends AbstractTabPagesComponent {
         putValue(KEY_NAME, resourceBundle.getString("pageName"));
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         if (!contentLoaded) {
@@ -81,13 +79,11 @@ public class SingleLicensePage extends AbstractTabPagesComponent {
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new SingleLicensePage();
         }
 
-        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

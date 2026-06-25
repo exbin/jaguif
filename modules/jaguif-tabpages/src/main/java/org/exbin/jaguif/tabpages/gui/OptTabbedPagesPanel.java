@@ -18,7 +18,6 @@ package org.exbin.jaguif.tabpages.gui;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
 import javax.swing.JComponent;
@@ -44,7 +43,6 @@ public class OptTabbedPagesPanel extends javax.swing.JPanel implements TabPages 
         });
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         return this;

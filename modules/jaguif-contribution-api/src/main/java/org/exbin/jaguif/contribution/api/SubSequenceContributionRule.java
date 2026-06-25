@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
@@ -32,7 +31,6 @@ public class SubSequenceContributionRule implements SequenceContributionRule {
         this.subContributionId = subContributionId;
     }
 
-    @NonNull
     public String getSubContributionId() {
         return subContributionId;
     }

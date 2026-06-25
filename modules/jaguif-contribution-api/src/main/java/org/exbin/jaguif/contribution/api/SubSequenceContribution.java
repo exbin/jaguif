@@ -15,13 +15,14 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import javax.annotation.concurrent.Immutable;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Sequence sub contribution.
  */
 @Immutable
+@NullMarked
 public interface SubSequenceContribution extends SequenceContribution {
 
     /**
@@ -29,6 +30,5 @@ public interface SubSequenceContribution extends SequenceContribution {
      *
      * @return sub sequence contribution id
      */
-    @NonNull
     String getContributionId();
 }

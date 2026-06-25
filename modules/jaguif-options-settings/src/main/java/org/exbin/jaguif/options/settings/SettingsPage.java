@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.GroupLayout;
@@ -55,12 +54,10 @@ public class SettingsPage {
         panel.setLayout(groupLayout);
     }
 
-    @NonNull
     public JPanel getPanel() {
         return panel;
     }
 
-    @NonNull
     public String getPageId() {
         return pageId;
     }

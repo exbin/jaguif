@@ -19,7 +19,6 @@ import org.exbin.jaguif.docking.multi.gui.ModifiedDocumentsPanel;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
@@ -55,7 +54,6 @@ public class DockingMultiModule implements DockingMultiModuleApi {
 
     private ResourceBundle resourceBundle;
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DockingMultiModule.class);
@@ -64,7 +62,6 @@ public class DockingMultiModule implements DockingMultiModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public DocumentDocking createDefaultDocking() {
         return new DefaultMultiDocking();
@@ -115,7 +112,6 @@ public class DockingMultiModule implements DockingMultiModuleApi {
         return result[0];
     }
 
-    @NonNull
     @Override
     public CloseAllFilesAction createCloseAllFilesAction() {
         CloseAllFilesAction closeAllFilesAction = new CloseAllFilesAction();
@@ -123,7 +119,6 @@ public class DockingMultiModule implements DockingMultiModuleApi {
         return closeAllFilesAction;
     }
 
-    @NonNull
     @Override
     public CloseOtherFilesAction createCloseOtherFilesAction() {
         CloseOtherFilesAction closeOtherFilesAction = new CloseOtherFilesAction();

@@ -20,7 +20,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
@@ -42,7 +41,6 @@ public class ActiveContextManager implements ActiveContextManagement {
         return (T) activeStates.get(stateClass);
     }
 
-    @NonNull
     @Override
     public Collection<Class<?>> getStateClasses() {
         List<Class<?>> stateClasses = new ArrayList<>();

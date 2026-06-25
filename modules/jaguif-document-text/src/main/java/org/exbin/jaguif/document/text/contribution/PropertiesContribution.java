@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.document.text.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.document.text.DocumentTextModule;
 import org.exbin.jaguif.document.text.action.PropertiesAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
- * Close file contribution.
+ * File properties contribution.
  */
+@NullMarked
 public class PropertiesContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "properties";
 
-    @NonNull
     @Override
     public Action createAction() {
         PropertiesAction action = new PropertiesAction();
@@ -38,7 +38,6 @@ public class PropertiesContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

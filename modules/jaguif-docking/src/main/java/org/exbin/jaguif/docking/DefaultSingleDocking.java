@@ -17,7 +17,6 @@ package org.exbin.jaguif.docking;
 
 import java.awt.Component;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
@@ -49,7 +48,6 @@ public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, D
     protected Document currentDocument = null;
     protected ActiveContextManagement contextManager = null;
 
-    @NonNull
     @Override
     public Component getComponent() {
         return docking;
@@ -116,13 +114,11 @@ public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, D
         contextManager.changeActiveState(ContextDocument.class, (ContextDocument) document);
     }
 
-    @NonNull
     @Override
     public Optional<Document> getActiveDocument() {
         return Optional.ofNullable(currentDocument);
     }
 
-    @NonNull
     @Override
     public Optional<Document> openNewDocument() {
         if (currentDocument != null) {

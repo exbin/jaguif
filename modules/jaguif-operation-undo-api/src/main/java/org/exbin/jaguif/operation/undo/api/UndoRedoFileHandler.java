@@ -16,11 +16,12 @@
 package org.exbin.jaguif.operation.undo.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for framework undo/redo module.
  */
+@NullMarked
 public interface UndoRedoFileHandler {
 
     /**
@@ -28,6 +29,5 @@ public interface UndoRedoFileHandler {
      *
      * @return undo handler
      */
-    @NonNull
     Optional<UndoRedoState> getUndoRedo();
 }

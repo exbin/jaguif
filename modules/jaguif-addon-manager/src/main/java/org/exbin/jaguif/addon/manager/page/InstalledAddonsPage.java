@@ -18,7 +18,6 @@ package org.exbin.jaguif.addon.manager.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
@@ -69,7 +68,6 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
                 return InstalledAddonsPage.this.getItemsCount();
             }
 
-            @NonNull
             @Override
             public ItemRecord getItem(int index) {
                 return InstalledAddonsPage.this.getItem(index);
@@ -118,7 +116,6 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         return installedAddons.size();
     }
 
-    @NonNull
     private ItemRecord getItem(int index) {
         List<ItemRecord> installedAddons = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
         if (filterItems != null) {
@@ -141,7 +138,6 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         notifyItemsChanged();
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         return listComponent.getComponent();
@@ -161,7 +157,6 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     public void refreshContent() {
     }
 
-    @NonNull
     @Override
     public Runnable createFilterOperation(Object filter) {
         return () -> {
@@ -169,7 +164,6 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         };
     }
 
-    @NonNull
     @Override
     public Runnable createSearchOperation(String search) {
         return () -> {
@@ -205,13 +199,11 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new InstalledAddonsPage();
         }
 
-        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

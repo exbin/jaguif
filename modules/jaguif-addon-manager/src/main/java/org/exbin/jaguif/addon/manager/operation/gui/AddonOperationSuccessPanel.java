@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.operation.gui;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -33,7 +32,6 @@ public class AddonOperationSuccessPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

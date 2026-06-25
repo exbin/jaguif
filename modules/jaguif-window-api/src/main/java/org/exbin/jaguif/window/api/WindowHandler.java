@@ -18,12 +18,13 @@ package org.exbin.jaguif.window.api;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Window;
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 
 /**
  * Wrapper for window with extra controls.
  */
+@NullMarked
 public interface WindowHandler {
 
     /**
@@ -53,7 +54,6 @@ public interface WindowHandler {
      *
      * @return window instance
      */
-    @NonNull
     Window getWindow();
 
     /**
@@ -61,7 +61,6 @@ public interface WindowHandler {
      *
      * @return parent container
      */
-    @NonNull
     Container getParent();
 
     /**

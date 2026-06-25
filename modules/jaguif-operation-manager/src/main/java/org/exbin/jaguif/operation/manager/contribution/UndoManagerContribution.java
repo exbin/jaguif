@@ -15,26 +15,25 @@
  */
 package org.exbin.jaguif.operation.manager.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.operation.manager.action.UndoManagerAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Undo manager contribution.
  */
+@NullMarked
 public class UndoManagerContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "editUndoManager";
 
-    @NonNull
     @Override
     public Action createAction() {
         UndoManagerAction action = new UndoManagerAction();
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

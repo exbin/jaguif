@@ -27,7 +27,6 @@ import java.net.URI;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.operation.undo.api.UndoRedoState;
@@ -112,13 +111,11 @@ public class SyntaxTextDocument implements ContextDocument, ComponentDocument, F
         notifyUndoChanged();
     }
 
-    @NonNull
     @Override
     public SyntaxTextPanel getComponent() {
         return textPanel;
     }
 
-    @NonNull
     @Override
     public Optional<DocumentSource> getDocumentSource() {
         return Optional.ofNullable(documentSource);
@@ -184,13 +181,11 @@ public class SyntaxTextDocument implements ContextDocument, ComponentDocument, F
         notifyUndoChanged();
     }
 
-    @NonNull
     @Override
     public Optional<URI> getFileUri() {
         return Optional.ofNullable(null);
     }
 
-    @NonNull
     public String getTitle() {
         // TODO
         URI fileUri = null;

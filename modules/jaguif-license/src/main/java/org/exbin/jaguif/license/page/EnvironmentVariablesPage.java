@@ -18,7 +18,6 @@ package org.exbin.jaguif.license.page;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Set;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.JScrollPane;
@@ -59,7 +58,6 @@ public class EnvironmentVariablesPage extends AbstractTabPagesComponent {
         });
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         if (!variablesLoaded) {
@@ -83,13 +81,11 @@ public class EnvironmentVariablesPage extends AbstractTabPagesComponent {
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new EnvironmentVariablesPage();
         }
 
-        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

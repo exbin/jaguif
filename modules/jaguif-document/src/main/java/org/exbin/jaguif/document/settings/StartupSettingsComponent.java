@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.document.settings;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.settings.gui.StartupSettingsPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
@@ -29,7 +28,6 @@ public class StartupSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "startup";
 
-    @NonNull
     @Override
     public SettingsComponent createComponent() {
         return new StartupSettingsPanel();

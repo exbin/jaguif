@@ -16,7 +16,6 @@
 package org.exbin.jaguif.print.api;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -30,6 +29,5 @@ public interface PrintModuleApi extends Module {
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(PrintModuleApi.class);
     public static final String SEARCH_MENU_GROUP_ID = MODULE_ID + ".searchMenuGroup";
 
-    @NonNull
     ResourceBundle getResourceBundle();
 }

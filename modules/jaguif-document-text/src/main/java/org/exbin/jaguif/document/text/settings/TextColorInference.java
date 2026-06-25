@@ -16,12 +16,13 @@
 package org.exbin.jaguif.document.text.settings;
 
 import java.awt.Color;
-import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.options.settings.api.InferenceOptions;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Text color inference options.
  */
+@NullMarked
 public interface TextColorInference extends InferenceOptions {
 
     /**
@@ -29,7 +30,6 @@ public interface TextColorInference extends InferenceOptions {
      *
      * @return array of 5 colors
      */
-    @NonNull
     Color[] getCurrentTextColors();
 
     /**
@@ -37,6 +37,5 @@ public interface TextColorInference extends InferenceOptions {
      *
      * @return array of 5 colors
      */
-    @NonNull
     Color[] getDefaultTextColors();
 }

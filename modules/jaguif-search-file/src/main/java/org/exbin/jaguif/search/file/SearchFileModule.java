@@ -16,7 +16,6 @@
 package org.exbin.jaguif.search.file;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -36,7 +35,6 @@ public class SearchFileModule implements SearchModuleApi {
     public SearchFileModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SearchFileModule.class);
@@ -45,7 +43,6 @@ public class SearchFileModule implements SearchModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     public SearchInFilesActions getFindReplaceActions() {
         if (findReplaceActions == null) {
             findReplaceActions = new SearchInFilesActions();

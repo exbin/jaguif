@@ -16,7 +16,6 @@
 package org.exbin.jaguif.project.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 
@@ -31,7 +30,6 @@ public interface ProjectType {
      *
      * @return project type id
      */
-    @NonNull
     String getId();
 
     /**
@@ -39,7 +37,6 @@ public interface ProjectType {
      *
      * @return
      */
-    @NonNull
     ProjectCategory getCategory();
 
     /**
@@ -47,7 +44,6 @@ public interface ProjectType {
      *
      * @return name
      */
-    @NonNull
     String getName();
 
     /**
@@ -55,6 +51,5 @@ public interface ProjectType {
      *
      * @return component
      */
-    @NonNull
     Optional<JComponent> getNewProjectComponent();
 }

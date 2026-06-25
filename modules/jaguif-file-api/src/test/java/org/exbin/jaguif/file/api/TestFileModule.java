@@ -20,7 +20,6 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -34,7 +33,6 @@ public class TestFileModule implements FileModuleApi {
     public void addFileType(FileType fileType) {
     }
 
-    @NonNull
     @Override
     public Collection<FileType> getFileTypes() {
         return new ArrayList<>();
@@ -57,13 +55,11 @@ public class TestFileModule implements FileModuleApi {
         throw new UnsupportedOperationException();
     }
 
-    @NonNull
     @Override
     public Map<String, FileDialogsProvider> getFileDialogsProviders() {
         throw new UnsupportedOperationException();
     }
 
-    @NonNull
     @Override
     public String getFileDialogProviderId() {
         throw new UnsupportedOperationException();
@@ -74,7 +70,6 @@ public class TestFileModule implements FileModuleApi {
         throw new UnsupportedOperationException();
     }
 
-    @NonNull
     @Override
     public FileDialogsProvider getFileDialogsProvider() {
         throw new UnsupportedOperationException();
@@ -100,7 +95,6 @@ public class TestFileModule implements FileModuleApi {
         throw new UnsupportedOperationException();
     }
 
-    @NonNull
     @Override
     public SaveModifiedResult showSaveModified(Component parentComponent) {
         throw new UnsupportedOperationException();

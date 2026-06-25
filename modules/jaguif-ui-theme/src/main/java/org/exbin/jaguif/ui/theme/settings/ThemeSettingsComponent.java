@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
@@ -173,7 +172,6 @@ public class ThemeSettingsComponent implements SettingsComponentProvider {
         }
     }
 
-    @NonNull
     @Override
     public SettingsComponent createComponent() {
         if (!valuesInitialized) {

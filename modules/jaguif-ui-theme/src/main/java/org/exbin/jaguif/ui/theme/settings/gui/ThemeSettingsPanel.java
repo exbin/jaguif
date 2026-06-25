@@ -21,7 +21,6 @@ import java.awt.event.ItemEvent;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ComboBoxModel;
@@ -62,7 +61,6 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
         }
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
@@ -120,7 +118,6 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
         });
         visualThemeComboBox.setModel(themeComboBoxModel);
         visualThemeComboBox.setRenderer(new DefaultListCellRenderer() {
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (index >= 0) {
@@ -139,7 +136,6 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
         });
         iconSetComboBox.setModel(iconSetComboBoxModel);
         iconSetComboBox.setRenderer(new DefaultListCellRenderer() {
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (index >= 0) {
@@ -158,7 +154,6 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
         });
         renderingModeComboBox.setModel(renderingModeComboBoxModel);
         renderingModeComboBox.setRenderer(new DefaultListCellRenderer() {
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (index >= 0) {
@@ -177,7 +172,6 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
         });
         fontAntialiasingComboBox.setModel(fontAntialiasingComboBoxModel);
         fontAntialiasingComboBox.setRenderer(new DefaultListCellRenderer() {
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (index >= 0) {
@@ -196,7 +190,6 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
         });
         guiScalingComboBox.setModel(guiScalingComboBoxModel);
         guiScalingComboBox.setRenderer(new DefaultListCellRenderer() {
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (index >= 0) {
@@ -218,7 +211,6 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
         });
         macOsAppearanceComboBox.setModel(macOsAppearanceComboBoxModel);
         macOsAppearanceComboBox.setRenderer(new DefaultListCellRenderer() {
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, @Nullable Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 if (index >= 0) {

@@ -24,7 +24,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
@@ -289,7 +288,6 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
         }
     }
 
-    @NonNull
     private static BuilderGroupRecord createGroup(BuilderRecord builderRecord, @Nullable String subId, @Nullable String groupId) {
         if (subId == null) {
             subId = "";

@@ -20,7 +20,6 @@ import java.awt.BorderLayout;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.text.encoding.settings.TextEncodingOptions;
@@ -62,7 +61,6 @@ public class TextEncodingSettingsPanel extends javax.swing.JPanel implements Set
         super.add(encodingPanel, BorderLayout.CENTER);
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

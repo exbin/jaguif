@@ -20,7 +20,6 @@ import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JColorChooser;
 import javax.swing.JDialog;
@@ -47,7 +46,6 @@ public class TextColorPanel extends javax.swing.JPanel implements SettingsCompon
         initComponents();
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
@@ -571,7 +569,6 @@ public class TextColorPanel extends javax.swing.JPanel implements SettingsCompon
         setFoundBackgroundColor(colors[4]);
     }
 
-    @NonNull
     public Color[] getArrayFromColors() {
         Color[] colors = new Color[5];
         colors[0] = getTextColor();

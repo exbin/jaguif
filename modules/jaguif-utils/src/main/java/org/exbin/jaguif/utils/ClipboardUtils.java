@@ -23,7 +23,6 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -42,7 +41,6 @@ public class ClipboardUtils {
      *
      * @return clipboard clipboard instance
      */
-    @NonNull
     public static Clipboard getClipboard() {
         if (clipboard == null) {
             try {
@@ -69,7 +67,6 @@ public class ClipboardUtils {
             this.image = image;
         }
 
-        @NonNull
         @Override
         public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
             if (flavor.equals(DataFlavor.imageFlavor) && image != null) {
@@ -79,7 +76,6 @@ public class ClipboardUtils {
             }
         }
 
-        @NonNull
         @Override
         public DataFlavor[] getTransferDataFlavors() {
             DataFlavor[] flavors = new DataFlavor[1];

@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.DocumentManagement;
@@ -44,7 +43,6 @@ public class DocumentModule implements DocumentModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DocumentModule.class);
@@ -53,7 +51,6 @@ public class DocumentModule implements DocumentModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public DocumentManagement getMainDocumentManager() {
         if (mainDocumentManager == null) {
@@ -63,13 +60,11 @@ public class DocumentModule implements DocumentModuleApi {
         return mainDocumentManager;
     }
 
-    @NonNull
     @Override
     public EmptyDocumentSource createEmptyDocumentSource() {
         return getMainDocumentManager().createEmptyDocumentSource();
     }
 
-    @NonNull
     @Override
     public String getNewDocumentNamePrefix() {
         return getResourceBundle().getString("newFileTitlePrefix");

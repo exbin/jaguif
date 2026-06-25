@@ -17,7 +17,6 @@ package org.exbin.jaguif.component;
 
 import org.exbin.jaguif.component.action.DefaultEditItemActions;
 import org.exbin.jaguif.component.action.DefaultMoveItemActions;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.component.api.action.EditItemActions;
 import org.exbin.jaguif.component.api.ComponentModuleApi;
@@ -37,14 +36,12 @@ public class ComponentModule implements ComponentModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     @Override
     public EditItemActions createEditItemActions(ContextEditItem editItemActionsHandler) {
         DefaultEditItemActions editActions = new DefaultEditItemActions();
         return editActions;
     }
 
-    @NonNull
     @Override
     public MoveItemActions createMoveItemActions(ContextMoveItem moveItemActionsHandler) {
         DefaultMoveItemActions moveActions = new DefaultMoveItemActions();

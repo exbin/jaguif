@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.operation.undo.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.operation.undo.action.UndoAction;
 import org.exbin.jaguif.operation.undo.api.OperationUndoModuleApi;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Undo contribution.
  */
+@NullMarked
 public class UndoContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "editUndo";
 
-    @NonNull
     @Override
     public Action createAction() {
         UndoAction action = new UndoAction();
@@ -38,7 +38,6 @@ public class UndoContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

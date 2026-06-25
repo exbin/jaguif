@@ -32,7 +32,6 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
@@ -74,12 +73,10 @@ public class AddonModificationsOperation {
         this.addonUpdateChanges = addonUpdateChanges;
     }
 
-    @NonNull
     public AddonUpdateChanges getAddonUpdateChanges() {
         return addonUpdateChanges;
     }
 
-    @NonNull
     public List<String> getOperations() {
         List<String> operations = new ArrayList<>();
         String operationMessage = resourceBundle.getString("operationMessage.installModule");
@@ -109,7 +106,6 @@ public class AddonModificationsOperation {
         return operations;
     }
 
-    @NonNull
     public List<LicenseItemRecord> getLicenseRecords() {
         for (LicenseItemRecord record : licenseRecords) {
             try {
@@ -122,7 +118,6 @@ public class AddonModificationsOperation {
         return licenseRecords;
     }
 
-    @NonNull
     public List<DownloadItemRecord> getDownloadRecords() {
         List<DownloadItemRecord> downloadRecords = new ArrayList<>();
         String downloadItemDescription = resourceBundle.getString("downloadItemDescription.module");
@@ -376,7 +371,6 @@ public class AddonModificationsOperation {
         addonUpdateChanges.writeConfigFile();
     }
 
-    @NonNull
     public static String mavenCodeToDownloadUrl(String mavenCode) {
         StringBuilder builder = new StringBuilder();
         builder.append(MAVEN_CENTRAL_URL);

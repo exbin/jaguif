@@ -24,7 +24,6 @@ import org.exbin.jaguif.document.text.action.GoToLineAction;
 import java.awt.Component;
 import java.io.File;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -110,7 +109,6 @@ public class DocumentTextModule implements Module {
     public DocumentTextModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DocumentTextModule.class);
@@ -221,7 +219,7 @@ public class DocumentTextModule implements Module {
         contribution = mgmt.registerMenuGroup(TEXT_POPUP_TOOLS_GROUP_ID);
         mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE));
         mgmt.registerMenuRule(contribution, new SeparationSequenceContributionRule(SeparationSequenceContributionRule.SeparationMode.AROUND));
-/*
+        /*
         contribution = mgmt.registerMenuItem(clipboardActions.createCutAction());
         mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(TEXT_POPUP_EDIT_GROUP_ID));
         contribution = mgmt.registerMenuItem(clipboardActions.createCopyAction());
@@ -248,7 +246,6 @@ public class DocumentTextModule implements Module {
         return textStatusPanel;
     }
 
-    @NonNull
     private FindReplaceActions getFindReplaceActions() {
         if (findReplaceActions == null) {
             findReplaceActions = new FindReplaceActions();
@@ -258,20 +255,17 @@ public class DocumentTextModule implements Module {
         return findReplaceActions;
     }
 
-    @NonNull
     private TextFontAction createTextFontAction() {
         TextFontModule textFontModule = App.getModule(TextFontModule.class);
         return textFontModule.createTextFontAction();
     }
 
-    @NonNull
     private TextColorAction createTextColorAction() {
         TextColorAction textColorAction = new TextColorAction();
         textColorAction.init(getResourceBundle());
         return textColorAction;
     }
 
-    @NonNull
     private EncodingsManager getEncodingsManager() {
         if (encodingsManager == null) {
             encodingsManager = new EncodingsManager();
@@ -297,35 +291,30 @@ public class DocumentTextModule implements Module {
         return encodingsManager;
     }
 
-    @NonNull
     private WordWrappingAction createWordWrappingAction() {
         WordWrappingAction wordWrappingAction = new WordWrappingAction();
         wordWrappingAction.init(getResourceBundle());
         return wordWrappingAction;
     }
 
-    @NonNull
     private GoToLineAction createGoToLineAction() {
         GoToLineAction goToLineAction = new GoToLineAction();
         goToLineAction.init(getResourceBundle());
         return goToLineAction;
     }
 
-    @NonNull
     private EditSelectionAction createEditSelectionAction() {
         EditSelectionAction editSelectionAction = new EditSelectionAction();
         editSelectionAction.init(getResourceBundle());
         return editSelectionAction;
     }
 
-    @NonNull
     private PropertiesAction createPropertiesAction() {
         PropertiesAction propertiesAction = new PropertiesAction();
         propertiesAction.init(getResourceBundle());
         return propertiesAction;
     }
 
-    @NonNull
     private PrintAction createPrintAction() {
         PrintAction printAction = new PrintAction();
         printAction.init(getResourceBundle());
@@ -395,7 +384,6 @@ public class DocumentTextModule implements Module {
         mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.BOTTOM)); */
     }
 
-    @NonNull
     public JPopupMenu createPopupMenu(TextPanel textPanel) {
         JPopupMenu popupMenu = new JPopupMenu() {
             @Override
@@ -428,13 +416,11 @@ public class DocumentTextModule implements Module {
             return false;
         }
 
-        @NonNull
         @Override
         public String getDescription() {
             return "Text Files (*.txt)";
         }
 
-        @NonNull
         @Override
         public String getFileTypeId() {
             return TXT_FILE_TYPE;

@@ -18,7 +18,6 @@ package org.exbin.jaguif.file.api;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -32,13 +31,11 @@ public class AllFileTypes implements FileTypes {
         return true;
     }
 
-    @NonNull
     @Override
     public Optional<FileType> getFileType(String fileTypeId) {
         return Optional.empty();
     }
 
-    @NonNull
     @Override
     public List<FileType> getFileTypes() {
         return new ArrayList<>();

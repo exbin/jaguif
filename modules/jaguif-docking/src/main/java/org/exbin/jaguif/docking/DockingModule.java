@@ -16,7 +16,6 @@
 package org.exbin.jaguif.docking;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
@@ -52,7 +51,6 @@ public class DockingModule implements DockingModuleApi {
 
     private ResourceBundle resourceBundle;
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DockingModule.class);
@@ -61,7 +59,6 @@ public class DockingModule implements DockingModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public DocumentDocking createDefaultDocking() {
         return new DefaultSingleDocking();
@@ -106,14 +103,13 @@ public class DockingModule implements DockingModuleApi {
         mgmt.registerToolBarContribution(contribution);
         mgmt.registerToolBarRule(contribution, new GroupSequenceContributionRule(DocumentModuleApi.FILE_TOOL_BAR_GROUP_ID));
     }
-    
+
     @Override
     public void registerDocumentReceiver(DocumentDocking documentDocking) {
         DocumentModuleApi documentModule = App.getModule(DocumentModuleApi.class);
         documentModule.getMainDocumentManager().addDocumentReceiver(documentDocking::openDocument);
     }
 
-    @NonNull
     @Override
     public NewFileAction createNewFileAction() {
         NewFileAction newFileAction = new NewFileAction();
@@ -121,7 +117,6 @@ public class DockingModule implements DockingModuleApi {
         return newFileAction;
     }
 
-    @NonNull
     @Override
     public OpenFileAction createOpenFileAction() {
         OpenFileAction openFileAction = new OpenFileAction();
@@ -129,7 +124,6 @@ public class DockingModule implements DockingModuleApi {
         return openFileAction;
     }
 
-    @NonNull
     @Override
     public SaveFileAction createSaveFileAction() {
         SaveFileAction saveFileAction = new SaveFileAction();
@@ -137,7 +131,6 @@ public class DockingModule implements DockingModuleApi {
         return saveFileAction;
     }
 
-    @NonNull
     @Override
     public SaveAsFileAction createSaveAsFileAction() {
         SaveAsFileAction saveAsFileAction = new SaveAsFileAction();
@@ -145,7 +138,6 @@ public class DockingModule implements DockingModuleApi {
         return saveAsFileAction;
     }
 
-    @NonNull
     @Override
     public CloseFileAction createCloseFileAction() {
         CloseFileAction closeFileAction = new CloseFileAction();

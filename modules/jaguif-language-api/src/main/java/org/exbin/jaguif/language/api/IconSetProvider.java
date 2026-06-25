@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.language.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -30,7 +29,6 @@ public interface IconSetProvider {
      *
      * @return id
      */
-    @NonNull
     String getId();
 
     /**
@@ -38,7 +36,6 @@ public interface IconSetProvider {
      *
      * @return name
      */
-    @NonNull
     String getName();
 
     /**

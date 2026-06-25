@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.operation.model;
 
 import java.net.URL;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -36,7 +35,6 @@ public class DownloadItemRecord {
         this.fileName = fileName;
     }
 
-    @NonNull
     public Status getStatus() {
         return status;
     }
@@ -45,7 +43,6 @@ public class DownloadItemRecord {
         this.status = status;
     }
 
-    @NonNull
     public String getDescription() {
         return description;
     }
@@ -54,7 +51,6 @@ public class DownloadItemRecord {
         this.description = description;
     }
 
-    @NonNull
     public String getFileName() {
         return fileName;
     }

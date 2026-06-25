@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -29,6 +28,5 @@ public interface SettingsComponentProvider {
      *
      * @return component instance
      */
-    @NonNull
     SettingsComponent createComponent();
 }

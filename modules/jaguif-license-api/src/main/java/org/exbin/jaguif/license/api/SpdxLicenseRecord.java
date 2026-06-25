@@ -17,16 +17,15 @@ package org.exbin.jaguif.license.api;
 
 import java.net.URI;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface of the license record based on SPDX identifier.
  */
+@NullMarked
 public interface SpdxLicenseRecord extends LicenseRecord {
 
-    @NonNull
     String getSpdxCode();
-    
-    @NonNull
+
     Optional<URI> getRemoteLicenseUri();
 }

@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
@@ -35,13 +34,11 @@ public class SettingsComponentContribution implements ItemSequenceContribution {
         this.settingsComponentProvider = settingsComponentProvider;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return contributionId;
     }
 
-    @NonNull
     public SettingsComponentProvider getSettingsComponentProvider() {
         return settingsComponentProvider;
     }

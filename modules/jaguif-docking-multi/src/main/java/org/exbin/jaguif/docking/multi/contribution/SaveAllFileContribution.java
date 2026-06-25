@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.docking.multi.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.docking.multi.DockingMultiModule;
 import org.exbin.jaguif.docking.multi.action.SaveAllFileAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Save all files contribution.
  */
+@NullMarked
 public class SaveAllFileContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "fileSaveAll";
 
-    @NonNull
     @Override
     public Action createAction() {
         SaveAllFileAction action = new SaveAllFileAction();
@@ -38,7 +38,6 @@ public class SaveAllFileContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

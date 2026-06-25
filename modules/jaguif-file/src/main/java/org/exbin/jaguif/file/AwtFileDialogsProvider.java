@@ -23,7 +23,6 @@ import java.awt.Frame;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.SwingUtilities;
@@ -43,13 +42,11 @@ public class AwtFileDialogsProvider implements FileDialogsProvider {
         this.resourceBundle = resourceBundle;
     }
 
-    @NonNull
     @Override
     public String getProviderName() {
         return resourceBundle.getString("fileDialogs.awt");
     }
 
-    @NonNull
     @Override
     public OpenFileResult showOpenFileDialog(Component parentComponent, FileTypes fileTypes, @Nullable File selectedFile, @Nullable UsedDirectoryApi usedDirectory, @Nullable String dialogName) {
         Component rootComponent = SwingUtilities.getRoot(parentComponent);

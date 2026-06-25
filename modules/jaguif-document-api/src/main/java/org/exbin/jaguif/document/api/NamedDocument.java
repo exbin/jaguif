@@ -15,11 +15,12 @@
  */
 package org.exbin.jaguif.document.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for named document.
  */
+@NullMarked
 public interface NamedDocument extends Document {
 
     /**
@@ -27,6 +28,5 @@ public interface NamedDocument extends Document {
      *
      * @return document name
      */
-    @NonNull
     String getDocumentName();
 }

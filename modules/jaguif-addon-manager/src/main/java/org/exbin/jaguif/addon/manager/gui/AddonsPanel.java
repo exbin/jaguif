@@ -18,7 +18,6 @@ package org.exbin.jaguif.addon.manager.gui;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JComponent;
@@ -53,7 +52,6 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
             private final AddonItemComponent addonItemPanel = new AddonItemComponent();
 
-            @NonNull
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 ItemRecord record = (ItemRecord) value;
@@ -66,7 +64,6 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
         });
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         return this;
@@ -81,7 +78,6 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
                 return AddonsPanel.this.controller.getItemsCount();
             }
 
-            @NonNull
             @Override
             public ItemRecord getItem(int index) {
                 return AddonsPanel.this.controller.getItem(index);
@@ -110,7 +106,6 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
         });
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

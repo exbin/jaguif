@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
@@ -39,7 +38,6 @@ public class RelativeSequenceContributionRule implements SequenceContributionRul
      *
      * @return next to mode
      */
-    @NonNull
     public NextToMode getNextToMode() {
         return nextToMode;
     }
@@ -49,7 +47,6 @@ public class RelativeSequenceContributionRule implements SequenceContributionRul
      *
      * @return contribution id
      */
-    @NonNull
     public String getContributionId() {
         return contributionId;
     }

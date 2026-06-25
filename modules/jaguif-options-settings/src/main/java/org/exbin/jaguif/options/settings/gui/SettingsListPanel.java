@@ -23,7 +23,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
@@ -98,7 +97,6 @@ public class SettingsListPanel extends javax.swing.JPanel implements SettingsPag
         rootCaption = resourceBundle.getString("options.root.caption");
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -206,7 +204,6 @@ public class SettingsListPanel extends javax.swing.JPanel implements SettingsPag
         }
     }
 
-    @NonNull
     public Collection<SettingsPage> getSettingsPages() {
         return settingsPages;
     }

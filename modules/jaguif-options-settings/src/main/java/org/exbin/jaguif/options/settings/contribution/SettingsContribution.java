@@ -15,20 +15,20 @@
  */
 package org.exbin.jaguif.options.settings.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Options settings contribution.
  */
+@NullMarked
 public class SettingsContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "settings";
 
-    @NonNull
     @Override
     public Action createAction() {
         OptionsSettingsModuleApi optionsSettingsModule = App.getModule(OptionsSettingsModuleApi.class);
@@ -36,7 +36,6 @@ public class SettingsContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

@@ -16,11 +16,12 @@
 package org.exbin.jaguif.utils;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for components exposing their resource bundle.
  */
+@NullMarked
 public interface ComponentResourceProvider {
 
     /**
@@ -28,6 +29,5 @@ public interface ComponentResourceProvider {
      *
      * @return resource bundle
      */
-    @NonNull
     ResourceBundle getResourceBundle();
 }

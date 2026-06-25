@@ -16,11 +16,12 @@
 package org.exbin.jaguif.utils;
 
 import java.awt.Component;
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for component provider.
  */
+@NullMarked
 public interface ComponentProvider {
 
     /**
@@ -28,6 +29,5 @@ public interface ComponentProvider {
      *
      * @return component
      */
-    @NonNull
     Component getComponent();
 }

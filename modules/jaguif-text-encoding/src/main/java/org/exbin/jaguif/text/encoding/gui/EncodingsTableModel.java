@@ -30,7 +30,6 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.table.AbstractTableModel;
 
@@ -88,7 +87,6 @@ public class EncodingsTableModel extends AbstractTableModel {
         this.resourceBundle = resourceBundle;
     }
 
-    @NonNull
     @Override
     public String getColumnName(int column) {
         switch (column) {
@@ -131,7 +129,6 @@ public class EncodingsTableModel extends AbstractTableModel {
         return 4;
     }
 
-    @NonNull
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         String name = filtered.get(rowIndex);

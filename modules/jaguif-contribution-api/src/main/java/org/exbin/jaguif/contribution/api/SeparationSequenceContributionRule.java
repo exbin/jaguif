@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 
@@ -37,7 +36,6 @@ public class SeparationSequenceContributionRule implements SequenceContributionR
      *
      * @return separation mode
      */
-    @NonNull
     public SeparationMode getSeparationMode() {
         return separationMode;
     }

@@ -17,7 +17,6 @@ package org.exbin.jaguif.window.api.gui;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
@@ -83,7 +82,6 @@ public class DefaultControlPanel extends FooterControlPanel implements DefaultCo
         performClick(DefaultControlController.ControlActionType.CANCEL);
     }
 
-    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(okButton);

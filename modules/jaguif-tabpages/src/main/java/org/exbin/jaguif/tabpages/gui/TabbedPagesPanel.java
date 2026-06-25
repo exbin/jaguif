@@ -17,7 +17,6 @@ package org.exbin.jaguif.tabpages.gui;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
 import javax.swing.JComponent;
@@ -42,7 +41,6 @@ public class TabbedPagesPanel extends JTabbedPane implements TabPages {
         });
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         return this;

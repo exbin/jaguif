@@ -26,7 +26,6 @@ import java.util.logging.Logger;
 import java.util.prefs.AbstractPreferences;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.xml.parsers.DocumentBuilder;
@@ -111,21 +110,18 @@ public class StreamPreferences extends AbstractPreferences {
         flush();
     }
 
-    @NonNull
     @Override
     protected String[] keysSpi() throws BackingStoreException {
         Set<String> keySet = spiValues.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @NonNull
     @Override
     protected String[] childrenNamesSpi() throws BackingStoreException {
         Set<String> keySet = children.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @NonNull
     @Override
     protected AbstractPreferences childSpi(String name) {
         throw throwCannotEdit();
@@ -177,7 +173,6 @@ public class StreamPreferences extends AbstractPreferences {
      * Loads an XML document from specified input stream, which must have the
      * requisite DTD URI.
      */
-    @NonNull
     private static Document loadPrefsDoc(InputStream in)
             throws SAXException, IOException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -195,7 +190,6 @@ public class StreamPreferences extends AbstractPreferences {
         }
     }
 
-    @NonNull
     private static IllegalStateException throwCannotEdit() {
         return new IllegalStateException("Cannot edit stream preferences");
     }
@@ -203,7 +197,6 @@ public class StreamPreferences extends AbstractPreferences {
     @NullMarked
     private static class Resolver implements EntityResolver {
 
-        @NonNull
         @Override
         public InputSource resolveEntity(String publicId, String systemId)
                 throws SAXException {

@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.document.text.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.document.text.DocumentTextModule;
 import org.exbin.jaguif.document.text.action.GoToLineAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
- * Close file contribution.
+ * Go to line contribution.
  */
+@NullMarked
 public class GoToLineContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "goToLine";
 
-    @NonNull
     @Override
     public Action createAction() {
         GoToLineAction action = new GoToLineAction();
@@ -38,7 +38,6 @@ public class GoToLineContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

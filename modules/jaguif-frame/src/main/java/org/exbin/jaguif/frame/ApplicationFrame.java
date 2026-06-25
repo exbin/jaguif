@@ -21,7 +21,6 @@ import java.awt.Frame;
 import java.awt.Rectangle;
 import java.beans.PropertyChangeEvent;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
@@ -206,7 +205,6 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         });
     }
 
-    @NonNull
     @Override
     public Frame getFrame() {
         return this;
@@ -265,7 +263,6 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         }
     }
 
-    @NonNull
     @Override
     public Component getMainPanel() {
         return mainComponent;
@@ -336,13 +333,11 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         this.exitHandler = exitHandler;
     }
 
-    @NonNull
     @Override
     public ActiveContextManagement getContextManager() {
         return frameContextManager;
     }
 
-    @NonNull
     @Override
     public ContextUpdateManagement getUpdateManager() {
         return updateManager;

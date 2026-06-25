@@ -18,7 +18,6 @@ package org.exbin.jaguif.addon.packs.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
@@ -71,7 +70,6 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
                 return AddonPacksPage.this.getItemsCount();
             }
 
-            @NonNull
             @Override
             public ItemRecord getItem(int index) {
                 return AddonPacksPage.this.getItem(index);
@@ -107,7 +105,6 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         });
     }
 
-    @NonNull
     @Override
     public JComponent getComponent() {
         return listComponent.getComponent();
@@ -127,7 +124,6 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         this.addonCatalogService = addonCatalogService;
     }
 
-    @NonNull
     @Override
     public Runnable createFilterOperation(Object filter) {
         return () -> {
@@ -135,7 +131,6 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         };
     }
 
-    @NonNull
     @Override
     public Runnable createSearchOperation(String search) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -158,7 +153,6 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         return addonItems.size();
     }
 
-    @NonNull
     private ItemRecord getItem(int index) {
         return addonItems.get(index);
     }
@@ -195,13 +189,11 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
 
     public static class Contribution implements ComponentTabPagesContribution {
 
-        @NonNull
         @Override
         public TabPagesComponent createComponent() {
             return new AddonPacksPage();
         }
 
-        @NonNull
         @Override
         public String getContributionId() {
             return PAGE_ID;

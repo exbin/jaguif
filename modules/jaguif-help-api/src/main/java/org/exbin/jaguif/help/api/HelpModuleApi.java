@@ -16,7 +16,6 @@
 package org.exbin.jaguif.help.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
@@ -44,7 +43,6 @@ public interface HelpModuleApi extends Module {
      *
      * @return help button
      */
-    @NonNull
     JButton createHelpButton();
 
     /**
@@ -67,7 +65,6 @@ public interface HelpModuleApi extends Module {
      *
      * @return help opening handler
      */
-    @NonNull
     Optional<HelpOpeningHandler> getHelpOpeningHandler();
 
     /**
@@ -82,7 +79,6 @@ public interface HelpModuleApi extends Module {
      *
      * @return help opening handler
      */
-    @NonNull
     Optional<HelpOpeningHandler> getFallbackOpeningHandler();
 
     /**

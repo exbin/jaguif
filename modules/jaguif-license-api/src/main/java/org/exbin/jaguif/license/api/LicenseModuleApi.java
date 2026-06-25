@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.license.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -37,7 +36,6 @@ public interface LicenseModuleApi extends Module {
      *
      * @return license management
      */
-    @NonNull
     LicenseManagement getLicenseManagement();
 
     /**
@@ -45,7 +43,6 @@ public interface LicenseModuleApi extends Module {
      *
      * @return action
      */
-    @NonNull
     Action createAboutAction();
 
     /**
@@ -65,7 +62,6 @@ public interface LicenseModuleApi extends Module {
      *
      * @return about panel
      */
-    @NonNull
     JComponent createAboutPanel();
 
     /**

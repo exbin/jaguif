@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.operation.manager.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
@@ -39,6 +38,5 @@ public interface OperationManagerModuleApi extends Module {
      *
      * @return undo manager action
      */
-    @NonNull
     Action createUndoManagerAction();
 }

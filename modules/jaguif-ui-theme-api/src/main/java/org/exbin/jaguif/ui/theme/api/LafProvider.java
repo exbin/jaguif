@@ -15,11 +15,12 @@
  */
 package org.exbin.jaguif.ui.theme.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Look&amp;feel provider.
  */
+@NullMarked
 public interface LafProvider {
 
     /**
@@ -27,7 +28,6 @@ public interface LafProvider {
      *
      * @return string identifier
      */
-    @NonNull
     String getLafId();
 
     /**
@@ -35,7 +35,6 @@ public interface LafProvider {
      *
      * @return name
      */
-    @NonNull
     String getLafName();
 
     /**

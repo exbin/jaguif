@@ -18,7 +18,6 @@ package org.exbin.jaguif.options;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -40,7 +39,6 @@ public class MemoryOptionsStorage implements OptionsStorage {
         return values.containsKey(key);
     }
 
-    @NonNull
     @Override
     public Optional<String> get(String key) {
         Object value = values.get(key);
@@ -51,15 +49,13 @@ public class MemoryOptionsStorage implements OptionsStorage {
         return Optional.of(valueAsString(value));
     }
 
-    @NonNull
     @Override
     public String get(String key, String def) {
         Object value = values.getOrDefault(key, def);
         return valueAsString(value);
     }
 
-    @NonNull
-    private static String valueAsString(@NonNull Object value) {
+    private static String valueAsString(Object value) {
         if (value instanceof String) {
             return (String) value;
         }
@@ -72,7 +68,6 @@ public class MemoryOptionsStorage implements OptionsStorage {
         return (Boolean) values.getOrDefault(key, def);
     }
 
-    @NonNull
     @Override
     public byte[] getByteArray(String key, byte[] def) {
         return (byte[]) values.getOrDefault(key, def);

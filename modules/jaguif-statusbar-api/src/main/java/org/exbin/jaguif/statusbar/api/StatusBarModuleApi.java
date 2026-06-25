@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.statusbar.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -35,7 +34,6 @@ public interface StatusBarModuleApi extends Module {
      *
      * @return status bar management interface
      */
-    @NonNull
     StatusBarManagement getMainStatusBarManager();
 
     /**
@@ -43,7 +41,6 @@ public interface StatusBarModuleApi extends Module {
      *
      * @return status bar manager
      */
-    @NonNull
     StatusBarManagement createStatusBarManager();
 
     /**
@@ -52,7 +49,6 @@ public interface StatusBarModuleApi extends Module {
      * @param moduleId module id
      * @return status bar definition
      */
-    @NonNull
     StatusBarDefinitionManagement getMainStatusBarDefinition(String moduleId);
 
     /**
@@ -62,7 +58,6 @@ public interface StatusBarModuleApi extends Module {
      * @param moduleId module id
      * @return status bar definition
      */
-    @NonNull
     StatusBarDefinitionManagement getMainStatusBarDefinition(String statusBarId, String moduleId);
 
     /**
@@ -73,7 +68,6 @@ public interface StatusBarModuleApi extends Module {
      * @param moduleId module id
      * @return
      */
-    @NonNull
     StatusBarDefinitionManagement createStatusBarDefinition(StatusBarManagement statusBarManagement, String statusBarId, String moduleId);
 
     /**
@@ -100,6 +94,5 @@ public interface StatusBarModuleApi extends Module {
      * @param contextRegistration context registration
      * @return status bar
      */
-    @NonNull
     StatusBar createStatusBar(String statusBarId, ContextRegistration contextRegistration);
 }

@@ -17,7 +17,6 @@ package org.exbin.jaguif.addon.manager.api;
 
 import java.net.URL;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -35,7 +34,6 @@ public class RepositoryRecord {
         this.id = id;
     }
 
-    @NonNull
     public String getId() {
         return id;
     }
@@ -44,7 +42,6 @@ public class RepositoryRecord {
         this.id = id;
     }
 
-    @NonNull
     public String getName() {
         return name;
     }
@@ -53,7 +50,6 @@ public class RepositoryRecord {
         this.name = name;
     }
 
-    @NonNull
     public Optional<URL> getRepositoryUrl() {
         return Optional.ofNullable(repositoryUrl);
     }

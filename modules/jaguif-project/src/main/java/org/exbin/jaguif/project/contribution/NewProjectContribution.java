@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.project.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.project.ProjectModule;
 import org.exbin.jaguif.project.action.NewProjectAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * New project contribution.
  */
+@NullMarked
 public class NewProjectContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "newProject";
 
-    @NonNull
     @Override
     public Action createAction() {
         ProjectModule projectModule = App.getModule(ProjectModule.class);
@@ -37,7 +37,6 @@ public class NewProjectContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

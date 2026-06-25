@@ -15,12 +15,13 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Sequence action item contribution.
  */
+@NullMarked
 public interface ActionSequenceContribution extends ItemSequenceContribution {
 
     /**
@@ -28,6 +29,5 @@ public interface ActionSequenceContribution extends ItemSequenceContribution {
      *
      * @return action
      */
-    @NonNull
     Action createAction();
 }

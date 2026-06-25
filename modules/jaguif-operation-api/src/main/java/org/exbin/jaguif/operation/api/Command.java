@@ -15,11 +15,12 @@
  */
 package org.exbin.jaguif.operation.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Command interface.
  */
+@NullMarked
 public interface Command {
 
     /**
@@ -27,7 +28,6 @@ public interface Command {
      *
      * @return command type
      */
-    @NonNull
     CommandType getType();
 
     /**

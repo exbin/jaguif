@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.manager.settings;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.settings.gui.AddonManagerSettingsPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
@@ -29,7 +28,6 @@ public class AddonManagerSettingsComponent implements SettingsComponentProvider 
 
     public static final String COMPONENT_ID = "addonManager";
 
-    @NonNull
     @Override
     public SettingsComponent createComponent() {
         return new AddonManagerSettingsPanel();

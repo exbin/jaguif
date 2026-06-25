@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.docking.multi.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.Module;
@@ -35,7 +34,6 @@ public interface DockingMultiModuleApi extends Module {
      *
      * @return document docking
      */
-    @NonNull
     DocumentDocking createDefaultDocking();
 
     /**
@@ -48,7 +46,6 @@ public interface DockingMultiModuleApi extends Module {
      *
      * @return close all files action
      */
-    @NonNull
     AbstractAction createCloseAllFilesAction();
 
     /**
@@ -56,6 +53,5 @@ public interface DockingMultiModuleApi extends Module {
      *
      * @return close other files action
      */
-    @NonNull
     AbstractAction createCloseOtherFilesAction();
 }

@@ -18,7 +18,6 @@ package org.exbin.jaguif.options.settings;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.settings.api.InferenceOptions;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
@@ -49,7 +48,6 @@ public class DefaultSettingsOptionsOverrides implements SettingsOptionsOverrides
         inferenceOverrides.put(inferenceClass, overrideClass);
     }
 
-    @NonNull
     @SuppressWarnings("unchecked")
     @Override
     public <T extends SettingsOptions> T getSettingsOptions(Class<T> settingsClass) {
@@ -61,7 +59,6 @@ public class DefaultSettingsOptionsOverrides implements SettingsOptionsOverrides
         return (T) settingsOptionsProvider.getSettingsOptions(settingsClass);
     }
 
-    @NonNull
     @Override
     @SuppressWarnings("unchecked")
     public <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass) {

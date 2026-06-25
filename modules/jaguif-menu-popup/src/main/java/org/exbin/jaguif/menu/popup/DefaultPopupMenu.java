@@ -29,7 +29,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
@@ -105,7 +104,6 @@ public class DefaultPopupMenu {
     protected DefaultPopupMenu() {
     }
 
-    @NonNull
     public static synchronized DefaultPopupMenu getInstance() {
         if (instance == null) {
             instance = new DefaultPopupMenu();
@@ -143,7 +141,6 @@ public class DefaultPopupMenu {
         menu.add(createCopyTextMenuAction(handler));
     }
 
-    @NonNull
     public Action createCopyTextMenuAction(final TextActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action copyImageMenuAction = new AbstractAction(POPUP_COPY_TEXT_ACTION_NAME) {
@@ -168,7 +165,6 @@ public class DefaultPopupMenu {
         menu.add(createOpenLinkMenuAction(handler));
     }
 
-    @NonNull
     public Action createCopyLinkMenuAction(final LinkActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action copyLinkMenuAction = new AbstractAction(POPUP_COPY_LINK_ACTION_NAME) {
@@ -183,7 +179,6 @@ public class DefaultPopupMenu {
         return copyLinkMenuAction;
     }
 
-    @NonNull
     public Action createOpenLinkMenuAction(final LinkActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action openLinkMenuAction = new DefaultPopupClipboardAction(POPUP_OPEN_LINK_ACTION_NAME) {
@@ -206,7 +201,6 @@ public class DefaultPopupMenu {
         menu.add(createCopyImageMenuAction(handler));
     }
 
-    @NonNull
     public Action createCopyImageMenuAction(final ImageActionsHandler handler) {
         Class<? extends DefaultPopupMenu> resourceClass = DefaultPopupMenu.class;
         Action copyImageMenuAction = new AbstractAction(POPUP_COPY_IMAGE_ACTION_NAME) {

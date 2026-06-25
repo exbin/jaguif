@@ -17,7 +17,6 @@ package org.exbin.jaguif.document.text.action;
 
 import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -81,21 +80,18 @@ public class FindReplaceActions {
         dialog.showCentered(dialogParentComponent.getComponent());
     }
 
-    @NonNull
     public EditFindAction createEditFindAction() {
         EditFindAction editFindAction = new EditFindAction();
         editFindAction.init(resourceBundle);
         return editFindAction;
     }
 
-    @NonNull
     public EditFindAgainAction createEditFindAgainAction() {
         EditFindAgainAction editFindAgainAction = new EditFindAgainAction();
         editFindAgainAction.init(resourceBundle);
         return editFindAgainAction;
     }
 
-    @NonNull
     public EditReplaceAction createEditReplaceAction() {
         EditReplaceAction editReplaceAction = new EditReplaceAction();
         editReplaceAction.init(resourceBundle);

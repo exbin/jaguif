@@ -19,7 +19,6 @@ import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
@@ -47,7 +46,6 @@ public class TextFontSettingsPanel extends javax.swing.JPanel implements Setting
         initComponents();
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

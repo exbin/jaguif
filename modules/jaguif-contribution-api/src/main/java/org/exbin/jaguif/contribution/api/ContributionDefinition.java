@@ -17,7 +17,6 @@ package org.exbin.jaguif.contribution.api;
 
 import java.util.List;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -38,7 +37,6 @@ public interface ContributionDefinition {
      *
      * @return contributions;
      */
-    @NonNull
     List<SequenceContribution> getContributions();
 
     /**
@@ -55,6 +53,5 @@ public interface ContributionDefinition {
      * @param contribution contribution
      * @return contribution rules
      */
-    @NonNull
     Optional<List<SequenceContributionRule>> getContributionRules(SequenceContribution contribution);
 }

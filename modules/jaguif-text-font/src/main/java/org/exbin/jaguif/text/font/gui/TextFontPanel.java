@@ -23,7 +23,6 @@ import java.awt.font.TextAttribute;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
@@ -65,7 +64,6 @@ public class TextFontPanel extends javax.swing.JPanel {
         fontSizeInputList.setChangeListener(changeListener);
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

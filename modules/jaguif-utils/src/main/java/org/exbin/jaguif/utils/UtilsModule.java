@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.utils;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 
@@ -31,7 +30,6 @@ public class UtilsModule implements Module {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     public static TestApplication createTestApplication() {
         return new TestApplication();
     }

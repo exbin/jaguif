@@ -16,7 +16,6 @@
 package org.exbin.jaguif.frame.settings.gui;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -40,7 +39,6 @@ public class FrameAppearanceSettingsPanel extends javax.swing.JPanel implements 
         initComponents();
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

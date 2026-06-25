@@ -19,7 +19,6 @@ import java.awt.Component;
 import org.exbin.jaguif.file.api.FileDialogsProvider;
 import java.io.File;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JFileChooser;
@@ -42,13 +41,11 @@ public class SwingFileDialogsProvider implements FileDialogsProvider {
         this.resourceBundle = resourceBundle;
     }
 
-    @NonNull
     @Override
     public String getProviderName() {
         return resourceBundle.getString("fileDialogs.swing");
     }
 
-    @NonNull
     @Override
     public OpenFileResult showOpenFileDialog(Component parentComponent, FileTypes fileTypes, @Nullable File selectedFile, @Nullable UsedDirectoryApi usedDirectory, @Nullable String dialogName) {
         JFileChooser openFileChooser = new JFileChooser();
@@ -129,13 +126,11 @@ public class SwingFileDialogsProvider implements FileDialogsProvider {
             return true;
         }
 
-        @NonNull
         @Override
         public String getDescription() {
             return resourceBundle.getString("AllFilesFilter.description");
         }
 
-        @NonNull
         @Override
         public String getFileTypeId() {
             return ALL_FILES_FILTER;

@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -32,7 +31,6 @@ public class UpdateRecord {
         this.version = version;
     }
 
-    @NonNull
     public String getModuleId() {
         return moduleId;
     }
@@ -41,7 +39,6 @@ public class UpdateRecord {
         this.moduleId = moduleId;
     }
 
-    @NonNull
     public String getVersion() {
         return version;
     }

@@ -16,7 +16,6 @@
 package org.exbin.jaguif.contribution;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
@@ -41,7 +40,6 @@ public class ContributionModule implements ContributionModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ContributionModule.class);
@@ -50,31 +48,26 @@ public class ContributionModule implements ContributionModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public ContributionDefinition createContributionDefinition() {
         return new DefaultContributionDefinition();
     }
 
-    @NonNull
     @Override
     public ContributionManagement createContributionManager() {
         return new ContributionManager();
     }
 
-    @NonNull
     @Override
     public ContributionSequenceBuilder createContributionSequenceBuilder() {
         return new DefaultContributionSequenceBuilder();
     }
 
-    @NonNull
     @Override
     public TreeContributionManagement createTreeContributionManager() {
         return new TreeContributionManager();
     }
 
-    @NonNull
     @Override
     public TreeContributionSequenceBuilder createTreeContributionSequenceBuilder() {
         return new DefaultTreeContributionSequenceBuilder();

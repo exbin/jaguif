@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.operation.manager;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -54,7 +53,6 @@ public class OperationManagerModule implements OperationManagerModuleApi {
         mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(OperationUndoModuleApi.UNDO_MENU_GROUP_ID));
     }
 
-    @NonNull
     @Override
     public Action createUndoManagerAction() {
         UndoManagerAction undoManagerAction = new UndoManagerAction();

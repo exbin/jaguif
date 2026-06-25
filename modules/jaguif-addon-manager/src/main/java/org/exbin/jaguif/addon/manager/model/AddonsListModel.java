@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.model;
 
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractListModel;
 
@@ -48,7 +47,6 @@ public class AddonsListModel extends AbstractListModel<ItemRecord> {
         return size;
     }
 
-    @NonNull
     @Override
     public ItemRecord getElementAt(int index) {
         try {
@@ -62,7 +60,6 @@ public class AddonsListModel extends AbstractListModel<ItemRecord> {
 
         int getItemsCount();
 
-        @NonNull
         ItemRecord getItem(int index);
     }
 }

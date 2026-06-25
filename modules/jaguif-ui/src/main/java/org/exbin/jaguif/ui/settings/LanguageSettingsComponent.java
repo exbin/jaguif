@@ -21,7 +21,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import org.exbin.jaguif.App;
@@ -40,7 +39,6 @@ public class LanguageSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "language";
 
-    @NonNull
     @Override
     public SettingsComponent createComponent() {
         LanguageSettingsPanel panel = new LanguageSettingsPanel();

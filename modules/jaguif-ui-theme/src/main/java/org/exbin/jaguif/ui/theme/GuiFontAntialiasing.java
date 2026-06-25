@@ -19,11 +19,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Enumeration of rendering methods.
+ * Enumeration of font rendering methods.
  * <p>
  * @see
  * <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/2d/flags.html">JavaSE
@@ -47,12 +46,10 @@ public enum GuiFontAntialiasing {
         this.propertyValue = propertyValue;
     }
 
-    @NonNull
     public String getPropertyValue() {
         return propertyValue;
     }
 
-    @NonNull
     public static Optional<GuiFontAntialiasing> fromPropertyValue(String propertyValue) {
         for (GuiFontAntialiasing method : values()) {
             if (propertyValue.equals(method.getPropertyValue())) {
@@ -63,7 +60,6 @@ public enum GuiFontAntialiasing {
         return Optional.empty();
     }
 
-    @NonNull
     public static List<GuiFontAntialiasing> getAvailable() {
         return new ArrayList<>(Arrays.asList(values()));
     }

@@ -28,7 +28,6 @@ import java.awt.event.WindowEvent;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
@@ -60,7 +59,7 @@ public class WindowUtils {
     private WindowUtils() {
     }
 
-    public static void invokeWindow(final @NonNull Window window) {
+    public static void invokeWindow(final Window window) {
         if (lookAndFeel != null) {
             try {
                 javax.swing.UIManager.setLookAndFeel(lookAndFeel);
@@ -84,7 +83,7 @@ public class WindowUtils {
         });
     }
 
-    public static void invokeWindow(final @NonNull JComponent component) {
+    public static void invokeWindow(final JComponent component) {
         JDialog dialog = new JDialog();
         Dimension size = component.getPreferredSize();
         if (size.width < 10) {
@@ -112,7 +111,6 @@ public class WindowUtils {
         window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
     }
 
-    @NonNull
     public static JDialog createBasicDialog() {
         JDialog dialog = new JDialog(new javax.swing.JFrame(), true);
         dialog.setSize(640, 480);
@@ -154,7 +152,6 @@ public class WindowUtils {
                 UiUtils.doButtonClick(cancelButton);
             }
 
-            @NonNull
             @Override
             public Optional<JButton> getDefaultButton() {
                 return Optional.empty();
@@ -222,7 +219,6 @@ public class WindowUtils {
         });
     }
 
-    @NonNull
     public static WindowPosition getWindowPosition(Window window) {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice[] screenDevices = ge.getScreenDevices();

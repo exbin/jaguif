@@ -17,7 +17,6 @@ package org.exbin.jaguif.menu;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -100,7 +99,6 @@ public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
     public void addSeparator() {
     }
 
-    @NonNull
     @Override
     public TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution) {
         return new MenuSequenceOutput(((SubMenuContribution) subContribution).getSubMenu().get(), contextRegistration, creationContext, buttonGroups);

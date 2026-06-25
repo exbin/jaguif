@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.text;
 
 import java.awt.Color;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.StateUpdateType;
 
@@ -31,7 +30,6 @@ public interface TextColorState {
      *
      * @return array of 5 colors
      */
-    @NonNull
     Color[] getCurrentTextColors();
 
     /**
@@ -39,7 +37,6 @@ public interface TextColorState {
      *
      * @return array of 5 colors
      */
-    @NonNull
     Color[] getDefaultTextColors();
 
     /**

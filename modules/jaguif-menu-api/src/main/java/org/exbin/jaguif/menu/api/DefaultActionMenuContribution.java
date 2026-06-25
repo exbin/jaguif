@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.menu.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
@@ -33,13 +32,11 @@ public class DefaultActionMenuContribution implements ActionMenuContribution {
         this.actionCreator = actionCreator;
     }
 
-    @NonNull
     @Override
     public Action createAction() {
         return actionCreator.createAction();
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return contributionId;
@@ -47,7 +44,6 @@ public class DefaultActionMenuContribution implements ActionMenuContribution {
 
     public interface ActionCreator {
 
-        @NonNull
         Action createAction();
     }
 }

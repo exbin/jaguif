@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 
@@ -43,22 +42,18 @@ public class AddonUpdateChanges {
     protected final List<String> updateFiles = new ArrayList<>();
     protected final List<String> removeFiles = new ArrayList<>();
 
-    @NonNull
     public List<String> getInstallAddons() {
         return installAddons;
     }
 
-    @NonNull
     public List<String> getRemoveAddons() {
         return removeAddons;
     }
 
-    @NonNull
     public List<String> getUpdateFiles() {
         return updateFiles;
     }
 
-    @NonNull
     public List<String> getRemoveFiles() {
         return removeFiles;
     }

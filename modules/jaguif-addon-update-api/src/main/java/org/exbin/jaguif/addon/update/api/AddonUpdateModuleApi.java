@@ -17,7 +17,6 @@ package org.exbin.jaguif.addon.update.api;
 
 import java.awt.Frame;
 import java.net.URL;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -37,7 +36,6 @@ public interface AddonUpdateModuleApi extends Module {
      *
      * @return action
      */
-    @NonNull
     Action getCheckUpdateAction();
 
     /**

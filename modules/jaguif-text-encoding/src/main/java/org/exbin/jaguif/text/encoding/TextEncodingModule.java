@@ -16,7 +16,6 @@
 package org.exbin.jaguif.text.encoding;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.Module;
@@ -52,7 +51,6 @@ public class TextEncodingModule implements Module {
     public TextEncodingModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextEncodingModule.class);
@@ -86,7 +84,6 @@ public class TextEncodingModule implements Module {
         settingsManagement.registerSettingsRule(settingsComponentContribution, new SettingsPageContributionRule(pageContribution, SettingsPageContributionRule.Parameter.EXPAND_VERTICALLY));
     }
 
-    @NonNull
     private EncodingsManager getEncodingsManager() {
         if (encodingsManager == null) {
             encodingsManager = new EncodingsManager();

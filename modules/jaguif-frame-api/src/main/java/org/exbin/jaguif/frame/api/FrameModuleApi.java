@@ -19,7 +19,6 @@ import java.awt.Frame;
 import java.awt.Image;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -49,7 +48,6 @@ public interface FrameModuleApi extends Module {
      *
      * @return resource bundle
      */
-    @NonNull
     ResourceBundle getResourceBundle();
 
     /**
@@ -57,7 +55,6 @@ public interface FrameModuleApi extends Module {
      *
      * @return frame controller
      */
-    @NonNull
     FrameController getFrameController();
 
     /**
@@ -79,7 +76,6 @@ public interface FrameModuleApi extends Module {
      *
      * @return frame
      */
-    @NonNull
     Frame getFrame();
 
     /**
@@ -87,7 +83,6 @@ public interface FrameModuleApi extends Module {
      *
      * @return exit action
      */
-    @NonNull
     Action createExitAction();
 
     /**
@@ -165,7 +160,6 @@ public interface FrameModuleApi extends Module {
      *
      * @return icon if assigned
      */
-    @NonNull
     Optional<Image> getApplicationIcon();
 
     /**

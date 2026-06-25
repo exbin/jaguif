@@ -18,7 +18,6 @@ package org.exbin.jaguif.sidebar;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import javax.swing.AbstractAction;
@@ -119,7 +118,6 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         return sideBar.getToolBar().getComponentCount() == 0;
     }
 
-    @NonNull
     protected static JComponent createSideBarComponent(Action action) {
         ActionType actionType = (ActionType) action.getValue(ActionConsts.ACTION_TYPE);
         JComponent sideBarItem;
@@ -176,7 +174,6 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         targetSideBar.addSeparator();
     }
 
-    @NonNull
     protected static JComponent createDefaultSideBarItem(Action action) {
         JButton newItem = new JButton(action);
         newItem.setFocusable(false);
@@ -209,12 +206,10 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
             this.action = action;
         }
 
-        @NonNull
         public JComponent getComponent() {
             return component;
         }
 
-        @NonNull
         public Action getAction() {
             return action;
         }

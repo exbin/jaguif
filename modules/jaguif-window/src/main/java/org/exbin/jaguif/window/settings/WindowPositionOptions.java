@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.window.settings;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
@@ -53,7 +52,6 @@ public class WindowPositionOptions implements SettingsOptions {
         storage.putBoolean(KEY_MAXIMIZED, windowPosition.isMaximized());
     }
 
-    @NonNull
     public WindowPosition getWindowPosition() {
         WindowPosition windowPosition = new WindowPosition();
         getWindowPosition(windowPosition);

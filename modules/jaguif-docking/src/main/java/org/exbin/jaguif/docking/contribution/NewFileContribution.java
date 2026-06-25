@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.docking.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.docking.DockingModule;
 import org.exbin.jaguif.docking.action.NewFileAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * New file contribution.
  */
+@NullMarked
 public class NewFileContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "newFile";
 
-    @NonNull
     @Override
     public Action createAction() {
         NewFileAction action = new NewFileAction();
@@ -38,7 +38,6 @@ public class NewFileContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

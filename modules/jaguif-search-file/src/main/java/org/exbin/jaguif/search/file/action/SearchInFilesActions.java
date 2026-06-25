@@ -16,7 +16,6 @@
 package org.exbin.jaguif.search.file.action;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -45,14 +44,12 @@ public class SearchInFilesActions {
         this.resourceBundle = resourceBundle;
     }
 
-    @NonNull
     public Action createFindInFilesAction() {
         FindInFilesAction findInFilesAction = new FindInFilesAction();
         findInFilesAction.init(resourceBundle);
         return findInFilesAction;
     }
 
-    @NonNull
     public Action createReplaceInFilesAction() {
         ReplaceInFilesAction replaceInFilesAction = new ReplaceInFilesAction();
         replaceInFilesAction.init(resourceBundle);
@@ -95,13 +92,11 @@ public class SearchInFilesActions {
 
         public static final String CONTRIBUTION_ID = "findInFiles";
 
-        @NonNull
         @Override
         public Action createAction() {
             return createFindInFilesAction();
         }
 
-        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;
@@ -112,13 +107,11 @@ public class SearchInFilesActions {
 
         public static final String CONTRIBUTION_ID = "replaceInFiles";
 
-        @NonNull
         @Override
         public Action createAction() {
             return createReplaceInFilesAction();
         }
 
-        @NonNull
         @Override
         public String getContributionId() {
             return CONTRIBUTION_ID;

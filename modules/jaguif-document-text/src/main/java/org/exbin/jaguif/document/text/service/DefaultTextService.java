@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.text.service;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JTextArea;
 
@@ -26,7 +25,6 @@ import javax.swing.JTextArea;
 @NullMarked
 public class DefaultTextService implements TextSearchService {
 
-    @NonNull
     @Override
     public Optional<FoundMatch> findText(JTextArea textArea, FindTextParameters findTextParameters) {
         String text = textArea.getText();

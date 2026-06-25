@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
@@ -67,7 +66,6 @@ public class RecentFilesActions {
         });
     }
 
-    @NonNull
     public JMenu createOpenRecentMenu() {
         Action fileOpenRecentAction = new AbstractAction(resourceBundle.getString("openRecentMenu.text")) {
             @Override
@@ -205,7 +203,7 @@ public class RecentFilesActions {
             if (recentFiles.size() > 15) {
                 recentFiles.remove(15);
             }
-            
+
             // TODO Replace with state change
             for (JMenu fileOpenRecentMenu : fileOpenRecentMenus) {
                 rebuildRecentFilesMenu(fileOpenRecentMenu);
@@ -261,7 +259,6 @@ public class RecentFilesActions {
 
         void openRecentFile(URI fileUri, @Nullable FileType fileType);
 
-        @NonNull
         List<FileType> getRegisteredFileTypes();
     }
 }

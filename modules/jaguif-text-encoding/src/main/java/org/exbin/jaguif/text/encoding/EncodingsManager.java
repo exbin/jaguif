@@ -22,7 +22,6 @@ import java.awt.event.MouseEvent;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -113,12 +112,10 @@ public class EncodingsManager {
         EncodingsManager.this.rebuildEncodings();
     }
 
-    @NonNull
     public JMenu getToolsEncodingMenu() {
         return toolsEncodingMenu;
     }
 
-    @NonNull
     public ManageEncodingsAction getManageEncodingsAction() {
         return manageEncodingsAction;
     }

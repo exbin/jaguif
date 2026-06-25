@@ -16,7 +16,6 @@
 package org.exbin.jaguif.sidebar;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
@@ -46,7 +45,6 @@ public class SideBarModule implements SideBarModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SideBarModule.class);
@@ -55,7 +53,6 @@ public class SideBarModule implements SideBarModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public SideBarManagement getMainSideBarManager() {
         if (mainSideBarManager == null) {
@@ -65,7 +62,6 @@ public class SideBarModule implements SideBarModuleApi {
         return mainSideBarManager;
     }
 
-    @NonNull
     @Override
     public SideBarManagement createSideBarManager() {
         return new SideBarManager();
@@ -86,13 +82,11 @@ public class SideBarModule implements SideBarModuleApi {
         SideBarModule.this.getMainSideBarManager().registerSideBar(sideBarId, moduleId);
     }
 
-    @NonNull
     @Override
     public SideBarDefinitionManagement getMainSideBarDefinition(String moduleId) {
         return new SideBarDefinitionManager(getMainSideBarManager(), MAIN_SIDE_BAR_ID, moduleId);
     }
 
-    @NonNull
     @Override
     public SideBarDefinitionManagement createSideBarDefinition(SideBarManagement sideBarManagement, String sideBarId, String moduleId) {
         return new SideBarDefinitionManager(sideBarManagement, sideBarId, moduleId);

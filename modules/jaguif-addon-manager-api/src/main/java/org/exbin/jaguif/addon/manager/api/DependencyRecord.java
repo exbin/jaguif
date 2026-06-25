@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -24,9 +23,9 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class DependencyRecord {
 
-    private String id;
-    private Type type = Type.MODULE;
-    private boolean optional = false;
+    protected String id;
+    protected Type type = Type.MODULE;
+    protected boolean optional = false;
 
     public DependencyRecord(String id) {
         this.id = id;
@@ -37,7 +36,6 @@ public class DependencyRecord {
         this.id = id;
     }
 
-    @NonNull
     public String getId() {
         return id;
     }
@@ -46,7 +44,6 @@ public class DependencyRecord {
         this.id = id;
     }
 
-    @NonNull
     public Type getType() {
         return type;
     }

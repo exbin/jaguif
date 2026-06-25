@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.license.api.LicenseManagement;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.license.api.LicenseRecord;
@@ -37,7 +36,6 @@ public class LicenseManager implements LicenseManagement {
         licenseRecords.put(licenseRecord.getId(), licenseRecord);
     }
 
-    @NonNull
     @Override
     public List<LicenseRecord> getRecords() {
         List<LicenseRecord> records = new ArrayList<>();

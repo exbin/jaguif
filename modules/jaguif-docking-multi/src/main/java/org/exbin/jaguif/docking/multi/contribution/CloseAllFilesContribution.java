@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.docking.multi.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.docking.multi.DockingMultiModule;
 import org.exbin.jaguif.docking.multi.action.CloseAllFilesAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Close all files contribution.
  */
+@NullMarked
 public class CloseAllFilesContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "fileCloseAll";
 
-    @NonNull
     @Override
     public Action createAction() {
         CloseAllFilesAction action = new CloseAllFilesAction();
@@ -38,7 +38,6 @@ public class CloseAllFilesContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

@@ -19,7 +19,6 @@ import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.Window;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
@@ -42,7 +41,6 @@ public interface WindowModuleApi extends Module {
      *
      * @return dialog
      */
-    @NonNull
     WindowHandler createDialog();
 
     /**
@@ -51,7 +49,6 @@ public interface WindowModuleApi extends Module {
      * @param component panel
      * @return dialog
      */
-    @NonNull
     WindowHandler createDialog(@Nullable JComponent component);
 
     /**
@@ -61,7 +58,6 @@ public interface WindowModuleApi extends Module {
      * @param controlPanel control panel
      * @return dialog
      */
-    @NonNull
     WindowHandler createDialog(@Nullable JComponent component, @Nullable JPanel controlPanel);
 
     /**
@@ -72,7 +68,6 @@ public interface WindowModuleApi extends Module {
      * @param component panel
      * @return dialog
      */
-    @NonNull
     WindowHandler createDialog(@Nullable Component parentComponent, Dialog.ModalityType modalityType, @Nullable JComponent component);
 
     /**
@@ -84,7 +79,6 @@ public interface WindowModuleApi extends Module {
      * @param component panel
      * @return dialog
      */
-    @NonNull
     WindowHandler createDialog(@Nullable Component parentComponent, Dialog.ModalityType modalityType, @Nullable JComponent component, @Nullable JPanel controlPanel);
 
     /**
@@ -95,7 +89,6 @@ public interface WindowModuleApi extends Module {
      * @param resourceBundle resource containing texts / icon for header
      * @return header panel
      */
-    @NonNull
     JPanel addHeaderPanel(Window window, Class<?> resourceClass, ResourceBundle resourceBundle);
 
     /**
@@ -107,7 +100,6 @@ public interface WindowModuleApi extends Module {
      * @param headerIcon optional header icon
      * @return header panel
      */
-    @NonNull
     JPanel addHeaderPanel(Window window, String headerTitle, String headerDescription, @Nullable Icon headerIcon);
 
     /**
@@ -126,7 +118,6 @@ public interface WindowModuleApi extends Module {
      * @param modalityType modality type
      * @return window handler
      */
-    @NonNull
     WindowHandler createWindow(final JComponent component, Component parent, String dialogTitle, Dialog.ModalityType modalityType);
 
     /**
@@ -135,7 +126,6 @@ public interface WindowModuleApi extends Module {
      * @param component window component
      * @return dialog window
      */
-    @NonNull
     JDialog createWindow(final JComponent component);
 
     /**
@@ -152,7 +142,6 @@ public interface WindowModuleApi extends Module {
      * @param controlPanel control panel
      * @return panel component
      */
-    @NonNull
     JPanel createDialogPanel(JComponent mainComponent, JPanel controlPanel);
 
     /**

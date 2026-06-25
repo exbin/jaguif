@@ -18,7 +18,6 @@ package org.exbin.jaguif.document;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.Document;
@@ -53,13 +52,11 @@ public class DocumentManager implements DocumentManagement {
         documentTypes.add(documentType);
     }
 
-    @NonNull
     @Override
     public Document createDefaultDocument() {
         return documentTypes.get(0).createDefaultDocument();
     }
 
-    @NonNull
     @Override
     public Document createDocumentForSource(SourceIdentifier sourceIdentifier) {
         for (DocumentProvider documentProvider : documentProviders) {
@@ -75,7 +72,6 @@ public class DocumentManager implements DocumentManagement {
         throw new IllegalStateException("Unsupported document source");
     }
 
-    @NonNull
     @Override
     public EmptyDocumentSource createEmptyDocumentSource() {
         DocumentModuleApi documentModule = App.getModule(DocumentModuleApi.class);
@@ -85,7 +81,6 @@ public class DocumentManager implements DocumentManagement {
         return emptyDocumentSource;
     }
 
-    @NonNull
     @Override
     public Optional<Document> openDefaultDocument() {
         Optional<DocumentSource> documentSource = documentProviders.get(0).performOpenDefaultDocument();
@@ -97,7 +92,6 @@ public class DocumentManager implements DocumentManagement {
         return document;
     }
 
-    @NonNull
     @Override
     public Optional<DocumentSource> saveDocumentAs(Document document) {
         return documentProviders.get(0).performSaveAsDefaultDocument(document);

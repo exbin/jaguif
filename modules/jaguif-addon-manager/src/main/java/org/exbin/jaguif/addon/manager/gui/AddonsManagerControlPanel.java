@@ -22,7 +22,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
@@ -56,7 +55,6 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
         initComponents();
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -335,7 +333,6 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
         UiUtils.doButtonClick(closeButton);
     }
 
-    @NonNull
     @Override
     public Optional<JButton> getDefaultButton() {
         return Optional.of(refreshButton);
@@ -417,7 +414,7 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
         statusPanel.revalidate();
         statusPanel.repaint();
     }
-    
+
     public void setConnectionFailed() {
         if (defaultStatusComponent == null) {
             defaultStatusComponent = connectionFailedPanel;
@@ -429,7 +426,7 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
             statusPanel.repaint();
         }
     }
-    
+
     public void clearStatus() {
         if (activeStatusComponent != null) {
             statusPanel.remove(activeStatusComponent);

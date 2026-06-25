@@ -27,7 +27,6 @@ import java.net.URI;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.text.gui.TextPanel;
@@ -61,6 +60,7 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
     protected DialogParentComponent dialogParentComponent;
     protected UndoRedoController undoRedoControl = null;
     protected EditorTextPanelComponent textPanelComponent;
+
     public TextDocument() {
         init();
     }
@@ -100,13 +100,11 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         notifyUndoChanged();
     }
 
-    @NonNull
     @Override
     public TextPanel getComponent() {
         return textPanel;
     }
 
-    @NonNull
     @Override
     public Optional<DocumentSource> getDocumentSource() {
         return Optional.ofNullable(documentSource);
@@ -117,7 +115,7 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         if (documentSource instanceof EmptyDocumentSource) {
             return;
         }
-        
+
         File file = ((FileDocumentSource) documentSource).getFile();
         try {
             FileInputStream fileStream = new FileInputStream(file);
@@ -148,7 +146,7 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         if (!(documentSource instanceof FileDocumentSource)) {
             throw new UnsupportedOperationException();
         }
-        
+
         File file = ((FileDocumentSource) documentSource).getFile();
         try {
             try (FileOutputStream output = new FileOutputStream(file)) {
@@ -172,19 +170,16 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         notifyUndoChanged();
     }
 
-    @NonNull
     @Override
     public Optional<URI> getFileUri() {
         return Optional.ofNullable(null);
     }
 
-    @NonNull
     @Override
     public String getDocumentName() {
         return getTitle();
     }
 
-    @NonNull
     public String getTitle() {
         // TODO
         URI fileUri = null;

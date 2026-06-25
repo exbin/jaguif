@@ -23,7 +23,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -154,7 +153,6 @@ public class DesktopUtils {
      * @see sun.awt.OSInfo
      * @return basic operating system type
      */
-    @NonNull
     public static OsType detectBasicOs() {
         String osName = System.getProperty(OS_NAME).toLowerCase();
         if (osName.contains("os x")) {

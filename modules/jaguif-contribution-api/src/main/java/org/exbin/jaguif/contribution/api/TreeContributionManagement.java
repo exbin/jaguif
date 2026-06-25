@@ -16,7 +16,6 @@
 package org.exbin.jaguif.contribution.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -33,7 +32,6 @@ public interface TreeContributionManagement {
      * @param moduleId module identifier
      * @return contribution definition
      */
-    @NonNull
     ContributionDefinition registerDefinition(String definitionId, String moduleId);
 
     /**
@@ -67,7 +65,6 @@ public interface TreeContributionManagement {
      * @param groupId group identifier
      * @return group sequence contribution
      */
-    @NonNull
     GroupSequenceContribution registerContributionGroup(String definitionId, String moduleId, String groupId);
 
     /**

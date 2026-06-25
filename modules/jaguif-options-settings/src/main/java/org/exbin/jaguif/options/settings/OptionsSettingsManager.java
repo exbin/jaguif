@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ActiveContextManagement;
@@ -82,7 +81,6 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
         inferenceOptions.put(inferenceClass, inference);
     }
 
-    @NonNull
     @Override
     public SettingsComponentContribution registerComponent(String contributionId, SettingsComponentProvider componentProvider) {
         SettingsComponentContribution contribution = new SettingsComponentContribution(contributionId, componentProvider);
@@ -95,7 +93,6 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
         definition.addContribution(contribution);
     }
 
-    @NonNull
     @Override
     public GroupSequenceContribution registerGroup(String groupId) {
         GroupSequenceContribution contribution = new GroupSequenceContribution(groupId);
@@ -132,13 +129,11 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
         settingsPage.finish();
     }
 
-    @NonNull
     @Override
     public SettingsOptionsBuilder getSettingsOptionsBuilder(Class<? extends SettingsOptions> settingsClass) {
         return ObjectUtils.requireNonNull(settingsOptions.get(settingsClass), "Missing options settings builder: " + settingsClass.getCanonicalName());
     }
 
-    @NonNull
     @Override
     public <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass) {
         return Optional.ofNullable(inferenceClass.cast(inferenceOptions.get(inferenceClass)));
@@ -181,7 +176,6 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
         applySettingsListeners.add(listener);
     }
 
-    @NonNull
     @Override
     public Collection<Class<? extends SettingsOptions>> getOptionsClasses() {
         return settingsOptions.keySet();
@@ -230,7 +224,6 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
         }
     }
 
-    @NonNull
     @Override
     public SettingsOptionsProvider getSettingsOptionsProvider() {
         if (settingsOptionsProvider == null) {
@@ -238,7 +231,6 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
 
                 Map<Class<?>, SettingsOptions> settingsOptionsCache = new HashMap<>();
 
-                @NonNull
                 @Override
                 @SuppressWarnings("unchecked")
                 public <T extends SettingsOptions> T getSettingsOptions(Class<T> settingsClass) {
@@ -253,7 +245,6 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
                     return (T) instance;
                 }
 
-                @NonNull
                 @Override
                 public <T extends InferenceOptions> Optional<T> getInferenceOptions(Class<T> inferenceClass) {
                     return Optional.ofNullable(inferenceClass.cast(inferenceOptions.get(inferenceClass)));

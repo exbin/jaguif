@@ -16,7 +16,6 @@
 package org.exbin.jaguif.docking.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.document.api.Document;
 import org.exbin.jaguif.utils.ComponentProvider;
@@ -33,7 +32,6 @@ public interface DocumentDocking extends ComponentProvider {
      *
      * @return active document
      */
-    @NonNull
     Optional<Document> getActiveDocument();
 
     /**
@@ -55,7 +53,6 @@ public interface DocumentDocking extends ComponentProvider {
      *
      * @return new document
      */
-    @NonNull
     Optional<Document> openNewDocument();
 
     /**

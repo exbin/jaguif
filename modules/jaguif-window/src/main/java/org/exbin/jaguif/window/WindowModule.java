@@ -26,7 +26,6 @@ import java.awt.Window;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
@@ -63,7 +62,6 @@ public class WindowModule implements WindowModuleApi {
     public WindowModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(WindowModule.class);
@@ -72,7 +70,6 @@ public class WindowModule implements WindowModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public JPanel addHeaderPanel(Window window, Class<?> resourceClass, ResourceBundle resourceBundle) {
         if (hideHeaderPanels) {
@@ -84,7 +81,6 @@ public class WindowModule implements WindowModuleApi {
         return addHeaderPanel(window, resourceBundle.getString("header.title"), resourceBundle.getString("header.description"), headerIcon);
     }
 
-    @NonNull
     @Override
     public JPanel addHeaderPanel(Window window, String headerTitle, String headerDescription, @Nullable Icon headerIcon) {
         if (hideHeaderPanels) {
@@ -116,7 +112,6 @@ public class WindowModule implements WindowModuleApi {
         this.hideHeaderPanels = hide;
     }
 
-    @NonNull
     @Override
     public WindowHandler createWindow(final JComponent component, Component parent, String dialogTitle, Dialog.ModalityType modalityType) {
         final JDialog dialog = new JDialog(WindowUtils.getWindow(parent), modalityType);
@@ -150,13 +145,11 @@ public class WindowModule implements WindowModuleApi {
                 dialog.dispose();
             }
 
-            @NonNull
             @Override
             public Window getWindow() {
                 return dialog;
             }
 
-            @NonNull
             @Override
             public Container getParent() {
                 return dialog.getParent();
@@ -178,7 +171,6 @@ public class WindowModule implements WindowModuleApi {
         };
     }
 
-    @NonNull
     @Override
     public JDialog createWindow(final JComponent component) {
         JDialog dialog = new JDialog();
@@ -198,13 +190,11 @@ public class WindowModule implements WindowModuleApi {
         WindowUtils.invokeWindow(dialog);
     }
 
-    @NonNull
     @Override
     public WindowHandler createDialog() {
         return createDialog(null, null);
     }
 
-    @NonNull
     @Override
     public WindowHandler createDialog(@Nullable JComponent component) {
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
@@ -212,20 +202,17 @@ public class WindowModule implements WindowModuleApi {
         return createDialog(frameModule.getFrame(), Dialog.ModalityType.APPLICATION_MODAL, component, null);
     }
 
-    @NonNull
     @Override
     public WindowHandler createDialog(@Nullable JComponent component, @Nullable JPanel controlPanel) {
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         return createDialog(frameModule.getFrame(), Dialog.ModalityType.APPLICATION_MODAL, component, controlPanel);
     }
 
-    @NonNull
     @Override
     public WindowHandler createDialog(Component parentComponent, Dialog.ModalityType modalityType, @Nullable JComponent component) {
         return createDialog(parentComponent, modalityType, component, null);
     }
 
-    @NonNull
     @Override
     public WindowHandler createDialog(Component parentComponent, Dialog.ModalityType modalityType, @Nullable JComponent component, @Nullable JPanel controlPanel) {
         JComponent dialogComponent = controlPanel != null ? createDialogPanel(component, controlPanel) : component;
@@ -268,7 +255,6 @@ public class WindowModule implements WindowModuleApi {
      * @param controlPanel control panel
      * @return panel
      */
-    @NonNull
     @Override
     public JPanel createDialogPanel(JComponent mainComponent, JPanel controlPanel) {
         JPanel dialogPanel;
@@ -296,7 +282,6 @@ public class WindowModule implements WindowModuleApi {
             this.okCancelControlComponent = okCancelControlComponent;
         }
 
-        @NonNull
         @Override
         public Optional<JButton> getDefaultButton() {
             return Optional.empty();

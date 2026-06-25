@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -30,7 +29,6 @@ public interface LoadableDocument extends Document {
      *
      * @return document source
      */
-    @NonNull
     Optional<DocumentSource> getDocumentSource();
 
     /**

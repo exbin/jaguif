@@ -21,7 +21,6 @@ import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
@@ -51,7 +50,6 @@ public class AddonOperationService {
         this.addonManager = addonManager;
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -60,7 +58,6 @@ public class AddonOperationService {
         this.addonCatalogService = addonCatalogService;
     }
 
-    @NonNull
     public AddonModificationsOperation performAddonOperations(List<CartOperation> operations) {
         AddonModificationsOperation modifications = createOperation();
         for (CartOperation operation : operations) {
@@ -85,14 +82,12 @@ public class AddonOperationService {
         return modifications;
     }
 
-    @NonNull
     public AddonModificationsOperation installItem(ItemRecord item, Component parentComponent) {
         AddonModificationsOperation operation = createOperation();
         operation.installItem(item);
         return operation;
     }
 
-    @NonNull
     public AddonModificationsOperation updateItem(ItemRecord item) {
         AddonModificationsOperation operation = createOperation();
         AddonRecord addonRecord;
@@ -105,14 +100,12 @@ public class AddonOperationService {
         return operation;
     }
 
-    @NonNull
     public AddonModificationsOperation removeItem(ItemRecord item) {
         AddonModificationsOperation operation = createOperation();
         operation.removeItem(item);
         return operation;
     }
 
-    @NonNull
     public AddonModificationsOperation installAddons(Set<String> toInstall) {
         List<ItemRecord> installedAddons = addonManager.getInstalledAddons();
         AddonModificationsOperation operation = createOperation();
@@ -142,7 +135,6 @@ public class AddonOperationService {
         return operation;
     }
 
-    @NonNull
     public AddonModificationsOperation updateAddons(Set<String> toUpdate) {
         List<ItemRecord> installedAddons = addonManager.getInstalledAddons();
         AddonModificationsOperation operation = createOperation();
@@ -174,7 +166,6 @@ public class AddonOperationService {
         return operation;
     }
 
-    @NonNull
     private AddonModificationsOperation createOperation() {
         AddonUpdateChanges addonUpdateChanges = addonManager.getAddonUpdateChanges();
         ApplicationModulesUsage applicationModulesUsage = addonManager.getApplicationModulesUsage();

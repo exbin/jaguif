@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.sidebar.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -36,7 +35,6 @@ public interface SideBarModuleApi extends Module {
      *
      * @return side bar management interface
      */
-    @NonNull
     SideBarManagement getMainSideBarManager();
 
     /**
@@ -44,7 +42,6 @@ public interface SideBarModuleApi extends Module {
      *
      * @return side bar manager
      */
-    @NonNull
     SideBarManagement createSideBarManager();
 
     /**
@@ -53,7 +50,6 @@ public interface SideBarModuleApi extends Module {
      * @param moduleId module id
      * @return side bar management interface
      */
-    @NonNull
     SideBarDefinitionManagement getMainSideBarDefinition(String moduleId);
 
     /**
@@ -64,7 +60,6 @@ public interface SideBarModuleApi extends Module {
      * @param moduleId module id
      * @return side bar management interface
      */
-    @NonNull
     SideBarDefinitionManagement createSideBarDefinition(SideBarManagement sideBarManagement, String sideBarId, String moduleId);
 
     /**

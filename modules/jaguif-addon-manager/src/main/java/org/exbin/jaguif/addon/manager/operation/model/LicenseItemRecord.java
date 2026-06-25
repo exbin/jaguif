@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.operation.model;
 
 import java.net.URL;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -35,7 +34,6 @@ public class LicenseItemRecord {
         this.remoteFile = remoteFile;
     }
 
-    @NonNull
     public String getName() {
         return name;
     }
@@ -44,7 +42,6 @@ public class LicenseItemRecord {
         this.name = name;
     }
 
-    @NonNull
     public String getRemoteFile() {
         return remoteFile;
     }
@@ -53,7 +50,6 @@ public class LicenseItemRecord {
         this.remoteFile = remoteFile;
     }
 
-    @NonNull
     public URL getUrl() {
         return url;
     }

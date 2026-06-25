@@ -16,7 +16,6 @@
 package org.exbin.jaguif.menu.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JMenu;
@@ -37,23 +36,19 @@ public class SubMenuContribution implements SubSequenceContribution {
         this.action = action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return subMenuId;
     }
 
-    @NonNull
     public String getSubMenuId() {
         return subMenuId;
     }
 
-    @NonNull
     public Action getAction() {
         return action;
     }
 
-    @NonNull
     public Optional<JMenu> getSubMenu() {
         return Optional.ofNullable(subMenu);
     }

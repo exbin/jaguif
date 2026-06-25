@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.text.encoding;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.StateUpdateType;
 
@@ -30,7 +29,6 @@ public interface CharsetEncodingState extends ContextEncoding {
      *
      * @return encoding
      */
-    @NonNull
     String getEncoding();
 
     /**

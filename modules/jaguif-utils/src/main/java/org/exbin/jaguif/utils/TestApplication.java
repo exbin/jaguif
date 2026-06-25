@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.LauncherModule;
@@ -55,7 +54,6 @@ public class TestApplication {
 
     private void attachModuleProvider() {
         App.setModuleProvider(new ModuleProvider() {
-            @NonNull
             @Override
             public Class getManifestClass() {
                 return TestApplication.this.getClass();
@@ -78,7 +76,6 @@ public class TestApplication {
                 }
             }
 
-            @NonNull
             @Override
             @SuppressWarnings("unchecked")
             public <T extends Module> T getModule(Class<T> interfaceClass) {

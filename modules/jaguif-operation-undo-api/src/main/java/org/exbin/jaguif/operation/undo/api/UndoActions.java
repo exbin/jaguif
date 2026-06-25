@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.operation.undo.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
@@ -30,7 +29,6 @@ public interface UndoActions {
      *
      * @return undo action
      */
-    @NonNull
     Action createUndoAction();
 
     /**
@@ -38,6 +36,5 @@ public interface UndoActions {
      *
      * @return redo action
      */
-    @NonNull
     Action createRedoAction();
 }

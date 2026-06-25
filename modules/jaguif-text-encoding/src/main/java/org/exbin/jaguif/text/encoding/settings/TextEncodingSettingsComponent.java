@@ -16,7 +16,6 @@
 package org.exbin.jaguif.text.encoding.settings;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.text.encoding.gui.TextEncodingPanel;
@@ -36,7 +35,6 @@ public class TextEncodingSettingsComponent implements SettingsComponentProvider 
 
     public static final String COMPONENT_ID = "textEncoding";
 
-    @NonNull
     @Override
     public TextEncodingSettingsPanel createComponent() {
         TextEncodingSettingsPanel panel = new TextEncodingSettingsPanel();

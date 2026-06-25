@@ -20,7 +20,6 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import javax.swing.event.DocumentEvent;
@@ -123,7 +122,6 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         });
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -146,10 +144,8 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         }
     }
 
-    @NonNull
     public TabPages getTabPages() {
         return new TabPages() {
-            @NonNull
             @Override
             public JComponent getComponent() {
                 return tabPages.getComponent();
@@ -188,7 +184,6 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         };
     }
 
-    @NonNull
     public AddonManagerPage getActiveTab() {
         int activeIndex = tabPages.getActivePageIndex();
         return managerTabs.get(activeIndex);

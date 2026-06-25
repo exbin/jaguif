@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.manager.operation;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
@@ -64,7 +63,6 @@ public class CatalogAvailableUpdatesOperation implements Runnable, CancellableOp
         return cancelled;
     }
 
-    @NonNull
     @Override
     public String getTitle() {
         return addonManager.getResourceBundle().getString("catalogAvailableUpdatesOperation");

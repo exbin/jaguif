@@ -16,7 +16,6 @@
 package org.exbin.jaguif.operation.undo.api;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -36,7 +35,6 @@ public interface OperationUndoModuleApi extends Module {
      *
      * @return resource bundle
      */
-    @NonNull
     ResourceBundle getResourceBundle();
 
     /**
@@ -54,6 +52,5 @@ public interface OperationUndoModuleApi extends Module {
      *
      * @return undo actions set
      */
-    @NonNull
     UndoActions createUndoActions();
 }

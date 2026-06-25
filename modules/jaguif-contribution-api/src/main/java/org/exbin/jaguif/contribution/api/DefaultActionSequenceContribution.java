@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
@@ -33,13 +32,11 @@ public class DefaultActionSequenceContribution implements ActionSequenceContribu
         this.actionCreator = actionCreator;
     }
 
-    @NonNull
     @Override
     public Action createAction() {
         return actionCreator.createAction();
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return contributionId;
@@ -47,7 +44,6 @@ public class DefaultActionSequenceContribution implements ActionSequenceContribu
 
     public interface ActionCreator {
 
-        @NonNull
         Action createAction();
     }
 }

@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.options.settings;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -40,7 +39,6 @@ public class SettingsPathItem {
         this.name = name;
     }
 
-    @NonNull
     public String getGroupId() {
         return groupId;
     }

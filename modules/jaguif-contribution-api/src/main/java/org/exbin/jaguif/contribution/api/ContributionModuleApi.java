@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -33,7 +32,6 @@ public interface ContributionModuleApi extends Module {
      *
      * @return contribution definition
      */
-    @NonNull
     ContributionDefinition createContributionDefinition();
 
     /**
@@ -41,7 +39,6 @@ public interface ContributionModuleApi extends Module {
      *
      * @return contribution manager
      */
-    @NonNull
     ContributionManagement createContributionManager();
 
     /**
@@ -49,7 +46,6 @@ public interface ContributionModuleApi extends Module {
      *
      * @return contribution builder
      */
-    @NonNull
     ContributionSequenceBuilder createContributionSequenceBuilder();
 
     /**
@@ -57,7 +53,6 @@ public interface ContributionModuleApi extends Module {
      *
      * @return tree contribution manager
      */
-    @NonNull
     TreeContributionManagement createTreeContributionManager();
 
     /**
@@ -65,6 +60,5 @@ public interface ContributionModuleApi extends Module {
      *
      * @return tree contribution builder
      */
-    @NonNull
     TreeContributionSequenceBuilder createTreeContributionSequenceBuilder();
 }

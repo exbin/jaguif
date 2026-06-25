@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
@@ -80,7 +79,6 @@ public class AddonsCartPanel extends javax.swing.JPanel {
         updateState();
     }
 
-    @NonNull
     public List<AddonOperation> getCartItems() {
         List<AddonOperation> items = new ArrayList<>();
         DefaultListModel<AddonOperation> model = (DefaultListModel<AddonOperation>) itemsList.getModel();

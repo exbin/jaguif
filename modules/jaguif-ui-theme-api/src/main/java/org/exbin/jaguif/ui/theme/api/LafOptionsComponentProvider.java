@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.ui.theme.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -31,7 +30,6 @@ public interface LafOptionsComponentProvider {
      *
      * @return component
      */
-    @NonNull
     JComponent createOptionsComponent();
 
     /**

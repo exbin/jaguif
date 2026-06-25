@@ -15,11 +15,12 @@
  */
 package org.exbin.jaguif.document.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for document source.
  */
+@NullMarked
 public interface EmptyDocumentSource extends DocumentSource {
 
     /**
@@ -27,6 +28,5 @@ public interface EmptyDocumentSource extends DocumentSource {
      *
      * @return document title
      */
-    @NonNull
     String getDocumentTitle();
 }

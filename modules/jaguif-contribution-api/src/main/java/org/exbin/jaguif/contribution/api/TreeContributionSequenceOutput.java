@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.contribution.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 
@@ -53,7 +52,6 @@ public interface TreeContributionSequenceOutput extends Module {
      * @param subContribution sub contribution
      * @return sequence output
      */
-    @NonNull
     TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution);
 
     /**

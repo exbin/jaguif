@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.toolbar.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JToolBar;
 import org.exbin.jaguif.Module;
@@ -45,7 +44,6 @@ public interface ToolBarModuleApi extends Module {
      *
      * @return tool bar management interface
      */
-    @NonNull
     ToolBarManagement getMainToolBarManager();
 
     /**
@@ -53,7 +51,6 @@ public interface ToolBarModuleApi extends Module {
      *
      * @return tool bar manager
      */
-    @NonNull
     ToolBarManagement createToolBarManager();
 
     /**
@@ -62,7 +59,6 @@ public interface ToolBarModuleApi extends Module {
      * @param moduleId module id
      * @return tool bar management definition
      */
-    @NonNull
     ToolBarDefinitionManagement getMainToolBarDefinition(String moduleId);
 
     /**
@@ -73,7 +69,6 @@ public interface ToolBarModuleApi extends Module {
      * @param moduleId module id
      * @return
      */
-    @NonNull
     ToolBarDefinitionManagement createToolBarDefinition(ToolBarManagement toolBarManagement, String toolBarId, String moduleId);
 
     /**

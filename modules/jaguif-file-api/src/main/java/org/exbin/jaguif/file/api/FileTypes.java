@@ -17,7 +17,6 @@ package org.exbin.jaguif.file.api;
 
 import java.util.Collection;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -39,7 +38,6 @@ public interface FileTypes {
      * @param fileTypeId file type id
      * @return file type
      */
-    @NonNull
     Optional<FileType> getFileType(String fileTypeId);
 
     /**
@@ -47,6 +45,5 @@ public interface FileTypes {
      *
      * @return collection of gile types
      */
-    @NonNull
     Collection<FileType> getFileTypes();
 }

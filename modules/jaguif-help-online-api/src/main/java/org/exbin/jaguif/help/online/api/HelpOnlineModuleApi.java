@@ -16,7 +16,6 @@
 package org.exbin.jaguif.help.online.api;
 
 import java.net.URL;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -47,7 +46,6 @@ public interface HelpOnlineModuleApi extends Module {
      *
      * @return online help action
      */
-    @NonNull
     Action createOnlineHelpAction();
 
     /**

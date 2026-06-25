@@ -17,7 +17,6 @@ package org.exbin.jaguif.file;
 
 import java.io.File;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.file.api.UsedDirectoryApi;
@@ -30,7 +29,6 @@ public class DefaultLastUsedDirectory implements UsedDirectoryApi {
 
     protected File lastUsedDirectory = null;
 
-    @NonNull
     @Override
     public Optional<File> getLastUsedDirectory() {
         return Optional.ofNullable(lastUsedDirectory);

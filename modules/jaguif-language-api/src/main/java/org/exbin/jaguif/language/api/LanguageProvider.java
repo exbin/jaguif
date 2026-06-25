@@ -17,12 +17,13 @@ package org.exbin.jaguif.language.api;
 
 import java.util.Locale;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import javax.swing.ImageIcon;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Language provider.
  */
+@NullMarked
 public interface LanguageProvider {
 
     /**
@@ -30,7 +31,6 @@ public interface LanguageProvider {
      *
      * @return language locale
      */
-    @NonNull
     Locale getLocale();
 
     /**
@@ -38,7 +38,6 @@ public interface LanguageProvider {
      *
      * @return class loader
      */
-    @NonNull
     Optional<ClassLoader> getClassLoader();
 
     /**
@@ -46,6 +45,5 @@ public interface LanguageProvider {
      *
      * @return language icon
      */
-    @NonNull
     Optional<ImageIcon> getFlag();
 }

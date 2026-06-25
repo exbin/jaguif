@@ -16,7 +16,6 @@
 package org.exbin.jaguif.menu;
 
 import java.awt.Component;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JCheckBoxMenuItem;
@@ -33,37 +32,31 @@ import org.exbin.jaguif.menu.api.MenuShowMethod;
 @NullMarked
 public class DefaultMenuBuilder implements MenuBuilder {
 
-    @NonNull
     @Override
     public JMenu createMenu() {
         return new JMenu();
     }
 
-    @NonNull
     @Override
     public JPopupMenu createPopupMenu() {
         return new JPopupMenu();
     }
 
-    @NonNull
     @Override
     public JMenuItem createMenuItem() {
         return new JMenuItem();
     }
 
-    @NonNull
     @Override
     public JMenuItem createCheckBoxMenuItem() {
         return new JCheckBoxMenuItem();
     }
 
-    @NonNull
     @Override
     public JMenuItem createRadioButtonMenuItem() {
         return new JRadioButtonMenuItem();
     }
 
-    @NonNull
     @Override
     public JPopupMenu createPopupMenu(MenuShowMethod showMethod) {
         return new JPopupMenu() {

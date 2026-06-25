@@ -19,7 +19,6 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
@@ -54,7 +53,6 @@ public class DocumentRecentModule implements Module {
     public DocumentRecentModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DocumentRecentModule.class);
@@ -80,7 +78,6 @@ public class DocumentRecentModule implements Module {
         mgmt.registerMenuRule(contribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.AFTER, "openFile")); // OpenFileAction.ACTION_ID
     }
 
-    @NonNull
     public RecentFilesActions getRecentFilesActions() {
         if (recentFilesActions == null) {
             recentFilesActions = new RecentFilesActions();
@@ -91,7 +88,6 @@ public class DocumentRecentModule implements Module {
                     fileModule.openFile(fileUri);
                 }
 
-                @NonNull
                 @Override
                 public List<FileType> getRegisteredFileTypes() {
                     FileModuleApi fileModule = App.getModule(FileModuleApi.class);

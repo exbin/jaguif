@@ -20,7 +20,6 @@ import org.exbin.jaguif.options.preferences.FilePreferencesFactory;
 import org.exbin.jaguif.options.preferences.PreferencesWrapper;
 import org.exbin.jaguif.options.preferences.StreamPreferences;
 import java.io.InputStream;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -61,7 +60,6 @@ public class OptionsModule implements OptionsModuleApi {
         appOptions = new PreferencesWrapper(new FilePreferences(null, "", preferencesFile));
     }
 
-    @NonNull
     @Override
     public OptionsStorage getAppOptions() {
         if (appOptions == null) {
@@ -70,14 +68,12 @@ public class OptionsModule implements OptionsModuleApi {
         return appOptions;
     }
 
-    @NonNull
     @Override
     public OptionsStorage createStreamPreferencesStorage(InputStream inputStream) {
         java.util.prefs.Preferences filePreferences = new StreamPreferences(inputStream);
         return new PreferencesWrapper(filePreferences);
     }
 
-    @NonNull
     @Override
     public OptionsStorage createMemoryStorage() {
         return new MemoryOptionsStorage();

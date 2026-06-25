@@ -18,7 +18,6 @@ package org.exbin.jaguif.addon.manager.operation;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
@@ -68,7 +67,6 @@ public class CatalogCheckStatusOperation implements Runnable, CancellableOperati
         return cancelled;
     }
 
-    @NonNull
     @Override
     public String getTitle() {
         return addonManager.getResourceBundle().getString("catalogCheckStatusOperation");

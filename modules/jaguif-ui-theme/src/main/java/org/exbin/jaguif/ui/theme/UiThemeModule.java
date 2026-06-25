@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -55,7 +54,6 @@ public class UiThemeModule implements UiThemeModuleApi {
     public UiThemeModule() {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(UiThemeModule.class);
@@ -69,7 +67,6 @@ public class UiThemeModule implements UiThemeModuleApi {
         lafProviders.add(lafProvider);
     }
 
-    @NonNull
     @Override
     public List<LafProvider> getLafProviders() {
         return lafProviders;

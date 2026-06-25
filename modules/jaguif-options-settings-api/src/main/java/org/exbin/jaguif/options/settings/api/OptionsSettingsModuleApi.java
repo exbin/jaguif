@@ -16,7 +16,6 @@
 package org.exbin.jaguif.options.settings.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -37,7 +36,6 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return options settings manager
      */
-    @NonNull
     OptionsSettingsManagement getMainSettingsManager();
 
     /**
@@ -46,7 +44,6 @@ public interface OptionsSettingsModuleApi extends Module {
      * @param moduleId module id
      * @return
      */
-    @NonNull
     OptionsSettingsManagement getSettingsManagement(String moduleId);
 
     /**
@@ -54,7 +51,6 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return options action
      */
-    @NonNull
     Action createSettingsAction();
 
     /**
@@ -72,7 +68,6 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return options settings panel type
      */
-    @NonNull
     SettingsPanelType getSettingsPanelType();
 
     /**
@@ -87,7 +82,6 @@ public interface OptionsSettingsModuleApi extends Module {
      *
      * @return caption
      */
-    @NonNull
     Optional<String> getOptionsRootCaption();
 
     /**
@@ -103,6 +97,5 @@ public interface OptionsSettingsModuleApi extends Module {
      * @param settingsOptionsProvider settings options provider
      * @return settings options overrides
      */
-    @NonNull
     SettingsOptionsOverrides createSettingsOptionsOverrides(SettingsOptionsProvider settingsOptionsProvider);
 }

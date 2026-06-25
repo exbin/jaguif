@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -199,7 +198,6 @@ public class TextEncodingPanel extends javax.swing.JPanel {
         encodingsTable.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
     }
 
-    @NonNull
     public List<String> getEncodings() {
         ArrayList<String> result = new ArrayList<>();
         int[] selectedValues = encodingsTable.getSelectedRows();
@@ -214,7 +212,6 @@ public class TextEncodingPanel extends javax.swing.JPanel {
         tableModel.setSingleEncoding(encoding);
     }
 
-    @NonNull
     public Optional<String> getCurrentEncoding() {
         int selectedRow = encodingsTable.getSelectedRow();
         if (selectedRow >= 0) {
@@ -223,7 +220,6 @@ public class TextEncodingPanel extends javax.swing.JPanel {
         return Optional.empty();
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.menu.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JMenuItem;
@@ -36,7 +35,6 @@ public class DirectMenuContribution implements ItemSequenceContribution {
         this.menuItemProvider = menuItemProvider;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         if (menuItem == null) {
@@ -46,7 +44,6 @@ public class DirectMenuContribution implements ItemSequenceContribution {
         return contributionId;
     }
 
-    @NonNull
     public JMenuItem getMenuItem() {
         if (menuItem == null) {
             createItem();

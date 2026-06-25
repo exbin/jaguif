@@ -17,7 +17,6 @@ package org.exbin.jaguif.print;
 
 import org.exbin.jaguif.print.action.PrintAction;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
@@ -42,7 +41,6 @@ public class PrintModule implements PrintModuleApi {
     public PrintModule() {
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
@@ -52,7 +50,6 @@ public class PrintModule implements PrintModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     public PrintAction createPrintAction() {
         PrintAction printAction = new PrintAction();
         printAction.init(getResourceBundle());

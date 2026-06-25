@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.help.local;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
@@ -37,7 +36,6 @@ public class HelpLocalModule {
     public HelpLocalModule() {
     }
 
-    @NonNull
     public HelpLocalAction createHelpLocalAction() {
         HelpLocalAction helpAction = new HelpLocalAction();
         helpAction.init();

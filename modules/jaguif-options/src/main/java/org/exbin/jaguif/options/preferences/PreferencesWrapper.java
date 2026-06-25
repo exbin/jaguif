@@ -19,7 +19,6 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -41,13 +40,11 @@ public class PreferencesWrapper implements OptionsStorage {
         return preferences.get(key, null) != null;
     }
 
-    @NonNull
     @Override
     public Optional<String> get(String key) {
         return Optional.ofNullable(preferences.get(key, null));
     }
 
-    @NonNull
     @Override
     public String get(String key, String def) {
         return preferences.get(key, def);
@@ -113,7 +110,6 @@ public class PreferencesWrapper implements OptionsStorage {
         preferences.putByteArray(key, value);
     }
 
-    @NonNull
     @Override
     public byte[] getByteArray(String key, byte[] def) {
         return preferences.getByteArray(key, def);

@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.project.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -24,6 +23,5 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public interface Project {
 
-    @NonNull
     ProjectType getProjectType();
 }

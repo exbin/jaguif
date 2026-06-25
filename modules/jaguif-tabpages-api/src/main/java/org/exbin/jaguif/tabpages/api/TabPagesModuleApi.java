@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.tabpages.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -35,7 +34,6 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tab pages management interface
      */
-    @NonNull
     TabPagesManagement getMainTabPagesManager();
 
     /**
@@ -43,7 +41,6 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tab pages manager
      */
-    @NonNull
     TabPagesManagement createTabPagesManager();
 
     /**
@@ -52,7 +49,6 @@ public interface TabPagesModuleApi extends Module {
      * @param moduleId module id
      * @return tab pages management interface
      */
-    @NonNull
     TabPagesDefinitionManagement getMainTabPagesDefinition(String moduleId);
 
     /**
@@ -62,7 +58,6 @@ public interface TabPagesModuleApi extends Module {
      * @param moduleId module id
      * @return tab pages management interface
      */
-    @NonNull
     TabPagesDefinitionManagement getMainTabPagesDefinition(String tabPagesId, String moduleId);
 
     /**
@@ -73,7 +68,6 @@ public interface TabPagesModuleApi extends Module {
      * @param moduleId module id
      * @return tab pages management interface
      */
-    @NonNull
     TabPagesDefinitionManagement createTabPagesDefinition(TabPagesManagement tabPagesManagement, String tabPagesId, String moduleId);
 
     /**
@@ -98,7 +92,6 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tabbed pages panel
      */
-    @NonNull
     TabPages createTabbedPagesPanel();
 
     /**
@@ -107,6 +100,5 @@ public interface TabPagesModuleApi extends Module {
      *
      * @return tabbed pages panel
      */
-    @NonNull
     TabPages createOptTabbedPagesPanel();
 }

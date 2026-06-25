@@ -22,7 +22,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Icon;
@@ -127,7 +126,6 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 
-    @NonNull
     public String getTitle() {
         return titleLabel.getText();
     }
@@ -136,7 +134,6 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
         titleLabel.setText(title);
     }
 
-    @NonNull
     public String getDescription() {
         return descriptionTextArea.getText();
     }
@@ -145,7 +142,6 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
         descriptionTextArea.setText(description);
     }
 
-    @NonNull
     public Optional<Icon> getIcon() {
         return Optional.ofNullable(iconLabel.getIcon());
     }
@@ -155,7 +151,6 @@ public class WindowHeaderPanel extends javax.swing.JPanel {
         iconLabel.setPreferredSize(new Dimension(icon == null ? 0 : 64, 64));
     }
 
-    @NonNull
     public BackgroundDecorationMode getDecorationMode() {
         return decorationMode;
     }

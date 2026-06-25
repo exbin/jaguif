@@ -18,7 +18,6 @@ package org.exbin.jaguif.addon.manager.operation.gui;
 import java.awt.BorderLayout;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
@@ -49,7 +48,6 @@ public class AddonOperationPanel extends javax.swing.JPanel {
         goToStep(AddonModificationStep.OVERVIEW);
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }
@@ -81,7 +79,6 @@ public class AddonOperationPanel extends javax.swing.JPanel {
         repaint();
     }
 
-    @NonNull
     public Optional<JComponent> getActiveComponent() {
         return Optional.ofNullable(activePanel);
     }

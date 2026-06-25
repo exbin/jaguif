@@ -17,7 +17,6 @@ package org.exbin.jaguif.text.encoding;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -28,7 +27,6 @@ public class TextEncodingList implements CharsetListEncodingState {
 
     protected final List<String> encodings = new ArrayList<>();
 
-    @NonNull
     @Override
     public List<String> getEncodings() {
         return encodings;

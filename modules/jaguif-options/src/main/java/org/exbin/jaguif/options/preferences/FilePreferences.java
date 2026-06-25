@@ -32,7 +32,6 @@ import java.util.logging.Logger;
 import java.util.prefs.AbstractPreferences;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.xml.parsers.DocumentBuilder;
@@ -97,7 +96,6 @@ public class FilePreferences extends AbstractPreferences {
         }
     }
 
-    @NonNull
     private File createPreferenceFile() {
         return FilePreferencesFactory.getPreferencesFile(absolutePath());
     }
@@ -134,21 +132,18 @@ public class FilePreferences extends AbstractPreferences {
         flush();
     }
 
-    @NonNull
     @Override
     protected String[] keysSpi() throws BackingStoreException {
         Set<String> keySet = spiValues.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @NonNull
     @Override
     protected String[] childrenNamesSpi() throws BackingStoreException {
         Set<String> keySet = children.keySet();
         return (String[]) keySet.toArray(new String[0]);
     }
 
-    @NonNull
     @Override
     protected AbstractPreferences childSpi(String name) {
         FilePreferences child = children.get(name);
@@ -214,7 +209,6 @@ public class FilePreferences extends AbstractPreferences {
      * @param qname root node qualified name
      * @return XML document
      */
-    @NonNull
     private static Document createPreferencesDoc(String qname) {
         try {
             DOMImplementation di = DocumentBuilderFactory.newInstance().
@@ -316,7 +310,6 @@ public class FilePreferences extends AbstractPreferences {
      * Loads an XML document from specified input stream, which must have the
      * requisite DTD URI.
      */
-    @NonNull
     private static Document loadPrefsDoc(InputStream in)
             throws SAXException, IOException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -337,7 +330,6 @@ public class FilePreferences extends AbstractPreferences {
     @NullMarked
     private static class Resolver implements EntityResolver {
 
-        @NonNull
         @Override
         public InputSource resolveEntity(String publicId, String systemId)
                 throws SAXException {

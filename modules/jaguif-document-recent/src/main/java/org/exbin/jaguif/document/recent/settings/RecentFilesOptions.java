@@ -16,7 +16,6 @@
 package org.exbin.jaguif.document.recent.settings;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
@@ -37,17 +36,14 @@ public class RecentFilesOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @NonNull
     public Optional<String> getFilePath(int index) {
         return storage.get(KEY_RECENT_FILE_PATH_PREFIX + String.valueOf(index));
     }
 
-    @NonNull
     public Optional<String> getModuleName(int index) {
         return storage.get(KEY_RECENT_FILE_MODULE_PREFIX + String.valueOf(index));
     }
 
-    @NonNull
     public Optional<String> getFileMode(int index) {
         return storage.get(KEY_RECENT_FILE_MODE_PREFIX + String.valueOf(index));
     }

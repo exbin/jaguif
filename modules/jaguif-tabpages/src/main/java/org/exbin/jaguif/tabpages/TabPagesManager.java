@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.tabpages;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
@@ -66,7 +65,6 @@ public class TabPagesManager implements TabPagesManagement {
         definition.addContribution(contribution);
     }
 
-    @NonNull
     @Override
     public GroupSequenceContribution registerTabPagesGroup(String tabPagesId, String moduleId, String groupId) {
         return contributionManagement.registerContributionGroup(tabPagesId, moduleId, groupId);

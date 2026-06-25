@@ -15,12 +15,13 @@
  */
 package org.exbin.jaguif.ui.api;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.JComponent;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for view.
  */
+@NullMarked
 public interface View {
 
     /**
@@ -28,6 +29,5 @@ public interface View {
      *
      * @return component
      */
-    @NonNull
     JComponent getComponent();
 }

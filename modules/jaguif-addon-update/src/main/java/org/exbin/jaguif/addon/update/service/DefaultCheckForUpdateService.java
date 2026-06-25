@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.update.AddonUpdateModule;
@@ -73,7 +72,6 @@ public class DefaultCheckForUpdateService implements CheckForUpdateService {
         checkingThread.start();
     }
 
-    @NonNull
     @Override
     public CheckForUpdateResult checkForUpdate() {
         URL checkUpdateUrl = guiUpdateModule.getUpdateUrl();

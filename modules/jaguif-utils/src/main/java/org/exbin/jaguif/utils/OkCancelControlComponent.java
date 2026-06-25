@@ -16,12 +16,13 @@
 package org.exbin.jaguif.utils;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import javax.swing.JButton;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Simple interface for ok and cancel event invocation.
  */
+@NullMarked
 public interface OkCancelControlComponent {
 
     /**
@@ -39,6 +40,5 @@ public interface OkCancelControlComponent {
      *
      * @return default button
      */
-    @NonNull
     Optional<JButton> getDefaultButton();
 }

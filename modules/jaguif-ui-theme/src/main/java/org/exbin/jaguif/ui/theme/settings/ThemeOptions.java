@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.ui.theme.settings;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
@@ -41,7 +40,6 @@ public class ThemeOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @NonNull
     public String getLookAndFeel() {
         return storage.get(KEY_LOOK_AND_FEEL, "");
     }
@@ -50,7 +48,6 @@ public class ThemeOptions implements SettingsOptions {
         storage.put(KEY_LOOK_AND_FEEL, lookAndFeel);
     }
 
-    @NonNull
     public String getIconSet() {
         return storage.get(KEY_ICONSET, "");
     }
@@ -59,7 +56,6 @@ public class ThemeOptions implements SettingsOptions {
         storage.put(KEY_ICONSET, iconSet);
     }
 
-    @NonNull
     public String getRenderingMode() {
         return storage.get(KEY_RENDERING_MODE, "");
     }
@@ -68,7 +64,6 @@ public class ThemeOptions implements SettingsOptions {
         storage.put(KEY_RENDERING_MODE, renderingMode);
     }
 
-    @NonNull
     public String getGuiScaling() {
         return storage.get(KEY_RENDERING_SCALING, "");
     }
@@ -85,7 +80,6 @@ public class ThemeOptions implements SettingsOptions {
         storage.putFloat(KEY_RENDERING_SCALING_RATE, guiScalingRate);
     }
 
-    @NonNull
     public String getFontAntialiasing() {
         return storage.get(KEY_RENDERING_FONT_ANTIALIASING, "");
     }
@@ -102,7 +96,6 @@ public class ThemeOptions implements SettingsOptions {
         storage.putBoolean(KEY_RENDERING_USE_SCREEN_MENU_BAR, use);
     }
 
-    @NonNull
     public String getMacOsAppearance() {
         return storage.get(KEY_RENDERING_MACOS_APPEARANCE, "");
     }

@@ -18,7 +18,6 @@ package org.exbin.jaguif.ui.theme;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.DesktopUtils;
 
@@ -53,12 +52,10 @@ public enum GuiRenderingMethod {
         this.propertyValue = propertyValue;
     }
 
-    @NonNull
     public String getPropertyValue() {
         return propertyValue;
     }
 
-    @NonNull
     public static Optional<GuiRenderingMethod> fromPropertyValue(String propertyValue) {
         for (GuiRenderingMethod method : values()) {
             if (propertyValue.equals(method.getPropertyValue())) {
@@ -69,7 +66,6 @@ public enum GuiRenderingMethod {
         return Optional.empty();
     }
 
-    @NonNull
     public static List<GuiRenderingMethod> getAvailableMethods() {
         List<GuiRenderingMethod> methods = new ArrayList<>();
 

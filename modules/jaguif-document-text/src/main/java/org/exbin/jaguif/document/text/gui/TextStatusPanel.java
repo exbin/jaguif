@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.document.text.gui;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.TextPositionStatusApi;
@@ -95,7 +94,6 @@ public class TextStatusPanel extends javax.swing.JPanel implements TextPositionS
         documentCursorPositionTextField.setText(textPosition);
     }
 
-    @NonNull
     @Override
     public String getEncoding() {
         String text = documentEncodingTextField.getText();

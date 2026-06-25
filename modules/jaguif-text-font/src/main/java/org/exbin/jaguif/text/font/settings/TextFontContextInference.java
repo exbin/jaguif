@@ -17,7 +17,6 @@ package org.exbin.jaguif.text.font.settings;
 
 import java.awt.Font;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.text.font.ContextFont;
 import org.exbin.jaguif.text.font.TextFontState;
@@ -35,7 +34,6 @@ public class TextFontContextInference implements TextFontInference {
         this.contextProvider = contextProvider;
     }
 
-    @NonNull
     @Override
     public Optional<Font> getCurrentFont() {
         ContextFont contextFont = contextProvider.getActiveState(ContextFont.class);
@@ -46,7 +44,6 @@ public class TextFontContextInference implements TextFontInference {
         return Optional.empty();
     }
 
-    @NonNull
     @Override
     public Optional<Font> getDefaultFont() {
         ContextFont contextFont = contextProvider.getActiveState(ContextFont.class);

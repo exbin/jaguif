@@ -16,7 +16,6 @@
 package org.exbin.jaguif.project.api;
 
 import java.util.Collection;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
 import org.exbin.jaguif.Module;
@@ -37,20 +36,15 @@ public interface ProjectModuleApi extends Module {
 
     void registerProjectType(ProjectType projectType);
 
-    @NonNull
     Collection<ProjectCategory> getProjectCategories();
 
-    @NonNull
     Collection<ProjectType> getProjectTypes();
 
     void registerMenuFileHandlingActions();
 
-    @NonNull
     AbstractAction createNewProjectAction();
 
-    @NonNull
     AbstractAction createOpenProjectAction();
 
-    @NonNull
     AbstractAction createSaveProjectAction();
 }

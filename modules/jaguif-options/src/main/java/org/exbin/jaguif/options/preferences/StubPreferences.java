@@ -20,13 +20,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.prefs.AbstractPreferences;
 import java.util.prefs.BackingStoreException;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
 /**
  * Stub preferences class.
  */
+@NullMarked
 public class StubPreferences extends PreferencesWrapper {
 
     public StubPreferences() {
@@ -75,7 +75,6 @@ public class StubPreferences extends PreferencesWrapper {
             return (String[]) keySet.toArray(new String[0]);
         }
 
-        @NonNull
         @Override
         protected String[] childrenNamesSpi() throws BackingStoreException {
             return new String[0];

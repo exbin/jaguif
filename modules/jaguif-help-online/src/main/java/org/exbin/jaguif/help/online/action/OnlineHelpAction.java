@@ -18,7 +18,6 @@ package org.exbin.jaguif.help.online.action;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
@@ -50,7 +49,6 @@ public class OnlineHelpAction extends AbstractAction {
         putValue(ActionConsts.ACTION_DIALOG_MODE, true);
     }
 
-    @NonNull
     public Optional<URL> getOnlineHelpUrl() {
         return Optional.ofNullable(helpUrl);
     }

@@ -16,7 +16,6 @@
 package org.exbin.jaguif.ui.settings;
 
 import java.util.Locale;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
@@ -38,27 +37,22 @@ public class LanguageOptions implements SettingsOptions {
         this.preferences = preferences;
     }
 
-    @NonNull
     public String getLocaleLanguage() {
         return preferences.get(KEY_LOCALE_LANGUAGE, "");
     }
 
-    @NonNull
     public String getLocaleCountry() {
         return preferences.get(KEY_LOCALE_COUNTRY, "");
     }
 
-    @NonNull
     public String getLocaleVariant() {
         return preferences.get(KEY_LOCALE_VARIANT, "");
     }
 
-    @NonNull
     public String getLocaleTag() {
         return preferences.get(KEY_LOCALE_TAG, "");
     }
 
-    @NonNull
     public Locale getLocale() {
         String localeTag = getLocaleTag();
         if (!localeTag.trim().isEmpty()) {

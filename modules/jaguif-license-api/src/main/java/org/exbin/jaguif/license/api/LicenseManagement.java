@@ -16,7 +16,6 @@
 package org.exbin.jaguif.license.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -37,7 +36,6 @@ public interface LicenseManagement {
      *
      * @return license records
      */
-    @NonNull
     List<LicenseRecord> getRecords();
 
     /**

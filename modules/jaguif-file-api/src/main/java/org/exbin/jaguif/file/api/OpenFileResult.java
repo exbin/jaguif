@@ -17,7 +17,6 @@ package org.exbin.jaguif.file.api;
 
 import java.io.File;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
@@ -46,17 +45,14 @@ public class OpenFileResult {
      *
      * @return result type
      */
-    @NonNull
     public ResultType getResultType() {
         return resultType;
     }
 
-    @NonNull
     public Optional<File> getSelectedFile() {
         return Optional.ofNullable(selectedFile);
     }
 
-    @NonNull
     public Optional<FileType> getFileType() {
         return Optional.ofNullable(fileType);
     }

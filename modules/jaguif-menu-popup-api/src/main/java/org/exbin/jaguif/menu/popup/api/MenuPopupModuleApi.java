@@ -16,7 +16,6 @@
 package org.exbin.jaguif.menu.popup.api;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
 import org.exbin.jaguif.Module;
@@ -81,7 +80,6 @@ public interface MenuPopupModuleApi extends Module {
      * @param targetURL target URL
      * @return popup menu
      */
-    @NonNull
     JPopupMenu createLinkPopupMenu(String targetURL);
 
     /**
@@ -91,6 +89,5 @@ public interface MenuPopupModuleApi extends Module {
      * @param actionContextRegistrar action context register
      * @return popup menu
      */
-    @NonNull
     JPopupMenu createComponentPopupMenu(String popupMenuId, ContextRegistrationProvider actionContextRegistrar);
 }

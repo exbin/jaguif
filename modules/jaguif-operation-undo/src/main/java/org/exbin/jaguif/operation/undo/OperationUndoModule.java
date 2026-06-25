@@ -16,7 +16,6 @@
 package org.exbin.jaguif.operation.undo;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -47,7 +46,6 @@ public class OperationUndoModule implements OperationUndoModuleApi {
     public OperationUndoModule() {
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
@@ -90,17 +88,15 @@ public class OperationUndoModule implements OperationUndoModuleApi {
         mgmt.registerToolBarRule(contribution, new GroupSequenceContributionRule(OperationUndoModuleApi.UNDO_TOOL_BAR_GROUP_ID));
     }
 
-    @NonNull
     @Override
     public UndoActions createUndoActions() {
         return new UndoActions() {
-            @NonNull
+
             @Override
             public Action createUndoAction() {
                 return OperationUndoModule.this.createUndoAction();
             }
 
-            @NonNull
             @Override
             public Action createRedoAction() {
                 return OperationUndoModule.this.createRedoAction();
@@ -108,12 +104,10 @@ public class OperationUndoModule implements OperationUndoModuleApi {
         };
     }
 
-    @NonNull
     public UndoAction createUndoAction() {
         return new UndoAction();
     }
 
-    @NonNull
     public RedoAction createRedoAction() {
         return new RedoAction();
     }

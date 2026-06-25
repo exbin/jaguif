@@ -18,7 +18,6 @@ package org.exbin.jaguif.document.text.settings.gui;
 import java.awt.BorderLayout;
 import java.awt.event.ItemEvent;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.settings.TextColorOptions;
@@ -49,7 +48,6 @@ public class TextColorSettingsPanel extends javax.swing.JPanel implements Settin
         super.add(colorPanel, BorderLayout.CENTER);
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

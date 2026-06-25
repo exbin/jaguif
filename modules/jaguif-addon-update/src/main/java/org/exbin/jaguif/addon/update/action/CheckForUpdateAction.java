@@ -20,7 +20,6 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractAction;
@@ -89,7 +88,6 @@ public class CheckForUpdateAction extends AbstractAction {
         dialog.dispose();
     }
 
-    @NonNull
     public VersionNumbers getCurrentVersion() {
         LanguageModuleApi languageModule = App.getModule(LanguageModuleApi.class);
         ResourceBundle appBundle = languageModule.getAppBundle();
@@ -112,7 +110,6 @@ public class CheckForUpdateAction extends AbstractAction {
         this.checkForUpdateService = checkForUpdateService;
     }
 
-    @NonNull
     public CheckForUpdateService getCheckForUpdateService() {
         return checkForUpdateService;
     }

@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.manager.operation.gui;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
 import org.exbin.jaguif.App;
@@ -39,7 +38,6 @@ public class AddonOperationOverviewPanel extends javax.swing.JPanel {
         operationsList.setModel(new DefaultListModel<>());
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

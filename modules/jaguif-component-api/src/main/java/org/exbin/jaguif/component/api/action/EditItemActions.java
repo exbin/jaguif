@@ -15,14 +15,15 @@
  */
 package org.exbin.jaguif.component.api.action;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for item edit action set.
  */
+@NullMarked
 public interface EditItemActions {
 
     /**
@@ -30,7 +31,6 @@ public interface EditItemActions {
      *
      * @return add item action
      */
-    @NonNull
     Action createAddItemAction();
 
     /**
@@ -38,7 +38,6 @@ public interface EditItemActions {
      *
      * @return edit item action
      */
-    @NonNull
     Action createEditItemAction();
 
     /**
@@ -46,7 +45,6 @@ public interface EditItemActions {
      *
      * @return delete item action
      */
-    @NonNull
     Action createDeleteItemAction();
 
     /**
@@ -54,7 +52,6 @@ public interface EditItemActions {
      *
      * @return add item contribution
      */
-    @NonNull
     SequenceContribution createAddItemContribution();
 
     /**
@@ -62,7 +59,6 @@ public interface EditItemActions {
      *
      * @return edit item contribution
      */
-    @NonNull
     SequenceContribution createEditItemContribution();
 
     /**
@@ -70,7 +66,6 @@ public interface EditItemActions {
      *
      * @return delete item contribution
      */
-    @NonNull
     SequenceContribution createDeleteItemContribution();
 
     /**

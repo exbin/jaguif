@@ -16,7 +16,6 @@
 package org.exbin.jaguif.docking.multi.api;
 
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.docking.api.ContextDocking;
 import org.exbin.jaguif.docking.api.DocumentDocking;
@@ -33,7 +32,6 @@ public interface MultiDocking extends ContextDocking, DocumentDocking {
      *
      * @return list of documents
      */
-    @NonNull
     List<Document> getDocuments();
 
     /**

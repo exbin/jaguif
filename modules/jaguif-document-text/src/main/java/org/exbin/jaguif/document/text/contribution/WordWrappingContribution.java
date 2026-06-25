@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.document.text.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.document.text.DocumentTextModule;
 import org.exbin.jaguif.document.text.action.WordWrappingAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Word wrapping contribution.
  */
+@NullMarked
 public class WordWrappingContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "viewWordWrapping";
 
-    @NonNull
     @Override
     public Action createAction() {
         WordWrappingAction action = new WordWrappingAction();
@@ -38,7 +38,6 @@ public class WordWrappingContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

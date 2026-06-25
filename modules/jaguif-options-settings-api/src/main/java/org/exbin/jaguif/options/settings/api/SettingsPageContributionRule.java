@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.options.settings.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.annotation.concurrent.Immutable;
 import org.exbin.jaguif.contribution.api.SubSequenceContributionRule;
@@ -48,7 +47,6 @@ public class SettingsPageContributionRule extends SubSequenceContributionRule {
         this(pageContribution.getContributionId(), parameter);
     }
 
-    @NonNull
     public Parameter getParameter() {
         return parameter;
     }

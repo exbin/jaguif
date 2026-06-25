@@ -20,7 +20,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
@@ -38,7 +37,6 @@ public class DefaultContributionDefinition implements ContributionDefinition {
     public DefaultContributionDefinition() {
     }
 
-    @NonNull
     @Override
     public List<SequenceContribution> getContributions() {
         return contributions;
@@ -62,12 +60,10 @@ public class DefaultContributionDefinition implements ContributionDefinition {
         return contributions.contains(contribution);
     }
 
-    @NonNull
     public Map<SequenceContribution, List<SequenceContributionRule>> getRules() {
         return rules;
     }
 
-    @NonNull
     @Override
     public Optional<List<SequenceContributionRule>> getContributionRules(SequenceContribution contribution) {
         return Optional.ofNullable(rules.get(contribution));

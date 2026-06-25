@@ -15,11 +15,12 @@
  */
 package org.exbin.jaguif.progress.api;
 
-import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Operation capable reporting progress.
  */
+@NullMarked
 public interface ActivityDetailOperation {
 
     /**
@@ -27,6 +28,5 @@ public interface ActivityDetailOperation {
      *
      * @return progress state of the operation or -1 if unknown
      */
-    @NonNull
     ActivityDetail getOperationActivityDetail();
 }

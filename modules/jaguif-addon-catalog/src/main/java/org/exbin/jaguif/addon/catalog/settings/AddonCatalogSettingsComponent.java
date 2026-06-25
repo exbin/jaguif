@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.catalog.settings;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.catalog.settings.gui.AddonCatalogSettingsPanel;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
@@ -29,7 +28,6 @@ public class AddonCatalogSettingsComponent implements SettingsComponentProvider 
 
     public static final String COMPONENT_ID = "addonManager";
 
-    @NonNull
     @Override
     public SettingsComponent createComponent() {
         return new AddonCatalogSettingsPanel();

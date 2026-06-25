@@ -16,7 +16,6 @@
 package org.exbin.jaguif.context;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ContextModuleApi;
@@ -43,7 +42,6 @@ public class ContextModule implements ContextModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ContextModule.class);
@@ -52,7 +50,6 @@ public class ContextModule implements ContextModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public ActiveContextManagement getMainContextManager() {
         if (applicationContextManager == null) {
@@ -61,13 +58,11 @@ public class ContextModule implements ContextModuleApi {
         return applicationContextManager;
     }
 
-    @NonNull
     @Override
     public ActiveContextManagement createContextManager() {
         return new ActiveContextManager();
     }
 
-    @NonNull
     @Override
     public ContextRegistration createContextRegistrator() {
         return new ContextRegistrar(getMainContextManager());
@@ -78,19 +73,16 @@ public class ContextModule implements ContextModuleApi {
         return new ContextRegistrar(contextManager);
     }
 
-    @NonNull
     @Override
     public ContextRegistration createContextRegistrator(String recordId, ContextUpdateManagement contextUpdateManagement, ActiveContextManagement contextManager) {
         return new ContextUpdateRegistrar(recordId, contextUpdateManagement, contextManager);
     }
 
-    @NonNull
     @Override
     public ContextUpdateManagement createContextUpdateManagement() {
         return new ContextUpdateManager();
     }
 
-    @NonNull
     @Override
     public ContextUpdateManagement createContextUpdateManagement(ActiveContextManagement contextManagement) {
         ContextUpdateManager contextUpdateManager = new ContextUpdateManager();
@@ -108,7 +100,6 @@ public class ContextModule implements ContextModuleApi {
         return contextUpdateManager;
     }
 
-    @NonNull
     @Override
     public ActiveContextManagement createChildContextManager(ActiveContextManagement parentContextManager) {
         return new ChildActiveContextManager(parentContextManager);

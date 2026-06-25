@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -32,13 +31,11 @@ public class AddonOperation implements CartOperation {
         this.item = item;
     }
 
-    @NonNull
     @Override
     public AddonOperationVariant getVariant() {
         return variant;
     }
 
-    @NonNull
     public ItemRecord getItem() {
         return item;
     }

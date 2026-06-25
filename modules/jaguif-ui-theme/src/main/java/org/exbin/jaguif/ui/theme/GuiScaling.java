@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -43,12 +42,10 @@ public enum GuiScaling {
         this.propertyValue = propertyValue;
     }
 
-    @NonNull
     public String getPropertyValue() {
         return propertyValue;
     }
 
-    @NonNull
     public static Optional<GuiScaling> fromPropertyValue(String propertyValue) {
         for (GuiScaling method : values()) {
             if (propertyValue.equals(method.getPropertyValue())) {
@@ -59,7 +56,6 @@ public enum GuiScaling {
         return Optional.empty();
     }
 
-    @NonNull
     public static List<GuiScaling> getAvailable() {
         return new ArrayList<>(Arrays.asList(values()));
     }

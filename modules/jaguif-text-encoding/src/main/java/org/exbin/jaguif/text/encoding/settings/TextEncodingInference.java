@@ -16,14 +16,14 @@
 package org.exbin.jaguif.text.encoding.settings;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.exbin.jaguif.options.settings.api.InferenceOptions;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Text editor encoding inference options.
  */
+@NullMarked
 public interface TextEncodingInference extends InferenceOptions {
 
-    @NonNull
     Optional<String> getEncoding();
 }

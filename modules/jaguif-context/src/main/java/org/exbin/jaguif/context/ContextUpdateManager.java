@@ -20,7 +20,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextChange;
@@ -101,7 +100,6 @@ public class ContextUpdateManager implements ContextUpdateManagement {
         messagingService.notifyStateUpdated(listeners, contextInstance, updateType);
     }
 
-    @NonNull
     @Override
     public <T> List<ContextStateChangeListener<?>> getChangeListeners(String groupId, Class<T> contextClass) {
         List<ContextStateChangeListener<?>> listeners = null;
@@ -117,7 +115,6 @@ public class ContextUpdateManager implements ContextUpdateManagement {
         return listeners;
     }
 
-    @NonNull
     @Override
     public <T> List<ContextStateUpdateListener<?>> getUpdateListeners(String groupId, Class<T> contextClass) {
         List<ContextStateUpdateListener<?>> listeners = null;

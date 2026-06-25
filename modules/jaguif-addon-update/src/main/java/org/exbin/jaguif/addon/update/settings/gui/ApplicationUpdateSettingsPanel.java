@@ -16,7 +16,6 @@
 package org.exbin.jaguif.addon.update.settings.gui;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -39,7 +38,6 @@ public class ApplicationUpdateSettingsPanel extends javax.swing.JPanel implement
         initComponents();
     }
 
-    @NonNull
     @Override
     public ResourceBundle getResourceBundle() {
         return resourceBundle;

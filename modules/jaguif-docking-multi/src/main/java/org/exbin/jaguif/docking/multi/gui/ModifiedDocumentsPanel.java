@@ -17,7 +17,6 @@ package org.exbin.jaguif.docking.multi.gui;
  */
 import java.util.List;
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
@@ -52,7 +51,6 @@ public class ModifiedDocumentsPanel extends javax.swing.JPanel {
         WindowUtils.assignGlobalKeyListener(this, cancelButton);
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
     }

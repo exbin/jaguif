@@ -15,21 +15,21 @@
  */
 package org.exbin.jaguif.document.text.contribution;
 
-import org.jspecify.annotations.NonNull;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.document.text.DocumentTextModule;
 import org.exbin.jaguif.document.text.action.EditSelectionAction;
+import org.jspecify.annotations.NullMarked;
 
 /**
- * Close file contribution.
+ * Edit selection contribution.
  */
+@NullMarked
 public class EditSelectionContribution implements ActionSequenceContribution {
 
     public static final String CONTRIBUTION_ID = "closeFile";
 
-    @NonNull
     @Override
     public Action createAction() {
         EditSelectionAction action = new EditSelectionAction();
@@ -38,7 +38,6 @@ public class EditSelectionContribution implements ActionSequenceContribution {
         return action;
     }
 
-    @NonNull
     @Override
     public String getContributionId() {
         return CONTRIBUTION_ID;

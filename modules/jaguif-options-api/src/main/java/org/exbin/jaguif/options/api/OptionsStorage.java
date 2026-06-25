@@ -16,7 +16,6 @@
 package org.exbin.jaguif.options.api;
 
 import java.util.Optional;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
@@ -39,15 +38,12 @@ public interface OptionsStorage {
      */
     boolean exists(String key);
 
-    @NonNull
     Optional<String> get(String key);
 
-    @NonNull
     String get(String key, String def);
 
     boolean getBoolean(String key, boolean def);
 
-    @NonNull
     byte[] getByteArray(String key, byte[] def);
 
     double getDouble(String key, double def);

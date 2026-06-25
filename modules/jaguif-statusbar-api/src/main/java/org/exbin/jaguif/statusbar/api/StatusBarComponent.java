@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.statusbar.api;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
@@ -51,7 +50,6 @@ public interface StatusBarComponent extends ContextValues {
      *
      * @return component instance
      */
-    @NonNull
     JComponent getComponent();
 
     /**

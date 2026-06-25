@@ -16,7 +16,6 @@
 package org.exbin.jaguif.tabpages;
 
 import java.util.ResourceBundle;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -43,7 +42,6 @@ public class TabPagesModule implements TabPagesModuleApi {
     public void unregisterModule(String moduleId) {
     }
 
-    @NonNull
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {
             resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TabPagesModule.class);
@@ -52,7 +50,6 @@ public class TabPagesModule implements TabPagesModuleApi {
         return resourceBundle;
     }
 
-    @NonNull
     @Override
     public TabPagesManagement getMainTabPagesManager() {
         if (mainTabPagesManager == null) {
@@ -62,7 +59,6 @@ public class TabPagesModule implements TabPagesModuleApi {
         return mainTabPagesManager;
     }
 
-    @NonNull
     @Override
     public TabPagesManagement createTabPagesManager() {
         return new TabPagesManager();
@@ -78,31 +74,26 @@ public class TabPagesModule implements TabPagesModuleApi {
         TabPagesModule.this.getMainTabPagesManager().registerTabPages(tabPagesId, moduleId);
     }
 
-    @NonNull
     @Override
     public TabPagesDefinitionManagement getMainTabPagesDefinition(String moduleId) {
         return new TabPagesDefinitionManager(getMainTabPagesManager(), MAIN_TAB_PAGES_ID, moduleId);
     }
 
-    @NonNull
     @Override
     public TabPagesDefinitionManagement getMainTabPagesDefinition(String tabPagesId, String moduleId) {
         return new TabPagesDefinitionManager(getMainTabPagesManager(), tabPagesId, moduleId);
     }
 
-    @NonNull
     @Override
     public TabPagesDefinitionManagement createTabPagesDefinition(TabPagesManagement tabPagesManagement, String tabPagesId, String moduleId) {
         return new TabPagesDefinitionManager(tabPagesManagement, tabPagesId, moduleId);
     }
-    
-    @NonNull
+
     @Override
     public TabbedPagesPanel createTabbedPagesPanel() {
         return new TabbedPagesPanel();
     }
 
-    @NonNull
     @Override
     public OptTabbedPagesPanel createOptTabbedPagesPanel() {
         return new OptTabbedPagesPanel();

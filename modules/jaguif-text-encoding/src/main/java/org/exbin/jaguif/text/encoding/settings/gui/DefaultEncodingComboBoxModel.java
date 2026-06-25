@@ -17,7 +17,6 @@ package org.exbin.jaguif.text.encoding.settings.gui;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ComboBoxModel;
@@ -54,7 +53,6 @@ public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
         return availableEncodings.size();
     }
 
-    @NonNull
     @Override
     public String getElementAt(int index) {
         return availableEncodings.get(index);
@@ -70,7 +68,6 @@ public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
         dataListeners.remove(listener);
     }
 
-    @NonNull
     public List<String> getAvailableEncodings() {
         return availableEncodings;
     }
@@ -91,7 +88,6 @@ public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
         }
     }
 
-    @NonNull
     public String getSelectedEncoding() {
         return selectedEncoding;
     }

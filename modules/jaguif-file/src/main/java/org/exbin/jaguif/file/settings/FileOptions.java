@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.file.settings;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.file.FileDialogsType;
 import org.exbin.jaguif.options.api.OptionsStorage;
@@ -35,7 +34,6 @@ public class FileOptions implements SettingsOptions {
         this.storage = storage;
     }
 
-    @NonNull
     public String getFileDialogs() {
         return storage.get(KEY_FILE_DIALOGS, FileDialogsType.SWING.name());
     }

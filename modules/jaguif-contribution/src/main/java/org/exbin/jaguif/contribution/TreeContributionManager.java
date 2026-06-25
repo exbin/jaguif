@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
@@ -43,7 +42,6 @@ public class TreeContributionManager implements TreeContributionManagement {
     public TreeContributionManager() {
     }
 
-    @NonNull
     @Override
     public ContributionDefinition registerDefinition(String definitionId, String moduleId) {
         ObjectUtils.requireNonNull(definitionId);
@@ -73,7 +71,6 @@ public class TreeContributionManager implements TreeContributionManagement {
         return definitions.get(definitionId);
     }
 
-    @NonNull
     @Override
     public List<ContributionDefinition> getAllDefinitions() {
         List<ContributionDefinition> result = new ArrayList<>();
@@ -83,7 +80,6 @@ public class TreeContributionManager implements TreeContributionManagement {
         return result;
     }
 
-    @NonNull
     @Override
     public GroupSequenceContribution registerContributionGroup(String definitionId, String moduleId, String groupId) {
         DefaultContributionDefinition definition = definitions.get(definitionId);
