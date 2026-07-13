@@ -58,7 +58,7 @@ public class StatusBarSequenceOutput implements ContributionSequenceOutput {
 //        }
 
         StatusBarComponent statusBarComponent = statusBarItems.get(itemContribution);
-        statusBar.addItem(statusBarComponent.getComponent());
+        statusBar.addItem(statusBarComponent);
         StatusBarSequenceOutput.finishStatusBarItem(statusBarComponent, contextRegistration);
     }
 

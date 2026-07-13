@@ -34,14 +34,22 @@ public interface StatusBar extends ContextStatusBar {
     /**
      * Adds component to status bar.
      *
-     * @param component component
+     * @param component status bar component
      */
-    void addItem(JComponent component);
+    void addItem(StatusBarComponent component);
 
     /**
      * Adds separator to status bar.
      */
     void addSeparator();
+
+    /**
+     * Returns component item.
+     *
+     * @param itemIndex item index
+     * @return status bar component
+     */
+    StatusBarComponent getItem(int itemIndex);
 
     /**
      * Returns count of assigned components.

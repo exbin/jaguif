@@ -23,6 +23,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.exbin.jaguif.statusbar.api.StatusBar;
+import org.exbin.jaguif.statusbar.api.StatusBarComponent;
 
 /**
  * Status bar component.
@@ -30,7 +31,7 @@ import org.exbin.jaguif.statusbar.api.StatusBar;
 @NullMarked
 public class DefaultStatusBar implements StatusBar {
 
-    protected final List<JComponent> statusBarComponents = new ArrayList<>();
+    protected final List<StatusBarComponent> statusBarComponents = new ArrayList<>();
     protected JComponent statusBarComponent;
 
     @Override
@@ -43,13 +44,14 @@ public class DefaultStatusBar implements StatusBar {
             GroupLayout.SequentialGroup horizontalGroup = layout.createSequentialGroup();
             horizontalGroup.addContainerGap(0, Short.MAX_VALUE);
             GroupLayout.ParallelGroup verticalGroup = layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING);
-            for (JComponent component : statusBarComponents) {
-                if (component instanceof JLabel) {
-                    component.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+            for (StatusBarComponent component : statusBarComponents) {
+                JComponent guiComponent = component.getComponent();
+                if (guiComponent instanceof JLabel) {
+                    guiComponent.setBorder(javax.swing.BorderFactory.createEtchedBorder());
                 }
                 // horizontalGroup.addGap(0,0,0);
-                horizontalGroup.addComponent(component, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE);
-                verticalGroup.addComponent(component, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE);
+                horizontalGroup.addComponent(guiComponent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE);
+                verticalGroup.addComponent(guiComponent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE);
             }
             layout.setHorizontalGroup(horizontalGroup);
             layout.setVerticalGroup(verticalGroup);
@@ -59,13 +61,18 @@ public class DefaultStatusBar implements StatusBar {
     }
 
     @Override
-    public void addItem(JComponent component) {
+    public void addItem(StatusBarComponent component) {
         statusBarComponents.add(component);
     }
 
     @Override
     public void addSeparator() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public StatusBarComponent getItem(int itemIndex) {
+        return statusBarComponents.get(itemIndex);
     }
 
     @Override
