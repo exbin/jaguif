@@ -15,10 +15,8 @@
  */
 package org.exbin.jaguif.text.encoding;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -68,7 +66,7 @@ public class EncodingsManager {
 
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         MenuBuilder menuBuilder = menuModule.getMenuBuilder();
-        
+
         encodingActionListener = (ActionEvent e) -> {
             encodingState.setEncoding(((JRadioButtonMenuItem) e.getSource()).getText());
         };
@@ -151,7 +149,9 @@ public class EncodingsManager {
 
     private void updateEncodingsSelection(int encodingIndex) {
         JMenuItem item = toolsEncodingMenu.getItem(encodingIndex);
-        item.setSelected(true);
+        if (item != null) {
+            item.setSelected(true);
+        }
     }
 
     public void cycleNextEncoding() {
@@ -199,10 +199,9 @@ public class EncodingsManager {
         updateEncodingsSelection(encodingIndex);
     }
 
-    public void popupEncodingsMenu(MouseEvent mouseEvent) {
+    public void fillEncodingsPopupMenu(JPopupMenu outputMenu) {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         MenuBuilder menuBuilder = menuModule.getMenuBuilder();
-        JPopupMenu popupMenu = menuBuilder.createPopupMenu();
 
         String selectedEncoding = encodingState != null ? encodingState.getEncoding() : "";
         List<String> encodings = listEncodingState == null ? null : listEncodingState.getEncodings();
@@ -213,7 +212,7 @@ public class EncodingsManager {
                 utfEncoding.setSelected(ENCODING_UTF8.equals(selectedEncoding));
                 utfEncoding.setToolTipText(MessageFormat.format(resourceBundle.getString("switchEncoding.toolTipText"), new Object[]{ENCODING_UTF8}));
                 utfEncoding.addActionListener(utfEncodingActionListener);
-                popupMenu.add(utfEncoding);
+                outputMenu.add(utfEncoding);
             }
         } else {
             int selectedEncodingIndex = encodings.indexOf(selectedEncoding);
@@ -224,14 +223,9 @@ public class EncodingsManager {
                 item.setSelected(index == selectedEncodingIndex);
                 item.addActionListener(encodingActionListener);
                 item.setToolTipText(MessageFormat.format(resourceBundle.getString("switchEncoding.toolTipText"), new Object[]{encoding}));
-                popupMenu.add(item, index);
+                outputMenu.add(item, index);
             }
         }
-
-        popupMenu.addSeparator();
-        popupMenu.add(menuModule.actionToMenuItem(manageEncodingsAction));
-
-        popupMenu.show((Component) mouseEvent.getSource(), mouseEvent.getX(), mouseEvent.getY());
     }
 
     public void setListEncodingState(CharsetListEncodingState listEncodingState) {
