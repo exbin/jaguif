@@ -61,6 +61,10 @@ public class ContextUpdateManager implements ContextUpdateManagement {
     @Override
     public void addContextItem(String groupId, ContextChange contextChange) {
         ContextUpdateRecord record = records.get(groupId);
+        if (record == null) {
+            throw new IllegalStateException("Invalid group with id: " + groupId);
+        }
+
         contextChange.register(record);
     }
 
