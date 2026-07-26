@@ -50,4 +50,19 @@ public class SearchModule implements SearchModuleApi {
 
         return findReplaceActions;
     }
+
+    @Override
+    public void registerEditFindMenuActions() {
+        getFindReplaceActions().registerEditFindMenuActions();
+    }
+
+    @Override
+    public void registerEditFindPopupMenuActions(String menuId) {
+        getFindReplaceActions().registerEditFindPopupMenuActions(menuId);
+    }
+
+    @Override
+    public void registerEditFindToolBarActions() {
+        getFindReplaceActions().registerEditFindToolBarActions();
+    }
 }

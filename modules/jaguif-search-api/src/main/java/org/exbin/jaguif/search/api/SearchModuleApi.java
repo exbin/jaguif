@@ -30,4 +30,20 @@ public interface SearchModuleApi extends Module {
     public static final String EDIT_FIND_MENU_GROUP_ID = MODULE_ID + ".editFindMenuGroup";
     public static final String EDIT_FIND_TOOL_BAR_GROUP_ID = MODULE_ID + ".editFindToolBarGroup";
 
+    /**
+     * Registers find and replace actions into main menu.
+     */
+    void registerEditFindMenuActions();
+
+    /**
+     * Registers find and replace actions into specific popup menu.
+     *
+     * @param menuId popup menu id
+     */
+    void registerEditFindPopupMenuActions(String menuId);
+
+    /**
+     * Registers find and replace actions into main toolbar.
+     */
+    void registerEditFindToolBarActions();
 }
