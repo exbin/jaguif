@@ -46,6 +46,7 @@ public class SearchModule implements SearchModuleApi {
     public FindReplaceActions getFindReplaceActions() {
         if (findReplaceActions == null) {
             findReplaceActions = new FindReplaceActions();
+            findReplaceActions.init(getResourceBundle());
         }
 
         return findReplaceActions;

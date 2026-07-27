@@ -21,6 +21,8 @@ import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.contribution.api.GroupSequenceContributionRule;
+import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
+import org.exbin.jaguif.contribution.api.SeparationSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
@@ -72,7 +74,10 @@ public class FindReplaceActions {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         String groupId = SearchModuleApi.EDIT_FIND_MENU_GROUP_ID;
         MenuDefinitionManagement mgmt = menuModule.getMainMenuDefinition(SearchModule.MODULE_ID).getSubMenu(MenuModuleApi.EDIT_SUBMENU_ID);
-        SequenceContribution contribution = new EditFindContribution();
+        SequenceContribution contribution = mgmt.registerMenuGroup(groupId);
+        mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE));
+        mgmt.registerMenuRule(contribution, new SeparationSequenceContributionRule(SeparationSequenceContributionRule.SeparationMode.AROUND));
+        contribution = new EditFindContribution();
         mgmt.registerMenuContribution(contribution);
         mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(groupId));
         contribution = new EditFindNextContribution();
@@ -98,7 +103,10 @@ public class FindReplaceActions {
     public void registerEditFindToolBarActions() {
         ToolBarModuleApi toolBarModule = App.getModule(ToolBarModuleApi.class);
         ToolBarDefinitionManagement mgmt = toolBarModule.getMainToolBarDefinition(SearchModule.MODULE_ID);
-        SequenceContribution contribution = new EditFindContribution();
+        SequenceContribution contribution = mgmt.registerToolBarGroup(SearchModuleApi.EDIT_FIND_TOOL_BAR_GROUP_ID);
+        mgmt.registerToolBarRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE));
+        mgmt.registerToolBarRule(contribution, new SeparationSequenceContributionRule(SeparationSequenceContributionRule.SeparationMode.AROUND));
+        contribution = new EditFindContribution();
         mgmt.registerToolBarContribution(contribution);
         mgmt.registerToolBarRule(contribution, new GroupSequenceContributionRule(SearchModuleApi.EDIT_FIND_TOOL_BAR_GROUP_ID));
     }

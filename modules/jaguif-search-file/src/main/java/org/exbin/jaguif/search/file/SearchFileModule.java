@@ -20,13 +20,13 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.search.file.action.SearchInFilesActions;
-import org.exbin.jaguif.search.api.SearchModuleApi;
+import org.exbin.jaguif.search.file.api.SearchFileModuleApi;
 
 /**
  * Implementation of framework search module.
  */
 @NullMarked
-public class SearchFileModule implements SearchModuleApi {
+public class SearchFileModule implements SearchFileModuleApi {
 
     private java.util.ResourceBundle resourceBundle = null;
 
