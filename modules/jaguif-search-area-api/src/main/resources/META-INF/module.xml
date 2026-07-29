@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<module>
+  <api>org.exbin.jaguif.search.area.api.SearchAreaModuleApi</api>
+  <name>Search Area API Module</name>
+  <provider>ExBin Project</provider>
+  <homepage>https://exbin.org</homepage>
+  <description>Support for searching in area</description>
+  <dependency>
+    <module id="org.exbin.jaguif.search.api.SearchModuleApi" />
+  </dependency>
+</module>

@@ -72,27 +72,29 @@ public class FindReplaceActions {
 
     public void registerEditFindMenuActions() {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
-        String groupId = SearchModuleApi.EDIT_FIND_MENU_GROUP_ID;
         MenuDefinitionManagement mgmt = menuModule.getMainMenuDefinition(SearchModule.MODULE_ID).getSubMenu(MenuModuleApi.EDIT_SUBMENU_ID);
-        SequenceContribution contribution = mgmt.registerMenuGroup(groupId);
+        SequenceContribution contribution = mgmt.registerMenuGroup(SearchModuleApi.EDIT_FIND_MENU_GROUP_ID);
         mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE));
         mgmt.registerMenuRule(contribution, new SeparationSequenceContributionRule(SeparationSequenceContributionRule.SeparationMode.AROUND));
         contribution = new EditFindContribution();
         mgmt.registerMenuContribution(contribution);
-        mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(groupId));
+        mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(SearchModuleApi.EDIT_FIND_MENU_GROUP_ID));
         contribution = new EditFindNextContribution();
         mgmt.registerMenuContribution(contribution);
-        mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(groupId));
+        mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(SearchModuleApi.EDIT_FIND_MENU_GROUP_ID));
         contribution = new EditReplaceContribution();
         mgmt.registerMenuContribution(contribution);
-        mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(groupId));
+        mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(SearchModuleApi.EDIT_FIND_MENU_GROUP_ID));
     }
 
     public void registerEditFindPopupMenuActions(String menuId) {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         MenuDefinitionManagement mgmt = menuModule.getMainMenuDefinition(menuId, SearchModule.MODULE_ID);
         String groupId = SearchModuleApi.EDIT_FIND_MENU_GROUP_ID;
-        SequenceContribution contribution = new EditFindContribution();
+        SequenceContribution contribution = mgmt.registerMenuGroup(SearchModuleApi.EDIT_FIND_MENU_GROUP_ID);
+        mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE));
+        mgmt.registerMenuRule(contribution, new SeparationSequenceContributionRule(SeparationSequenceContributionRule.SeparationMode.AROUND));
+        contribution = new EditFindContribution();
         mgmt.registerMenuContribution(contribution);
         mgmt.registerMenuRule(contribution, new GroupSequenceContributionRule(groupId));
         contribution = new EditReplaceContribution();
@@ -104,6 +106,9 @@ public class FindReplaceActions {
         ToolBarModuleApi toolBarModule = App.getModule(ToolBarModuleApi.class);
         ToolBarDefinitionManagement mgmt = toolBarModule.getMainToolBarDefinition(SearchModule.MODULE_ID);
         SequenceContribution contribution = mgmt.registerToolBarGroup(SearchModuleApi.EDIT_FIND_TOOL_BAR_GROUP_ID);
+        mgmt.registerToolBarRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE));
+        mgmt.registerToolBarRule(contribution, new SeparationSequenceContributionRule(SeparationSequenceContributionRule.SeparationMode.ABOVE));
+        contribution = mgmt.registerToolBarGroup(SearchModuleApi.EDIT_FIND_TOOL_BAR_GROUP_ID);
         mgmt.registerToolBarRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE));
         mgmt.registerToolBarRule(contribution, new SeparationSequenceContributionRule(SeparationSequenceContributionRule.SeparationMode.AROUND));
         contribution = new EditFindContribution();
