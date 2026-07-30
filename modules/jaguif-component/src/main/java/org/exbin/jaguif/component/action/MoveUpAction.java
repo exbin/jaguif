@@ -34,7 +34,7 @@ public class MoveUpAction extends AbstractAction {
 
     public static final String ACTION_ID = "moveItemUp";
 
-    protected ContextMoveItem actionsHandler;
+    protected ContextMoveItem itemController;
 
     public void init(ResourceBundle resourceBundle) {
         ActionModuleApi actionModule = App.getModule(ActionModuleApi.class);
@@ -42,14 +42,14 @@ public class MoveUpAction extends AbstractAction {
         setEnabled(false);
         putValue(ActionConsts.ACTION_CONTEXT_CHANGE, (ActionContextChange) (ContextChangeRegistration registrar) -> {
             registrar.registerChangeListener(ContextMoveItem.class, (ContextMoveItem instance) -> {
-                actionsHandler = instance;
-                setEnabled(actionsHandler.isEditable() && actionsHandler.isSelection());
+                itemController = instance;
+                setEnabled(itemController.isEditable() && itemController.isSelection());
             });
         });
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        actionsHandler.performMoveUp();
+        itemController.performMoveUp();
     }
 }

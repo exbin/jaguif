@@ -34,7 +34,7 @@ public class DeleteItemAction extends AbstractAction {
 
     public static final String ACTION_ID = "deleteItem";
 
-    private ContextEditItem actionsHandler;
+    private ContextEditItem itemController;
 
     public void init(ResourceBundle resourceBundle) {
         ActionModuleApi actionModule = App.getModule(ActionModuleApi.class);
@@ -42,14 +42,14 @@ public class DeleteItemAction extends AbstractAction {
         setEnabled(false);
         putValue(ActionConsts.ACTION_CONTEXT_CHANGE, (ActionContextChange) (ContextChangeRegistration registrar) -> {
             registrar.registerChangeListener(ContextEditItem.class, (ContextEditItem instance) -> {
-                actionsHandler = instance;
-                setEnabled(actionsHandler.canDeleteItem());
+                itemController = instance;
+                setEnabled(itemController.canDeleteItem());
             });
         });
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        actionsHandler.performEditItem();
+        itemController.performEditItem();
     }
 }

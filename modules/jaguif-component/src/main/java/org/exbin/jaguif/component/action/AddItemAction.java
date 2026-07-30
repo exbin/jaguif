@@ -35,7 +35,7 @@ public class AddItemAction extends AbstractAction {
     public static final String ACTION_ID = "addItem";
 
     protected final EditItemMode mode;
-    protected ContextEditItem actionsHandler;
+    protected ContextEditItem itemController;
 
     public AddItemAction(EditItemMode mode) {
         this.mode = mode;
@@ -50,14 +50,14 @@ public class AddItemAction extends AbstractAction {
         }
         putValue(ActionConsts.ACTION_CONTEXT_CHANGE, (ActionContextChange) (ContextChangeRegistration registrar) -> {
             registrar.registerChangeListener(ContextEditItem.class, (ContextEditItem instance) -> {
-                actionsHandler = instance;
-                setEnabled(actionsHandler.canEditItem());
+                itemController = instance;
+                setEnabled(itemController.canAddItem());
             });
         });
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        actionsHandler.performAddItem();
+        itemController.performAddItem();
     }
 }
