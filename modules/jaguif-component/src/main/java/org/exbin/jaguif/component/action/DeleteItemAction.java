@@ -43,9 +43,18 @@ public class DeleteItemAction extends AbstractAction {
         putValue(ActionConsts.ACTION_CONTEXT_CHANGE, (ActionContextChange) (ContextChangeRegistration registrar) -> {
             registrar.registerChangeListener(ContextEditItem.class, (ContextEditItem instance) -> {
                 itemController = instance;
-                setEnabled(itemController.canDeleteItem());
+                update();
+            });
+            registrar.registerStateUpdateListener(ContextEditItem.class, (instance, updateType) -> {
+                if (itemController == instance && ContextEditItem.UpdateType.EDIT_STATE == updateType) {
+                    update();
+                }
             });
         });
+    }
+
+    protected void update() {
+        setEnabled(itemController.canDeleteItem());
     }
 
     @Override

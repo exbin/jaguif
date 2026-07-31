@@ -22,10 +22,10 @@ import javax.swing.AbstractButton;
 import javax.swing.Action;
 import javax.swing.JComponent;
 import javax.swing.JToolBar;
-import org.exbin.jaguif.toolbar.api.ActionToolBarContribution;
 import org.exbin.jaguif.contribution.api.ContributionSequenceOutput;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarComponent;
 
@@ -46,7 +46,7 @@ public class IconToolBarSequenceOutput implements ContributionSequenceOutput {
 
     @Override
     public boolean initItem(ItemSequenceContribution itemContribution) {
-        Action action = ((ActionToolBarContribution) itemContribution).createAction();
+        Action action = ((ActionSequenceContribution) itemContribution).createAction();
         toolBarItems.put(itemContribution, new DefaultToolBarComponent(ToolBarSequenceOutput.createToolBarComponent(action), action));
         return true;
     }

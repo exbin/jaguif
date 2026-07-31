@@ -43,9 +43,18 @@ public class MoveTopAction extends AbstractAction {
         putValue(ActionConsts.ACTION_CONTEXT_CHANGE, (ActionContextChange) (ContextChangeRegistration registrar) -> {
             registrar.registerChangeListener(ContextMoveItem.class, (ContextMoveItem instance) -> {
                 itemController = instance;
-                setEnabled(itemController.isEditable() && itemController.isSelection());
+                update();
+            });
+            registrar.registerStateUpdateListener(ContextMoveItem.class, (instance, updateType) -> {
+                if (itemController == instance && ContextMoveItem.UpdateType.MOVE_STATE == updateType) {
+                    update();
+                }
             });
         });
+    }
+
+    protected void update() {
+        setEnabled(itemController.isEditable() && itemController.isSelection());
     }
 
     @Override
