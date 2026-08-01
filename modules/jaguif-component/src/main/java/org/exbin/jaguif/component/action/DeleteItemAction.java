@@ -59,6 +59,6 @@ public class DeleteItemAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        itemController.performEditItem();
+        itemController.performDeleteItem();
     }
 }
