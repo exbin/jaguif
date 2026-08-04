@@ -46,7 +46,7 @@ import org.xml.sax.SAXParseException;
 @NullMarked
 public class StreamPreferences extends AbstractPreferences {
 
-    public static final String PRECERENCES_DTD_URI = "http://java.sun.com/dtd/preferences.dtd";
+    public static final String PREFERENCES_DTD_URI = "http://java.sun.com/dtd/preferences.dtd";
     public static final String PREFERENCES_DTD
             = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
             + "<!-- DTD for preferences -->"
@@ -158,7 +158,7 @@ public class StreamPreferences extends AbstractPreferences {
 
     /**
      * Imports the preferences described by the specified XML element (a map
-     * from a preferences document) into the specified preferences node.
+     * from a preferences document) into the specified preference node.
      */
     private static void importPrefs(Preferences prefsNode, Element map) {
         NodeList entries = map.getChildNodes();
@@ -200,9 +200,9 @@ public class StreamPreferences extends AbstractPreferences {
         @Override
         public InputSource resolveEntity(String publicId, String systemId)
                 throws SAXException {
-            if (systemId.equals(PRECERENCES_DTD_URI)) {
+            if (systemId.equals(PREFERENCES_DTD_URI)) {
                 InputSource is = new InputSource(new StringReader(PREFERENCES_DTD));
-                is.setSystemId(PRECERENCES_DTD_URI);
+                is.setSystemId(PREFERENCES_DTD_URI);
                 return is;
             }
             throw new SAXException("Invalid system identifier: " + systemId);

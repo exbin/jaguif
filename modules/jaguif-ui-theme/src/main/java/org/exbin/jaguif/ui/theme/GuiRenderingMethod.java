@@ -31,7 +31,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
  * See Wayland + Vulkan:
  * <a href="https://openjdk.org/projects/wakefield/">Project WakeField</a>
  * <p>
- * See MacOS Metal framework:
+ * See macOS Metal framework:
  * <a href="https://openjdk.org/projects/lanai/">Project Lanai</a>
  */
 @NullMarked

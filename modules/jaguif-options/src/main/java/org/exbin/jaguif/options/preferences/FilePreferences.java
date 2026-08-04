@@ -213,7 +213,7 @@ public class FilePreferences extends AbstractPreferences {
         try {
             DOMImplementation di = DocumentBuilderFactory.newInstance().
                     newDocumentBuilder().getDOMImplementation();
-            DocumentType dt = di.createDocumentType(qname, null, StreamPreferences.PRECERENCES_DTD_URI);
+            DocumentType dt = di.createDocumentType(qname, null, StreamPreferences.PREFERENCES_DTD_URI);
             return di.createDocument(null, qname, dt);
         } catch (ParserConfigurationException e) {
             throw new AssertionError(e);
@@ -333,9 +333,9 @@ public class FilePreferences extends AbstractPreferences {
         @Override
         public InputSource resolveEntity(String publicId, String systemId)
                 throws SAXException {
-            if (systemId.equals(StreamPreferences.PRECERENCES_DTD_URI)) {
+            if (systemId.equals(StreamPreferences.PREFERENCES_DTD_URI)) {
                 InputSource is = new InputSource(new StringReader(StreamPreferences.PREFERENCES_DTD));
-                is.setSystemId(StreamPreferences.PRECERENCES_DTD_URI);
+                is.setSystemId(StreamPreferences.PREFERENCES_DTD_URI);
                 return is;
             }
             throw new SAXException("Invalid system identifier: " + systemId);

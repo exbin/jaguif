@@ -17,8 +17,6 @@ package org.exbin.jaguif.basic;
 
 /**
  * Module file location interface.
- *
- * @author ExBin Project (http://exbin.org)
  */
 public interface ModuleFileLocation {
 }

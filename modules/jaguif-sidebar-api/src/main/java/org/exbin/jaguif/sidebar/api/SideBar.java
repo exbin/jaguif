@@ -26,16 +26,16 @@ import javax.swing.JToolBar;
 public interface SideBar {
 
     /**
-     * Returns side bar tool bar.
+     * Returns sidebar toolbar.
      *
-     * @return tool bar
+     * @return toolbar
      */
     JToolBar getToolBar();
 
     /**
-     * Returns side bar panel.
+     * Returns sidebar panel.
      *
-     * @return side bar panel
+     * @return sidebar panel
      */
     JPanel getSideBarPanel();
 

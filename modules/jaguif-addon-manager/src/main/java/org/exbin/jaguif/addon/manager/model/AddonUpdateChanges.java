@@ -102,7 +102,7 @@ public class AddonUpdateChanges {
         removeFiles.remove(fileName);
     }
 
-    public boolean hasremoveFile(String fileName) {
+    public boolean hasRemoveFile(String fileName) {
         return removeFiles.contains(fileName);
     }
 

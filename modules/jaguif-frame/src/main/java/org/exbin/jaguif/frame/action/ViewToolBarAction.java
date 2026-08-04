@@ -32,7 +32,7 @@ import org.exbin.jaguif.frame.api.ContextFrame;
 import org.exbin.jaguif.frame.api.FrameController;
 
 /**
- * View tool bar action.
+ * View toolbar action.
  */
 @NullMarked
 public class ViewToolBarAction extends AbstractAction {

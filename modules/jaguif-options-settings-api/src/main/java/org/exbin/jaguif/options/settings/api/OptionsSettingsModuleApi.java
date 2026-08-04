@@ -42,7 +42,7 @@ public interface OptionsSettingsModuleApi extends Module {
      * Returns options settings management.
      *
      * @param moduleId module id
-     * @return
+     * @return options settings manager
      */
     OptionsSettingsManagement getSettingsManagement(String moduleId);
 

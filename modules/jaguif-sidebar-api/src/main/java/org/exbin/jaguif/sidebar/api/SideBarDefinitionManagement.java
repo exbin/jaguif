@@ -21,20 +21,20 @@ import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 
 /**
- * Interface for registered side bars definition management.
+ * Interface for registered sidebars definition management.
  */
 @NullMarked
 public interface SideBarDefinitionManagement {
 
     /**
-     * Registers item as a child item for given side bar.
+     * Registers item as a child item for given sidebar.
      *
-     * @param contribution side bar contribution
+     * @param contribution sidebar contribution
      */
     void registerSideBarContribution(SequenceContribution contribution);
 
     /**
-     * Registers group as a child item for given side bar.
+     * Registers group as a child item for given sidebar.
      *
      * @param groupId group id
      * @return sidebar contribution
@@ -42,10 +42,10 @@ public interface SideBarDefinitionManagement {
     GroupSequenceContribution registerSideBarGroup(String groupId);
 
     /**
-     * Registers side bar contribution rule.
+     * Registers sidebar contribution rule.
      *
-     * @param sideBarContribution side bar contribution
-     * @param rule side bar contribution rule
+     * @param sideBarContribution sidebar contribution
+     * @param rule sidebar contribution rule
      */
     void registerSideBarRule(SequenceContribution sideBarContribution, SequenceContributionRule rule);
 }

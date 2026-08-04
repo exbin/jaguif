@@ -49,7 +49,7 @@ public class HelpLocalAction extends AbstractAction {
 
     private HelpSet mainHelpSet;
     private HelpBroker mainHelpBroker;
-    private ActionListener helpActionLisneter;
+    private ActionListener helpActionListener;
 
     public HelpLocalAction() {
     }
@@ -68,7 +68,7 @@ public class HelpLocalAction extends AbstractAction {
                 // Temporary for Java webstart, include help in jar later
                 mainHelpBroker = mainHelpSet.createHelpBroker();
                 // CSH.setHelpIDString(helpContextMenuItem, "top");
-                helpActionLisneter = new CSH.DisplayHelpFromSource(mainHelpBroker);
+                helpActionListener = new CSH.DisplayHelpFromSource(mainHelpBroker);
                 // helpContextMenuItem.addActionListener(helpActionLisneter);
             }
         } catch (IOException ex) {
@@ -78,7 +78,7 @@ public class HelpLocalAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        helpActionLisneter.actionPerformed(e);
+        helpActionListener.actionPerformed(e);
     }
 
     /**

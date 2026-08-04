@@ -19,7 +19,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 
 /**
- * Default action side bar item contribution.
+ * Default action sidebar item contribution.
  */
 @NullMarked
 public class DefaultActionSideBarContribution implements ActionSideBarContribution {

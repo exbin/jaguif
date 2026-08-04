@@ -39,7 +39,7 @@ public interface PositionLinkActionsHandler {
     void performOpenLink(Point locationOnScreen);
 
     /**
-     * Returns if true if link is selected on given relative position.
+     * Returns true if link is selected on given relative position.
      *
      * @param locationOnScreen location on screen
      * @return true if link is selected

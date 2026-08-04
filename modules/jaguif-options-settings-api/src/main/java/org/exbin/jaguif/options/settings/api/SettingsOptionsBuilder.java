@@ -20,7 +20,7 @@ import org.exbin.jaguif.options.api.OptionsStorage;
 
 /**
  * Interface for settings options builder.
- * @param <T> settins options
+ * @param <T> settings options
  */
 @NullMarked
 public interface SettingsOptionsBuilder<T extends SettingsOptions> {

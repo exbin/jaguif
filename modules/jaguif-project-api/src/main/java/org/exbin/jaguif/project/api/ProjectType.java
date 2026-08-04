@@ -35,7 +35,7 @@ public interface ProjectType {
     /**
      * Returns project category.
      *
-     * @return
+     * @return project category
      */
     ProjectCategory getCategory();
 

@@ -72,10 +72,9 @@ public interface FrameModuleApi extends Module {
     /**
      * Returns frame instance.
      *
-     * TODO: Support for multiple frames
-     *
      * @return frame
      */
+    // TODO: Support for multiple frames
     Frame getFrame();
 
     /**
@@ -105,12 +104,12 @@ public interface FrameModuleApi extends Module {
     void removeClosingListener(WindowClosingListener listener);
 
     /**
-     * Registers visibility actions for both status bar and tool bar.
+     * Registers visibility actions for both status bar and toolbar.
      */
     void registerBarsVisibilityActions();
 
     /**
-     * Registers visibility actions for both tool bar.
+     * Registers visibility actions for both toolbar.
      */
     void registerToolBarVisibilityActions();
 
@@ -123,7 +122,7 @@ public interface FrameModuleApi extends Module {
      * Registers new status bar with unique ID.
      *
      * @param moduleId module id
-     * @param statusBarId statusbar id
+     * @param statusBarId status bar id
      * @param component status bar component
      */
     void registerStatusBar(String moduleId, String statusBarId, JComponent component);
@@ -131,7 +130,7 @@ public interface FrameModuleApi extends Module {
     /**
      * Switches to status bar with specific ID.
      *
-     * @param statusBarId statusbar id
+     * @param statusBarId status bar id
      */
     void switchStatusBar(String statusBarId);
 

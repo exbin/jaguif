@@ -23,7 +23,7 @@ import org.exbin.jaguif.frame.api.FrameModuleApi;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * View tool bar captions contribution.
+ * View toolbar captions contribution.
  */
 @NullMarked
 public class ViewToolBarCaptionsContribution implements ActionSequenceContribution {

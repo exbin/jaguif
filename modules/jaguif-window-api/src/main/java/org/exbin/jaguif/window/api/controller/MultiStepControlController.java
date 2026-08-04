@@ -19,7 +19,7 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.utils.OkCancelControlComponent;
 
 /**
- * Controller for multi-step control panel.
+ * Controller for multistep control panel.
  */
 @NullMarked
 public interface MultiStepControlController {

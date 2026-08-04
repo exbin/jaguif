@@ -25,7 +25,7 @@ import org.jspecify.annotations.NullMarked;
 public interface DocumentType {
 
     /**
-     * Returns document type Id.
+     * Returns document type id.
      *
      * @return document type ID
      */

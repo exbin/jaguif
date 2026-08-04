@@ -34,7 +34,7 @@ public interface DockingModuleApi extends Module {
     void registerMenuFileHandlingActions();
 
     /**
-     * Registers file handling operations to main frame tool bar.
+     * Registers file handling operations to main frame toolbar.
      */
     void registerToolBarFileHandlingActions();
 

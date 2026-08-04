@@ -69,9 +69,9 @@ public interface EditItemActions {
     SequenceContribution createDeleteItemContribution();
 
     /**
-     * Registers contributions to tool bar.
+     * Registers contributions to toolbar.
      *
-     * @param toolBarDefinition tool bar definition
+     * @param toolBarDefinition toolbar definition
      */
     void registerToolBarContributions(ToolBarDefinitionManagement toolBarDefinition);
 }

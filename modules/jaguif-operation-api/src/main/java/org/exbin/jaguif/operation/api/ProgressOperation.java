@@ -22,7 +22,7 @@ public interface ProgressOperation {
 
     /**
      * Returns progress state of the operation in range of 0 to 1000 or -1 if
-     * state is unknown or currenclty undetemined.
+     * state is unknown or currently undetermined.
      *
      * @return progress state of the operation or -1 if unknown
      */

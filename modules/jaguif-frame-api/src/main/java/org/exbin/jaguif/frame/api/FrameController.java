@@ -36,14 +36,14 @@ public interface FrameController extends ContextFrame {
     Frame getFrame();
 
     /**
-     * Returns tool bar visibility.
+     * Returns toolbar visibility.
      *
      * @return true if toolbar visible
      */
     boolean isToolBarVisible();
 
     /**
-     * Sets tool bar visibility.
+     * Sets toolbar visibility.
      *
      * @param toolBarVisible toolbar visible
      */
@@ -59,26 +59,26 @@ public interface FrameController extends ContextFrame {
     /**
      * Sets status bar visibility.
      *
-     * @param statusBarVisible statusbar visible
+     * @param statusBarVisible status bar visible
      */
     void setStatusBarVisible(boolean statusBarVisible);
 
     /**
-     * Returns tool bar captions visibility.
+     * Returns toolbar captions visibility.
      *
      * @return true if toolbar captions visible
      */
     boolean isToolBarCaptionsVisible();
 
     /**
-     * Sets tool bar captions visibility.
+     * Sets toolbar captions visibility.
      *
      * @param captionsVisible captions visible
      */
     void setToolBarCaptionsVisible(boolean captionsVisible);
 
     /**
-     * Sets base appplication handler to be used as source of configuration.
+     * Sets base application handler to be used as source of configuration.
      */
     void initApplication();
 
@@ -102,7 +102,7 @@ public interface FrameController extends ContextFrame {
     void loadMainMenu();
 
     /**
-     * Loads main tool bar for the frame.
+     * Loads main toolbar for the frame.
      */
     void loadMainToolBar();
 

@@ -65,7 +65,7 @@ public class WordWrappingAction extends AbstractAction {
             return;
         }
 
-        boolean lineWraping = textPanel.changeLineWrap();
-        putValue(Action.SELECTED_KEY, lineWraping);
+        boolean lineWrapping = textPanel.changeLineWrap();
+        putValue(Action.SELECTED_KEY, lineWrapping);
     }
 }

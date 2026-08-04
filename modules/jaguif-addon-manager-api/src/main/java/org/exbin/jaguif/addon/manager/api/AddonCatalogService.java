@@ -45,7 +45,7 @@ public interface AddonCatalogService {
     List<AddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException;
 
     /**
-     * Returns simplified record of specific addon with depedency / license info
+     * Returns simplified record of specific addon with dependency / license info
      * only.
      *
      * @param moduleId module id

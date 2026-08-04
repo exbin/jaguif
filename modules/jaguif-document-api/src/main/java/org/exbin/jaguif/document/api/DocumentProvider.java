@@ -28,22 +28,22 @@ public interface DocumentProvider {
      * Opens document from given source.
      *
      * @param source document source
-     * @return document or empty if failed / cancelled
+     * @return document or empty if failed / canceled
      */
     Optional<DocumentSource> createDocumentSource(SourceIdentifier source);
 
     /**
      * Opens document using default method.
      *
-     * @return document source or empty if failed / cancelled
+     * @return document source or empty if failed / canceled
      */
     Optional<DocumentSource> performOpenDefaultDocument();
 
     /**
      * Performs save as action using default method for given document.
      *
-     * @param document refered document
-     * @return document source or empty if failed / cancelled
+     * @param document referred document
+     * @return document source or empty if failed / canceled
      */
     Optional<DocumentSource> performSaveAsDefaultDocument(Document document);
 }

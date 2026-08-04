@@ -28,15 +28,18 @@ import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.docking.api.SidePanelDocking;
 import org.exbin.jaguif.sidebar.api.SideBar;
 import org.exbin.jaguif.utils.UiUtils;
+import org.jspecify.annotations.Nullable;
 
 /**
- * Implementation of side bar module.
+ * Implementation of sidebar module.
  */
 @NullMarked
 public class SideBarModule implements SideBarModuleApi {
 
+    @Nullable
     private SideBarManager mainSideBarManager = null;
     private boolean autoShow = false;
+    @Nullable
     private ResourceBundle resourceBundle;
 
     public SideBarModule() {

@@ -30,14 +30,17 @@ import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 import org.exbin.jaguif.toolbar.api.ToolBarManagement;
 import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
+import org.jspecify.annotations.Nullable;
 
 /**
- * Implementation of tool bar module.
+ * Implementation of toolbar module.
  */
 @NullMarked
 public class ToolBarModule implements ToolBarModuleApi {
 
+    @Nullable
     private ToolBarManager mainToolBarManager = null;
+    @Nullable
     private ResourceBundle resourceBundle;
 
     public ToolBarModule() {

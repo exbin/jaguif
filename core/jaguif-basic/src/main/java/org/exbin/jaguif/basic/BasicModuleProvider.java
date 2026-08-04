@@ -320,24 +320,24 @@ public class BasicModuleProvider implements ModuleProvider {
                         } else if ("provider".equals(node.getNodeName())) {
                             moduleRecord.setProvider(node.getTextContent());
                         } else if ("dependency".equals(node.getNodeName())) {
-                            List<String> dependecyModuleIds = new ArrayList<>();
-                            List<String> dependecyLibraries = new ArrayList<>();
+                            List<String> dependencyModuleIds = new ArrayList<>();
+                            List<String> dependencyLibraries = new ArrayList<>();
                             NodeList childNodes = node.getChildNodes();
                             for (int j = 0; j < childNodes.getLength(); j++) {
                                 Node depRecord = childNodes.item(j);
                                 if ("module".equals(depRecord.getNodeName())) {
-                                    dependecyModuleIds.add(depRecord.getAttributes().getNamedItem("id").getNodeValue());
+                                    dependencyModuleIds.add(depRecord.getAttributes().getNamedItem("id").getNodeValue());
                                 } else if ("library".equals(depRecord.getNodeName())) {
                                     Node mavenAttributeNode = depRecord.getAttributes().getNamedItem("maven");
                                     if (mavenAttributeNode != null) {
-                                        dependecyLibraries.add(BasicModuleProvider.mavenCodeToFileName(mavenAttributeNode.getNodeValue()));
+                                        dependencyLibraries.add(BasicModuleProvider.mavenCodeToFileName(mavenAttributeNode.getNodeValue()));
                                     } else {
-                                        dependecyLibraries.add(depRecord.getAttributes().getNamedItem("jar").getNodeValue());
+                                        dependencyLibraries.add(depRecord.getAttributes().getNamedItem("jar").getNodeValue());
                                     }
                                 }
                             }
-                            moduleRecord.setDependencyModuleIds(dependecyModuleIds);
-                            moduleRecord.setDependencyLibraries(dependecyLibraries);
+                            moduleRecord.setDependencyModuleIds(dependencyModuleIds);
+                            moduleRecord.setDependencyLibraries(dependencyLibraries);
                         }
                     }
                 }
@@ -397,7 +397,7 @@ public class BasicModuleProvider implements ModuleProvider {
      */
     public void initModules() {
         List<ModuleRecord> unprocessedModules = new ArrayList<>(modules.values());
-        // Priority modules first, ignore dependecy for now
+        // Priority modules first, ignore dependency for now
         {
             int moduleIndex = 0;
             while (moduleIndex < unprocessedModules.size()) {
@@ -424,9 +424,9 @@ public class BasicModuleProvider implements ModuleProvider {
                 // Process single module
                 List<String> dependencyModuleIds = moduleRecord.getDependencyModuleIds();
                 boolean dependecySatisfied = true;
-                for (String dependecyModuleId : dependencyModuleIds) {
-                    ModuleRecord dependecyModule = getModuleRecordById(dependecyModuleId);
-                    if (dependecyModule == null || (dependecyModule.getModule() instanceof BasicModuleRecord.ModuleLink) || findModule(unprocessedModules, dependecyModuleId)) {
+                for (String dependencyModuleId : dependencyModuleIds) {
+                    ModuleRecord dependencyModule = getModuleRecordById(dependencyModuleId);
+                    if (dependencyModule == null || (dependencyModule.getModule() instanceof BasicModuleRecord.ModuleLink) || findModule(unprocessedModules, dependencyModuleId)) {
                         dependecySatisfied = false;
                         break;
                     }
@@ -452,10 +452,10 @@ public class BasicModuleProvider implements ModuleProvider {
             for (ModuleRecord unprocessedModule : unprocessedModules) {
                 Logger.getLogger(BasicModuleProvider.class.getName()).log(Level.SEVERE, "Unprocessed Module: {0}", unprocessedModule.getModuleId());
                 List<String> dependencyModuleIds = unprocessedModule.getDependencyModuleIds();
-                for (String dependecyModuleId : dependencyModuleIds) {
-                    ModuleRecord dependecyModule = getModuleRecordById(dependecyModuleId);
-                    if (dependecyModule == null || (dependecyModule.getModule() instanceof BasicModuleRecord.ModuleLink) || findModule(unprocessedModules, dependecyModuleId)) {
-                        System.out.println("Missing dep: " + dependecyModuleId);
+                for (String dependencyModuleId : dependencyModuleIds) {
+                    ModuleRecord dependencyModule = getModuleRecordById(dependencyModuleId);
+                    if (dependencyModule == null || (dependencyModule.getModule() instanceof BasicModuleRecord.ModuleLink) || findModule(unprocessedModules, dependencyModuleId)) {
+                        System.out.println("Missing dep: " + dependencyModuleId);
                     }
                 }
             }

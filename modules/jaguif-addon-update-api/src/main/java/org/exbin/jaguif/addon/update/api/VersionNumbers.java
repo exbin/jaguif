@@ -124,7 +124,7 @@ public class VersionNumbers {
                             break;
                         }
                         default:
-                            throw new IllegalStateException("Unpexpected format type " + updateVersion.format.name());
+                            throw new IllegalStateException("Unexpected format type " + updateVersion.format.name());
                     }
 
                     break;
@@ -151,13 +151,13 @@ public class VersionNumbers {
                             break;
                         }
                         default:
-                            throw new IllegalStateException("Unpexpected format type " + updateVersion.format.name());
+                            throw new IllegalStateException("Unexpected format type " + updateVersion.format.name());
                     }
 
                     break;
                 }
                 default:
-                    throw new IllegalStateException("Unpexpected format type " + format.name());
+                    throw new IllegalStateException("Unexpected format type " + format.name());
             }
         }
 

@@ -26,8 +26,6 @@ import org.exbin.jaguif.Module;
 
 /**
  * Basic module record.
- *
- * @author ExBin Project (http://exbin.org)
  */
 @NullMarked
 public class BasicModuleRecord implements ModuleRecord {

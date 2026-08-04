@@ -32,7 +32,7 @@ public interface PositionImageActionsHandler {
     void performCopyImage(Point locationOnScreen);
 
     /**
-     * Returns if true if image is selected on given relative position.
+     * Returns true if image is selected on given relative position.
      *
      * @param locationOnScreen location on screen
      * @return true if image is selected

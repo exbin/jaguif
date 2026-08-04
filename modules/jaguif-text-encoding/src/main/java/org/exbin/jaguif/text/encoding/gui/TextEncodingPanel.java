@@ -103,7 +103,7 @@ public class TextEncodingPanel extends javax.swing.JPanel {
         countryTextField = new javax.swing.JTextField();
         mainPanel = new javax.swing.JPanel();
         supportedEncodingsLabel = new javax.swing.JLabel();
-        encodinsScrollPane = new javax.swing.JScrollPane();
+        encodingsScrollPane = new javax.swing.JScrollPane();
         encodingsTable = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
@@ -160,7 +160,7 @@ public class TextEncodingPanel extends javax.swing.JPanel {
         supportedEncodingsLabel.setText(resourceBundle.getString("supportedEncodingsLabel.text")); // NOI18N
 
         encodingsTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        encodinsScrollPane.setViewportView(encodingsTable);
+        encodingsScrollPane.setViewportView(encodingsTable);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -169,7 +169,7 @@ public class TextEncodingPanel extends javax.swing.JPanel {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(encodinsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addComponent(encodingsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(supportedEncodingsLabel)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -181,7 +181,7 @@ public class TextEncodingPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(supportedEncodingsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(encodinsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addComponent(encodingsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -228,8 +228,8 @@ public class TextEncodingPanel extends javax.swing.JPanel {
     private javax.swing.JButton clearButton;
     private javax.swing.JLabel countryLabel;
     private javax.swing.JTextField countryTextField;
+    private javax.swing.JScrollPane encodingsScrollPane;
     private javax.swing.JTable encodingsTable;
-    private javax.swing.JScrollPane encodinsScrollPane;
     private javax.swing.JPanel filterPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nameLabel;

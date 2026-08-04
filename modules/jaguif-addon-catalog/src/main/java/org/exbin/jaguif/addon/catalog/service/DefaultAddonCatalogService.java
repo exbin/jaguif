@@ -148,11 +148,11 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
                                 }
                                 record.setLicense(moduleChildNode.getTextContent());
                             } else if ("dependency".equals(moduleChildNode.getNodeName())) {
-                                NodeList depencenyNodes = moduleChildNode.getChildNodes();
+                                NodeList dependencyNodes = moduleChildNode.getChildNodes();
                                 List<DependencyRecord> dependencyRecords = new ArrayList<>();
-                                int dependecyCount = depencenyNodes.getLength();
-                                for (int depNodeIndex = 0; depNodeIndex < dependecyCount; depNodeIndex++) {
-                                    Node dependencyNode = depencenyNodes.item(depNodeIndex);
+                                int dependencyCount = dependencyNodes.getLength();
+                                for (int depNodeIndex = 0; depNodeIndex < dependencyCount; depNodeIndex++) {
+                                    Node dependencyNode = dependencyNodes.item(depNodeIndex);
                                     if ("module".equals(dependencyNode.getNodeName())) {
                                         Node dependencyModuleId = dependencyNode.getAttributes().getNamedItem("id");
                                         DependencyRecord dependencyRecord = new DependencyRecord(dependencyModuleId.getNodeValue());
@@ -227,11 +227,11 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
                                 }
                                 record.setLicense(moduleChildNode.getTextContent());
                             } else if ("dependency".equals(moduleChildNode.getNodeName())) {
-                                NodeList depencenyNodes = moduleChildNode.getChildNodes();
+                                NodeList dependencyNodes = moduleChildNode.getChildNodes();
                                 List<DependencyRecord> dependencyRecords = new ArrayList<>();
-                                int dependecyCount = depencenyNodes.getLength();
-                                for (int depNodeIndex = 0; depNodeIndex < dependecyCount; depNodeIndex++) {
-                                    Node dependencyNode = depencenyNodes.item(depNodeIndex);
+                                int dependencyCount = dependencyNodes.getLength();
+                                for (int depNodeIndex = 0; depNodeIndex < dependencyCount; depNodeIndex++) {
+                                    Node dependencyNode = dependencyNodes.item(depNodeIndex);
                                     if ("module".equals(dependencyNode.getNodeName())) {
                                         Node dependencyModuleId = dependencyNode.getAttributes().getNamedItem("id");
                                         DependencyRecord dependencyRecord = new DependencyRecord(dependencyModuleId.getNodeValue());

@@ -17,8 +17,6 @@ package org.exbin.jaguif.basic;
 
 /**
  * Module file location.
- *
- * @author ExBin Project (http://exbin.org)
  */
 public enum BasicModuleFileLocation implements ModuleFileLocation {
 

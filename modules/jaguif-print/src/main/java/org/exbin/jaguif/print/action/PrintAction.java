@@ -37,8 +37,6 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 
 /**
  * Print action.
- * 
- * @author ExBin Project (https://exbin.org)
  */
 @NullMarked
 public class PrintAction extends AbstractAction {

@@ -31,20 +31,20 @@ public interface MenuPopupModuleApi extends Module {
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(MenuPopupModuleApi.class);
 
     /**
-     * Registers popup menu show for various supported components accross all
+     * Registers popup menu show for various supported components across all
      * AWT popup menu events.
      */
     void registerDefaultClipboardPopupMenu();
 
     /**
-     * Registers popup menu show for various supported components accross all
+     * Registers popup menu show for various supported components across all
      * AWT popup menu events with additional icons from default clipboard
      * actions.
      */
     void registerDefaultClipboardPopupMenuWithIcons();
 
     /**
-     * Registers popup menu show for various supported components accross all
+     * Registers popup menu show for various supported components across all
      * AWT popup menu events.
      *
      * @param resourceBundle resource bundle

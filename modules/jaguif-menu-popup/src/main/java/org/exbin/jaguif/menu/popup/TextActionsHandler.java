@@ -29,7 +29,7 @@ public interface TextActionsHandler {
     void performCopyText();
 
     /**
-     * Returns if true if text is selected.
+     * Returns true if text is selected.
      *
      * @return true if text is selected
      */

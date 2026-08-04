@@ -18,7 +18,7 @@ package org.exbin.jaguif.sidebar.api;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 
 /**
- * Action side bar item contribution.
+ * Action sidebar item contribution.
  */
 public interface ActionSideBarContribution extends ActionSequenceContribution {
 }

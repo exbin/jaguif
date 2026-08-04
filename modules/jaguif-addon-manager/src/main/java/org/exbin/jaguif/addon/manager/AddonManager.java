@@ -300,8 +300,8 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     public void runCartModifications() {
         AddonOperationService addonOperationService = new AddonOperationService(AddonManager.this);
         addonOperationService.setAddonCatalogService(addonCatalogService);
-        AddonModificationsOperation modificationsOerations = addonOperationService.performAddonOperations(cartOperations);
-        if (performAddonsOperation(modificationsOerations, managerPanel)) {
+        AddonModificationsOperation modificationsOperations = addonOperationService.performAddonOperations(cartOperations);
+        if (performAddonsOperation(modificationsOperations, managerPanel)) {
             cartOperations.clear();
             notifyChanged();
         }

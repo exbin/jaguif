@@ -87,9 +87,9 @@ public interface ContextUpdateManagement {
      * Returns context update listeners.
      *
      * @param <T> monitored class type
-     * @param grouoId group identifier
+     * @param groupId group identifier
      * @param contextClass context class
      * @return context update listeners
      */
-    <T> List<ContextStateUpdateListener<?>> getUpdateListeners(String grouoId, Class<T> contextClass);
+    <T> List<ContextStateUpdateListener<?>> getUpdateListeners(String groupId, Class<T> contextClass);
 }

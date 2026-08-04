@@ -43,7 +43,7 @@ public interface OperationUndoModuleApi extends Module {
     void registerMainMenu();
 
     /**
-     * Registers undo/redo operations to main frame tool bar.
+     * Registers undo/redo operations to main frame toolbar.
      */
     void registerMainToolBar();
 

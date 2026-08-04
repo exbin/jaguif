@@ -22,7 +22,7 @@ import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Enumeration of Mac OS appearance modes.
+ * Enumeration of macOS appearance modes.
  */
 @NullMarked
 public enum GuiMacOsAppearance {

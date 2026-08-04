@@ -27,9 +27,9 @@ import org.exbin.jaguif.context.api.ContextActivable;
 public interface SidePanelDocking extends ContextActivable {
 
     /**
-     * Sets side tool bar.
+     * Sets side toolbar.
      *
-     * @param sideToolBar side tool bar
+     * @param sideToolBar side toolbar
      */
     void setSideToolBar(@Nullable Component sideToolBar);
 

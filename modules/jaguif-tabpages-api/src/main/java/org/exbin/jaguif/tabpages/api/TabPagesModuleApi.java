@@ -71,7 +71,7 @@ public interface TabPagesModuleApi extends Module {
     TabPagesDefinitionManagement createTabPagesDefinition(TabPagesManagement tabPagesManagement, String tabPagesId, String moduleId);
 
     /**
-     * Registers tab pages associating it with given identificator.
+     * Registers tab pages associating it with given identification.
      *
      * @param tabPagesId tab pages id
      * @param moduleId module id
@@ -79,7 +79,7 @@ public interface TabPagesModuleApi extends Module {
     void registerTabPages(String tabPagesId, String moduleId);
 
     /**
-     * Returns tab pages using given identificator.
+     * Returns tab pages using given identification.
      *
      * @param targetTabPages target tab pages
      * @param tabPagesId tab pages id

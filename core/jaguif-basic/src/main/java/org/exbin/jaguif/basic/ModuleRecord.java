@@ -23,8 +23,6 @@ import org.jspecify.annotations.NullMarked;
 
 /**
  * Interface for record about single module.
- *
- * @author ExBin Project (http://exbin.org)
  */
 @NullMarked
 public interface ModuleRecord {
@@ -102,14 +100,14 @@ public interface ModuleRecord {
     /**
      * Returns list of required dependency modules.
      *
-     * @return list of dependecy module identifiers
+     * @return list of dependency module identifiers
      */
     List<String> getDependencyModuleIds();
 
     /**
      * Returns list of required dependency libraries.
      *
-     * @return list of dependecy libraries
+     * @return list of dependency libraries
      */
     List<String> getDependencyLibraries();
 

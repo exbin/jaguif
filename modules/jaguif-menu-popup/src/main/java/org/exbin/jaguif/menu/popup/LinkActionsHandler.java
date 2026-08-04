@@ -34,7 +34,7 @@ public interface LinkActionsHandler {
     void performOpenLink();
 
     /**
-     * Returns if true if link is selected.
+     * Returns true if link is selected.
      *
      * @return true if link is selected
      */

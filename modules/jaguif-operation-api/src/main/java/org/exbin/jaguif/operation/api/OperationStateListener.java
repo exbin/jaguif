@@ -31,7 +31,7 @@ public interface OperationStateListener {
     void operationFinished();
 
     /**
-     * Reports operation was cancelled.
+     * Reports operation was canceled.
      */
     void operationCancelled();
 }

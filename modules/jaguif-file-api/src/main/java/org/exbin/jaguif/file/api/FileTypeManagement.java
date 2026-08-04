@@ -26,8 +26,8 @@ public interface FileTypeManagement {
 
     /**
      * Adds file type into manager.
-     *
-     * FileType should extends javax.swing.filechooser.FileFilter.
+     * <p>
+     * FileType should extend javax.swing.filechooser.FileFilter.
      *
      * @param fileType file type
      */
@@ -37,7 +37,7 @@ public interface FileTypeManagement {
      * Opens file from given fileChooser with the respect to used file type.
      *
      * @param fileChooser file chooser
-     * @return true if file opened successfuly
+     * @return true if file opened successfully
      */
     boolean openFile(JFileChooser fileChooser);
 
@@ -46,7 +46,7 @@ public interface FileTypeManagement {
      *
      * @param path full path to file
      * @param fileTypeId file type ID
-     * @return true if file opened successfuly
+     * @return true if file opened successfully
      */
     boolean openFile(String path, String fileTypeId);
 
@@ -59,14 +59,14 @@ public interface FileTypeManagement {
      * Saves file using given file chooser.
      *
      * @param saveFC file chooser
-     * @return true if file saved successfuly
+     * @return true if file saved successfully
      */
     boolean saveFile(JFileChooser saveFC);
 
     /**
      * Saves file using last used filename.
      *
-     * @return true if file saved successfuly
+     * @return true if file saved successfully
      */
     boolean saveFile();
 

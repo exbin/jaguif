@@ -24,7 +24,7 @@ import org.jspecify.annotations.NullMarked;
 public interface TextActivityDetail extends ActivityDetail {
 
     /**
-     * Returns text decription of the detail or empty string.
+     * Returns text description of the detail or empty string.
      *
      * @return activity detail
      */

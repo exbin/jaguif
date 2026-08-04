@@ -12,7 +12,7 @@ Services
   * Contribution / rule registration capability for menu, toolbar and sidebars
   * Actions and components mechanism with context updating
   * Event and error messaging
-  * Command / operation interfaces for undo-redo capabilites
+  * Command / operation interfaces for undo-redo capabilities
   * Settings options storage
   * Language keys and image resources
 

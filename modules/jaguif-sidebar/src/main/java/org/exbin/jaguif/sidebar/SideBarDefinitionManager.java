@@ -23,7 +23,7 @@ import org.exbin.jaguif.sidebar.api.SideBarDefinitionManagement;
 import org.exbin.jaguif.sidebar.api.SideBarManagement;
 
 /**
- * Default side bar definition manager.
+ * Default sidebar definition manager.
  */
 @NullMarked
 public class SideBarDefinitionManager implements SideBarDefinitionManagement {

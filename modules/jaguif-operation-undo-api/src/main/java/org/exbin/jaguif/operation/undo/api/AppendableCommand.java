@@ -28,7 +28,7 @@ public interface AppendableCommand {
      * Attempts to execute command as an append to existing command.
      *
      * @param command command
-     * @return true if sucessfully appended
+     * @return true if successfully appended
      */
     boolean appendExecute(Command command);
 }

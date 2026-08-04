@@ -24,7 +24,7 @@ import javax.swing.KeyStroke;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- * Keymap keytroke table renderer.
+ * Keymap keystroke table renderer.
  */
 public class KeyMapTableKeyStrokeRenderer extends DefaultTableCellRenderer {
 

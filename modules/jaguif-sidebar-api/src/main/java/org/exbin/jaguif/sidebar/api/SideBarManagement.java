@@ -22,41 +22,41 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 import org.exbin.jaguif.context.api.ContextRegistration;
 
 /**
- * Interface for side bar management.
+ * Interface for sidebar management.
  */
 @NullMarked
 public interface SideBarManagement {
 
     /**
-     * Builds side bar from given síde bar id.
+     * Builds sidebar from given síde bar id.
      *
-     * @param targetSideBar output side bar
-     * @param sideBarId side bar definition id
+     * @param targetSideBar output sidebar
+     * @param sideBarId sidebar definition id
      * @param contextRegistration context registration
      */
     void buildSideBar(SideBar targetSideBar, String sideBarId, ContextRegistration contextRegistration);
 
     /**
-     * Registers side bar.
+     * Registers sidebar.
      *
-     * @param sideBarId side bar id
+     * @param sideBarId sidebar id
      * @param pluginId plugin id
      */
     void registerSideBar(String sideBarId, String pluginId);
 
     /**
-     * Registers side bar item contribution.
+     * Registers sidebar item contribution.
      *
-     * @param sideBarId side bar id
+     * @param sideBarId sidebar id
      * @param moduleId module id
      * @param contribution side bar contribution
      */
     void registerSideBarContribution(String sideBarId, String moduleId, SequenceContribution contribution);
 
     /**
-     * Registers side bar group.
+     * Registers sidebar group.
      *
-     * @param sideBarId side bar id
+     * @param sideBarId sidebar id
      * @param moduleId module id
      * @param groupId group id
      * @return group contribution

@@ -59,7 +59,7 @@ public class UiUtils {
     }
 
     /**
-     * Shedules code to run in UI thread unless it's executed via UI thread.
+     * Schedules code to run in UI thread unless it's executed via UI thread.
      *
      * @param runnable runnable code
      */

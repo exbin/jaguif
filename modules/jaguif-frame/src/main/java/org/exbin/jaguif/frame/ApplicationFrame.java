@@ -46,7 +46,7 @@ import org.exbin.jaguif.context.api.ContextUpdateManagement;
 import org.exbin.jaguif.frame.api.FrameController;
 
 /**
- * Basic appplication frame.
+ * Basic application frame.
  */
 @NullMarked
 public class ApplicationFrame extends javax.swing.JFrame implements FrameController, WindowHeaderPanel.WindowHeaderDecorationProvider {

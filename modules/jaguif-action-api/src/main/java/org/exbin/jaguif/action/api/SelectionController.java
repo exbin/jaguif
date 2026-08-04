@@ -37,7 +37,7 @@ public interface SelectionController {
     /**
      * Returns whether it is possible to execute select all operation.
      *
-     * @return true if can perform select all
+     * @return true if select all can be performed
      */
     boolean canSelectAll();
 

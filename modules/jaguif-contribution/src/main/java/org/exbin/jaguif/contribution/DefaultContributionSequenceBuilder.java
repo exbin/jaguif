@@ -120,9 +120,9 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
             lastContributionRecord = contributionRecord;
 
             // Convert before rules to after rules
-            List<String> defferedAfterIds = builderRecord.afterMap.remove(contributionId);
-            if (defferedAfterIds != null) {
-                contributionRecord.placeAfter.addAll(defferedAfterIds);
+            List<String> deferredAfterIds = builderRecord.afterMap.remove(contributionId);
+            if (deferredAfterIds != null) {
+                contributionRecord.placeAfter.addAll(deferredAfterIds);
             }
             for (String itemId : beforeIds) {
                 BuilderContributionRecord itemRecord = builderRecord.contributionsMap.get(itemId);

@@ -22,20 +22,20 @@ import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 
 /**
- * Interface for tool bar definition management.
+ * Interface for toolbar definition management.
  */
 @NullMarked
 public interface ToolBarDefinitionManagement {
 
     /**
-     * Registers tool bar contribution.
+     * Registers toolbar contribution.
      *
      * @param contribution toolbar contribution
      */
     void registerToolBarContribution(SequenceContribution contribution);
 
     /**
-     * Registers group as a child item for given tool bar.
+     * Registers group as a child item for given toolbar.
      *
      * @param groupId group id
      * @return toolbar contribution
@@ -43,17 +43,17 @@ public interface ToolBarDefinitionManagement {
     GroupSequenceContribution registerToolBarGroup(String groupId);
 
     /**
-     * Registers tool bar contribution rule.
+     * Registers toolbar contribution rule.
      *
-     * @param toolBarContribution tool bar contribution
-     * @param rule tool bar contribution rule
+     * @param toolBarContribution toolbar contribution
+     * @param rule toolbar contribution rule
      */
     void registerToolBarRule(SequenceContribution toolBarContribution, SequenceContributionRule rule);
 
     /**
      * Returns registered contributions.
      *
-     * @return tool bar contributions
+     * @return toolbar contributions
      */
     List<SequenceContribution> getContributions();
 }

@@ -22,7 +22,7 @@ import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.docking.api.SidePanelDocking;
 
 /**
- * Interface for side bar support module.
+ * Interface for sidebar support module.
  */
 @NullMarked
 public interface SideBarModuleApi extends Module {
@@ -31,39 +31,39 @@ public interface SideBarModuleApi extends Module {
     public static final String MAIN_SIDE_BAR_ID = "mainSideBar";
 
     /**
-     * Returns main side bar management interface.
+     * Returns main sidebar management interface.
      *
-     * @return side bar management interface
+     * @return sidebar management interface
      */
     SideBarManagement getMainSideBarManager();
 
     /**
-     * Creates side bar manager.
+     * Creates sidebar manager.
      *
-     * @return side bar manager
+     * @return sidebar manager
      */
     SideBarManagement createSideBarManager();
 
     /**
-     * Returns main side bar management definition.
+     * Returns main sidebar management definition.
      *
      * @param moduleId module id
-     * @return side bar management interface
+     * @return sidebar management interface
      */
     SideBarDefinitionManagement getMainSideBarDefinition(String moduleId);
 
     /**
-     * Returns side bar management definition.
+     * Returns sidebar management definition.
      *
-     * @param sideBarManagement side bar management
-     * @param sideBarId side bar id
+     * @param sideBarManagement sidebar management
+     * @param sideBarId sidebar id
      * @param moduleId module id
-     * @return side bar management interface
+     * @return sidebar management interface
      */
     SideBarDefinitionManagement createSideBarDefinition(SideBarManagement sideBarManagement, String sideBarId, String moduleId);
 
     /**
-     * Registers side bar associating it with given identificator.
+     * Registers sidebar associating it with given identification.
      *
      * @param sideBarId sidebar id
      * @param moduleId module id
@@ -71,7 +71,7 @@ public interface SideBarModuleApi extends Module {
     void registerSideBar(String sideBarId, String moduleId);
 
     /**
-     * Returns side bar using given identificator.
+     * Returns sidebar using given identification.
      *
      * @param targetSideBar target sidebar
      * @param sideBarId sidebar id
@@ -87,16 +87,16 @@ public interface SideBarModuleApi extends Module {
     void setAutoShow(boolean autoShow);
 
     /**
-     * Registers side bar to docking.
+     * Registers sidebar to docking.
      *
      * @param docking docking
      */
     void registerDockingSideBar(SidePanelDocking docking);
 
     /**
-     * Registers side bar to docking.
+     * Registers sidebar to docking.
      *
-     * @param sideBarPanelProvider side bar panel provider
+     * @param sideBarPanelProvider sidebar panel provider
      * @param docking docking
      */
     void registerDockingSideBar(SideBar sideBarPanelProvider, SidePanelDocking docking);

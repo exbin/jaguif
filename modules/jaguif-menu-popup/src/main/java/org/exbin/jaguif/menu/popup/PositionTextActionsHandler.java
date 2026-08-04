@@ -32,7 +32,7 @@ public interface PositionTextActionsHandler {
     void performCopyText(Point locationOnScreen);
 
     /**
-     * Returns if true if text is selected on given relative position.
+     * Returns true if text is selected on given relative position.
      *
      * @param locationOnScreen location on screen
      * @return true if image is selected

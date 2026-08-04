@@ -31,7 +31,7 @@ public interface LanguageModuleApi extends Module {
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(LanguageModuleApi.class);
 
     /**
-     * Returns applications's language resource bundle.
+     * Returns applications language resource bundle.
      *
      * @return resource bundle
      */

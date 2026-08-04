@@ -19,8 +19,6 @@ import org.exbin.jaguif.basic.ModuleFileLocation;
 
 /**
  * Module file location.
- *
- * @author ExBin Project (http://exbin.org)
  */
 public enum AddonModuleFileLocation implements ModuleFileLocation {
 

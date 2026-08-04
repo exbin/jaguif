@@ -19,15 +19,15 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 
 /**
- * Side bar item contribution.
+ * Sidebar item contribution.
  */
 @NullMarked
 public interface ComponentSideBarContribution extends ItemSequenceContribution {
 
     /**
-     * Creates side bar component.
+     * Creates sidebar component.
      *
-     * @return side bar component
+     * @return sidebar component
      */
     SideBarComponent createComponent();
 }

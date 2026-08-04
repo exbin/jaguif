@@ -70,7 +70,7 @@ public interface TreeContributionManagement {
     /**
      * Checks whether group exists.
      *
-     * @param subId sub group identifier
+     * @param subId subgroup identifier
      * @param groupId group identifier
      * @return true if exists
      */

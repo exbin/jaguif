@@ -22,7 +22,7 @@ import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.context.api.ContextRegistration;
 
 /**
- * Interface for tool bar support module.
+ * Interface for toolbar support module.
  */
 @NullMarked
 public interface ToolBarModuleApi extends Module {
@@ -32,7 +32,7 @@ public interface ToolBarModuleApi extends Module {
     public static final String CLIPBOARD_ACTIONS_TOOL_BAR_GROUP_ID = MODULE_ID + ".clipboardActionsToolBarGroup";
 
     /**
-     * Registers tool bar associating it with given identificator.
+     * Registers toolbar associating it with given identification.
      *
      * @param toolBarId toolbar id
      * @param moduleId module id
@@ -40,39 +40,39 @@ public interface ToolBarModuleApi extends Module {
     void registerToolBar(String toolBarId, String moduleId);
 
     /**
-     * Returns main tool bar management interface.
+     * Returns main toolbar management interface.
      *
-     * @return tool bar management interface
+     * @return toolbar management interface
      */
     ToolBarManagement getMainToolBarManager();
 
     /**
-     * Creates tool bar manager.
+     * Creates toolbar manager.
      *
-     * @return tool bar manager
+     * @return toolbar manager
      */
     ToolBarManagement createToolBarManager();
 
     /**
-     * Returns main tool bar management definition.
+     * Returns main toolbar management definition.
      *
      * @param moduleId module id
-     * @return tool bar management definition
+     * @return toolbar management definition
      */
     ToolBarDefinitionManagement getMainToolBarDefinition(String moduleId);
 
     /**
-     * Creates tool bar definition manager.
+     * Creates toolbar definition manager.
      *
-     * @param toolBarManagement tool bar management
-     * @param toolBarId tool bar id
+     * @param toolBarManagement toolbar management
+     * @param toolBarId toolbar id
      * @param moduleId module id
-     * @return
+     * @return toolbar management definition
      */
     ToolBarDefinitionManagement createToolBarDefinition(ToolBarManagement toolBarManagement, String toolBarId, String moduleId);
 
     /**
-     * Returns tool bar using given identificator.
+     * Returns toolbar using given identification.
      *
      * @param targetToolBar target toolbar
      * @param toolBarId toolbar id
@@ -81,7 +81,7 @@ public interface ToolBarModuleApi extends Module {
     void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration);
 
     /**
-     * Registers tool bar clipboard actions.
+     * Registers toolbar clipboard actions.
      */
     void registerToolBarClipboardActions();
 }

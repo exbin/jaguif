@@ -24,7 +24,7 @@ import org.jspecify.annotations.NullMarked;
 public interface FileType {
 
     /**
-     * Returns file type Id - should be in following format
+     * Returns file type id - should be in following format
      * &lt;ModuleName&gt;.&lt;FileTypeName&gt;.
      *
      * @return file type ID

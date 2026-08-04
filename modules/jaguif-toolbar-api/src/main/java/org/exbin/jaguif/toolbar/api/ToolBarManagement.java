@@ -24,7 +24,7 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 import org.exbin.jaguif.context.api.ContextRegistration;
 
 /**
- * Interface for tool bar management.
+ * Interface for toolbar management.
  */
 @NullMarked
 public interface ToolBarManagement {
@@ -32,8 +32,8 @@ public interface ToolBarManagement {
     /**
      * Builds toolbar from given definition id.
      *
-     * @param targetToolBar output tool bar
-     * @param toolBarId tool bar definition id
+     * @param targetToolBar output toolbar
+     * @param toolBarId toolbar definition id
      * @param contextRegistration context registration
      */
     void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration);
@@ -41,8 +41,8 @@ public interface ToolBarManagement {
     /**
      * Builds toolbar with icons only from given definition id.
      *
-     * @param targetToolBar output tool bar
-     * @param toolBarId tool bar definition id
+     * @param targetToolBar output toolbar
+     * @param toolBarId toolbar definition id
      * @param contextRegistration context registration
      */
     void buildIconToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration);
@@ -50,24 +50,24 @@ public interface ToolBarManagement {
     /**
      * Registers toolbar.
      *
-     * @param toolBarId tool bar id
+     * @param toolBarId toolbar id
      * @param pluginId plugin id
      */
     void registerToolBar(String toolBarId, String pluginId);
 
     /**
-     * Registers tool bar contribution.
+     * Registers toolbar contribution.
      *
-     * @param toolBarId tool bar id
+     * @param toolBarId toolbar id
      * @param moduleId module id
-     * @param contribution tool bar contribution
+     * @param contribution toolbar contribution
      */
     void registerToolBarContribution(String toolBarId, String moduleId, SequenceContribution contribution);
 
     /**
-     * Registers tool bar group.
+     * Registers toolbar group.
      *
-     * @param toolBarId tool bar id
+     * @param toolBarId toolbar id
      * @param moduleId module id
      * @param groupId group id
      * @return group contribution
@@ -75,17 +75,17 @@ public interface ToolBarManagement {
     GroupSequenceContribution registerToolBarGroup(String toolBarId, String moduleId, String groupId);
 
     /**
-     * Register tool bar contribution rule.
+     * Register toolbar contribution rule.
      *
-     * @param contribution tool bar contribution
-     * @param rule tool bar rule
+     * @param contribution toolbar contribution
+     * @param rule toolbar rule
      */
     void registerToolBarRule(SequenceContribution contribution, SequenceContributionRule rule);
 
     /**
      * Returns registered contributions.
      *
-     * @return tool bar contributions
+     * @return toolbar contributions
      */
     List<SequenceContribution> getContributions();
 }

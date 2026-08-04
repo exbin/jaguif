@@ -28,7 +28,7 @@ public interface AppendableOperation {
      * Attempts to append an operation.
      *
      * @param operation operation
-     * @return true if sucessfully appended
+     * @return true if successfully appended
      */
     boolean appendOperation(Operation operation);
 }

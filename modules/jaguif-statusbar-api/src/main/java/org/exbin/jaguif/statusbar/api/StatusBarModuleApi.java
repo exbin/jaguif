@@ -66,12 +66,12 @@ public interface StatusBarModuleApi extends Module {
      * @param statusBarManagement status bar management
      * @param statusBarId status bar id
      * @param moduleId module id
-     * @return
+     * @return status bar definition
      */
     StatusBarDefinitionManagement createStatusBarDefinition(StatusBarManagement statusBarManagement, String statusBarId, String moduleId);
 
     /**
-     * Registers status bar associating it with given identificator.
+     * Registers status bar associating it with given identification.
      *
      * @param statusBarId status bar id
      * @param moduleId module id
@@ -79,7 +79,7 @@ public interface StatusBarModuleApi extends Module {
     void registerStatusBar(String statusBarId, String moduleId);
 
     /**
-     * Returns status bar using given identificator.
+     * Returns status bar using given identification.
      *
      * @param targetStatusBar target status bar
      * @param statusBarId status bar id

@@ -17,8 +17,6 @@ package org.exbin.jaguif.basic;
 
 /**
  * Module type.
- *
- * @author ExBin Project (http://exbin.org)
  */
 public enum ModuleType {
     /**

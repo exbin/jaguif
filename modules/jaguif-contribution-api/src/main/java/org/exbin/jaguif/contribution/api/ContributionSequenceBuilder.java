@@ -27,7 +27,7 @@ public interface ContributionSequenceBuilder {
     /**
      * Builds sequence of items / events for given definition.
      *
-     * @param targetSequence target ouput sequence
+     * @param targetSequence target output sequence
      * @param contributionDef contribution definition
      */
     void buildSequence(ContributionSequenceOutput targetSequence, @Nullable ContributionDefinition contributionDef);

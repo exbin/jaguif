@@ -28,11 +28,11 @@ public enum ActionType {
      */
     CHECK,
     /**
-     * Radion type checking, where only one item in radio group can be checked.
+     * Radio type checking, where only one item in radio group can be checked.
      */
     RADIO,
     /**
-     * Action to cycle thru list of options.
+     * Action to cycle through list of options.
      */
     CYCLE;
 }

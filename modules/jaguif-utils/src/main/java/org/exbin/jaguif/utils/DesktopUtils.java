@@ -43,7 +43,7 @@ public class DesktopUtils {
      */
     @SuppressWarnings("unchecked")
     public static void openOsURL(String url) {
-        // Inspired by "Bare Bones Browser Launch"
+        // Inspired by "Bare-Bones Browser Launch"
         OsType basicOs = detectBasicOs();
         try {
             switch (basicOs) {

@@ -20,7 +20,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JTextArea;
 
 /**
- * Default implemention of text search service.
+ * Default implementation of text search service.
  */
 @NullMarked
 public class DefaultTextService implements TextSearchService {

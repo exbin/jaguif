@@ -28,7 +28,7 @@ public interface CancellableOperation {
     /**
      * Returns state of cancellation.
      *
-     * @return true if cancelled
+     * @return true if canceled
      */
     boolean isCancelled();
 }

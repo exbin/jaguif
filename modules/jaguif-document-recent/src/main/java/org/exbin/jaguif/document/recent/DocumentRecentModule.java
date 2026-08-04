@@ -40,7 +40,7 @@ import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
 
 /**
- * Recent documents module.
+ * Recent documents' module.
  */
 @NullMarked
 public class DocumentRecentModule implements Module {

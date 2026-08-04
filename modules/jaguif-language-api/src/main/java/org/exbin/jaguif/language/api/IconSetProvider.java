@@ -41,7 +41,7 @@ public interface IconSetProvider {
     /**
      * Returns icon resource for given key.
      *
-     * @param key
+     * @param key key
      * @return resource path
      */
     @Nullable

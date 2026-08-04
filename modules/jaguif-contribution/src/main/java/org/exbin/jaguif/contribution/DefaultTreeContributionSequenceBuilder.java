@@ -129,9 +129,9 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
             lastContributionRecord = contributionRecord;
 
             // Convert before rules to after rules
-            List<String> defferedAfterIds = subRecord.afterMap.remove(contributionId);
-            if (defferedAfterIds != null) {
-                contributionRecord.placeAfter.addAll(defferedAfterIds);
+            List<String> deferredAfterIds = subRecord.afterMap.remove(contributionId);
+            if (deferredAfterIds != null) {
+                contributionRecord.placeAfter.addAll(deferredAfterIds);
             }
             for (String itemId : beforeIds) {
                 BuilderContributionRecord itemRecord = subRecord.contributionsMap.get(itemId);

@@ -214,14 +214,14 @@ public class FileModule implements FileModuleApi {
     public boolean showAskToOverwrite(Component parentComponent) {
         getResourceBundle();
         Object[] options = {
-            resourceBundle.getString("owerwriteFileQuestion.action_save"),
-            resourceBundle.getString("owerwriteFileQuestion.action_cancel")
+            resourceBundle.getString("overwriteFileQuestion.action_save"),
+            resourceBundle.getString("overwriteFileQuestion.action_cancel")
         };
 
         int result = JOptionPane.showOptionDialog(
                 parentComponent,
-                resourceBundle.getString("owerwriteFileQuestion.message"),
-                resourceBundle.getString("owerwriteFileQuestion.title"),
+                resourceBundle.getString("overwriteFileQuestion.message"),
+                resourceBundle.getString("overwriteFileQuestion.title"),
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null, options, options[0]);

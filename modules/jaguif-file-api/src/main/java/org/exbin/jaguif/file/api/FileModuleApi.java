@@ -62,7 +62,7 @@ public interface FileModuleApi extends Module {
     Map<String, FileDialogsProvider> getFileDialogsProviders();
 
     /**
-     * Retuns preferred file dialog provider id.
+     * Returns preferred file dialog provider id.
      *
      * @return file dialog provider id
      */
@@ -76,7 +76,7 @@ public interface FileModuleApi extends Module {
     void setFileDialogProviderId(String fileDialogProviderId);
 
     /**
-     * Retuns preferred file dialog provider.
+     * Returns preferred file dialog provider.
      *
      * @return file dialog provider
      */
@@ -131,8 +131,8 @@ public interface FileModuleApi extends Module {
     /**
      * Asks whether modified file should be saved.
      *
-     * @param parentComponent
-     * @return
+     * @param parentComponent parent component
+     * @return result
      */
     SaveModifiedResult showSaveModified(Component parentComponent);
 

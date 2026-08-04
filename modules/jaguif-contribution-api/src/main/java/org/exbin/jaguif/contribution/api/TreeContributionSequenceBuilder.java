@@ -27,7 +27,7 @@ public interface TreeContributionSequenceBuilder {
     /**
      * Builds sequence of items / events for given definition.
      *
-     * @param targetSequence target ouput sequence
+     * @param targetSequence target output sequence
      * @param definitionId definition id
      * @param contributionDef contribution definition
      */

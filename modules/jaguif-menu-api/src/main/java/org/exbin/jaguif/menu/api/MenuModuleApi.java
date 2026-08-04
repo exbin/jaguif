@@ -107,9 +107,9 @@ public interface MenuModuleApi extends Module {
     MenuDefinitionManagement createMenuDefinition(MenuManagement menuManagement, String menuId, String moduleId);
 
     /**
-     * Registers menu associating it with given identificator.
+     * Registers menu associating it with given identification.
      *
-     * @param menuId menu identificator
+     * @param menuId menu identification
      * @param moduleId module ID
      */
     void registerMenu(String menuId, String moduleId);
@@ -122,38 +122,38 @@ public interface MenuModuleApi extends Module {
     void unregisterMenu(String menuId);
 
     /**
-     * Returns menu using given identificator.
+     * Returns menu using given identification.
      *
      * @param targetMenu target menu
-     * @param menuId menu identificator
+     * @param menuId menu identification
      * @param contextRegistration context registration
      */
     void buildMenu(JPopupMenu targetMenu, String menuId, ContextRegistration contextRegistration);
 
     /**
-     * Returns menu using given identificator.
+     * Returns menu using given identification.
      *
      * @param targetMenu target menu
-     * @param menuId menu identificator
+     * @param menuId menu identification
      * @param contextRegistration context registration
      * @param creationContext creation context
      */
     void buildMenu(JPopupMenu targetMenu, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext);
 
     /**
-     * Returns menu using given identificator.
+     * Returns menu using given identification.
      *
      * @param targetMenuBar target menu bar
-     * @param menuId menu identificator
+     * @param menuId menu identification
      * @param contextRegistration context registration
      */
     void buildMenu(JMenuBar targetMenuBar, String menuId, ContextRegistration contextRegistration);
 
     /**
-     * Returns menu using given identificator.
+     * Returns menu using given identification.
      *
      * @param targetMenuBar target menu bar
-     * @param menuId menu identificator
+     * @param menuId menu identification
      * @param contextRegistration context registration
      * @param creationContext creation context
      */

@@ -29,7 +29,7 @@ public interface ImageActionsHandler {
     void performCopyImage();
 
     /**
-     * Returns if true if image is selected.
+     * Returns true if image is selected.
      *
      * @return true if image is selected
      */

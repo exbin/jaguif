@@ -43,7 +43,7 @@ public interface FileTypes {
     /**
      * Returns collection of all file types.
      *
-     * @return collection of gile types
+     * @return collection of file types
      */
     Collection<FileType> getFileTypes();
 }

@@ -40,7 +40,7 @@ public interface ClipboardOperationController {
     /**
      * Returns whether it is possible to copy or cut content to the clipboard.
      *
-     * @return true if can perform copy or cut
+     * @return true if copy or cut can be performed
      */
     boolean hasDataToCopy();
 
