@@ -36,6 +36,11 @@ public abstract class AbstractSideBarComponent implements SideBarComponent {
 
     @Override
     public void putValue(String key, @Nullable Object value) {
+        if (value == null) {
+            propertyList.remove(key);
+            return;
+        }
+
         propertyList.put(key, value);
     }
 }

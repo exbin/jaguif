@@ -23,5 +23,10 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public interface CustomLicenseRecord extends LicenseRecord {
 
+    /**
+     * Returns license text.
+     *
+     * @return license text
+     */
     String getLicenseText();
 }

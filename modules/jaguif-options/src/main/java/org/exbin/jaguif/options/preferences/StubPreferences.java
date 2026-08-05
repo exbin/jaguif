@@ -68,11 +68,7 @@ public class StubPreferences extends PreferencesWrapper {
         @Override
         protected String[] keysSpi() throws BackingStoreException {
             Set<String> keySet = spiValues.keySet();
-            if (keySet == null) {
-                return null;
-            }
-
-            return (String[]) keySet.toArray(new String[0]);
+            return keySet.toArray(new String[0]);
         }
 
         @Override

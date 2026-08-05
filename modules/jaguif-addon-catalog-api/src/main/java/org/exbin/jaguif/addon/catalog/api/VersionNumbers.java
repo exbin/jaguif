@@ -24,7 +24,7 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class VersionNumbers {
 
-    private VersionNumbersFormat format;
+    private @Nullable VersionNumbersFormat format;
     private int major;
     private int minor;
     private int release;

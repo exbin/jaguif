@@ -17,6 +17,8 @@ package org.exbin.jaguif.action.manager.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.KeyStroke;
@@ -30,8 +32,8 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class KeyMapTableModel extends AbstractTableModel {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(KeyMapTableModel.class);
-    private List<KeyMapRecord> records = new ArrayList<>();
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(KeyMapTableModel.class);
+    protected final List<KeyMapRecord> records = new ArrayList<>();
 
     @Override
     public int getRowCount() {
@@ -49,16 +51,17 @@ public class KeyMapTableModel extends AbstractTableModel {
     }
 
     @Override
-    public String getColumnName(int column) {
-        switch (column) {
+    public String getColumnName(int columnIndex) {
+        switch (columnIndex) {
             case 0:
                 return resourceBundle.getString("column.name");
             case 1:
                 return resourceBundle.getString("column.type");
             case 2:
                 return resourceBundle.getString("column.shortcut");
+            default:
+                throw new IllegalStateException("Unexpected column index: " + columnIndex);
         }
-        throw new IllegalStateException();
     }
 
     @Nullable
@@ -86,9 +89,9 @@ public class KeyMapTableModel extends AbstractTableModel {
                 return String.class;
             case 2:
                 return KeyStroke.class;
+            default:
+                throw new IllegalStateException("Unexpected column index: " + columnIndex);
         }
-
-        return String.class;
     }
 
     public List<KeyMapRecord> getRecords() {
@@ -96,6 +99,7 @@ public class KeyMapTableModel extends AbstractTableModel {
     }
 
     public void setRecords(List<KeyMapRecord> records) {
-        this.records = records;
+        this.records.clear();
+        this.records.addAll(records);
     }
 }

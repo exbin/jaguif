@@ -45,6 +45,7 @@ import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsComponentProvider;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.ui.theme.UiThemeModule;
+import org.jspecify.annotations.Nullable;
 
 /**
  * UI theme settings component.
@@ -54,24 +55,26 @@ public class ThemeSettingsComponent implements SettingsComponentProvider {
 
     public static final String COMPONENT_ID = "theme";
 
-    private Map<String, SettingsComponent> themeOptionsComponents = new HashMap<>();
+    protected @Nullable Map<String, SettingsComponent> themeOptionsComponents;
 
-    private boolean valuesInitialized = false;
-    private List<String> themes;
-    private List<String> themeNames;
-    private Map<String, ConfigurableLafProvider> themeOptions;
-    private List<String> iconSets;
-    private List<String> iconSetNames;
-    private List<String> renderingMethodKeys;
-    private List<String> renderingMethodNames;
-    private List<String> fontAntialiasingKeys;
-    private List<String> fontAntialiasingNames;
-    private List<String> guiScalingKeys;
-    private List<String> guiScalingNames;
-    private List<String> guiMacOsAppearanceKeys;
-    private List<String> guiMacOsAppearanceNames;
+    protected boolean valuesInitialized = false;
+    protected @Nullable List<String> themes;
+    protected @Nullable List<String> themeNames;
+    protected @Nullable Map<String, ConfigurableLafProvider> themeOptions;
+    protected @Nullable List<String> iconSets;
+    protected @Nullable List<String> iconSetNames;
+    protected @Nullable List<String> renderingMethodKeys;
+    protected @Nullable List<String> renderingMethodNames;
+    protected @Nullable List<String> fontAntialiasingKeys;
+    protected @Nullable List<String> fontAntialiasingNames;
+    protected @Nullable List<String> guiScalingKeys;
+    protected @Nullable List<String> guiScalingNames;
+    protected @Nullable List<String> guiMacOsAppearanceKeys;
+    protected @Nullable List<String> guiMacOsAppearanceNames;
 
     public void initValues() {
+        themeOptionsComponents = new HashMap<>();
+
         UiThemeModule themeModule = (UiThemeModule) App.getModule(UiThemeModuleApi.class);
         ResourceBundle resourceBundle = themeModule.getResourceBundle();
 

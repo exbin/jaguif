@@ -36,11 +36,11 @@ import org.exbin.jaguif.language.api.LanguageProvider;
 @NullMarked
 public class LanguageModule implements LanguageModuleApi {
 
-    private ResourceBundle appBundle;
-    private ClassLoader languageClassLoader = null;
-    private IconSetProvider iconSetProvider = null;
-    private Locale languageLocale = null;
-    private LanguageModifier languageModifier = null;
+    private @Nullable ResourceBundle appBundle;
+    private @Nullable ClassLoader languageClassLoader = null;
+    private @Nullable IconSetProvider iconSetProvider = null;
+    private @Nullable Locale languageLocale = null;
+    private @Nullable LanguageModifier languageModifier = null;
     private final List<LanguageProvider> languagePlugins = new ArrayList<>();
     private final List<IconSetProvider> iconSets = new ArrayList<>();
 

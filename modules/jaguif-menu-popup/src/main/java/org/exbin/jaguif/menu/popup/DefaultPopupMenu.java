@@ -698,10 +698,10 @@ public class DefaultPopupMenu {
      * Clipboard action for default popup menu.
      */
     @NullMarked
-    protected static abstract class DefaultPopupClipboardAction extends AbstractAction {
+    protected abstract static class DefaultPopupClipboardAction extends AbstractAction {
 
         protected TextClipboardOperationController clipboardHandler;
-        protected MouseEvent mouseEvent;
+        protected @Nullable MouseEvent mouseEvent;
 
         public DefaultPopupClipboardAction(String name) {
             super(name);

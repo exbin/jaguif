@@ -58,9 +58,9 @@ public class StreamPreferences extends AbstractPreferences {
             + "          key CDATA #REQUIRED"
             + "          value CDATA #REQUIRED >";
 
-    private final InputStream stream;
-    private final Map<String, String> spiValues;
-    private Map<String, StreamPreferences> children;
+    protected final InputStream stream;
+    protected final Map<String, String> spiValues;
+    protected Map<String, StreamPreferences> children;
 
     public StreamPreferences(InputStream stream) {
         super(null, "");

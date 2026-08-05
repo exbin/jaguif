@@ -30,6 +30,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.options.settings.api.SettingsPanelUpdater;
 import org.exbin.jaguif.text.encoding.settings.TextEncodingInference;
 import org.exbin.jaguif.text.encoding.settings.TextEncodingsInference;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text encoding settings panel.
@@ -39,11 +40,11 @@ public class TextEncodingSettingsPanel extends javax.swing.JPanel implements Set
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextEncodingSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
     protected final TextEncodingListPanel encodingPanel;
     protected final DefaultEncodingComboBoxModel encodingComboBoxModel = new DefaultEncodingComboBoxModel();
-    protected TextEncodingInference encodingInference = null;
-    protected TextEncodingsInference encodingsInference = null;
+    protected @Nullable TextEncodingInference encodingInference = null;
+    protected @Nullable TextEncodingsInference encodingsInference = null;
 
     public TextEncodingSettingsPanel() {
         encodingPanel = new TextEncodingListPanel();

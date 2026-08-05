@@ -29,7 +29,7 @@ public class FrameAppearanceOptions implements SettingsOptions {
     public static final String KEY_TOOLBAR_CAPTIONS = "toolBar.captions";
     public static final String KEY_STATUSBAR_VISIBLE = "statusBar.visible";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public FrameAppearanceOptions(OptionsStorage storage) {
         this.storage = storage;

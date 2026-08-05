@@ -29,6 +29,7 @@ import org.exbin.jaguif.document.text.EditorTextPanelComponent;
 import org.exbin.jaguif.document.text.gui.TextPanel;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Word wrapping action.
@@ -38,7 +39,7 @@ public class WordWrappingAction extends AbstractAction {
 
     public static final String ACTION_ID = "viewWordWrapping";
 
-    private TextPanel textPanel;
+    protected @Nullable TextPanel textPanel;
 
     public WordWrappingAction() {
     }

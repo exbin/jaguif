@@ -54,12 +54,12 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
 
     protected final TextPanel textPanel = new TextPanel();
 
-    protected DocumentSource documentSource = null;
-    protected String title;
-    protected ActiveContextManagement contextManager;
-    protected DialogParentComponent dialogParentComponent;
-    protected UndoRedoController undoRedoControl = null;
-    protected EditorTextPanelComponent textPanelComponent;
+    protected @Nullable DocumentSource documentSource = null;
+    protected @Nullable String title;
+    protected @Nullable ActiveContextManagement contextManager;
+    protected @Nullable DialogParentComponent dialogParentComponent;
+    protected @Nullable UndoRedoController undoRedoControl = null;
+    protected @Nullable EditorTextPanelComponent textPanelComponent;
 
     public TextDocument() {
         init();

@@ -34,7 +34,7 @@ public class CheckForUpdatePanel extends javax.swing.JPanel implements Hyperlink
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CheckForUpdatePanel.class);
     private CheckForUpdateService checkForUpdateService;
-    private Controller controller;
+    protected @Nullable Controller controller;
 
     public CheckForUpdatePanel() {
         initComponents();

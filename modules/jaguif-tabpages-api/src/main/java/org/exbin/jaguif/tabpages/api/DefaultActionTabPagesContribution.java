@@ -17,6 +17,7 @@ package org.exbin.jaguif.tabpages.api;
 
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
+import java.util.function.Supplier;
 
 /**
  * Default action tab pages item contribution.
@@ -25,25 +26,20 @@ import javax.swing.Action;
 public class DefaultActionTabPagesContribution implements ActionTabPagesContribution {
 
     protected final String contributionId;
-    protected final ActionCreator actionCreator;
+    protected final Supplier<Action> actionSupplier;
 
-    public DefaultActionTabPagesContribution(String contributionId, ActionCreator actionCreator) {
+    public DefaultActionTabPagesContribution(String contributionId, Supplier<Action> actionSupplier) {
         this.contributionId = contributionId;
-        this.actionCreator = actionCreator;
+        this.actionSupplier = actionSupplier;
     }
 
     @Override
     public Action createAction() {
-        return actionCreator.createAction();
+        return actionSupplier.get();
     }
 
     @Override
     public String getContributionId() {
         return contributionId;
-    }
-
-    public interface ActionCreator {
-
-        Action createAction();
     }
 }

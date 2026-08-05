@@ -22,6 +22,7 @@ import org.exbin.jaguif.operation.manager.service.UndoManagerService;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.operation.api.Command;
 import org.exbin.jaguif.operation.undo.api.UndoRedo;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Undo management panel.
@@ -29,9 +30,9 @@ import org.exbin.jaguif.operation.undo.api.UndoRedo;
 @NullMarked
 public class UndoManagerPanel extends javax.swing.JPanel {
 
-    private UndoManagerModel undoModel = new UndoManagerModel();
+    private @Nullable UndoManagerModel undoModel = new UndoManagerModel();
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(UndoManagerPanel.class);
-    private UndoManagerService undoManagerService;
+    private @Nullable UndoManagerService undoManagerService;
 
     public UndoManagerPanel() {
         initComponents();

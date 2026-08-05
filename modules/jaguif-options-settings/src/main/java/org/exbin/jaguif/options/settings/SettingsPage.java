@@ -42,7 +42,7 @@ public class SettingsPage {
     protected final GroupLayout.ParallelGroup horizontalGroup;
     protected final GroupLayout.SequentialGroup verticalGroup;
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
 
     public SettingsPage(String pageId) {
         this.pageId = pageId;

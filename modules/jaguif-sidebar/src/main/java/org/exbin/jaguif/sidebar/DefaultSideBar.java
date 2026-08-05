@@ -34,8 +34,8 @@ public class DefaultSideBar implements SideBar {
     protected final SidePanelDocking docking;
     protected final JToolBar toolBar;
     protected final JPanel sideBarPanel;
-    protected String activeComponentId = null;
-    protected Component activeComponent = null;
+    protected @Nullable String activeComponentId = null;
+    protected @Nullable Component activeComponent = null;
 
     public DefaultSideBar(SidePanelDocking docking) {
         this.docking = docking;

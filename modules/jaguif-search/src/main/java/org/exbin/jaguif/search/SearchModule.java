@@ -21,6 +21,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.search.action.FindReplaceActions;
 import org.exbin.jaguif.search.api.SearchModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of framework search module.
@@ -28,9 +29,9 @@ import org.exbin.jaguif.search.api.SearchModuleApi;
 @NullMarked
 public class SearchModule implements SearchModuleApi {
 
-    private java.util.ResourceBundle resourceBundle = null;
+    private java.util.@Nullable ResourceBundle resourceBundle = null;
 
-    private FindReplaceActions findReplaceActions = null;
+    private @Nullable FindReplaceActions findReplaceActions = null;
 
     public SearchModule() {
     }

@@ -29,7 +29,7 @@ import org.exbin.jaguif.options.api.OptionsStorage;
 @NullMarked
 public class PreferencesWrapper implements OptionsStorage {
 
-    private final java.util.prefs.Preferences preferences;
+    protected final java.util.prefs.Preferences preferences;
 
     public PreferencesWrapper(java.util.prefs.Preferences preferences) {
         this.preferences = preferences;

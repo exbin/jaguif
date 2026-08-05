@@ -45,6 +45,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 import org.exbin.jaguif.frame.api.FrameController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Options settings action.
@@ -54,9 +55,9 @@ public class SettingsAction extends AbstractAction {
 
     public static final String ACTION_ID = "settings";
 
-    private ResourceBundle resourceBundle;
-    private SettingsPagesProvider settingsPagesProvider;
-    private DialogParentComponent dialogParentComponent;
+    protected @Nullable ResourceBundle resourceBundle;
+    protected @Nullable SettingsPagesProvider settingsPagesProvider;
+    protected @Nullable DialogParentComponent dialogParentComponent;
 
     public SettingsAction() {
     }
@@ -69,7 +70,7 @@ public class SettingsAction extends AbstractAction {
         actionModule.initAction(this, resourceBundle, ACTION_ID);
         putValue(ActionConsts.ACTION_DIALOG_MODE, true);
         putValue(ActionConsts.ACTION_CONTEXT_CHANGE, (ActionContextChange) (ContextChangeRegistration registrar) -> {
-            registrar.registerChangeListener(DialogParentComponent.class, (DialogParentComponent instance) -> {
+            registrar.registerChangeListener(DialogParentComponent.class, (@Nullable DialogParentComponent instance) -> {
                 dialogParentComponent = instance;
                 setEnabled(instance != null);
             });

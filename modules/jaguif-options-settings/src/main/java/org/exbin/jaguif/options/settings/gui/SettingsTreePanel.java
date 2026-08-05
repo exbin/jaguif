@@ -47,8 +47,8 @@ public class SettingsTreePanel extends javax.swing.JPanel implements SettingsPag
 
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SettingsTreePanel.class);
     private final Map<String, SettingsPage> settingsPages = new HashMap<>();
-    private SettingsPage currentSettingsPanel = null;
-    private SettingsModifiedListener settingsModifiedListener;
+    private @Nullable SettingsPage currentSettingsPanel = null;
+    private @Nullable SettingsModifiedListener settingsModifiedListener;
     private final List<LazyComponentListener> listeners = new ArrayList<>();
 
     private OptionsMutableTreeNode top;

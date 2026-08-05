@@ -35,8 +35,8 @@ public class OnlineHelpAction extends AbstractAction {
 
     public static final String ACTION_ID = "onlineHelp";
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(OnlineHelpAction.class);
-    private URL helpUrl = null;
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(OnlineHelpAction.class);
+    protected @Nullable URL helpUrl = null;
 
     public OnlineHelpAction() {
         init();

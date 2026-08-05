@@ -25,7 +25,7 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 public class GroupSequenceContributionRule implements SequenceContributionRule {
 
-    private final String groupId;
+    protected final String groupId;
 
     public GroupSequenceContributionRule(String groupId) {
         this.groupId = groupId;

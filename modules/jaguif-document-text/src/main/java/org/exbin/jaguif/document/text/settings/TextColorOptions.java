@@ -34,7 +34,7 @@ public class TextColorOptions implements SettingsOptions {
     public static final String KEY_TEXT_COLOR_SELECTION_BACKGROUND = "textColor.selectionBackground";
     public static final String KEY_TEXT_COLOR_FOUND = "textColor.found";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public TextColorOptions(OptionsStorage storage) {
         this.storage = storage;

@@ -46,6 +46,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsBuilder;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.utils.ObjectUtils;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Options settings manager.
@@ -53,14 +54,14 @@ import org.exbin.jaguif.utils.ObjectUtils;
 @NullMarked
 public class OptionsSettingsManager implements OptionsSettingsManagement {
 
-    protected final Map<Class<? extends SettingsOptions>, SettingsOptionsBuilder> settingsOptions = new HashMap<>();
+    protected final Map<Class<? extends SettingsOptions>, SettingsOptionsBuilder<?>> settingsOptions = new HashMap<>();
     protected final Map<Class<? extends InferenceOptions>, InferenceOptions> inferenceOptions = new HashMap<>();
 
     protected final Map<Class<? extends SettingsOptions>, List<ApplySettingsContribution>> applySettingsContributions = new HashMap<>();
     protected final Map<Class<?>, List<ApplySettingsContribution>> applyContextSettingsContributions = new HashMap<>();
     protected final Map<ApplySettingsContribution, List<ApplySettingsDependsOnRule>> applySettingsContributionRules = new HashMap<>();
     protected final List<ApplySettingsListener> applySettingsListeners = new ArrayList<>();
-    protected SettingsOptionsProvider settingsOptionsProvider;
+    protected @Nullable SettingsOptionsProvider settingsOptionsProvider;
 
     protected final TreeContributionSequenceBuilder builder;
     protected final ContributionDefinition definition;
@@ -130,8 +131,8 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
     }
 
     @Override
-    public SettingsOptionsBuilder getSettingsOptionsBuilder(Class<? extends SettingsOptions> settingsClass) {
-        return ObjectUtils.requireNonNull(settingsOptions.get(settingsClass), "Missing options settings builder: " + settingsClass.getCanonicalName());
+    public <T extends SettingsOptions> SettingsOptionsBuilder<T> getSettingsOptionsBuilder(Class<T> settingsClass) {
+        return ObjectUtils.requireNonNull((SettingsOptionsBuilder<T>) settingsOptions.get(settingsClass), "Missing options settings builder: " + settingsClass.getCanonicalName());
     }
 
     @Override
@@ -236,7 +237,7 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
                 public <T extends SettingsOptions> T getSettingsOptions(Class<T> settingsClass) {
                     SettingsOptions instance = settingsOptionsCache.get(settingsClass);
                     if (instance == null) {
-                        SettingsOptionsBuilder builder = settingsOptions.get(settingsClass);
+                        SettingsOptionsBuilder<?> builder = settingsOptions.get(settingsClass);
                         OptionsModuleApi optionsModule = App.getModule(OptionsModuleApi.class);
                         instance = builder.createInstance(optionsModule.getAppOptions());
                         settingsOptionsCache.put(settingsClass, instance);

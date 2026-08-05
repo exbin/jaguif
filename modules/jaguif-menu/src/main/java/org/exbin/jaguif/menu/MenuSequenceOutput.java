@@ -172,8 +172,7 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
 
     public static JMenuItem createMenuItem(Action action, Map<String, ButtonGroup> buttonGroups) {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
-        JMenuItem menuItem = menuModule.actionToMenuItem(action, buttonGroups);
-        return menuItem;
+        return menuModule.actionToMenuItem(action, buttonGroups);
     }
 
     private static void finishMenuAction(@Nullable Action action, ContextRegistration contextRegistration) {

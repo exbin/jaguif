@@ -37,6 +37,7 @@ import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.text.font.ContextFont;
 import org.exbin.jaguif.text.font.TextFontState;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text font action.
@@ -47,8 +48,8 @@ public class TextFontAction extends AbstractAction {
     public static final String ACTION_ID = "textFont";
     public static final String HELP_ID = "choose-font";
 
-    private TextFontState textFontSupported;
-    private DialogParentComponent dialogParentComponent;
+    protected @Nullable TextFontState textFontSupported;
+    protected @Nullable DialogParentComponent dialogParentComponent;
 
     public TextFontAction() {
     }

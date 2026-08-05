@@ -70,5 +70,5 @@ public class ContributorsListPage extends AbstractTabPagesComponent {
         public String getContributionId() {
             return PAGE_ID;
         }
-    };
+    }
 }

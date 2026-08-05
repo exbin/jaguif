@@ -37,9 +37,9 @@ import org.exbin.jaguif.window.api.gui.FooterControlPanel;
 @NullMarked
 public class HelpModule implements HelpModuleApi {
 
-    private ResourceBundle resourceBundle;
-    private HelpOpeningHandler helpOpeningHandler = null;
-    private HelpOpeningHandler fallbackOpeningHandler = null;
+    private @Nullable ResourceBundle resourceBundle;
+    private @Nullable HelpOpeningHandler helpOpeningHandler = null;
+    private @Nullable HelpOpeningHandler fallbackOpeningHandler = null;
 
     public HelpModule() {
     }
@@ -69,7 +69,7 @@ public class HelpModule implements HelpModuleApi {
     }
 
     @Override
-    public void addLinkToControlPanel(FooterControlPanel controlPanel, HelpLink helpLink) {
+    public void addLinkToControlPanel(FooterControlPanel controlPanel, @Nullable HelpLink helpLink) {
         JButton helpButton = createHelpButton();
         helpButton.addActionListener((ActionEvent e) -> {
             if (helpLink != null) {
@@ -77,6 +77,7 @@ public class HelpModule implements HelpModuleApi {
                 helpModule.openHelp(helpLink);
             }
         });
+        helpButton.setEnabled(helpLink != null);
         controlPanel.addButton(helpButton, FooterControlPanel.ButtonPosition.FIRST_LEFT);
     }
 

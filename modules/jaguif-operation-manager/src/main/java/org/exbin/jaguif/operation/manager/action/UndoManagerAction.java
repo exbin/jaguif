@@ -32,6 +32,7 @@ import org.exbin.jaguif.action.api.ActionContextChange;
 import org.exbin.jaguif.action.api.DialogParentComponent;
 import org.exbin.jaguif.operation.manager.controller.UndoManagerControlController;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Undo manager action.
@@ -41,10 +42,10 @@ public class UndoManagerAction extends AbstractAction implements ActionContextCh
 
     public static final String ACTION_ID = "editUndoManager";
 
-    private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(OperationManagerModule.class);
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(OperationManagerModule.class);
 
-    private UndoRedoState undoHandler = null;
-    private DialogParentComponent dialogParentComponent;
+    protected @Nullable UndoRedoState undoHandler = null;
+    protected @Nullable DialogParentComponent dialogParentComponent;
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -25,6 +25,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.options.preferences.FilePreferences;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of options module.
@@ -32,7 +33,7 @@ import org.exbin.jaguif.options.preferences.FilePreferences;
 @NullMarked
 public class OptionsModule implements OptionsModuleApi {
 
-    private OptionsStorage appOptions;
+    private @Nullable OptionsStorage appOptions;
 
     public OptionsModule() {
     }

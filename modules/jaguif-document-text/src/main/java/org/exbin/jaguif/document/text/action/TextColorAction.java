@@ -77,7 +77,7 @@ public class TextColorAction extends AbstractAction {
             return;
         }
 
-        TextPanel textPanel = (TextPanel) textComponent.getTextPanel();
+        TextPanel textPanel = textComponent.getTextPanel();
 
         WindowModuleApi windowModule = App.getModule(WindowModuleApi.class);
         final TextColorState textColorService = new TextColorState() {

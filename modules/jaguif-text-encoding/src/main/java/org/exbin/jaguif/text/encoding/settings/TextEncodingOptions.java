@@ -33,7 +33,7 @@ public class TextEncodingOptions implements SettingsOptions {
     public static final String KEY_TEXT_ENCODING_DEFAULT = KEY_TEXT_ENCODING_PREFIX + "default";
     public static final String KEY_TEXT_ENCODING_SELECTED = "selectedEncoding";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public TextEncodingOptions(OptionsStorage storage) {
         this.storage = storage;

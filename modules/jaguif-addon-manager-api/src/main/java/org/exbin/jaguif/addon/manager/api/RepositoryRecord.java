@@ -27,8 +27,8 @@ import org.jspecify.annotations.NullMarked;
 public class RepositoryRecord {
 
     private String id;
-    private String name;
-    private URL repositoryUrl = null;
+    private @Nullable String name;
+    private @Nullable URL repositoryUrl = null;
 
     public RepositoryRecord(String id) {
         this.id = id;
@@ -42,7 +42,7 @@ public class RepositoryRecord {
         this.id = id;
     }
 
-    public String getName() {
+    public @Nullable String getName() {
         return name;
     }
 

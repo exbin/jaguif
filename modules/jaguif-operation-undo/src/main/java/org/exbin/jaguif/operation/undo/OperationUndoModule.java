@@ -34,6 +34,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.exbin.jaguif.operation.undo.contribution.RedoContribution;
 import org.exbin.jaguif.operation.undo.contribution.UndoContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of undo/redo support module.
@@ -41,7 +42,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 @NullMarked
 public class OperationUndoModule implements OperationUndoModuleApi {
 
-    private java.util.ResourceBundle resourceBundle = null;
+    private java.util.@Nullable ResourceBundle resourceBundle = null;
 
     public OperationUndoModule() {
     }

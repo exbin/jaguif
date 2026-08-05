@@ -27,6 +27,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text encoding selection panel.
@@ -34,9 +35,9 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 @NullMarked
 public class TextEncodingListPanel extends javax.swing.JPanel implements SettingsComponent {
 
-    private SettingsModifiedListener settingsModifiedListener;
+    private @Nullable SettingsModifiedListener settingsModifiedListener;
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextEncodingListPanel.class);
-    private Controller controller = null;
+    private @Nullable Controller controller = null;
 
     public TextEncodingListPanel() {
         initComponents();

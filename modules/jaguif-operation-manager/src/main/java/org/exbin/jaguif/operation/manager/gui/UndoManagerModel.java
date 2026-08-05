@@ -29,7 +29,7 @@ import org.exbin.jaguif.operation.undo.api.UndoRedo;
 @NullMarked
 public class UndoManagerModel extends AbstractListModel<String> {
 
-    private UndoRedo undoRedo = null;
+    private @Nullable UndoRedo undoRedo = null;
 
     public UndoManagerModel() {
     }

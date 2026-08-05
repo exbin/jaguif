@@ -28,7 +28,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 @NullMarked
 public class TextComponentPopupHandler implements TextClipboardOperationController {
 
-    private final JTextComponent txtComp;
+    protected final JTextComponent txtComp;
 
     public TextComponentPopupHandler(JTextComponent txtComp) {
         this.txtComp = txtComp;

@@ -59,10 +59,10 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 @NullMarked
 public class EditorPanePopupHandler implements TextClipboardOperationController, LinkActionsHandler, PositionLinkActionsHandler, ImageActionsHandler, PositionImageActionsHandler {
 
-    private static final String MAP_PROPERTY = "__MAP__";
-    private static final String IMAGE_CACHE_PROPERTY = "imageCache";
+    protected static final String MAP_PROPERTY = "__MAP__";
+    protected static final String IMAGE_CACHE_PROPERTY = "imageCache";
 
-    private final JEditorPane editorPane;
+    protected final JEditorPane editorPane;
 
     public EditorPanePopupHandler(JEditorPane editorPane) {
         this.editorPane = editorPane;

@@ -100,11 +100,11 @@ public class DocumentTextModule implements Module {
 
     public static final String TEXT_STATUS_BAR_ID = "textStatusBar";
 
-    private ResourceBundle resourceBundle;
-    private TextStatusPanel textStatusPanel;
+    private @Nullable ResourceBundle resourceBundle;
+    private @Nullable TextStatusPanel textStatusPanel;
 
-    private FindReplaceActions findReplaceActions;
-    private EncodingsManager encodingsManager;
+    private @Nullable FindReplaceActions findReplaceActions;
+    private @Nullable EncodingsManager encodingsManager;
 
     public DocumentTextModule() {
     }

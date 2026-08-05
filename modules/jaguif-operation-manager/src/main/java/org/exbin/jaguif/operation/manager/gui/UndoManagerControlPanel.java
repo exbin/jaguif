@@ -22,6 +22,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.operation.manager.controller.UndoManagerControlController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Undo management control panel.
@@ -29,8 +30,8 @@ import org.exbin.jaguif.operation.manager.controller.UndoManagerControlControlle
 @NullMarked
 public class UndoManagerControlPanel extends javax.swing.JPanel implements UndoManagerControlController.UndoManagerControlComponent {
 
-    private final java.util.ResourceBundle resourceBundle;
-    private UndoManagerControlController controller;
+    private final java.util.@Nullable ResourceBundle resourceBundle;
+    private @Nullable UndoManagerControlController controller;
 
     public UndoManagerControlPanel() {
         this(App.getModule(LanguageModuleApi.class).getBundle(UndoManagerControlPanel.class));

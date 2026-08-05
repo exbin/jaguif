@@ -25,8 +25,8 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 public class RelativeSequenceContributionRule implements SequenceContributionRule {
 
-    private final NextToMode nextToMode;
-    private final String contributionId;
+    protected final NextToMode nextToMode;
+    protected final String contributionId;
 
     public RelativeSequenceContributionRule(NextToMode nextToMode, String contributionId) {
         this.nextToMode = nextToMode;

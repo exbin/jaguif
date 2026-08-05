@@ -38,7 +38,7 @@ public class SelectAllAction extends AbstractAction implements ActionContextChan
 
     public static final String ACTION_ID = "selectAll";
 
-    protected SelectionController selectionSupport;
+    protected @Nullable SelectionController selectionSupport;
 
     public SelectAllAction() {
     }

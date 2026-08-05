@@ -15,11 +15,13 @@
  */
 package org.exbin.jaguif.menu.api;
 
+import org.exbin.jaguif.utils.ObjectUtils;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JMenuItem;
 import org.exbin.jaguif.action.api.ActionConsts;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Record for direct menu item contribution.
@@ -28,8 +30,8 @@ import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 public class DirectMenuContribution implements ItemSequenceContribution {
 
     protected MenuItemProvider menuItemProvider;
-    protected String contributionId;
-    protected JMenuItem menuItem;
+    protected @Nullable String contributionId;
+    protected @Nullable JMenuItem menuItem;
 
     public DirectMenuContribution(MenuItemProvider menuItemProvider) {
         this.menuItemProvider = menuItemProvider;
@@ -41,7 +43,7 @@ public class DirectMenuContribution implements ItemSequenceContribution {
             createItem();
         }
 
-        return contributionId;
+        return ObjectUtils.requireNonNull(contributionId);
     }
 
     public JMenuItem getMenuItem() {

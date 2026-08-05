@@ -30,9 +30,9 @@ import org.exbin.jaguif.text.encoding.EncodingsManager;
 @NullMarked
 public class DefaultEncodingComboBoxModel implements ComboBoxModel<String> {
 
-    private List<String> availableEncodings = new ArrayList<>();
-    private String selectedEncoding = null;
-    private final List<ListDataListener> dataListeners = new ArrayList<>();
+    protected List<String> availableEncodings = new ArrayList<>();
+    protected @Nullable  String selectedEncoding = null;
+    protected final List<ListDataListener> dataListeners = new ArrayList<>();
 
     public DefaultEncodingComboBoxModel() {
     }

@@ -29,10 +29,8 @@ import javax.annotation.concurrent.Immutable;
 public class OpenFileResult {
 
     protected final ResultType resultType;
-    @Nullable
-    protected final File selectedFile;
-    @Nullable
-    protected final FileType fileType;
+    protected final @Nullable File selectedFile;
+    protected final @Nullable FileType fileType;
 
     public OpenFileResult(ResultType resultType, @Nullable File selectedFile, @Nullable FileType fileType) {
         this.resultType = resultType;

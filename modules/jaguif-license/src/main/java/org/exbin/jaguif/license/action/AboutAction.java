@@ -32,6 +32,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.gui.CloseControlPanel;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * About application action.
@@ -41,9 +42,9 @@ public class AboutAction extends AbstractAction {
 
     public static final String ACTION_ID = "about";
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AboutAction.class);
-    private JComponent sideComponent = null;
-    private DialogParentComponent dialogParentComponent;
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AboutAction.class);
+    protected @Nullable JComponent sideComponent = null;
+    protected @Nullable DialogParentComponent dialogParentComponent;
 
     public AboutAction() {
         init();
@@ -56,7 +57,7 @@ public class AboutAction extends AbstractAction {
         putValue(ActionConsts.ACTION_CONTEXT_CHANGE, (ActionContextChange) (ContextChangeRegistration registrar) -> {
             registrar.registerChangeListener(DialogParentComponent.class, (DialogParentComponent instance) -> {
                 dialogParentComponent = instance;
-                setEnabled(dialogParentComponent != null);
+                setEnabled(true);
             });
         });
         setEnabled(false);

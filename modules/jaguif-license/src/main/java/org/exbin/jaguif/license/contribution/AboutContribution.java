@@ -30,8 +30,7 @@ public class AboutContribution implements ActionSequenceContribution {
 
     @Override
     public Action createAction() {
-        AboutAction action = new AboutAction();
-        return action;
+        return new AboutAction();
     }
 
     @Override

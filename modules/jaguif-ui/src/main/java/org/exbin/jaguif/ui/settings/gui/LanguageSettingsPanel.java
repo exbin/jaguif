@@ -33,6 +33,7 @@ import org.exbin.jaguif.ui.settings.LanguageOptions;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Language settings panel.
@@ -42,7 +43,7 @@ public class LanguageSettingsPanel extends javax.swing.JPanel implements Setting
 
     protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(LanguageSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
     protected String defaultLocaleName = "";
 
     public LanguageSettingsPanel() {

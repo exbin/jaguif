@@ -24,6 +24,7 @@ import org.exbin.jaguif.frame.settings.FrameAppearanceOptions;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Frame appearance settings panel.
@@ -33,7 +34,7 @@ public class FrameAppearanceSettingsPanel extends javax.swing.JPanel implements 
 
     protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FrameAppearanceSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
 
     public FrameAppearanceSettingsPanel() {
         initComponents();

@@ -25,7 +25,7 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 public class PositionSequenceContributionRule implements SequenceContributionRule {
 
-    private final PositionMode positionMode;
+    protected final PositionMode positionMode;
 
     public PositionSequenceContributionRule(PositionMode positionMode) {
         this.positionMode = positionMode;

@@ -28,8 +28,8 @@ public class KeyMapRecord {
 
     private final String name;
     private final String type;
-    private final ImageIcon icon;
-    private final KeyStroke shortcut;
+    private final @Nullable ImageIcon icon;
+    private final @Nullable KeyStroke shortcut;
 
     public KeyMapRecord(String name, @Nullable ImageIcon icon, String type, @Nullable KeyStroke shortcut) {
         this.name = name;

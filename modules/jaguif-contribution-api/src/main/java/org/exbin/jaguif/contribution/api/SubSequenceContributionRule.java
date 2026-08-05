@@ -25,7 +25,7 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 public class SubSequenceContributionRule implements SequenceContributionRule {
 
-    private final String subContributionId;
+    protected final String subContributionId;
 
     public SubSequenceContributionRule(String subContributionId) {
         this.subContributionId = subContributionId;

@@ -59,7 +59,7 @@ public class LanguageOptions implements SettingsOptions {
             try {
                 return Locale.forLanguageTag(localeTag);
             } catch (SecurityException ex) {
-                // Ignore it in java webstart
+                // Ignore it in java WebStart
             }
         }
 
@@ -69,7 +69,7 @@ public class LanguageOptions implements SettingsOptions {
         try {
             return new Locale(localeLanguage, localeCountry, localeVariant);
         } catch (SecurityException ex) {
-            // Ignore it in java webstart
+            // Ignore it in java WebStart
         }
 
         return Locale.ROOT;

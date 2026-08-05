@@ -66,6 +66,7 @@ import org.exbin.jaguif.frame.contribution.ViewToolBarContribution;
 import org.exbin.jaguif.utils.ComponentProvider;
 import org.exbin.jaguif.utils.WindowClosingListener;
 import org.exbin.jaguif.frame.api.FrameController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Module for window frame support.
@@ -78,13 +79,13 @@ public class FrameModule implements FrameModuleApi {
     public static final String PREFERENCES_FRAME_PREFIX = "mainFrame.";
     public static final String RESOURCES_DIALOG_TITLE = "dialog.title";
 
-    private ResourceBundle resourceBundle;
-    private ApplicationFrame applicationFrame;
+    private @Nullable ResourceBundle resourceBundle;
+    private @Nullable ApplicationFrame applicationFrame;
     private boolean undecorated = false;
-    private FrameClosingHandler exitHandler = null;
-    private StatusBarHandler statusBarHandler = null;
-    private FrameActions frameActions;
-    private Image appIcon = null;
+    private @Nullable FrameClosingHandler exitHandler = null;
+    private @Nullable StatusBarHandler statusBarHandler = null;
+    private @Nullable FrameActions frameActions;
+    private @Nullable Image appIcon = null;
 
     public FrameModule() {
     }

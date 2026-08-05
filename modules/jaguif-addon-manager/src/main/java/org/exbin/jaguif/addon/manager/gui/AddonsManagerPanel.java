@@ -42,7 +42,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsManagerPanel.class);
     protected final List<AddonManagerPage> managerTabs = new ArrayList<>();
     protected TabPages tabPages;
-    protected Controller controller;
+    protected @Nullable Controller controller;
     protected Component cartComponent;
 
     public AddonsManagerPanel() {

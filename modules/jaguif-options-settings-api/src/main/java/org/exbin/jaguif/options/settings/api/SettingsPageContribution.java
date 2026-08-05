@@ -29,7 +29,7 @@ import org.exbin.jaguif.contribution.api.SubSequenceContribution;
 public class SettingsPageContribution implements SubSequenceContribution {
 
     private final String pageId;
-    protected final ResourceBundle resourceBundle;
+    protected final @Nullable ResourceBundle resourceBundle;
 
     public SettingsPageContribution(String pageId, @Nullable ResourceBundle resourceBundle) {
         this.pageId = pageId;

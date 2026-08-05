@@ -25,6 +25,7 @@ import org.exbin.jaguif.context.api.ContextChangeListener;
 import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextUpdateManagement;
 import org.exbin.jaguif.context.api.StateUpdateType;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of context module.
@@ -32,9 +33,9 @@ import org.exbin.jaguif.context.api.StateUpdateType;
 @NullMarked
 public class ContextModule implements ContextModuleApi {
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
-    private ActiveContextManager applicationContextManager;
+    private @Nullable ActiveContextManager applicationContextManager;
 
     public ContextModule() {
     }

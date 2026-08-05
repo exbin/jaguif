@@ -37,10 +37,10 @@ public class TextFontSettingsPanel extends javax.swing.JPanel implements Setting
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextFontSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
-    protected TextFontInference textFontInference = null;
-    protected Font codeFont;
-    protected Controller controller;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable TextFontInference textFontInference = null;
+    protected @Nullable Font codeFont;
+    protected @Nullable Controller controller;
 
     public TextFontSettingsPanel() {
         initComponents();

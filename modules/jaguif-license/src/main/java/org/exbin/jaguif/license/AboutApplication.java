@@ -25,6 +25,7 @@ import org.exbin.jaguif.context.api.ContextModuleApi;
 import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.tabpages.api.TabPages;
 import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Manager for data about the application.
@@ -32,7 +33,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 @NullMarked
 public class AboutApplication {
 
-    protected JComponent sideComponent = null;
+    protected @Nullable JComponent sideComponent = null;
 
     public AboutAction createAboutAction() {
         AboutAction aboutAction = new AboutAction();

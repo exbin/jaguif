@@ -24,11 +24,11 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class VersionNumbers {
 
-    private VersionNumbersFormat format;
-    private int major;
-    private int minor;
-    private int release;
-    private int patch;
+    protected @Nullable VersionNumbersFormat format;
+    protected int major;
+    protected int minor;
+    protected int release;
+    protected int patch;
 
     public VersionNumbers() {
     }

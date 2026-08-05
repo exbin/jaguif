@@ -34,6 +34,7 @@ import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Go to line action.
@@ -43,7 +44,7 @@ public class GoToLineAction extends AbstractAction {
 
     public static final String ACTION_ID = "goToLine";
 
-    private EditorTextPanelComponent textPanelComponent;
+    protected @Nullable EditorTextPanelComponent textPanelComponent;
 
     public GoToLineAction() {
     }

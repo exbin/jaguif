@@ -27,7 +27,7 @@ public class TextAppearanceOptions implements SettingsOptions {
 
     public static final String KEY_TEXT_WORD_WRAPPING = "textAppearance.wordWrap";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public TextAppearanceOptions(OptionsStorage storage) {
         this.storage = storage;

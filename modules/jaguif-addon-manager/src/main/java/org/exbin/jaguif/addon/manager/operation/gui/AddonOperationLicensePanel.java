@@ -36,7 +36,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
 public class AddonOperationLicensePanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationLicensePanel.class);
-    protected Controller controller;
+    protected @Nullable Controller controller;
     protected List<LicenseItemRecord> licenseRecords;
     protected int toApprove;
 

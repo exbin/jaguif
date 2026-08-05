@@ -93,7 +93,7 @@ public interface OptionsSettingsManagement {
      * @param settingsClass settings class
      * @return options settings builder
      */
-    SettingsOptionsBuilder getSettingsOptionsBuilder(Class<? extends SettingsOptions> settingsClass);
+    <T extends SettingsOptions> SettingsOptionsBuilder<T> getSettingsOptionsBuilder(Class<T> settingsClass);
 
     /**
      * Returns inference options instance if available.

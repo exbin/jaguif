@@ -30,7 +30,7 @@ import org.exbin.jaguif.document.api.DocumentSource;
 public class FileDocumentSource implements DocumentSource {
 
     protected final File file;
-    protected final FileType fileType;
+    protected final @Nullable FileType fileType;
 
     public FileDocumentSource(File file) {
         this.file = file;

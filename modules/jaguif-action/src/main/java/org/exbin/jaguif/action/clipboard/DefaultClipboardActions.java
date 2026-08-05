@@ -20,6 +20,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Clipboard actions.
@@ -27,7 +28,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 @NullMarked
 public class DefaultClipboardActions implements ClipboardOperationActions {
 
-    protected ResourceBundle resourceBundle;
+    protected @Nullable ResourceBundle resourceBundle;
 
     public DefaultClipboardActions() {
     }

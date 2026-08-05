@@ -42,7 +42,7 @@ import org.exbin.jaguif.window.api.controller.CloseControlController;
 public class AddonsManagerControlPanel extends javax.swing.JPanel implements CloseControlController.CloseControlComponent {
 
     protected final java.util.ResourceBundle resourceBundle;
-    protected Controller controller;
+    protected @Nullable Controller controller;
     protected Component activeStatusComponent = null;
     protected Component defaultStatusComponent = null;
 

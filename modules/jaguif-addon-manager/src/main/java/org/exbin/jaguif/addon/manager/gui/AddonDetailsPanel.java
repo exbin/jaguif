@@ -45,7 +45,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
 public class AddonDetailsPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonDetailsPanel.class);
-    protected Controller controller;
+    protected @Nullable Controller controller;
     protected MouseListener providerLinkListener;
     protected final DependenciesTableModel dependenciesTableModel = new DependenciesTableModel();
     protected String providerLink = null;

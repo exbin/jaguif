@@ -38,8 +38,7 @@ public class MenuDefinitionManager implements MenuDefinitionManagement {
     protected final MenuManagement menuManager;
     protected final String menuId;
     protected final String moduleId;
-    @Nullable
-    protected final String currentSubMenuId;
+    protected final @Nullable String currentSubMenuId;
 
     public MenuDefinitionManager(MenuManagement menuManager, String menuId, String moduleId) {
         this(menuManager, menuId, moduleId, null);

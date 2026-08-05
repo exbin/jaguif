@@ -38,7 +38,7 @@ public class CopyAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "copy";
 
-    protected ClipboardOperationController clipboardSupport;
+    protected @Nullable ClipboardOperationController clipboardSupport;
 
     public CopyAction() {
     }

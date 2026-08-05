@@ -28,6 +28,7 @@ import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
 import org.exbin.jaguif.ui.settings.LanguageSettingsComponent;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Module for user interface handling.
@@ -35,10 +36,10 @@ import org.exbin.jaguif.ui.settings.LanguageSettingsComponent;
 @NullMarked
 public class UiModule implements UiModuleApi {
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
-    private List<Runnable> preInitActions = new ArrayList<>();
-    private List<Runnable> postInitActions = new ArrayList<>();
+    private final List<Runnable> preInitActions = new ArrayList<>();
+    private final List<Runnable> postInitActions = new ArrayList<>();
 
     public UiModule() {
     }
@@ -98,7 +99,7 @@ public class UiModule implements UiModuleApi {
         OptionsSettingsModuleApi settingsModule = App.getModule(OptionsSettingsModuleApi.class);
         OptionsSettingsManagement settingsManagement = settingsModule.getMainSettingsManager();
 
-        settingsManagement.registerSettingsOptions(LanguageOptions.class, (optionsStorage) -> new LanguageOptions(optionsStorage));
+        settingsManagement.registerSettingsOptions(LanguageOptions.class, LanguageOptions::new);
         
         settingsManagement.registerComponent(LanguageSettingsComponent.COMPONENT_ID, new LanguageSettingsComponent());
     }

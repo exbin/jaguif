@@ -34,10 +34,9 @@ public class FileSettingsApplier implements SettingsApplier {
 
     @Override
     public void applySettings(ContextStateProvider contextProvider, SettingsOptionsProvider settingsProvider) {
-        ContextComponent instance = contextProvider.getActiveState(ContextComponent.class);
         FileOptions fileOptions = settingsProvider.getSettingsOptions(FileOptions.class);
         String fileDialogs = fileOptions.getFileDialogs();
         FileModuleApi fileModule = App.getModule(FileModuleApi.class);
-        ((FileModule) fileModule).setFileDialogProviderId(fileDialogs);
+        fileModule.setFileDialogProviderId(fileDialogs);
     }
 }

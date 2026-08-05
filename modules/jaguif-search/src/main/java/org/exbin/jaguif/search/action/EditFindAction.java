@@ -28,6 +28,7 @@ import org.exbin.jaguif.action.api.ActionContextChange;
 import org.exbin.jaguif.search.api.ContextSearch;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.search.api.FindSearchController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Search find action.
@@ -36,7 +37,7 @@ import org.exbin.jaguif.search.api.FindSearchController;
 public class EditFindAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "searchFind";
-    protected FindSearchController findSearchController;
+    protected @Nullable FindSearchController findSearchController;
 
     public void init(ResourceBundle resourceBundle) {
         ActionModuleApi actionModule = App.getModule(ActionModuleApi.class);

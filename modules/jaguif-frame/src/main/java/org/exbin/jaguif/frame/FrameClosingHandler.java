@@ -27,7 +27,7 @@ import org.exbin.jaguif.frame.api.FrameController;
 @NullMarked
 public class FrameClosingHandler {
 
-    private final List<WindowClosingListener> closingListeners = new ArrayList<>();
+    protected final List<WindowClosingListener> closingListeners = new ArrayList<>();
 
     public FrameClosingHandler() {
     }

@@ -35,6 +35,7 @@ import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.context.api.ContextChangeListener;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of action module.
@@ -42,9 +43,9 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationController;
 @NullMarked
 public class ActionModule implements ActionModuleApi {
 
-    private DefaultClipboardActions clipboardActions = null;
-    private DefaultTextClipboardActions clipboardTextActions = null;
-    private ResourceBundle resourceBundle;
+    private @Nullable DefaultClipboardActions clipboardActions = null;
+    private @Nullable DefaultTextClipboardActions clipboardTextActions = null;
+    private @Nullable ResourceBundle resourceBundle;
 
     public ActionModule() {
     }

@@ -17,6 +17,8 @@ package org.exbin.jaguif.text.font.gui;
 
 import java.awt.event.ActionEvent;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
+
 import javax.swing.AbstractListModel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
@@ -29,9 +31,9 @@ import javax.swing.event.ListSelectionEvent;
 @NullMarked
 public class InputListPanel extends javax.swing.JPanel {
 
-    private ChangeListener changeListener;
-    private String[] items;
-    private boolean textUpdating = false;
+    protected @Nullable ChangeListener changeListener;
+    protected @Nullable String[] items;
+    protected boolean textUpdating = false;
 
     public InputListPanel() {
         initComponents();

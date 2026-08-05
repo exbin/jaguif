@@ -36,7 +36,7 @@ public interface TextSearchService {
         private boolean shallReplace;
         private String findText;
         private boolean searchFromStart;
-        private String replaceText;
+        private @Nullable String replaceText;
 
         public int getStartFrom() {
             return startFrom;

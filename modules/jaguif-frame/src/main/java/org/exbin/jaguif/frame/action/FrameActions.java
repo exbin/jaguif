@@ -17,6 +17,7 @@ package org.exbin.jaguif.frame.action;
 
 import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Basic frame actions.
@@ -24,7 +25,7 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class FrameActions {
 
-    private ResourceBundle resourceBundle;
+    protected @Nullable ResourceBundle resourceBundle;
 
     public FrameActions() {
     }

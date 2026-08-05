@@ -24,6 +24,9 @@ import javax.swing.ButtonGroup;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JSeparator;
+
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SubSequenceContribution;
@@ -97,6 +100,7 @@ public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
 
     @Override
     public void addSeparator() {
+        menuBar.add(new JSeparator());
     }
 
     @Override

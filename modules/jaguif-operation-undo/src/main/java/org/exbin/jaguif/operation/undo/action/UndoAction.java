@@ -29,6 +29,7 @@ import org.exbin.jaguif.action.api.ActionContextChange;
 import org.exbin.jaguif.operation.undo.api.UndoRedoController;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.operation.undo.api.ContextUndoRedo;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Undo action.
@@ -38,7 +39,7 @@ public class UndoAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "editUndo";
 
-    protected UndoRedoState undoRedo = null;
+    protected @Nullable UndoRedoState undoRedo = null;
 
     public UndoAction() {
     }

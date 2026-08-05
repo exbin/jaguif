@@ -34,7 +34,7 @@ public class ModifiedDocumentsPanel extends javax.swing.JPanel {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ModifiedDocumentsPanel.class);
     private List<Document> documents;
-    private Controller controller;
+    protected @Nullable Controller controller;
 
     public ModifiedDocumentsPanel() {
         initComponents();

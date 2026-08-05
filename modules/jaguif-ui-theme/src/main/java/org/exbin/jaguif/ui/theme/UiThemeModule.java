@@ -39,6 +39,7 @@ import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
 import org.exbin.jaguif.options.settings.api.SettingsComponentContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.ui.theme.settings.ThemeSettingsApplier;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Module user interface handling.
@@ -48,7 +49,7 @@ public class UiThemeModule implements UiThemeModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "theme";
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
     private final List<LafProvider> lafProviders = new ArrayList<>();
 
     public UiThemeModule() {

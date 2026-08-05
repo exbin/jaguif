@@ -27,11 +27,11 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class AddonRecord extends ItemRecord {
 
-    private RepositoryRecord repository;
-    private List<DependencyRecord> dependencies = new ArrayList<>();
-    private String license = "";
-    private String licenseSpdx;
-    private String licenseRemoteFile = "";
+    protected RepositoryRecord repository;
+    protected List<DependencyRecord> dependencies = new ArrayList<>();
+    protected String license = "";
+    protected @Nullable String licenseSpdx;
+    protected String licenseRemoteFile = "";
 
     public AddonRecord(String id, String name) {
         super(id, name);

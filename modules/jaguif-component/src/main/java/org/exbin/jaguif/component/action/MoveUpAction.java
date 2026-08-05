@@ -25,6 +25,7 @@ import org.exbin.jaguif.action.api.ActionContextChange;
 import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.component.api.ContextMoveItem;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Move up action.
@@ -34,7 +35,7 @@ public class MoveUpAction extends AbstractAction {
 
     public static final String ACTION_ID = "moveItemUp";
 
-    protected ContextMoveItem itemController;
+    protected @Nullable ContextMoveItem itemController;
 
     public void init(ResourceBundle resourceBundle) {
         ActionModuleApi actionModule = App.getModule(ActionModuleApi.class);

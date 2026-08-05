@@ -47,9 +47,9 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 @NullMarked
 public class MenuModule implements MenuModuleApi {
 
-    private MenuBuilder menuBuilder = null;
-    private MenuManager mainMenuManager = null;
-    private ResourceBundle resourceBundle;
+    private @Nullable MenuBuilder menuBuilder = null;
+    private @Nullable MenuManager mainMenuManager = null;
+    private @Nullable ResourceBundle resourceBundle;
 
     public MenuModule() {
     }

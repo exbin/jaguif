@@ -34,6 +34,7 @@ import org.exbin.jaguif.text.encoding.ContextEncoding;
 import org.exbin.jaguif.text.encoding.CharsetEncodingState;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.context.api.StateUpdateType;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text encoding action.
@@ -43,8 +44,8 @@ public class TextEncodingAction extends AbstractAction {
 
     public static final String ACTION_ID = "textEncoding";
 
-    private CharsetEncodingState textEncodingState;
-    private Component component;
+    protected @Nullable CharsetEncodingState textEncodingState;
+    protected @Nullable Component component;
 
     public TextEncodingAction() {
     }

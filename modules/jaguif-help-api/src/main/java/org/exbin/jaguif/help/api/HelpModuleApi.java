@@ -51,7 +51,7 @@ public interface HelpModuleApi extends Module {
      * @param controlPanel control panel
      * @param helpLink help link
      */
-    void addLinkToControlPanel(FooterControlPanel controlPanel, HelpLink helpLink);
+    void addLinkToControlPanel(FooterControlPanel controlPanel, @Nullable HelpLink helpLink);
 
     /**
      * Returns true if opening handler is available.

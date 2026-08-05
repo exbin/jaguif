@@ -51,13 +51,13 @@ import org.exbin.jaguif.frame.api.FrameController;
 @NullMarked
 public class ApplicationFrame extends javax.swing.JFrame implements FrameController, WindowHeaderPanel.WindowHeaderDecorationProvider {
 
-    private FrameClosingHandler exitHandler;
-    private JComponent currentStatusBarComponent = null;
-    private Component mainComponent;
-    private boolean captionsVisible = true;
-    private WindowHeaderPanel.WindowHeaderDecorationProvider windowHeaderDecorationProvider;
-    private ActiveContextManagement frameContextManager;
-    private ContextUpdateManagement updateManager;
+    protected @Nullable FrameClosingHandler exitHandler;
+    protected @Nullable JComponent currentStatusBarComponent = null;
+    protected @Nullable Component mainComponent;
+    protected boolean captionsVisible = true;
+    protected WindowHeaderPanel.@Nullable WindowHeaderDecorationProvider windowHeaderDecorationProvider;
+    protected @Nullable ActiveContextManagement frameContextManager;
+    protected @Nullable ContextUpdateManagement updateManager;
 
     public ApplicationFrame() {
         this(true);

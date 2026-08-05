@@ -23,6 +23,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addon manager settings panel.
@@ -32,7 +33,7 @@ public class AddonManagerSettingsPanel extends javax.swing.JPanel implements Set
 
     protected ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManagerSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
 
     public AddonManagerSettingsPanel() {
         initComponents();

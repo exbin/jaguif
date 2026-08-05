@@ -28,7 +28,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 @NullMarked
 public class TablePopupHandler implements TextClipboardOperationController {
 
-    private final JTable tableComp;
+    protected final JTable tableComp;
 
     public TablePopupHandler(JTable tableComp) {
         this.tableComp = tableComp;

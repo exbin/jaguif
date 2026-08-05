@@ -36,8 +36,8 @@ public class TextFontPanel extends javax.swing.JPanel {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextFontPanel.class);
 
-    private static String[] fontNames;
-    private static String[] fontSizes;
+    private String[] fontNames;
+    private String[] fontSizes;
 
     public TextFontPanel() {
         initComponents();

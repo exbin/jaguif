@@ -45,6 +45,7 @@ import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.document.text.service.TextSearchService;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.text.encoding.EncodingsManager;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text editor panel.
@@ -61,7 +62,7 @@ public class TextPanel extends javax.swing.JPanel {
     private Charset charset;
     private Font defaultFont;
     private Color[] defaultColors;
-    private CharsetChangeListener charsetChangeListener = null;
+    private @Nullable CharsetChangeListener charsetChangeListener = null;
     private TextStatusPanel textStatus = null;
 
     public TextPanel() {

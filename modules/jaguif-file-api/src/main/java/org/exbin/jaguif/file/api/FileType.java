@@ -18,7 +18,7 @@ package org.exbin.jaguif.file.api;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Interface for file types.
+ * Interface for file type.
  */
 @NullMarked
 public interface FileType {

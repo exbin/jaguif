@@ -37,7 +37,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 public class AddonsCartPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsCartPanel.class);
-    protected Controller controller;
+    protected @Nullable Controller controller;
 
     public AddonsCartPanel() {
         initComponents();

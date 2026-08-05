@@ -24,6 +24,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Document startup settings panel.
@@ -33,7 +34,7 @@ public class StartupSettingsPanel extends javax.swing.JPanel implements Settings
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(StartupSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
 
     public StartupSettingsPanel() {
         initComponents();

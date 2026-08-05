@@ -20,6 +20,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JMenu;
 import org.exbin.jaguif.contribution.api.SubSequenceContribution;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Record of sub/child menu contribution.
@@ -29,7 +30,7 @@ public class SubMenuContribution implements SubSequenceContribution {
 
     protected final String subMenuId;
     protected final Action action;
-    protected JMenu subMenu;
+    protected @Nullable JMenu subMenu;
 
     public SubMenuContribution(String subMenuId, Action action) {
         this.subMenuId = subMenuId;

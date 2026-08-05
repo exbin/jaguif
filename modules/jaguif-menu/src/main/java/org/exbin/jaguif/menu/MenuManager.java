@@ -128,6 +128,7 @@ public class MenuManager implements MenuManagement {
         Action subMenuAction = new AbstractAction(subMenuName) {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // No action when opening submenu
             }
         };
         return registerMenuItem(menuId, moduleId, subMenuId, subMenuAction);

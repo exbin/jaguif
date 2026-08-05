@@ -40,7 +40,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 @NullMarked
 public class HelpOnlineModule implements HelpOnlineModuleApi {
 
-    private URL helpUrl;
+    protected @Nullable URL helpUrl;
 
     public HelpOnlineModule() {
     }

@@ -27,7 +27,7 @@ import org.exbin.jaguif.file.api.UsedDirectoryApi;
 @NullMarked
 public class DefaultLastUsedDirectory implements UsedDirectoryApi {
 
-    protected File lastUsedDirectory = null;
+    protected @Nullable File lastUsedDirectory = null;
 
     @Override
     public Optional<File> getLastUsedDirectory() {

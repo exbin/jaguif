@@ -26,6 +26,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Keymap settings panel.
@@ -35,7 +36,7 @@ public class KeyMapSettingsPanel extends javax.swing.JPanel implements SettingsC
 
     protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(KeyMapSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
     protected final KeyMapTablePanel keyMap = new KeyMapTablePanel();
 
     public KeyMapSettingsPanel() {

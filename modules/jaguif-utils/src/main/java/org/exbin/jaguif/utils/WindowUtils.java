@@ -54,7 +54,7 @@ public class WindowUtils {
     public static final String ESC_CANCEL_KEY = "esc-cancel";
     public static final String ENTER_OK_KEY = "enter-ok";
 
-    private static LookAndFeel lookAndFeel = null;
+    private static @Nullable LookAndFeel lookAndFeel = null;
 
     private WindowUtils() {
     }

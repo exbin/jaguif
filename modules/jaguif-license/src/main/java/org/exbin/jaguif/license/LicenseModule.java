@@ -37,6 +37,7 @@ import org.exbin.jaguif.utils.DesktopUtils;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.exbin.jaguif.tabpages.api.TabPagesDefinitionManagement;
 import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * License management module.
@@ -44,8 +45,8 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 @NullMarked
 public class LicenseModule implements LicenseModuleApi {
 
-    private LicenseManager licenseManager;
-    private AboutApplication aboutApplication;
+    private @Nullable LicenseManager licenseManager;
+    private @Nullable AboutApplication aboutApplication;
 
     public LicenseModule() {
     }

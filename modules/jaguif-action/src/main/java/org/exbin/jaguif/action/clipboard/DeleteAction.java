@@ -37,7 +37,7 @@ public class DeleteAction extends AbstractAction implements ActionContextChange 
 
     public static final String ACTION_ID = "delete";
 
-    protected DeletionController deletionSupport;
+    protected @Nullable DeletionController deletionSupport;
 
     public DeleteAction() {
     }

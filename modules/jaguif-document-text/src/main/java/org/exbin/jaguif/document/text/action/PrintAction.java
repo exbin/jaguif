@@ -29,6 +29,7 @@ import org.exbin.jaguif.document.text.gui.TextPanel;
 import org.exbin.jaguif.utils.ActionUtils;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Print action.
@@ -38,7 +39,7 @@ public class PrintAction extends AbstractAction {
 
     public static final String ACTION_ID = "print";
 
-    private EditorTextPanelComponent textPanelComponent;
+    protected @Nullable EditorTextPanelComponent textPanelComponent;
 
     public PrintAction() {
     }

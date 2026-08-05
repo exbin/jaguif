@@ -90,5 +90,5 @@ public class EnvironmentVariablesPage extends AbstractTabPagesComponent {
         public String getContributionId() {
             return PAGE_ID;
         }
-    };
+    }
 }

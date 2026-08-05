@@ -38,7 +38,7 @@ public class PasteAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "paste";
 
-    protected ClipboardOperationController clipboardSupport;
+    protected @Nullable ClipboardOperationController clipboardSupport;
 
     public PasteAction() {
     }

@@ -26,6 +26,7 @@ import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.CompoundEdit;
 import javax.swing.undo.UndoableEdit;
 import org.exbin.jaguif.operation.undo.api.UndoRedoChangeListener;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Undo Manager with compound operations.
@@ -33,12 +34,12 @@ import org.exbin.jaguif.operation.undo.api.UndoRedoChangeListener;
 @NullMarked
 public class TextPanelCompoundUndoManager extends AbstractUndoableEdit implements UndoableEditListener {
 
-    private DocumentEvent.EventType lastEditType = null;
-    private final ArrayList<MyCompoundEdit> edits = new ArrayList<>();
-    private MyCompoundEdit current;
-    private int pointer = -1;
-    private int lastOffset = -1;
-    private UndoRedoChangeListener undoRedoChangeListener;
+    protected DocumentEvent.@Nullable EventType lastEditType = null;
+    protected final ArrayList<MyCompoundEdit> edits = new ArrayList<>();
+    protected @Nullable MyCompoundEdit current;
+    protected int pointer = -1;
+    protected int lastOffset = -1;
+    protected @Nullable UndoRedoChangeListener undoRedoChangeListener;
 
     public TextPanelCompoundUndoManager() {
     }

@@ -47,8 +47,8 @@ public class SettingsListPanel extends javax.swing.JPanel implements SettingsPag
     private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SettingsListPanel.class);
     private final List<SettingsPage> settingsPages = new ArrayList<>();
     private final Map<String, Integer> optionPageKeys = new HashMap<>();
-    private SettingsPage currentSettingsPanel = null;
-    private SettingsModifiedListener settingsModifiedListener;
+    private @Nullable SettingsPage currentSettingsPanel = null;
+    private @Nullable SettingsModifiedListener settingsModifiedListener;
     private final List<LazyComponentListener> listeners = new ArrayList<>();
     private String rootCaption;
 

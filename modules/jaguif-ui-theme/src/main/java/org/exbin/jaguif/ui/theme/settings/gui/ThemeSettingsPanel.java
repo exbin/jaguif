@@ -44,10 +44,10 @@ public class ThemeSettingsPanel extends javax.swing.JPanel implements SettingsCo
 
     protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ThemeSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
-    protected Controller controller;
-    protected SettingsOptionsProvider settingsOptionsProvider;
-    protected Map<String, ConfigurableLafProvider> themeOptions = null;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable Controller controller;
+    protected @Nullable SettingsOptionsProvider settingsOptionsProvider;
+    protected @Nullable Map<String, ConfigurableLafProvider> themeOptions = null;
 
     public ThemeSettingsPanel() {
         init();

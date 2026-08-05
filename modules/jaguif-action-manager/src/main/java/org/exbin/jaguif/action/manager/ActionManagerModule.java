@@ -27,6 +27,7 @@ import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
 import org.exbin.jaguif.options.settings.api.SettingsComponentContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Action manager module.
@@ -38,7 +39,7 @@ public class ActionManagerModule implements org.exbin.jaguif.Module {
 
     public static final String SETTINGS_PAGE_ID = "keymap";
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
     public ActionManagerModule() {
     }

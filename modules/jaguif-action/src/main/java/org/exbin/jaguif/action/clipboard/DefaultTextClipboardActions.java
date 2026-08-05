@@ -29,6 +29,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.utils.ActionUtils;
 import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationActions;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Clipboard actions for text component.
@@ -45,8 +46,8 @@ public class DefaultTextClipboardActions implements TextClipboardOperationAction
     public static final String DELETE_ACTION = "delete";
     public static final String SELECT_ALL_ACTION = "selectAll";
 
-    protected ResourceBundle resourceBundle;
-    protected ActionMap actionMap;
+    protected @Nullable ResourceBundle resourceBundle;
+    protected @Nullable ActionMap actionMap;
 
     public DefaultTextClipboardActions() {
     }

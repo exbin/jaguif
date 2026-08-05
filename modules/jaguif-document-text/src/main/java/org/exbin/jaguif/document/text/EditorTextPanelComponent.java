@@ -37,7 +37,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 @NullMarked
 public class EditorTextPanelComponent implements ContextComponent, TextPanelComponent, TextClipboardOperationController, CharsetEncodingState, TextAppearanceState, TextColorState, TextFontState {
 
-    private final TextPanel textPanel;
+    protected final TextPanel textPanel;
 
     public EditorTextPanelComponent(TextPanel textPanel) {
         this.textPanel = textPanel;

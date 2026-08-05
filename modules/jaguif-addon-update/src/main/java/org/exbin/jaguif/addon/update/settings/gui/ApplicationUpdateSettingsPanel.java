@@ -23,6 +23,7 @@ import org.exbin.jaguif.addon.update.settings.CheckForUpdateOptions;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Application update settings panel.
@@ -32,7 +33,7 @@ public class ApplicationUpdateSettingsPanel extends javax.swing.JPanel implement
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ApplicationUpdateSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
     
     public ApplicationUpdateSettingsPanel() {
         initComponents();

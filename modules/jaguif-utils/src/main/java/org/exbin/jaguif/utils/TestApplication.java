@@ -35,7 +35,6 @@ import org.exbin.jaguif.ModuleProvider;
 public class TestApplication {
 
     private static final String MODULE_ID = "MODULE_ID";
-    private static final String MODULE_FILE = "module.xml";
 
     private final Map<String, Module> modules = new HashMap<>();
 
@@ -89,13 +88,7 @@ public class TestApplication {
                                 return (T) module;
                             }
 
-//                            if ("org.exbin.jaguif.language.LanguageModule".equals(interfaceModuleId)) {
-//                                return (T) languageModule;
-//                            }
                             throw new IllegalStateException("Module not included in test application: " + interfaceModuleId);
-//                            
-//                            XBApplicationModule module = modules.get((String) interfaceModuleId);
-//                            return (T) module;
                         }
                     }
                 } catch (IllegalAccessException | NoSuchFieldException | SecurityException ex) {

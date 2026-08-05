@@ -36,11 +36,9 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class SideBarModule implements SideBarModuleApi {
 
-    @Nullable
-    private SideBarManager mainSideBarManager = null;
+    private @Nullable SideBarManager mainSideBarManager = null;
     private boolean autoShow = false;
-    @Nullable
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
     public SideBarModule() {
     }

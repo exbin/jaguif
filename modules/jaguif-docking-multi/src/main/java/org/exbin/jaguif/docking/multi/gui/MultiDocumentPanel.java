@@ -32,7 +32,7 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 @NullMarked
 public class MultiDocumentPanel extends javax.swing.JPanel {
 
-    protected Controller controller;
+    protected @Nullable Controller controller;
     protected int activeIndex = -1;
 
     public MultiDocumentPanel() {

@@ -26,17 +26,17 @@ import javax.swing.ImageIcon;
 @NullMarked
 public class ItemRecord {
 
-    private String id;
-    private String name;
-    private String version = "";
-    private boolean enabled = true;
-    private boolean installed = false;
-    private boolean updateAvailable = false;
-    private boolean addon = false;
-    private ImageIcon icon;
-    private String provider = null;
-    private String homepage = null;
-    private String description = null;
+    protected String id;
+    protected String name;
+    protected String version = "";
+    protected boolean enabled = true;
+    protected boolean installed = false;
+    protected boolean updateAvailable = false;
+    protected boolean addon = false;
+    protected @Nullable ImageIcon icon;
+    protected @Nullable String provider = null;
+    protected @Nullable String homepage = null;
+    protected @Nullable String description = null;
 
     public ItemRecord() {
         this("", "");

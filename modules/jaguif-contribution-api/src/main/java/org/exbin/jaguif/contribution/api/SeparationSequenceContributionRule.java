@@ -25,7 +25,7 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 public class SeparationSequenceContributionRule implements SequenceContributionRule {
 
-    private final SeparationMode separationMode;
+    protected final SeparationMode separationMode;
 
     public SeparationSequenceContributionRule(SeparationMode separationMode) {
         this.separationMode = separationMode;

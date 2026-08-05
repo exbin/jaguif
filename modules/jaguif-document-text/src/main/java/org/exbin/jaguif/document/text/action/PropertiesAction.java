@@ -31,6 +31,7 @@ import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.gui.CloseControlPanel;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.document.api.ContextDocument;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text document properties action.
@@ -40,7 +41,7 @@ public class PropertiesAction extends AbstractAction {
 
     public static final String ACTION_ID = "properties";
 
-    private TextDocument textDocument;
+    protected @Nullable TextDocument textDocument;
 
     public PropertiesAction() {
     }

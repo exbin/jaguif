@@ -39,7 +39,7 @@ public class CutAction extends AbstractAction implements ActionContextChange {
 
     public static final String ACTION_ID = "cut";
 
-    protected ClipboardOperationController clipboardSupport;
+    protected @Nullable ClipboardOperationController clipboardSupport;
 
     public CutAction() {
     }

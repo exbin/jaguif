@@ -36,6 +36,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.menu.api.MenuBuilder;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Encodings manager.
@@ -45,17 +46,17 @@ public class EncodingsManager {
 
     public static final String ENCODING_UTF8 = "UTF-8"; //NOI18N
 
-    private final ResourceBundle resourceBundle;
+    protected final ResourceBundle resourceBundle;
 
-    private CharsetListEncodingState listEncodingState = null;
-    private CharsetEncodingState encodingState = null;
-    private ActionListener encodingActionListener;
-    private ButtonGroup encodingButtonGroup;
-    private javax.swing.JMenu toolsEncodingMenu;
-    private javax.swing.JMenuItem utfEncodingRadioButtonMenuItem;
-    private ActionListener utfEncodingActionListener;
+    protected @Nullable CharsetListEncodingState listEncodingState = null;
+    protected @Nullable CharsetEncodingState encodingState = null;
+    protected @Nullable ActionListener encodingActionListener;
+    protected @Nullable ButtonGroup encodingButtonGroup;
+    protected javax.swing.@Nullable JMenu toolsEncodingMenu;
+    protected javax.swing.@Nullable JMenuItem utfEncodingRadioButtonMenuItem;
+    protected @Nullable ActionListener utfEncodingActionListener;
 
-    private ManageEncodingsAction manageEncodingsAction;
+    protected ManageEncodingsAction manageEncodingsAction;
 
     public EncodingsManager() {
         resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(EncodingsManager.class);

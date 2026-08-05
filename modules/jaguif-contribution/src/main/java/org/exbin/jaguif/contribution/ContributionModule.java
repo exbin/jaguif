@@ -25,6 +25,7 @@ import org.exbin.jaguif.contribution.api.ContributionModuleApi;
 import org.exbin.jaguif.contribution.api.ContributionSequenceBuilder;
 import org.exbin.jaguif.contribution.api.TreeContributionManagement;
 import org.exbin.jaguif.contribution.api.TreeContributionSequenceBuilder;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of contribution module.
@@ -32,7 +33,7 @@ import org.exbin.jaguif.contribution.api.TreeContributionSequenceBuilder;
 @NullMarked
 public class ContributionModule implements ContributionModuleApi {
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
     public ContributionModule() {
     }

@@ -20,6 +20,7 @@ import java.util.prefs.Preferences;
 import java.util.prefs.PreferencesFactory;
 import java.util.regex.Pattern;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 /**
  * File preferences class.
@@ -29,10 +30,10 @@ public class FilePreferencesFactory implements PreferencesFactory {
 
     public static String preferenceFilename = "prefs.xml";
     public static String preferencesPath = null;
-    private static final String PREFERENCES_FACTORY_PROPERTY = "java.util.prefs.PreferencesFactory";
-    private static final String PREFERENCES_FACTORY_CLASS = FilePreferencesFactory.class.getName();
-    private Preferences userPreferences;
-    private Preferences systemPreferences;
+    protected static final String PREFERENCES_FACTORY_PROPERTY = "java.util.prefs.PreferencesFactory";
+    protected static final String PREFERENCES_FACTORY_CLASS = FilePreferencesFactory.class.getName();
+    protected @Nullable Preferences userPreferences;
+    protected @Nullable Preferences systemPreferences;
 
     @Override
     public Preferences systemRoot() {

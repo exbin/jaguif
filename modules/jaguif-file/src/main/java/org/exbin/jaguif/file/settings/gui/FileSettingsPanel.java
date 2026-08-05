@@ -39,7 +39,7 @@ public class FileSettingsPanel extends javax.swing.JPanel implements SettingsCom
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FileSettingsPanel.class);
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
 
     public FileSettingsPanel() {
         initComponents();

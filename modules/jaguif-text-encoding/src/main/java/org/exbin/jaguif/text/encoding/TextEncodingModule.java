@@ -34,6 +34,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.exbin.jaguif.options.settings.api.ApplySettingsContribution;
 import org.exbin.jaguif.text.encoding.settings.TextEncodingSettingsApplier;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text encoding module.
@@ -44,9 +45,9 @@ public class TextEncodingModule implements Module {
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(TextEncodingModule.class);
     public static final String SETTINGS_PAGE_ID = "textEncoding";
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
-    private EncodingsManager encodingsManager;
+    private @Nullable EncodingsManager encodingsManager;
 
     public TextEncodingModule() {
     }

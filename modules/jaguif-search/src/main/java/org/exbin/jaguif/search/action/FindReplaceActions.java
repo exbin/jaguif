@@ -30,6 +30,7 @@ import org.exbin.jaguif.search.SearchModule;
 import org.exbin.jaguif.search.api.SearchModuleApi;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Find/replace actions for searching.
@@ -37,7 +38,7 @@ import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 @NullMarked
 public class FindReplaceActions {
 
-    private ResourceBundle resourceBundle;
+    protected @Nullable ResourceBundle resourceBundle;
 
     public FindReplaceActions() {
     }

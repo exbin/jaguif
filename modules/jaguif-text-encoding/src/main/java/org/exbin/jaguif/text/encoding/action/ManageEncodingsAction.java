@@ -42,6 +42,7 @@ import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.text.encoding.CharsetListEncodingState;
 import org.exbin.jaguif.text.encoding.ContextEncoding;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Manage encodings action.
@@ -52,7 +53,7 @@ public class ManageEncodingsAction extends AbstractAction {
     public static final String ACTION_ID = "manageEncodings";
     public static final String HELP_ID = "encoding";
 
-    private CharsetListEncodingState charsetEncodingState;
+    protected @Nullable CharsetListEncodingState charsetEncodingState;
 
     public ManageEncodingsAction() {
     }

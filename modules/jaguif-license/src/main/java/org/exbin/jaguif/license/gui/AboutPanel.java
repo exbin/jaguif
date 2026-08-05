@@ -33,8 +33,8 @@ import org.exbin.jaguif.utils.UiUtils;
 public class AboutPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AboutPanel.class);
-    protected JComponent sideComponent = null;
-    protected JComponent centerComponent = null;
+    protected @Nullable JComponent sideComponent = null;
+    protected @Nullable JComponent centerComponent = null;
     protected boolean darkMode = false;
 
     public AboutPanel() {

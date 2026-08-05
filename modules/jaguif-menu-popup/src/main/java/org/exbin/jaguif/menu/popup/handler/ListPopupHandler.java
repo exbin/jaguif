@@ -29,7 +29,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationController;
 @NullMarked
 public class ListPopupHandler implements TextClipboardOperationController {
 
-    private final JList<?> listComp;
+    protected final JList<?> listComp;
 
     public ListPopupHandler(JList<?> listComp) {
         this.listComp = listComp;

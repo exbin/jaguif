@@ -24,9 +24,26 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public interface AddonsManagementLocalState extends AddonsManagementContext {
 
+    /**
+     * Returns list of installed addons.
+     *
+     * @return installed addons
+     */
     List<ItemRecord> getInstalledAddons();
 
+    /**
+     * Returns true if module is installed.
+     *
+     * @param moduleId module identifier
+     * @return true if installed
+     */
     boolean isModuleInstalled(String moduleId);
 
+    /**
+     * Returns true if module is removed.
+     *
+     * @param moduleId module identifier
+     * @return true if removed
+     */
     boolean isModuleRemoved(String moduleId);
 }

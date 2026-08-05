@@ -60,13 +60,13 @@ import org.xml.sax.SAXParseException;
 @NullMarked
 public class FilePreferences extends AbstractPreferences {
 
-    private static final String MAP_XML_VERSION_ATTRIBUTE = "MAP_XML_VERSION";
-    private static final String MAP_XML_VERSION_VALUE = "1.0";
-    private static final String ENCODING_UTF8 = "UTF-8";
+    protected static final String MAP_XML_VERSION_ATTRIBUTE = "MAP_XML_VERSION";
+    protected static final String MAP_XML_VERSION_VALUE = "1.0";
+    protected static final String ENCODING_UTF8 = "UTF-8";
 
-    private final File preferencesFile;
-    private final Map<String, String> spiValues;
-    private Map<String, FilePreferences> children;
+    protected final File preferencesFile;
+    protected final Map<String, String> spiValues;
+    protected Map<String, FilePreferences> children;
 
     public FilePreferences() {
         this(null, "");

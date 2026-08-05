@@ -17,6 +17,7 @@ package org.exbin.jaguif.toolbar.api;
 
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
+import java.util.function.Supplier;
 
 /**
  * Default action toolbar item contribution.
@@ -25,25 +26,20 @@ import javax.swing.Action;
 public class DefaultActionToolBarContribution implements ActionToolBarContribution {
 
     protected final String contributionId;
-    protected final ActionCreator actionCreator;
+    protected final Supplier<Action> actionSupplier;
 
-    public DefaultActionToolBarContribution(String contributionId, ActionCreator actionCreator) {
+    public DefaultActionToolBarContribution(String contributionId, Supplier<Action> actionSupplier) {
         this.contributionId = contributionId;
-        this.actionCreator = actionCreator;
+        this.actionSupplier = actionSupplier;
     }
 
     @Override
     public Action createAction() {
-        return actionCreator.createAction();
+        return actionSupplier.get();
     }
 
     @Override
     public String getContributionId() {
         return contributionId;
-    }
-
-    public interface ActionCreator {
-
-        Action createAction();
     }
 }

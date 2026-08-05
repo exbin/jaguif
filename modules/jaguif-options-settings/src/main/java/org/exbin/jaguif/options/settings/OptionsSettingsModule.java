@@ -49,11 +49,11 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
     public static final String OPTIONS_PANEL_KEY = "options";
     public static final String OPTIONS_GROUP_PREFIX = "optionsGroup.";
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
     private SettingsPanelType settingsPanelType = SettingsPanelType.TREE;
-    private OptionsSettingsManager optionsSettingsManager;
-    private String optionsRootCaption = null;
+    private @Nullable OptionsSettingsManager optionsSettingsManager;
+    private @Nullable String optionsRootCaption = null;
 
     public OptionsSettingsModule() {
     }

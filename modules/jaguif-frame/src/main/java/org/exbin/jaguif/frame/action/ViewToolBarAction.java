@@ -30,6 +30,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.frame.ApplicationFrame;
 import org.exbin.jaguif.frame.api.ContextFrame;
 import org.exbin.jaguif.frame.api.FrameController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * View toolbar action.
@@ -38,7 +39,7 @@ import org.exbin.jaguif.frame.api.FrameController;
 public class ViewToolBarAction extends AbstractAction {
 
     public static final String ACTION_ID = "viewToolBar";
-    protected FrameController frame;
+    protected @Nullable FrameController frame;
 
     public void init(ResourceBundle resourceBundle) {
         ActionModuleApi actionModule = App.getModule(ActionModuleApi.class);

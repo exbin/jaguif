@@ -27,6 +27,7 @@ import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
 import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.document.api.EmptyDocumentSource;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Implementation of the document module.
@@ -34,8 +35,8 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 @NullMarked
 public class DocumentModule implements DocumentModuleApi {
 
-    private ResourceBundle resourceBundle;
-    private DocumentManager mainDocumentManager;
+    private @Nullable ResourceBundle resourceBundle;
+    private @Nullable DocumentManager mainDocumentManager;
 
     public DocumentModule() {
     }

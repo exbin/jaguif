@@ -30,6 +30,7 @@ import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.document.text.settings.TextColorInference;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text color selection panel.
@@ -37,10 +38,10 @@ import org.exbin.jaguif.document.text.settings.TextColorInference;
 @NullMarked
 public class TextColorPanel extends javax.swing.JPanel implements SettingsComponent {
 
-    protected SettingsModifiedListener settingsModifiedListener;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextColorPanel.class);
     protected static final String RESOURCE_COLOR_CHOOSER_TITLE = "JColorChooser.title";
-    protected TextColorInference textColorInference;
+    protected @Nullable TextColorInference textColorInference;
 
     public TextColorPanel() {
         initComponents();
