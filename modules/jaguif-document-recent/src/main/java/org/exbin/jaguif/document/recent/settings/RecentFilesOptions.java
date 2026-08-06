@@ -30,7 +30,7 @@ public class RecentFilesOptions implements SettingsOptions {
     public static final String KEY_RECENT_FILE_MODULE_PREFIX = "recentFile.module.";
     public static final String KEY_RECENT_FILE_MODE_PREFIX = "recentFile.mode.";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public RecentFilesOptions(OptionsStorage storage) {
         this.storage = storage;

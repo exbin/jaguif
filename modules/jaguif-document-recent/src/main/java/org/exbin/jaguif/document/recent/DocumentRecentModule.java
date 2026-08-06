@@ -47,8 +47,8 @@ public class DocumentRecentModule implements Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(DocumentRecentModule.class);
 
-    private ResourceBundle resourceBundle;
-    private RecentFilesActions recentFilesActions;
+    private @Nullable ResourceBundle resourceBundle;
+    private @Nullable RecentFilesActions recentFilesActions;
 
     public DocumentRecentModule() {
     }
@@ -96,8 +96,8 @@ public class DocumentRecentModule implements Module {
                     return fileTypes;
                 }
             });
-            OptionsModuleApi preferencesModule = App.getModule(OptionsModuleApi.class);
-            recentFilesActions.setOptionsStorage(preferencesModule.getAppOptions());
+            OptionsModuleApi optionsModule = App.getModule(OptionsModuleApi.class);
+            recentFilesActions.setOptionsStorage(optionsModule.getAppOptions());
         }
         return recentFilesActions;
     }

@@ -28,7 +28,7 @@ public class FileOptions implements SettingsOptions {
 
     public static final String KEY_FILE_DIALOGS = "fileDialogs";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public FileOptions(OptionsStorage storage) {
         this.storage = storage;

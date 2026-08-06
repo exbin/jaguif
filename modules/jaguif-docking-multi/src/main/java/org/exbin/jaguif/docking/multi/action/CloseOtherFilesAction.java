@@ -28,6 +28,7 @@ import org.exbin.jaguif.docking.multi.DefaultMultiDocking;
 import org.exbin.jaguif.docking.api.ContextDocking;
 import org.exbin.jaguif.document.api.ContextDocument;
 import org.exbin.jaguif.document.api.Document;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Close other files action.
@@ -37,8 +38,8 @@ public class CloseOtherFilesAction extends AbstractAction {
 
     public static final String ACTION_ID = "fileCloseOther";
 
-    private DefaultMultiDocking multiDocking;
-    private Document document;
+    protected @Nullable DefaultMultiDocking multiDocking;
+    protected @Nullable Document document;
 
     public CloseOtherFilesAction() {
     }

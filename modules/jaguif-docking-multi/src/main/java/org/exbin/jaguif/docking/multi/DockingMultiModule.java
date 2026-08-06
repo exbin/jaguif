@@ -42,6 +42,7 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.WindowModuleApi;
 import org.exbin.jaguif.document.api.EmptyDocumentSource;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Interface for docking module.
@@ -52,7 +53,7 @@ public class DockingMultiModule implements DockingMultiModuleApi {
     public static String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingMultiModule.class);
     public static final String DOCUMENT_CONTEXT_MENU_ID = "documentContextMenu";
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {

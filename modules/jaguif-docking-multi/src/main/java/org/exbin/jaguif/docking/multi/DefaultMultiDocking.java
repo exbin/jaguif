@@ -66,13 +66,13 @@ import org.exbin.jaguif.document.api.EmptyDocumentSource;
 public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, WindowClosingListener {
 
     protected final List<Document> openDocuments = new ArrayList<>();
-    protected final DockingPanel docking = new DockingPanel();
+    protected final DockingPanel dockingComponent = new DockingPanel();
     protected final MultiDocumentPanel documentPanel = new MultiDocumentPanel();
-    protected Document lastActiveDocument = null;
-    protected ActiveContextManagement contextManager = null;
+    protected @Nullable Document lastActiveDocument = null;
+    protected @Nullable ActiveContextManagement contextManager = null;
 
     public DefaultMultiDocking() {
-        docking.setContentComponent(documentPanel);
+        dockingComponent.setContentComponent(documentPanel);
         documentPanel.setController(new MultiDocumentPanel.Controller() {
             @Override
             public void activeIndexChanged(int index) {
@@ -126,7 +126,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
 
     @Override
     public Component getComponent() {
-        return docking;
+        return dockingComponent;
     }
 
     @Override
@@ -238,7 +238,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
     public boolean releaseDocument(Document document) {
         if (document instanceof EditableDocument && ((EditableDocument) document).isModified()) {
             FileModuleApi fileModule = App.getModule(FileModuleApi.class);
-            SaveModifiedResult result = fileModule.showSaveModified(docking);
+            SaveModifiedResult result = fileModule.showSaveModified(dockingComponent);
             switch (result) {
                 case SAVE:
                     DocumentModuleApi documentModule = App.getModule(DocumentModuleApi.class);
@@ -294,22 +294,22 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
 
     @Override
     public void setSideToolBar(@Nullable Component sideToolBar) {
-        docking.setSideToolBar(sideToolBar);
+        dockingComponent.setSideToolBar(sideToolBar);
     }
 
     @Override
     public void setSideComponent(@Nullable Component sideComponent) {
-        docking.setSideComponent(sideComponent);
+        dockingComponent.setSideComponent(sideComponent);
     }
 
     @Override
     public boolean isSidePanelVisible() {
-        return docking.isSidePanelVisible();
+        return dockingComponent.isSidePanelVisible();
     }
 
     @Override
     public void setSidePanelVisible(boolean visible) {
-        docking.setSidePanelVisible(visible);
+        dockingComponent.setSidePanelVisible(visible);
     }
 
     @Override
@@ -341,8 +341,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
         this.contextManager = null;
     }
 
-    @Nullable
-    private Document getDocument() {
+    private @Nullable Document getDocument() {
         int activeIndex = documentPanel.getActiveIndex();
         if (activeIndex < 0) {
             return null;

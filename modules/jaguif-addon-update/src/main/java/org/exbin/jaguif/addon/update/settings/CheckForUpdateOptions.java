@@ -27,7 +27,7 @@ public class CheckForUpdateOptions implements SettingsOptions {
 
     public static final String KEY_CHECK_FOR_UPDATE_ON_START = "start.checkForUpdate";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public CheckForUpdateOptions(OptionsStorage storage) {
         this.storage = storage;

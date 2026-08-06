@@ -25,6 +25,7 @@ import javax.swing.Icon;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.api.ComponentDocument;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Multi document panel.

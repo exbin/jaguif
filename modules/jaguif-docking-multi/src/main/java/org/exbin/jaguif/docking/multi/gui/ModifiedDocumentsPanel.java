@@ -15,6 +15,7 @@ package org.exbin.jaguif.docking.multi.gui;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
@@ -25,6 +26,7 @@ import org.exbin.jaguif.document.api.Document;
 import org.exbin.jaguif.document.api.NamedDocument;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.WindowUtils;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Modified documents panel.
@@ -32,8 +34,8 @@ import org.exbin.jaguif.utils.WindowUtils;
 @NullMarked
 public class ModifiedDocumentsPanel extends javax.swing.JPanel {
 
-    private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ModifiedDocumentsPanel.class);
-    private List<Document> documents;
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(ModifiedDocumentsPanel.class);
+    protected final List<Document> documents = new ArrayList<>();
     protected @Nullable Controller controller;
 
     public ModifiedDocumentsPanel() {
@@ -60,7 +62,8 @@ public class ModifiedDocumentsPanel extends javax.swing.JPanel {
     }
 
     public void setDocuments(List<Document> documents) {
-        this.documents = documents;
+        this.documents.clear();
+        this.documents.addAll(documents);
         DefaultListModel<String> listModel = new DefaultListModel<>();
         for (Document document : documents) {
             String documentName = document instanceof NamedDocument ? ((NamedDocument) document).getDocumentName() : "-";

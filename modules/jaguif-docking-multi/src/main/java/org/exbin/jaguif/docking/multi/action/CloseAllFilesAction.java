@@ -26,6 +26,7 @@ import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.docking.multi.DefaultMultiDocking;
 import org.exbin.jaguif.docking.api.ContextDocking;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Close all files action.
@@ -35,7 +36,7 @@ public class CloseAllFilesAction extends AbstractAction {
 
     public static final String ACTION_ID = "fileCloseAll";
 
-    protected DefaultMultiDocking multiDocking;
+    protected @Nullable DefaultMultiDocking multiDocking;
 
     public CloseAllFilesAction() {
     }

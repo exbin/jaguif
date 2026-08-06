@@ -35,7 +35,7 @@ public class StartupOptions implements SettingsOptions {
     public static final String KEY_SESSION_FILE_COUNT = "session.fileCount";
     public static final String KEY_SESSION_FILE_PREFIX = "session.file.";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public StartupOptions(OptionsStorage storage) {
         this.storage = storage;

@@ -34,7 +34,7 @@ public class ThemeOptions implements SettingsOptions {
     public static final String KEY_RENDERING_USE_SCREEN_MENU_BAR = "rendering.useScreenMenuBar";
     public static final String KEY_RENDERING_MACOS_APPEARANCE = "rendering.macOsAppearance";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public ThemeOptions(OptionsStorage storage) {
         this.storage = storage;

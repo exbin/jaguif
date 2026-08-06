@@ -42,7 +42,7 @@ public class TextFontOptions implements SettingsOptions {
     public static final String KEY_TEXT_FONT_SUBSCRIPT = KEY_TEXT_FONT_PREFIX + "subscript";
     public static final String KEY_TEXT_FONT_SUPERSCRIPT = KEY_TEXT_FONT_PREFIX + "superscript";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public TextFontOptions(OptionsStorage storage) {
         this.storage = storage;

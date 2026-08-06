@@ -45,12 +45,12 @@ import org.exbin.jaguif.options.api.OptionsStorage;
 @NullMarked
 public class RecentFilesActions {
 
-    protected ResourceBundle resourceBundle;
-    protected FilesController filesController;
-    protected OptionsStorage optionsStorage;
+    protected @Nullable ResourceBundle resourceBundle;
+    protected @Nullable FilesController filesController;
+    protected @Nullable OptionsStorage optionsStorage;
 
-    protected List<RecentItem> recentFiles = null;
-    protected List<JMenu> fileOpenRecentMenus = new ArrayList<>();
+    protected final List<RecentItem> recentFiles = new ArrayList<>();
+    protected final List<JMenu> fileOpenRecentMenus = new ArrayList<>();
 
     public RecentFilesActions() {
     }
@@ -77,7 +77,7 @@ public class RecentFilesActions {
         MenuBuilder menuBuilder = menuModule.getMenuBuilder();
         JMenu fileOpenRecentMenu = menuBuilder.createMenu();
         fileOpenRecentMenu.setAction(fileOpenRecentAction);
-        recentFiles = new ArrayList<>();
+        recentFiles.clear();
         if (optionsStorage != null) {
             loadState(fileOpenRecentMenu);
         }
@@ -103,10 +103,6 @@ public class RecentFilesActions {
     }
 
     private void saveState() {
-        if (recentFiles == null) {
-            return;
-        }
-
         RecentFilesOptions recentFilesParameters = new RecentFilesOptions(optionsStorage);
         for (int i = 0; i < recentFiles.size(); i++) {
             recentFilesParameters.setFilePath(recentFiles.get(i).getFileName(), i + 1);
@@ -189,25 +185,23 @@ public class RecentFilesActions {
     }
 
     public void updateRecentFilesList(URI fileUri, @Nullable FileType fileType) {
-        if (recentFiles != null) {
-            int i = 0;
-            while (i < recentFiles.size()) {
-                RecentItem recentItem = recentFiles.get(i);
-                if (fileUri.toString().equals(recentItem.getFileName())) {
-                    recentFiles.remove(i);
-                }
-                i++;
+        int i = 0;
+        while (i < recentFiles.size()) {
+            RecentItem recentItem = recentFiles.get(i);
+            if (fileUri.toString().equals(recentItem.getFileName())) {
+                recentFiles.remove(i);
             }
+            i++;
+        }
 
-            recentFiles.add(0, new RecentItem(fileUri.toString(), "", fileType != null ? fileType.getFileTypeId() : null));
-            if (recentFiles.size() > 15) {
-                recentFiles.remove(15);
-            }
+        recentFiles.add(0, new RecentItem(fileUri.toString(), "", fileType != null ? fileType.getFileTypeId() : null));
+        if (recentFiles.size() > 15) {
+            recentFiles.remove(15);
+        }
 
-            // TODO Replace with state change
-            for (JMenu fileOpenRecentMenu : fileOpenRecentMenus) {
-                rebuildRecentFilesMenu(fileOpenRecentMenu);
-            }
+        // TODO Replace with state change
+        for (JMenu fileOpenRecentMenu : fileOpenRecentMenus) {
+            rebuildRecentFilesMenu(fileOpenRecentMenu);
         }
     }
 
@@ -216,9 +210,9 @@ public class RecentFilesActions {
      */
     public class RecentItem {
 
-        private String fileName;
-        private String moduleName;
-        private String fileMode;
+        private @Nullable String fileName;
+        private @Nullable String moduleName;
+        private @Nullable String fileMode;
 
         public RecentItem(@Nullable String fileName, @Nullable String moduleName, @Nullable String fileMode) {
             this.fileName = fileName;

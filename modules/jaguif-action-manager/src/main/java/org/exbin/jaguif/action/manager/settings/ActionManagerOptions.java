@@ -30,7 +30,7 @@ public class ActionManagerOptions implements SettingsOptions {
     public static final String KEY_ACTION_KEY_ID = "id";
     public static final String KEY_ACTION_KEY_SHORTCUT = "shortcut";
 
-    private final OptionsStorage storage;
+    protected final OptionsStorage storage;
 
     public ActionManagerOptions(OptionsStorage storage) {
         this.storage = storage;
