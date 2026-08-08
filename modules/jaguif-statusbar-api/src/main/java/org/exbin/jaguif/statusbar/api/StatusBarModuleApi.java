@@ -26,7 +26,7 @@ import org.exbin.jaguif.context.api.ContextRegistration;
 @NullMarked
 public interface StatusBarModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(StatusBarModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(StatusBarModuleApi.class);
     public static final String MAIN_STATUS_BAR_ID = "mainStatusBar";
 
     /**

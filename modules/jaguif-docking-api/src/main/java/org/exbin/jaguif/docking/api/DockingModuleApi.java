@@ -26,7 +26,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface DockingModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingModuleApi.class);
 
     /**
      * Registers file handling operations to main frame menu.

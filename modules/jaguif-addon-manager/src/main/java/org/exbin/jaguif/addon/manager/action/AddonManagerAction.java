@@ -33,6 +33,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.help.api.HelpLink;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addon manager action.
@@ -44,7 +45,7 @@ public class AddonManagerAction extends AbstractAction {
     public static final String HELP_ID = "addon-manager";
 
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManagerAction.class);
-    protected DialogParentComponent dialogParentComponent;
+    protected @Nullable DialogParentComponent dialogParentComponent;
 
     public AddonManagerAction() {
         init();

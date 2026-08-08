@@ -37,7 +37,7 @@ import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 @NullMarked
 public interface MenuModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(MenuModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(MenuModuleApi.class);
     public static final String MAIN_MENU_ID = "mainMenu";
     public static final String FILE_SUBMENU_ID = MAIN_MENU_ID + "/File";
     public static final String EDIT_SUBMENU_ID = MAIN_MENU_ID + "/Edit";

@@ -248,7 +248,7 @@ public class WindowUtils {
         position.setRelativeY(window.getY() - screenY);
         position.setWidth(window.getWidth());
         position.setHeight(window.getHeight());
-        position.setMaximized(window instanceof Frame ? (((Frame) window).getExtendedState() & JFrame.MAXIMIZED_BOTH) > 0 : false);
+        position.setMaximized(window instanceof Frame && (((Frame) window).getExtendedState() & JFrame.MAXIMIZED_BOTH) > 0);
         return position;
     }
 

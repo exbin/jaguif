@@ -28,7 +28,7 @@ import org.exbin.jaguif.action.api.ContextRegistrationProvider;
 @NullMarked
 public interface MenuPopupModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(MenuPopupModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(MenuPopupModuleApi.class);
 
     /**
      * Registers popup menu show for various supported components across all

@@ -51,7 +51,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     public static final String PAGE_ID = "addonsCatalog";
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsCatalogPage.class);
     protected AddonsListComponent listComponent;
-    protected List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
+    protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
     protected AddonCatalogService addonCatalogService;
 
     protected AddonsManagementContext addonsManagement;

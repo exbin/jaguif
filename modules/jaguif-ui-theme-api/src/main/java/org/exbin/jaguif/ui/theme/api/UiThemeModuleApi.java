@@ -26,7 +26,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface UiThemeModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(UiThemeModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(UiThemeModuleApi.class);
 
     /**
      * Registers look and feel provider.

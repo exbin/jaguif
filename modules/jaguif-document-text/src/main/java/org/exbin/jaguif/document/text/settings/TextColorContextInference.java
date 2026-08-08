@@ -25,7 +25,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 @NullMarked
 public class TextColorContextInference implements TextColorInference {
 
-    protected ContextStateProvider contextProvider;
+    protected final ContextStateProvider contextProvider;
 
     public TextColorContextInference(ContextStateProvider contextProvider) {
         this.contextProvider = contextProvider;

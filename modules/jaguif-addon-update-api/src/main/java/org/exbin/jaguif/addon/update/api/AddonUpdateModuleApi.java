@@ -29,7 +29,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface AddonUpdateModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonUpdateModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonUpdateModuleApi.class);
 
     /**
      * Returns check for available updates action.

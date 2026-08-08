@@ -28,6 +28,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.operation.model.LicenseItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.DesktopUtils;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addons operation license approval panel.
@@ -37,7 +38,7 @@ public class AddonOperationLicensePanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationLicensePanel.class);
     protected @Nullable Controller controller;
-    protected List<LicenseItemRecord> licenseRecords;
+    protected @Nullable List<LicenseItemRecord> licenseRecords;
     protected int toApprove;
 
     public AddonOperationLicensePanel() {

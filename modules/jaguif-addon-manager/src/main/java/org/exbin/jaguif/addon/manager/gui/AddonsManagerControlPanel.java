@@ -34,6 +34,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.DesktopUtils;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.CloseControlController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Control panel for addons manager.
@@ -43,8 +44,8 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
 
     protected final java.util.ResourceBundle resourceBundle;
     protected @Nullable Controller controller;
-    protected Component activeStatusComponent = null;
-    protected Component defaultStatusComponent = null;
+    protected @Nullable Component activeStatusComponent = null;
+    protected @Nullable Component defaultStatusComponent = null;
 
     public AddonsManagerControlPanel() {
         this(App.getModule(LanguageModuleApi.class).getBundle(AddonsManagerControlPanel.class));

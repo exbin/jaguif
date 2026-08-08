@@ -30,9 +30,9 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class UndoManagerPanel extends javax.swing.JPanel {
 
-    private @Nullable UndoManagerModel undoModel = new UndoManagerModel();
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(UndoManagerPanel.class);
-    private @Nullable UndoManagerService undoManagerService;
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(UndoManagerPanel.class);
+    protected final UndoManagerModel undoModel = new UndoManagerModel();
+    protected @Nullable UndoManagerService undoManagerService;
 
     public UndoManagerPanel() {
         initComponents();

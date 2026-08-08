@@ -34,7 +34,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface WindowModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(WindowModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(WindowModuleApi.class);
 
     /**
      * Creates basic dialog and sets it up.

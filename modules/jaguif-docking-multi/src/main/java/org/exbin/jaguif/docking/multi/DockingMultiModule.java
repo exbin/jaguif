@@ -50,7 +50,7 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class DockingMultiModule implements DockingMultiModuleApi {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingMultiModule.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingMultiModule.class);
     public static final String DOCUMENT_CONTEXT_MENU_ID = "documentContextMenu";
 
     private @Nullable ResourceBundle resourceBundle;

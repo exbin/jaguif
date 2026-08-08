@@ -33,7 +33,7 @@ import org.exbin.jaguif.utils.WindowClosingListener;
 @NullMarked
 public interface FrameModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(FrameModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(FrameModuleApi.class);
 
     public static final String SETTINGS_PAGE_ID = "appearance";
     public static final String DEFAULT_STATUS_BAR_ID = "default";

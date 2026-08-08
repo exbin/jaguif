@@ -28,7 +28,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 @NullMarked
 public class TextFontContextInference implements TextFontInference {
 
-    protected ContextStateProvider contextProvider;
+    protected final ContextStateProvider contextProvider;
 
     public TextFontContextInference(ContextStateProvider contextProvider) {
         this.contextProvider = contextProvider;

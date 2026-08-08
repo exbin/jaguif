@@ -61,7 +61,7 @@ public class ClipboardUtils {
     @NullMarked
     private static class TransferableImage implements Transferable, ClipboardOwner {
 
-        Image image;
+        final Image image;
 
         public TransferableImage(Image image) {
             this.image = image;

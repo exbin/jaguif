@@ -35,7 +35,7 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class ActionManagerModule implements org.exbin.jaguif.Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ActionManagerModule.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(ActionManagerModule.class);
 
     public static final String SETTINGS_PAGE_ID = "keymap";
 

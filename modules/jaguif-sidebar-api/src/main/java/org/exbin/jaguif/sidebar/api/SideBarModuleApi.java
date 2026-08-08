@@ -27,7 +27,7 @@ import org.exbin.jaguif.docking.api.SidePanelDocking;
 @NullMarked
 public interface SideBarModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(SideBarModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(SideBarModuleApi.class);
     public static final String MAIN_SIDE_BAR_ID = "mainSideBar";
 
     /**

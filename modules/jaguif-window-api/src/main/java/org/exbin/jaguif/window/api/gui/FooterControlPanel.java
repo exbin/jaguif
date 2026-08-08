@@ -35,8 +35,8 @@ public class FooterControlPanel extends JPanel {
     protected final java.util.ResourceBundle resourceBundle;
 
     protected GroupLayout.ParallelGroup verticalGroup;
-    protected List<JComponent> leftComponents = new ArrayList<>();
-    protected List<JComponent> rightComponents = new ArrayList<>();
+    protected final List<JComponent> leftComponents = new ArrayList<>();
+    protected final List<JComponent> rightComponents = new ArrayList<>();
 
     public FooterControlPanel() {
         this(App.getModule(LanguageModuleApi.class).getBundle(FooterControlPanel.class));

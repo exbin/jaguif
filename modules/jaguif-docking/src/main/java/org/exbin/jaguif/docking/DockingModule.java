@@ -40,6 +40,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Interface for docking module.
@@ -47,9 +48,9 @@ import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 @NullMarked
 public class DockingModule implements DockingModuleApi {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingModule.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingModule.class);
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
 
     public ResourceBundle getResourceBundle() {
         if (resourceBundle == null) {

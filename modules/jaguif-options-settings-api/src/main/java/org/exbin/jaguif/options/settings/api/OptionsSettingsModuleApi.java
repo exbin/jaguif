@@ -28,7 +28,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface OptionsSettingsModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OptionsSettingsModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(OptionsSettingsModuleApi.class);
     public static String TOOLS_OPTIONS_MENU_GROUP_ID = MODULE_ID + ".toolsOptionsMenuGroup";
 
     /**

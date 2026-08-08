@@ -38,7 +38,7 @@ public class ContextRegistrar implements ContextRegistration, ContextChangeRegis
     protected final List<ContextValues> contextItems = new ArrayList<>();
     protected final Map<Class<?>, List<ContextStateChangeListener<?>>> contextChangeListeners = new HashMap<>();
     protected final Map<Class<?>, List<ContextStateUpdateListener<?>>> contextStateUpdateListeners = new HashMap<>();
-    protected ActiveContextManagement contextManagement;
+    protected final ActiveContextManagement contextManagement;
 
     public ContextRegistrar(ActiveContextManagement contextManagement) {
         this.contextManagement = contextManagement;

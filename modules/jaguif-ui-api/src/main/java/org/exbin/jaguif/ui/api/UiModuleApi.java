@@ -25,7 +25,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface UiModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(UiModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(UiModuleApi.class);
 
     /**
      * Initializes UI. Should be called before any GUI is created.

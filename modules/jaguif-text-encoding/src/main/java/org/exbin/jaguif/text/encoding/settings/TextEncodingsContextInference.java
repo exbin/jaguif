@@ -28,7 +28,7 @@ import org.exbin.jaguif.context.api.ContextStateProvider;
 @NullMarked
 public class TextEncodingsContextInference implements TextEncodingsInference {
 
-    protected ContextStateProvider contextProvider;
+    protected final ContextStateProvider contextProvider;
 
     public TextEncodingsContextInference(ContextStateProvider contextProvider) {
         this.contextProvider = contextProvider;

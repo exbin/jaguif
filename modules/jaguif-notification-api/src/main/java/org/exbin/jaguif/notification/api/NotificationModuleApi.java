@@ -25,6 +25,6 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface NotificationModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(NotificationModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(NotificationModuleApi.class);
 
 }

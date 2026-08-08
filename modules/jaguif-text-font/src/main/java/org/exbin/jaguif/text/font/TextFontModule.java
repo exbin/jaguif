@@ -67,7 +67,7 @@ public class TextFontModule implements Module {
         settingsManagement.registerPage(pageContribution);
 
         TextFontSettingsComponent textFontSettingsComponent = new TextFontSettingsComponent();
-        SettingsComponentContribution settingsComponent = settingsManagement.registerComponent(textFontSettingsComponent.COMPONENT_ID, textFontSettingsComponent);
+        SettingsComponentContribution settingsComponent = settingsManagement.registerComponent(TextFontSettingsComponent.COMPONENT_ID, textFontSettingsComponent);
         settingsManagement.registerSettingsRule(settingsComponent, new SettingsPageContributionRule(pageContribution));
     }
 

@@ -45,13 +45,13 @@ import org.exbin.jaguif.options.settings.SettingsPageReceiver;
 @NullMarked
 public class SettingsTreePanel extends javax.swing.JPanel implements SettingsPageReceiver, LazyComponentsIssuable {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SettingsTreePanel.class);
-    private final Map<String, SettingsPage> settingsPages = new HashMap<>();
-    private @Nullable SettingsPage currentSettingsPanel = null;
-    private @Nullable SettingsModifiedListener settingsModifiedListener;
-    private final List<LazyComponentListener> listeners = new ArrayList<>();
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(SettingsTreePanel.class);
+    protected final Map<String, SettingsPage> settingsPages = new HashMap<>();
+    protected @Nullable SettingsPage currentSettingsPanel = null;
+    protected @Nullable SettingsModifiedListener settingsModifiedListener;
+    protected final List<LazyComponentListener> listeners = new ArrayList<>();
 
-    private OptionsMutableTreeNode top;
+    protected @Nullable OptionsMutableTreeNode top;
 
     public SettingsTreePanel() {
         initComponents();

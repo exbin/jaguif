@@ -25,7 +25,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface ContextModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ContextModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(ContextModuleApi.class);
 
     /**
      * Returns main application context manager.

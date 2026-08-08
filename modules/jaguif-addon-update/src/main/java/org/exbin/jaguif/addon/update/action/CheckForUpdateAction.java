@@ -47,14 +47,14 @@ public class CheckForUpdateAction extends AbstractAction {
 
     public static final String ACTION_ID = "checkForUpdate";
 
-    private java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CheckForUpdateAction.class);
+    protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CheckForUpdateAction.class);
 
-    private URL checkUpdateUrl;
-    private VersionNumbers updateVersion;
-    private URL downloadUrl;
-    private DialogParentComponent dialogParentComponent;
+    protected @Nullable URL checkUpdateUrl;
+    protected @Nullable VersionNumbers updateVersion;
+    protected @Nullable URL downloadUrl;
+    protected @Nullable DialogParentComponent dialogParentComponent;
 
-    private CheckForUpdateService checkForUpdateService;
+    protected @Nullable CheckForUpdateService checkForUpdateService;
 
     public CheckForUpdateAction() {
         init();

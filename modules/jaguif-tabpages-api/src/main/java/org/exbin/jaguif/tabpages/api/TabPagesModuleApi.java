@@ -26,7 +26,7 @@ import org.exbin.jaguif.context.api.ContextRegistration;
 @NullMarked
 public interface TabPagesModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(TabPagesModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(TabPagesModuleApi.class);
     public static final String MAIN_TAB_PAGES_ID = "mainTabPages";
 
     /**

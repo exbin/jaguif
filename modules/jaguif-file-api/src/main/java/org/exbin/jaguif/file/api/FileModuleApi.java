@@ -30,7 +30,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface FileModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(FileModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(FileModuleApi.class);
 
     /**
      * Adds file type.

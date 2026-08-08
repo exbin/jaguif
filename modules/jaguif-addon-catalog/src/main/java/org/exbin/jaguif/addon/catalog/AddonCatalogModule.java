@@ -43,7 +43,7 @@ import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 @NullMarked
 public class AddonCatalogModule implements AddonCatalogModuleApi {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonCatalogModule.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonCatalogModule.class);
     public static final String SETTINGS_PAGE_ID = "addonCatalog";
 
     private static boolean devMode = false;

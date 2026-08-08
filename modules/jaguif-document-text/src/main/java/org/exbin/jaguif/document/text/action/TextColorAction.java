@@ -37,6 +37,7 @@ import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.document.text.TextColorState;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.document.text.EditorTextPanelComponent;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text color action.
@@ -46,8 +47,8 @@ public class TextColorAction extends AbstractAction {
 
     public static final String ACTION_ID = "textColor";
 
-    private EditorTextPanelComponent textComponent;
-    private DialogParentComponent dialogParentComponent;
+    protected @Nullable EditorTextPanelComponent textComponent;
+    protected @Nullable DialogParentComponent dialogParentComponent;
 
     public TextColorAction() {
     }
@@ -73,7 +74,7 @@ public class TextColorAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!(textComponent != null)) {
+        if (textComponent == null) {
             return;
         }
 

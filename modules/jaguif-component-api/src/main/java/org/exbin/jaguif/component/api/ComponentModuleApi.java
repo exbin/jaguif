@@ -27,7 +27,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface ComponentModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ComponentModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(ComponentModuleApi.class);
 
     /**
      * Creates new instance of the edit item actions set.

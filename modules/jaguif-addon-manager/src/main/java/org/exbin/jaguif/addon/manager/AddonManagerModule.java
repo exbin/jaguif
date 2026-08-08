@@ -36,6 +36,7 @@ import org.exbin.jaguif.options.settings.api.SettingsComponentContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addon manager module.
@@ -47,7 +48,7 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     private String manualLegacyGitHubUrl = "https://github.com/exbin/bined/releases/tag/";
 
     private static boolean devMode = false;
-    private AddonManager addonManager = null;
+    private @Nullable AddonManager addonManager = null;
 
     public AddonManagerModule() {
     }

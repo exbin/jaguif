@@ -27,7 +27,7 @@ import org.exbin.jaguif.docking.api.DocumentDocking;
 @NullMarked
 public interface DockingMultiModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingMultiModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(DockingMultiModuleApi.class);
 
     /**
      * Creates default multiple document docking.

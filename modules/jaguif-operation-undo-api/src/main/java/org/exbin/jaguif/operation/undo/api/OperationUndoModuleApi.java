@@ -26,7 +26,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface OperationUndoModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OperationUndoModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(OperationUndoModuleApi.class);
     public static final String UNDO_MENU_GROUP_ID = MODULE_ID + ".undoMenuGroup";
     public static final String UNDO_TOOL_BAR_GROUP_ID = MODULE_ID + ".undoToolBarGroup";
 

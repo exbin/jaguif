@@ -28,8 +28,8 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class FilePreferencesFactory implements PreferencesFactory {
 
-    public static String preferenceFilename = "prefs.xml";
-    public static String preferencesPath = null;
+    public static final String PREFERENCE_FILENAME = "prefs.xml";
+    public static @Nullable String preferencesPath = null;
     protected static final String PREFERENCES_FACTORY_PROPERTY = "java.util.prefs.PreferencesFactory";
     protected static final String PREFERENCES_FACTORY_CLASS = FilePreferencesFactory.class.getName();
     protected @Nullable Preferences userPreferences;
@@ -58,7 +58,7 @@ public class FilePreferencesFactory implements PreferencesFactory {
             preferencesPath = System.getProperty("user.home") + File.separator + ".java" + File.separator + ".userPrefs";
         }
 
-        return new File(preferencesPath + absolutePath.replace('/', File.separatorChar) + File.separator + preferenceFilename);
+        return new File(preferencesPath + absolutePath.replace('/', File.separatorChar) + File.separator + PREFERENCE_FILENAME);
     }
 
     public FilePreferences userNodeForPackage(Class clazz) {

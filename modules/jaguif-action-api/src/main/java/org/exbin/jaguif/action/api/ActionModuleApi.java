@@ -32,7 +32,7 @@ import org.exbin.jaguif.action.api.clipboard.TextClipboardOperationActions;
 @NullMarked
 public interface ActionModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(ActionModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(ActionModuleApi.class);
 
     /**
      * Sets action values according to values specified by resource bundle.

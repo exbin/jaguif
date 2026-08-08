@@ -26,7 +26,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface OperationManagerModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(OperationManagerModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(OperationManagerModuleApi.class);
 
     /**
      * Registers undo/redo operations to main frame menu.

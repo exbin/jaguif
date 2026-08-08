@@ -32,6 +32,7 @@ import org.exbin.jaguif.tabpages.api.TabPages;
 import org.exbin.jaguif.tabpages.api.TabPagesChangeListener;
 import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addons manager panel.
@@ -41,18 +42,18 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsManagerPanel.class);
     protected final List<AddonManagerPage> managerTabs = new ArrayList<>();
-    protected TabPages tabPages;
+    protected final TabPages tabPages;
     protected @Nullable Controller controller;
-    protected Component cartComponent;
+    protected @Nullable Component cartComponent;
 
     public AddonsManagerPanel() {
+        TabPagesModuleApi tabPagesModule = App.getModule(TabPagesModuleApi.class);
+        tabPages = tabPagesModule.createTabbedPagesPanel();
         initComponents();
         init();
     }
 
     private void init() {
-        TabPagesModuleApi tabPagesModule = App.getModule(TabPagesModuleApi.class);
-        tabPages = tabPagesModule.createTabbedPagesPanel();
         tabPages.addPageChangeListener((int index) -> {
             if (controller == null) {
                 return;

@@ -39,6 +39,7 @@ import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Installed addons manager page.
@@ -48,11 +49,11 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
     public static final String PAGE_ID = "installedAddons";
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(InstalledAddonsPage.class);
-    protected AddonsListComponent listComponent;
-    protected List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
+    protected @Nullable AddonsListComponent listComponent;
+    protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
 
-    protected AddonsManagementContext addonsManagement;
-    protected List<Integer> filterItems = null;
+    protected @Nullable AddonsManagementContext addonsManagement;
+    protected @Nullable List<Integer> filterItems = null;
 
     public InstalledAddonsPage() {
         init();

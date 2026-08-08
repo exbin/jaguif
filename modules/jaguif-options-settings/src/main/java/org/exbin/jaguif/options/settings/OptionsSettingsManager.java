@@ -230,7 +230,7 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
         if (settingsOptionsProvider == null) {
             settingsOptionsProvider = new SettingsOptionsProvider() {
 
-                Map<Class<?>, SettingsOptions> settingsOptionsCache = new HashMap<>();
+                final Map<Class<?>, SettingsOptions> settingsOptionsCache = new HashMap<>();
 
                 @Override
                 @SuppressWarnings("unchecked")

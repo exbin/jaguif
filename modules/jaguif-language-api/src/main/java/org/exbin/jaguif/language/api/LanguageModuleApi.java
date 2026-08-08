@@ -28,7 +28,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface LanguageModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(LanguageModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(LanguageModuleApi.class);
 
     /**
      * Returns applications language resource bundle.

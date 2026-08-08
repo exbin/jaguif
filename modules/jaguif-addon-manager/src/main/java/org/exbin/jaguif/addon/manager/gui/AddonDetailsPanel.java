@@ -37,6 +37,7 @@ import org.exbin.jaguif.addon.manager.model.DependenciesTableModel;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.DesktopUtils;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addon details panel.
@@ -46,12 +47,22 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonDetailsPanel.class);
     protected @Nullable Controller controller;
-    protected MouseListener providerLinkListener;
+    protected final MouseListener providerLinkListener;
     protected final DependenciesTableModel dependenciesTableModel = new DependenciesTableModel();
-    protected String providerLink = null;
+    protected @Nullable String providerLink = null;
     protected boolean enablementMode = true;
 
     public AddonDetailsPanel() {
+        providerLinkListener = new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (evt.getButton() == MouseEvent.BUTTON1 && !evt.isPopupTrigger()) {
+                    if (providerLink != null) {
+                        DesktopUtils.openDesktopURL(providerLink);
+                    }
+                }
+            }
+        };
         initComponents();
         init();
     }
@@ -63,16 +74,6 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
                 DesktopUtils.openDesktopURL(event.getURL().toExternalForm());
             }
         });
-        providerLinkListener = new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (evt.getButton() == MouseEvent.BUTTON1 && !evt.isPopupTrigger()) {
-                    if (providerLink != null) {
-                        DesktopUtils.openDesktopURL(providerLink);
-                    }
-                }
-            }
-        };
         providerLabel.addMouseListener(providerLinkListener);
         providerLabel.setComponentPopupMenu(new JPopupMenu() {
 

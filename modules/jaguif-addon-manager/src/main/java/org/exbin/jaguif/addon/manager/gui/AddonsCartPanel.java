@@ -29,6 +29,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.CartOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Panel for addons cart operations panel.

@@ -29,7 +29,7 @@ import org.exbin.jaguif.window.api.gui.FooterControlPanel;
 @NullMarked
 public interface HelpModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpModuleApi.class);
 
     /**
      * Opens help page on given position.

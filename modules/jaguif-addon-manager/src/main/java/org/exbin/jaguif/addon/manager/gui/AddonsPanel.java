@@ -29,6 +29,7 @@ import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
 import org.exbin.jaguif.addon.manager.model.AddonsListModel;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addons list with details panel.
@@ -38,9 +39,9 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsPanel.class);
     protected final AddonsListModel addonsListModel = new AddonsListModel();
-    protected ItemRecord activeRecord;
-    protected AddonDetailsPanel addonDetailsPanel = new AddonDetailsPanel();
-    protected AddonsListComponentController controller;
+    protected final AddonDetailsPanel addonDetailsPanel = new AddonDetailsPanel();
+    protected @Nullable ItemRecord activeRecord;
+    protected @Nullable AddonsListComponentController controller;
 
     public AddonsPanel() {
         initComponents();

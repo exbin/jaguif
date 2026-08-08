@@ -26,7 +26,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface PrintModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(PrintModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(PrintModuleApi.class);
     public static final String SEARCH_MENU_GROUP_ID = MODULE_ID + ".searchMenuGroup";
 
     ResourceBundle getResourceBundle();

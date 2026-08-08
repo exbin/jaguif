@@ -29,7 +29,7 @@ import org.exbin.jaguif.help.api.HelpLink;
 @NullMarked
 public interface HelpOnlineModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpOnlineModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpOnlineModuleApi.class);
 
     /**
      * Registers online help action to main frame menu.

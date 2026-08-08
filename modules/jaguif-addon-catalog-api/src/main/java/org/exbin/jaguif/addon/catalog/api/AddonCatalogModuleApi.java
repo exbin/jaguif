@@ -28,7 +28,7 @@ import org.exbin.jaguif.ModuleUtils;
 @NullMarked
 public interface AddonCatalogModuleApi extends Module {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonCatalogModuleApi.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonCatalogModuleApi.class);
 
     /**
      * Registers settings pages and components.

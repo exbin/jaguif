@@ -25,6 +25,7 @@ import org.exbin.jaguif.addon.update.api.VersionNumbers;
 import org.exbin.jaguif.addon.update.service.CheckForUpdateService;
 import org.exbin.jaguif.utils.DesktopUtils;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Check for update panel.
@@ -32,8 +33,8 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class CheckForUpdatePanel extends javax.swing.JPanel implements HyperlinkListener {
 
-    private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CheckForUpdatePanel.class);
-    private CheckForUpdateService checkForUpdateService;
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CheckForUpdatePanel.class);
+    protected @Nullable CheckForUpdateService checkForUpdateService;
     protected @Nullable Controller controller;
 
     public CheckForUpdatePanel() {

@@ -34,10 +34,10 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class TextFontPanel extends javax.swing.JPanel {
 
-    private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextFontPanel.class);
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextFontPanel.class);
 
-    private String[] fontNames;
-    private String[] fontSizes;
+    protected final String[] fontNames;
+    protected final String[] fontSizes;
 
     public TextFontPanel() {
         initComponents();

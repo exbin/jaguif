@@ -34,6 +34,7 @@ import org.exbin.jaguif.addon.manager.api.AddonOperation;
 import org.exbin.jaguif.addon.manager.model.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import org.exbin.jaguif.addon.manager.api.CartOperation;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addon operation service.
@@ -43,8 +44,8 @@ public class AddonOperationService {
 
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationService.class);
 
-    protected AddonManager addonManager;
-    protected AddonCatalogService addonCatalogService;
+    protected final AddonManager addonManager;
+    protected @Nullable AddonCatalogService addonCatalogService;
 
     public AddonOperationService(AddonManager addonManager) {
         this.addonManager = addonManager;

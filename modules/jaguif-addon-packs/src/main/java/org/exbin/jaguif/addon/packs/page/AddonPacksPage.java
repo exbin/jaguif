@@ -50,7 +50,7 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
     public static final String PAGE_ID = "addonPacks";
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonPacksPage.class);
     protected AddonsListComponent listComponent;
-    protected List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
+    protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
     protected AddonCatalogService addonCatalogService;
 
     protected AddonsManagementContext addonsManagement;

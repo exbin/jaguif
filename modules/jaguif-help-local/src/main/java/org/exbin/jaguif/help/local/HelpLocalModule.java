@@ -31,7 +31,7 @@ import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 @NullMarked
 public class HelpLocalModule {
 
-    public static String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpLocalModule.class);
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(HelpLocalModule.class);
 
     public HelpLocalModule() {
     }
