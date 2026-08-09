@@ -32,13 +32,13 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class EditSelectionPanel extends javax.swing.JPanel {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(EditSelectionPanel.class);
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(EditSelectionPanel.class);
 
-    private int cursorPosition;
-    private int maxPosition;
-    private RelativePositionMode startPosMode = RelativePositionMode.FROM_START;
-    private RelativePositionMode endPosMode = RelativePositionMode.FROM_START;
-    private volatile boolean activeUpdate = false;
+    protected int cursorPosition;
+    protected int maxPosition;
+    protected RelativePositionMode startPosMode = RelativePositionMode.FROM_START;
+    protected RelativePositionMode endPosMode = RelativePositionMode.FROM_START;
+    protected volatile boolean activeUpdate = false;
 
     public EditSelectionPanel() {
         initComponents();

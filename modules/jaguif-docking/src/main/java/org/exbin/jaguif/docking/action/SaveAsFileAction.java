@@ -35,6 +35,7 @@ import org.exbin.jaguif.document.api.Document;
 import org.exbin.jaguif.document.api.DocumentModuleApi;
 import org.exbin.jaguif.document.api.DocumentSource;
 import org.exbin.jaguif.document.api.EditableDocument;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Save as file action.
@@ -44,8 +45,8 @@ public class SaveAsFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "saveAsFile";
 
-    protected DocumentDocking documentDocking;
-    protected Document document;
+    protected @Nullable DocumentDocking documentDocking;
+    protected @Nullable Document document;
 
     public SaveAsFileAction() {
     }

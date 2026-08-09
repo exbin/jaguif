@@ -59,7 +59,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 public class FileModule implements FileModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "file";
-    private java.util.@Nullable ResourceBundle resourceBundle = null;
+    private @Nullable ResourceBundle resourceBundle = null;
 
     private final List<FileType> registeredFileTypes = new ArrayList<>();
     private final List<FileUsageListener> fileUsageListeners = new ArrayList<>();

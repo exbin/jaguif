@@ -30,6 +30,7 @@ import org.exbin.jaguif.docking.api.ContextDocking;
 import org.exbin.jaguif.docking.api.DocumentDocking;
 import org.exbin.jaguif.document.api.ContextDocument;
 import org.exbin.jaguif.document.api.Document;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Close file action.
@@ -39,8 +40,8 @@ public class CloseFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "fileClose";
 
-    protected DocumentDocking docking;
-    protected Document document;
+    protected @Nullable DocumentDocking docking;
+    protected @Nullable Document document;
 
     public CloseFileAction() {
     }

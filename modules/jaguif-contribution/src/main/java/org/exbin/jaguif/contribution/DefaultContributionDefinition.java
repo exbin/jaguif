@@ -89,7 +89,7 @@ public class DefaultContributionDefinition implements ContributionDefinition {
         if (contributionRules != null) {
             contributionRules.remove(rule);
             if (contributionRules.isEmpty()) {
-                rules.put(contribution, null);
+                rules.remove(contribution);
             }
         }
     }

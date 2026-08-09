@@ -45,8 +45,8 @@ import org.exbin.jaguif.utils.WindowClosingListener;
 public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, DocumentDocking, WindowClosingListener {
 
     protected final DockingPanel docking = new DockingPanel();
-    protected Document currentDocument = null;
-    protected ActiveContextManagement contextManager = null;
+    protected @Nullable Document currentDocument = null;
+    protected @Nullable ActiveContextManagement contextManager = null;
 
     @Override
     public Component getComponent() {

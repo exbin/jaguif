@@ -28,6 +28,7 @@ import org.exbin.jaguif.utils.ActionUtils;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.docking.api.ContextDocking;
 import org.exbin.jaguif.docking.api.DocumentDocking;
+import org.jspecify.annotations.Nullable;
 
 /**
  * New file action.
@@ -37,7 +38,7 @@ public class NewFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "newFile";
 
-    protected DocumentDocking documentDocking;
+    protected @Nullable DocumentDocking documentDocking;
 
     public NewFileAction() {
     }

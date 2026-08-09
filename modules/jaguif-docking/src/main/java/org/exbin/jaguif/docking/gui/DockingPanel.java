@@ -26,9 +26,9 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class DockingPanel extends javax.swing.JPanel {
 
-    protected Component sideToolBar = null;
-    protected Component sideComponent = null;
-    protected Component contentComponent = null;
+    protected @Nullable Component sideToolBar = null;
+    protected @Nullable Component sideComponent = null;
+    protected @Nullable Component contentComponent = null;
     protected boolean sidePanelVisible = false;
     protected int dividerLocation = 300;
 

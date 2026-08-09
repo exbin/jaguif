@@ -32,6 +32,7 @@ import org.exbin.jaguif.docking.api.DocumentDocking;
 import org.exbin.jaguif.document.api.Document;
 import org.exbin.jaguif.document.api.DocumentManagement;
 import org.exbin.jaguif.document.api.DocumentModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Open file action.
@@ -41,7 +42,7 @@ public class OpenFileAction extends AbstractAction {
 
     public static final String ACTION_ID = "openFile";
 
-    protected DocumentDocking documentDocking;
+    protected @Nullable DocumentDocking documentDocking;
 
     public OpenFileAction() {
     }

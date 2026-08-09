@@ -32,7 +32,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class TextGoToPanel extends javax.swing.JPanel {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextGoToPanel.class);
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextGoToPanel.class);
 
     public TextGoToPanel() {
         initComponents();

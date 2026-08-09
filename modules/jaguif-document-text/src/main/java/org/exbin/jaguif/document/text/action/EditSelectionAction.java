@@ -37,6 +37,7 @@ import org.exbin.jaguif.window.api.WindowModuleApi;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Edit selection action.
@@ -46,7 +47,7 @@ public class EditSelectionAction extends AbstractAction {
 
     public static final String ACTION_ID = "editSelection";
 
-    private JTextComponent component;
+    protected @Nullable JTextComponent component;
 
     public EditSelectionAction() {
     }

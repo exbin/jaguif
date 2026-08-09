@@ -30,6 +30,7 @@ import javax.swing.text.Document;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.document.text.TextDocument;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Text file properties panel.
@@ -37,7 +38,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class TextPropertiesPanel extends javax.swing.JPanel {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextPropertiesPanel.class);
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextPropertiesPanel.class);
 
     public TextPropertiesPanel() {
         initComponents();

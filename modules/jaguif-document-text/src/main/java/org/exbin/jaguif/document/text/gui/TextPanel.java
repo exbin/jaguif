@@ -53,17 +53,17 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class TextPanel extends javax.swing.JPanel {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextPanel.class);
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextPanel.class);
 
-    private final TextPanelCompoundUndoManager undoManagement = new TextPanelCompoundUndoManager();
-    private boolean modified = false;
-    private Object highlight;
-    private Color foundTextBackgroundColor;
-    private Charset charset;
-    private Font defaultFont;
-    private Color[] defaultColors;
-    private @Nullable CharsetChangeListener charsetChangeListener = null;
-    private TextStatusPanel textStatus = null;
+    protected final TextPanelCompoundUndoManager undoManagement = new TextPanelCompoundUndoManager();
+    protected boolean modified = false;
+    protected @Nullable Object highlight;
+    protected Color foundTextBackgroundColor;
+    protected Charset charset;
+    protected Font defaultFont;
+    protected Color[] defaultColors;
+    protected @Nullable CharsetChangeListener charsetChangeListener = null;
+    protected @Nullable TextStatusPanel textStatus = null;
 
     public TextPanel() {
         initComponents();

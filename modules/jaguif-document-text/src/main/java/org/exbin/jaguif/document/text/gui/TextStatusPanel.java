@@ -27,7 +27,7 @@ import org.exbin.jaguif.text.encoding.CharsetEncodingState;
 @NullMarked
 public class TextStatusPanel extends javax.swing.JPanel implements TextPositionStatusApi, CharsetEncodingState {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextStatusPanel.class);
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(TextStatusPanel.class);
 
     public TextStatusPanel() {
         initComponents();

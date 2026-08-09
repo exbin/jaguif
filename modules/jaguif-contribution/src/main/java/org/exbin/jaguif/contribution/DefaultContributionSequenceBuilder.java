@@ -173,8 +173,8 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
                         int index = 0;
                         while (index < processingRecord.contributions.size()) {
                             record = processingRecord.contributions.get(index);
-                            boolean noAfterItems = record.placeAfter == null || record.placeAfter.isEmpty();
-                            boolean directPlaceMatch = noAfterItems ? false : builderRecord.processedContributions.containsAll(record.placeAfter);
+                            boolean noAfterItems = record.placeAfter.isEmpty();
+                            boolean directPlaceMatch = !noAfterItems && builderRecord.processedContributions.containsAll(record.placeAfter);
                             if (noAfterItems || directPlaceMatch) {
                                 if (contributionMatch.fallbackMatch == -1) {
                                     contributionMatch.fallbackMatch = index;
@@ -269,7 +269,7 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
         Map<String, BuilderContributionRecord> contributionsMap = new HashMap<>();
 
         boolean separatorQueued = false;
-        BuilderContributionRecord previousContribution = null;
+        @Nullable BuilderContributionRecord previousContribution = null;
         Map<String, List<String>> afterMap = new HashMap<>();
         Set<String> processedContributions = new HashSet<>();
     }
@@ -309,11 +309,11 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
 
     private static class BuilderContributionRecord {
 
-        String contributionId;
+        @Nullable String contributionId;
 
-        SeparationSequenceContributionRule.SeparationMode separationMode;
+        SeparationSequenceContributionRule.@Nullable SeparationMode separationMode;
         PositionSequenceContributionRule.PositionMode positionHint = PositionSequenceContributionRule.PositionMode.DEFAULT;
-        BuilderContributionRecord previousHint = null;
+        @Nullable BuilderContributionRecord previousHint = null;
         final Set<String> placeAfter = new HashSet<>();
     }
 

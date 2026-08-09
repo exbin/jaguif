@@ -25,6 +25,7 @@ import org.exbin.jaguif.action.api.ActionContextChange;
 import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.component.api.ContextEditItem;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Add item action.
@@ -35,7 +36,7 @@ public class AddItemAction extends AbstractAction {
     public static final String ACTION_ID = "addItem";
 
     protected final EditItemMode mode;
-    protected ContextEditItem itemController;
+    protected @Nullable ContextEditItem itemController;
 
     public AddItemAction(EditItemMode mode) {
         this.mode = mode;

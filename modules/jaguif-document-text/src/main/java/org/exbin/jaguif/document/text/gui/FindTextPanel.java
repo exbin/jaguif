@@ -26,7 +26,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class FindTextPanel extends javax.swing.JPanel {
 
-    private final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FindTextPanel.class);
+    protected final java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(FindTextPanel.class);
 
     public FindTextPanel() {
         initComponents();

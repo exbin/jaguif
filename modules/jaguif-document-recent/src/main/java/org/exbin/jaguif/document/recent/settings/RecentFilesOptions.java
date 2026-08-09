@@ -19,6 +19,7 @@ import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.options.api.OptionsStorage;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Options for recently opened files.
@@ -37,33 +38,43 @@ public class RecentFilesOptions implements SettingsOptions {
     }
 
     public Optional<String> getFilePath(int index) {
-        return storage.get(KEY_RECENT_FILE_PATH_PREFIX + String.valueOf(index));
+        return storage.get(KEY_RECENT_FILE_PATH_PREFIX + index);
     }
 
     public Optional<String> getModuleName(int index) {
-        return storage.get(KEY_RECENT_FILE_MODULE_PREFIX + String.valueOf(index));
+        return storage.get(KEY_RECENT_FILE_MODULE_PREFIX + index);
     }
 
     public Optional<String> getFileMode(int index) {
-        return storage.get(KEY_RECENT_FILE_MODE_PREFIX + String.valueOf(index));
+        return storage.get(KEY_RECENT_FILE_MODE_PREFIX + index);
     }
 
     public void setFilePath(String value, int index) {
-        storage.put(KEY_RECENT_FILE_PATH_PREFIX + String.valueOf(index), value);
+        storage.put(KEY_RECENT_FILE_PATH_PREFIX + index, value);
     }
 
-    public void setModuleName(String value, int index) {
-        storage.put(KEY_RECENT_FILE_MODULE_PREFIX + String.valueOf(index), value);
+    public void setModuleName(@Nullable String value, int index) {
+        if (value == null) {
+            storage.remove(KEY_RECENT_FILE_MODULE_PREFIX + index);
+            return;
+        }
+
+        storage.put(KEY_RECENT_FILE_MODULE_PREFIX + index, value);
     }
 
-    public void setFileMode(String value, int index) {
-        storage.put(KEY_RECENT_FILE_MODE_PREFIX + String.valueOf(index), value);
+    public void setFileMode(@Nullable String value, int index) {
+        if (value == null) {
+            storage.remove(KEY_RECENT_FILE_MODE_PREFIX + index);
+            return;
+        }
+
+        storage.put(KEY_RECENT_FILE_MODE_PREFIX + index, value);
     }
 
     public void remove(int index) {
-        storage.remove(KEY_RECENT_FILE_PATH_PREFIX + String.valueOf(index));
-        storage.remove(KEY_RECENT_FILE_MODULE_PREFIX + String.valueOf(index));
-        storage.remove(KEY_RECENT_FILE_MODE_PREFIX + String.valueOf(index));
+        storage.remove(KEY_RECENT_FILE_PATH_PREFIX + index);
+        storage.remove(KEY_RECENT_FILE_MODULE_PREFIX + index);
+        storage.remove(KEY_RECENT_FILE_MODE_PREFIX + index);
     }
 
     @Override

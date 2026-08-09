@@ -26,7 +26,7 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class DefaultFileTypes implements FileTypes {
 
-    private final Collection<FileType> fileTypes;
+    protected final Collection<FileType> fileTypes;
 
     public DefaultFileTypes(FileType fileType) {
         this.fileTypes = new ArrayList<>();
