@@ -21,6 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.RemovalControlController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Basic control panel with support for removal.
@@ -28,10 +29,10 @@ import org.exbin.jaguif.window.api.controller.RemovalControlController;
 @NullMarked
 public class RemovalControlPanel extends FooterControlPanel implements RemovalControlController.RemovalControlComponent {
 
-    private RemovalControlController controller;
-    private javax.swing.JButton okButton;
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JButton removeButton;
+    protected @Nullable RemovalControlController controller;
+    protected javax.swing.JButton okButton;
+    protected javax.swing.JButton cancelButton;
+    protected javax.swing.JButton removeButton;
 
     public RemovalControlPanel() {
         super();

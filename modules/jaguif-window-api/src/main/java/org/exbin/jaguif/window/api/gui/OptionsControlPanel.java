@@ -21,6 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.OptionsControlController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Default control panel for options dialogs.
@@ -28,10 +29,10 @@ import org.exbin.jaguif.window.api.controller.OptionsControlController;
 @NullMarked
 public class OptionsControlPanel extends FooterControlPanel implements OptionsControlController.OptionsControlComponent {
 
-    private OptionsControlController controller;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JButton applyOnceButton;
+    protected @Nullable OptionsControlController controller;
+    protected javax.swing.JButton saveButton;
+    protected javax.swing.JButton cancelButton;
+    protected javax.swing.JButton applyOnceButton;
 
     public OptionsControlPanel() {
         super();

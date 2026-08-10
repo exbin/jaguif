@@ -31,26 +31,26 @@ public class LanguageOptions implements SettingsOptions {
     public static final String KEY_LOCALE_VARIANT = "locale.variant";
     public static final String KEY_LOCALE_TAG = "locale.tag";
 
-    private final OptionsStorage preferences;
+    protected final OptionsStorage storage;
 
-    public LanguageOptions(OptionsStorage preferences) {
-        this.preferences = preferences;
+    public LanguageOptions(OptionsStorage storage) {
+        this.storage = storage;
     }
 
     public String getLocaleLanguage() {
-        return preferences.get(KEY_LOCALE_LANGUAGE, "");
+        return storage.get(KEY_LOCALE_LANGUAGE, "");
     }
 
     public String getLocaleCountry() {
-        return preferences.get(KEY_LOCALE_COUNTRY, "");
+        return storage.get(KEY_LOCALE_COUNTRY, "");
     }
 
     public String getLocaleVariant() {
-        return preferences.get(KEY_LOCALE_VARIANT, "");
+        return storage.get(KEY_LOCALE_VARIANT, "");
     }
 
     public String getLocaleTag() {
-        return preferences.get(KEY_LOCALE_TAG, "");
+        return storage.get(KEY_LOCALE_TAG, "");
     }
 
     public Locale getLocale() {
@@ -76,19 +76,19 @@ public class LanguageOptions implements SettingsOptions {
     }
 
     public void setLocaleLanguage(String language) {
-        preferences.put(KEY_LOCALE_LANGUAGE, language);
+        storage.put(KEY_LOCALE_LANGUAGE, language);
     }
 
     public void setLocaleCountry(String country) {
-        preferences.put(KEY_LOCALE_COUNTRY, country);
+        storage.put(KEY_LOCALE_COUNTRY, country);
     }
 
     public void setLocaleVariant(String variant) {
-        preferences.put(KEY_LOCALE_VARIANT, variant);
+        storage.put(KEY_LOCALE_VARIANT, variant);
     }
 
     public void setLocaleTag(String variant) {
-        preferences.put(KEY_LOCALE_TAG, variant);
+        storage.put(KEY_LOCALE_TAG, variant);
     }
 
     public void setLocale(Locale locale) {

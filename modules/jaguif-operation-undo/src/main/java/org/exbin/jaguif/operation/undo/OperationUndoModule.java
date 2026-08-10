@@ -42,7 +42,7 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class OperationUndoModule implements OperationUndoModuleApi {
 
-    private java.util.@Nullable ResourceBundle resourceBundle = null;
+    private @Nullable ResourceBundle resourceBundle = null;
 
     public OperationUndoModule() {
     }

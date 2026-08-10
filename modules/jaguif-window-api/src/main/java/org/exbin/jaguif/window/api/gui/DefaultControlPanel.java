@@ -21,6 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Basic default control panel.
@@ -28,9 +29,9 @@ import org.exbin.jaguif.window.api.controller.DefaultControlController;
 @NullMarked
 public class DefaultControlPanel extends FooterControlPanel implements DefaultControlController.DefaultControlComponent {
 
-    private DefaultControlController controller;
-    private javax.swing.JButton okButton;
-    private javax.swing.JButton cancelButton;
+    protected @Nullable DefaultControlController controller;
+    protected javax.swing.JButton okButton;
+    protected javax.swing.JButton cancelButton;
 
     public DefaultControlPanel() {
         super();

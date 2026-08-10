@@ -16,10 +16,12 @@
 package org.exbin.jaguif.operation;
 
 import org.exbin.jaguif.operation.api.OperationModuleApi;
+import org.jspecify.annotations.NullMarked;
 
 /**
  * Implementation of operation support module.
  */
+@NullMarked
 public class OperationModule implements OperationModuleApi {
 
     public OperationModule() {

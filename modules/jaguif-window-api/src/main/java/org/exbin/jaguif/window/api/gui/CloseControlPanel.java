@@ -21,6 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.CloseControlController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Basic close control panel.
@@ -28,8 +29,8 @@ import org.exbin.jaguif.window.api.controller.CloseControlController;
 @NullMarked
 public class CloseControlPanel extends FooterControlPanel implements CloseControlController.CloseControlComponent {
 
-    private CloseControlController controller;
-    private javax.swing.JButton closeButton;
+    protected @Nullable CloseControlController controller;
+    protected javax.swing.JButton closeButton;
 
     public CloseControlPanel() {
         super();

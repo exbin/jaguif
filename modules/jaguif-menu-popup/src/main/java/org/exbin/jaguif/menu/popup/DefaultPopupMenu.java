@@ -85,21 +85,21 @@ public class DefaultPopupMenu {
     public static final String POPUP_COPY_IMAGE_ACTION_NAME = "copy-image";
     public static final String POPUP_OPEN_LINK_ACTION_NAME = "open-link";
 
-    protected ActionMap defaultTextActionMap;
-    protected DefaultPopupClipboardAction[] defaultTextActions;
-    protected DefaultPopupClipboardAction defaultCutAction;
-    protected DefaultPopupClipboardAction defaultCopyAction;
-    protected DefaultPopupClipboardAction defaultPasteAction;
-    protected DefaultPopupClipboardAction defaultDeleteAction;
-    protected DefaultPopupClipboardAction defaultSelectAllAction;
-    protected DefaultPopupClipboardAction copyTextAction;
-    protected DefaultPopupClipboardAction copyLinkAction;
-    protected DefaultPopupClipboardAction openLinkAction;
-    protected DefaultPopupClipboardAction copyImageAction;
+    protected @Nullable ActionMap defaultTextActionMap;
+    protected @Nullable DefaultPopupClipboardAction[] defaultTextActions;
+    protected @Nullable DefaultPopupClipboardAction defaultCutAction;
+    protected @Nullable DefaultPopupClipboardAction defaultCopyAction;
+    protected @Nullable DefaultPopupClipboardAction defaultPasteAction;
+    protected @Nullable DefaultPopupClipboardAction defaultDeleteAction;
+    protected @Nullable DefaultPopupClipboardAction defaultSelectAllAction;
+    protected @Nullable DefaultPopupClipboardAction copyTextAction;
+    protected @Nullable DefaultPopupClipboardAction copyLinkAction;
+    protected @Nullable DefaultPopupClipboardAction openLinkAction;
+    protected @Nullable DefaultPopupClipboardAction copyImageAction;
 
     protected final List<ComponentPopupEventDispatcher> clipboardEventDispatchers = new ArrayList<>();
 
-    private static DefaultPopupMenu instance = null;
+    private static @Nullable DefaultPopupMenu instance = null;
 
     protected DefaultPopupMenu() {
     }

@@ -33,10 +33,10 @@ import org.exbin.jaguif.utils.UiUtils;
 @NullMarked
 public class WindowHeaderPanel extends javax.swing.JPanel {
 
-    private BackgroundDecorationMode decorationMode = BackgroundDecorationMode.COLOR_BOTTOM_RIGHT_TRANSITION;
-    private Color transitionColor = null;
-    private Image decorationImage = null;
-    private boolean darkMode = false;
+    protected BackgroundDecorationMode decorationMode = BackgroundDecorationMode.COLOR_BOTTOM_RIGHT_TRANSITION;
+    protected @Nullable Color transitionColor = null;
+    protected @Nullable Image decorationImage = null;
+    protected boolean darkMode = false;
 
     private final ImageObserver imageObserver = (Image img, int infoflags, int x, int y, int width, int height) -> true;
 

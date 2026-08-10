@@ -21,6 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.window.api.controller.MultiStepControlController;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Multi-step control panel for options dialogs.
@@ -28,11 +29,11 @@ import org.exbin.jaguif.window.api.controller.MultiStepControlController;
 @NullMarked
 public class MultiStepControlPanel extends FooterControlPanel implements MultiStepControlController.MultiStepControlComponent {
 
-    private MultiStepControlController controller;
-    private javax.swing.JButton finishButton;
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JButton nextButton;
-    private javax.swing.JButton previousButton;
+    protected @Nullable MultiStepControlController controller;
+    protected javax.swing.JButton finishButton;
+    protected javax.swing.JButton cancelButton;
+    protected javax.swing.JButton nextButton;
+    protected javax.swing.JButton previousButton;
 
     public MultiStepControlPanel() {
         super();

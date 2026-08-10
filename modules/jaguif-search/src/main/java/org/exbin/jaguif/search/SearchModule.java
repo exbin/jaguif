@@ -29,7 +29,7 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class SearchModule implements SearchModuleApi {
 
-    private java.util.@Nullable ResourceBundle resourceBundle = null;
+    private @Nullable ResourceBundle resourceBundle = null;
 
     private @Nullable FindReplaceActions findReplaceActions = null;
 

@@ -37,7 +37,7 @@ import org.exbin.jaguif.action.api.ContextRegistrationProvider;
 @NullMarked
 public class MenuPopupModule implements MenuPopupModuleApi {
 
-    protected java.util.@Nullable ResourceBundle resourceBundle = null;
+    protected @Nullable ResourceBundle resourceBundle = null;
 
     public MenuPopupModule() {
     }

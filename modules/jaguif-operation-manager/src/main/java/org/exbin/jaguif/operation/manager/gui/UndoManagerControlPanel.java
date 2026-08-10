@@ -16,6 +16,8 @@
 package org.exbin.jaguif.operation.manager.gui;
 
 import java.util.Optional;
+import java.util.ResourceBundle;
+
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JButton;
 import org.exbin.jaguif.App;
@@ -30,8 +32,8 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class UndoManagerControlPanel extends javax.swing.JPanel implements UndoManagerControlController.UndoManagerControlComponent {
 
-    private final java.util.@Nullable ResourceBundle resourceBundle;
-    private @Nullable UndoManagerControlController controller;
+    protected final @Nullable ResourceBundle resourceBundle;
+    protected @Nullable UndoManagerControlController controller;
 
     public UndoManagerControlPanel() {
         this(App.getModule(LanguageModuleApi.class).getBundle(UndoManagerControlPanel.class));

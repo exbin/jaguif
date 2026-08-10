@@ -56,7 +56,7 @@ public class WindowModule implements WindowModuleApi {
     public static final String VIEW_BARS_GROUP_ID = MODULE_ID + ".view";
     public static final String RESOURCES_DIALOG_TITLE = "dialog.title";
 
-    private ResourceBundle resourceBundle;
+    private @Nullable ResourceBundle resourceBundle;
     private boolean hideHeaderPanels = false;
 
     public WindowModule() {
