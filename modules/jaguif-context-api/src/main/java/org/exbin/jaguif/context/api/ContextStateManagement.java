@@ -15,23 +15,33 @@
  */
 package org.exbin.jaguif.context.api;
 
+import java.util.Collection;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Context registration.
+ * Interface for context state management.
  */
 @NullMarked
-public interface ContextRegistration {
+public interface ContextStateManagement extends ContextStateProvider, ContextStateConsumer {
 
     /**
-     * Registers context change.
+     * Returns state classes.
      *
-     * @param contextChange context change
+     * @return state classes
      */
-    void registerContextChange(ContextChange contextChange);
+    Collection<Class<?>> getStateClasses();
 
     /**
-     * Finish registration process.
+     * Adds change listener.
+     *
+     * @param changeListener change listener
      */
-    void finish();
+    void addChangeListener(ContextChangeListener changeListener);
+
+    /**
+     * Removes change listener.
+     *
+     * @param changeListener change listener
+     */
+    void removeChangeListener(ContextChangeListener changeListener);
 }

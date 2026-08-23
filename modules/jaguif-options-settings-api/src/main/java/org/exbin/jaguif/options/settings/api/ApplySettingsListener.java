@@ -16,7 +16,7 @@
 package org.exbin.jaguif.options.settings.api;
 
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Settings applier listener.
@@ -30,5 +30,5 @@ public interface ApplySettingsListener {
      * @param contextManager context manager
      * @param provider options provider
      */
-    void applySettings(ActiveContextManagement contextManager, SettingsOptionsProvider provider);
+    void applySettings(ContextStateManagement contextManager, SettingsOptionsProvider provider);
 }

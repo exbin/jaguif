@@ -25,8 +25,8 @@ import javax.swing.JPopupMenu;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for menus management.
@@ -39,30 +39,30 @@ public interface MenuManagement {
      *
      * @param outputMenu output menu
      * @param menuId menu definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      * @param creationContext creation context
      */
-    void buildMenu(JMenu outputMenu, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext);
+    void buildMenu(JMenu outputMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext);
 
     /**
      * Builds menu from given definition id.
      *
      * @param outputMenu output popup menu
      * @param menuId menu definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      * @param creationContext creation context
      */
-    void buildMenu(JPopupMenu outputMenu, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext);
+    void buildMenu(JPopupMenu outputMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext);
 
     /**
      * Builds menu from given definition id.
      *
      * @param outputMenuBar output menu bar
      * @param menuId menu definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      * @param creationContext creation context
      */
-    void buildMenu(JMenuBar outputMenuBar, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext);
+    void buildMenu(JMenuBar outputMenuBar, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext);
 
     /**
      * Checks whether menu group exists.

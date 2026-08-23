@@ -23,7 +23,6 @@ import java.util.Map;
 import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.ContributionModuleApi;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
@@ -47,6 +46,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.utils.ObjectUtils;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Options settings manager.
@@ -192,7 +192,7 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
 
         // TODO Rework for context provider parameter?
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
-        ActiveContextManagement contextProvider = frameModule.getFrameController().getContextManager();
+        ContextStateManagement contextProvider = frameModule.getFrameController().getContextManager();
         contextProvider.changeActiveState((Class) contextTypeClass, contextInstance);
 
         for (ApplySettingsContribution applySettings : contribution) {
@@ -210,7 +210,7 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
 
         // TODO Rework for context provider parameter?
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
-        ActiveContextManagement contextProvider = frameModule.getFrameController().getContextManager();
+        ContextStateManagement contextProvider = frameModule.getFrameController().getContextManager();
 
         for (ApplySettingsContribution applySettings : contribution) {
             SettingsApplier settingsApplier = applySettings.getSettingsApplier();
@@ -219,7 +219,7 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
     }
 
     @Override
-    public void applyAllOptions(ActiveContextManagement contextManager, SettingsOptionsProvider provider) {
+    public void applyAllOptions(ContextStateManagement contextManager, SettingsOptionsProvider provider) {
         for (ApplySettingsListener listener : applySettingsListeners) {
             listener.applySettings(contextManager, provider);
         }

@@ -20,7 +20,6 @@ import java.util.Optional;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextActivable;
 import org.exbin.jaguif.docking.api.ContextDocking;
 import org.exbin.jaguif.docking.api.DocumentDocking;
@@ -36,6 +35,7 @@ import org.exbin.jaguif.document.api.EditableDocument;
 import org.exbin.jaguif.file.api.FileModuleApi;
 import org.exbin.jaguif.file.api.SaveModifiedResult;
 import org.exbin.jaguif.utils.WindowClosingListener;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Default implementation of the document docking supporting single document
@@ -46,7 +46,7 @@ public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, D
 
     protected final DockingPanel docking = new DockingPanel();
     protected @Nullable Document currentDocument = null;
-    protected @Nullable ActiveContextManagement contextManager = null;
+    protected @Nullable ContextStateManagement contextManager = null;
 
     @Override
     public Component getComponent() {
@@ -74,7 +74,7 @@ public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, D
     }
 
     @Override
-    public void notifyActivated(ActiveContextManagement contextManager) {
+    public void notifyActivated(ContextStateManagement contextManager) {
         this.contextManager = contextManager;
         contextManager.changeActiveState(ContextDocking.class, this);
         contextManager.changeActiveState(ContextDocument.class, (ContextDocument) currentDocument);
@@ -84,7 +84,7 @@ public class DefaultSingleDocking implements ContextDocking, SidePanelDocking, D
     }
 
     @Override
-    public void notifyDeactivated(ActiveContextManagement contextManager) {
+    public void notifyDeactivated(ContextStateManagement contextManager) {
         if (currentDocument instanceof ContextActivable) {
             ((ContextActivable) currentDocument).notifyDeactivated(contextManager);
         }

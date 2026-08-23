@@ -24,11 +24,11 @@ import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 import org.exbin.jaguif.toolbar.api.ToolBarManagement;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.ContributionManagement;
 import org.exbin.jaguif.contribution.api.ContributionModuleApi;
 import org.exbin.jaguif.contribution.api.ContributionSequenceBuilder;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Default toolbar manager.
@@ -46,17 +46,17 @@ public class ToolBarManager implements ToolBarManagement {
     }
 
     @Override
-    public void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration) {
+    public void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextMonitoringRegistration contextMonitoringRegistration) {
         ContributionDefinition definition = contributionManagement.getDefinition(toolBarId);
-        builder.buildSequence(new ToolBarSequenceOutput(targetToolBar, contextRegistration), definition);
-        contextRegistration.finish();
+        builder.buildSequence(new ToolBarSequenceOutput(targetToolBar, contextMonitoringRegistration), definition);
+        contextMonitoringRegistration.finish();
     }
 
     @Override
-    public void buildIconToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration) {
+    public void buildIconToolBar(JToolBar targetToolBar, String toolBarId, ContextMonitoringRegistration contextMonitoringRegistration) {
         ContributionDefinition definition = contributionManagement.getDefinition(toolBarId);
-        builder.buildSequence(new IconToolBarSequenceOutput(targetToolBar, contextRegistration), definition);
-        contextRegistration.finish();
+        builder.buildSequence(new IconToolBarSequenceOutput(targetToolBar, contextMonitoringRegistration), definition);
+        contextMonitoringRegistration.finish();
     }
 
     @Override

@@ -34,10 +34,10 @@ import org.exbin.jaguif.contribution.api.TreeContributionSequenceOutput;
 import org.exbin.jaguif.menu.api.ActionMenuContribution;
 import org.exbin.jaguif.menu.api.DirectMenuContribution;
 import org.exbin.jaguif.menu.api.SubMenuContribution;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 import org.exbin.jaguif.context.api.EmptyContextStateProvider;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Menu bar sequence output.
@@ -46,14 +46,14 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
 
     protected final JMenuBar menuBar;
-    protected final ContextRegistration contextRegistration;
+    protected final ContextMonitoringRegistration contextMonitoringRegistration;
     protected final ContextStateProvider creationContext;
     protected final Map<String, ButtonGroup> buttonGroups;
     protected final Map<SequenceContribution, JMenuItem> menuItems = new HashMap<>();
 
-    public MenuBarSequenceOutput(JMenuBar menuBar, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext, Map<String, ButtonGroup> buttonGroups) {
+    public MenuBarSequenceOutput(JMenuBar menuBar, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext, Map<String, ButtonGroup> buttonGroups) {
         this.menuBar = menuBar;
-        this.contextRegistration = contextRegistration;
+        this.contextMonitoringRegistration = contextMonitoringRegistration;
         this.creationContext = creationContext == null ? new EmptyContextStateProvider() : creationContext;
         this.buttonGroups = buttonGroups;
     }
@@ -84,7 +84,7 @@ public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
         if (contribution instanceof SubSequenceContribution) {
             JMenu subMenu = ((SubMenuContribution) contribution).getSubMenu().get();
             menuBar.add(subMenu);
-            MenuSequenceOutput.finishMenuItem(subMenu, contextRegistration);
+            MenuSequenceOutput.finishMenuItem(subMenu, contextMonitoringRegistration);
             return;
         }
 
@@ -95,7 +95,7 @@ public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
 
         JMenuItem menuItem = menuItems.get(contribution);
         menuBar.add(menuItem);
-        MenuSequenceOutput.finishMenuItem(menuItem, contextRegistration);
+        MenuSequenceOutput.finishMenuItem(menuItem, contextMonitoringRegistration);
     }
 
     @Override
@@ -105,7 +105,7 @@ public class MenuBarSequenceOutput implements TreeContributionSequenceOutput {
 
     @Override
     public TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution) {
-        return new MenuSequenceOutput(((SubMenuContribution) subContribution).getSubMenu().get(), contextRegistration, creationContext, buttonGroups);
+        return new MenuSequenceOutput(((SubMenuContribution) subContribution).getSubMenu().get(), contextMonitoringRegistration, creationContext, buttonGroups);
     }
 
     @Override

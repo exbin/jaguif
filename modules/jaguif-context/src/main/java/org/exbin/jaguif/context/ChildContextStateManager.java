@@ -24,22 +24,22 @@ import java.util.Map;
 import java.util.Set;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.StateUpdateType;
 import org.exbin.jaguif.context.api.ContextChangeListener;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
- * Child active context manager.
+ * Child context state manager.
  */
 @NullMarked
-public class ChildActiveContextManager implements ActiveContextManagement {
+public class ChildContextStateManager implements ContextStateManagement {
 
-    protected final ActiveContextManagement parentContextManager;
+    protected final ContextStateManagement parentContextManager;
     protected final Map<Class<?>, Object> activeStates = new HashMap<>();
     protected final Set<Class<?>> childStates = new HashSet<>();
     protected final List<ContextChangeListener> changeListeners = new ArrayList<>();
 
-    public ChildActiveContextManager(ActiveContextManagement parentContextManager) {
+    public ChildContextStateManager(ContextStateManagement parentContextManager) {
         this.parentContextManager = parentContextManager;
         parentContextManager.addChangeListener(new ContextChangeListener() {
             @Override
@@ -48,7 +48,7 @@ public class ChildActiveContextManager implements ActiveContextManagement {
                     return;
                 }
 
-                ChildActiveContextManager.this.notifyStateChanged(stateClass, activeState);
+                ChildContextStateManager.this.notifyStateChanged(stateClass, activeState);
             }
 
             @Override
@@ -57,7 +57,7 @@ public class ChildActiveContextManager implements ActiveContextManagement {
                     return;
                 }
 
-                ChildActiveContextManager.this.notifyStateUpdated(stateClass, activeState, updateType);
+                ChildContextStateManager.this.notifyStateUpdated(stateClass, activeState, updateType);
             }
         });
     }

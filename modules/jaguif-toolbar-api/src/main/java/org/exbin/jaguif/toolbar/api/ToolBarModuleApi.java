@@ -19,7 +19,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JToolBar;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
-import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for toolbar support module.
@@ -76,9 +76,9 @@ public interface ToolBarModuleApi extends Module {
      *
      * @param targetToolBar target toolbar
      * @param toolBarId toolbar id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration);
+    void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Registers toolbar clipboard actions.

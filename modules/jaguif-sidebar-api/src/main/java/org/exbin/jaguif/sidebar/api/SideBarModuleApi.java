@@ -18,8 +18,8 @@ package org.exbin.jaguif.sidebar.api;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.docking.api.SidePanelDocking;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for sidebar support module.
@@ -75,9 +75,9 @@ public interface SideBarModuleApi extends Module {
      *
      * @param targetSideBar target sidebar
      * @param sideBarId sidebar id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildSideBar(SideBar targetSideBar, String sideBarId, ContextRegistration contextRegistration);
+    void buildSideBar(SideBar targetSideBar, String sideBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Sets automatic showing.

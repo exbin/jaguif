@@ -37,11 +37,11 @@ import org.exbin.jaguif.contribution.api.ContributionSequenceOutput;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
 import org.exbin.jaguif.action.api.ActionType;
 import org.exbin.jaguif.context.api.ContextChange;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.sidebar.api.ComponentSideBarContribution;
 import org.exbin.jaguif.sidebar.api.SideBar;
 import org.exbin.jaguif.sidebar.api.SideBarComponent;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Sidebar toolbar sequence output.
@@ -50,12 +50,12 @@ import org.exbin.jaguif.sidebar.api.SideBarComponent;
 public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
 
     protected final SideBar sideBar;
-    protected final ContextRegistration contextRegistration;
+    protected final ContextMonitoringRegistration contextMonitoringRegistration;
     protected final Map<SequenceContribution, SideToolBarComponent> sideBarItems = new HashMap<>();
 
-    public SideToolBarSequenceOutput(SideBar sideBar, ContextRegistration contextRegistration) {
+    public SideToolBarSequenceOutput(SideBar sideBar, ContextMonitoringRegistration contextMonitoringRegistration) {
         this.sideBar = sideBar;
-        this.contextRegistration = contextRegistration;
+        this.contextMonitoringRegistration = contextMonitoringRegistration;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         if (itemContribution instanceof ActionSideBarContribution) {
             SideToolBarComponent component = sideBarItems.get(itemContribution);
             sideBar.getToolBar().add(component.getComponent());
-            SideToolBarSequenceOutput.finishSideBarAction(component.getAction(), contextRegistration);
+            SideToolBarSequenceOutput.finishSideBarAction(component.getAction(), contextMonitoringRegistration);
         } else if (itemContribution instanceof ComponentSideBarContribution) {
             SideBarComponent sideBarComponent = ((ComponentSideBarContribution) itemContribution).createComponent();
             Action buttonAction = new AbstractAction() {
@@ -104,7 +104,7 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
             }
             button.setFocusable(false);
             sideBar.getToolBar().add(button);
-            SideToolBarSequenceOutput.finishSideBarAction(buttonAction, contextRegistration);
+            SideToolBarSequenceOutput.finishSideBarAction(buttonAction, contextMonitoringRegistration);
         }
     }
 
@@ -182,7 +182,7 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         return newItem;
     }
 
-    protected static void finishSideBarAction(Action action, ContextRegistration contextRegistration) {
+    protected static void finishSideBarAction(Action action, ContextMonitoringRegistration contextMonitoringRegistration) {
         if (action == null) {
             return;
         }
@@ -190,7 +190,7 @@ public class SideToolBarSequenceOutput implements ContributionSequenceOutput {
         Object contextChange = action.getValue(ActionConsts.ACTION_CONTEXT_CHANGE);
 
         if (contextChange instanceof ActionContextChange) {
-            contextRegistration.registerContextChange((ActionContextChange) contextChange);
+            contextMonitoringRegistration.registerContextMonitoring((ActionContextChange) contextChange);
         }
     }
 

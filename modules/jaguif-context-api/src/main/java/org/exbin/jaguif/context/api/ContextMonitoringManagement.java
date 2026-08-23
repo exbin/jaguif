@@ -20,10 +20,10 @@ import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Context update management.
+ * Context monitoring management.
  */
 @NullMarked
-public interface ContextUpdateManagement {
+public interface ContextMonitoringManagement {
 
     /**
      * Adds group with specific identifier.

@@ -54,10 +54,7 @@ import org.exbin.jaguif.addon.manager.operation.gui.AddonOperationPanel;
 import org.exbin.jaguif.addon.manager.operation.model.DownloadItemRecord;
 import org.exbin.jaguif.addon.manager.operation.model.LicenseItemRecord;
 import org.exbin.jaguif.addon.manager.operation.service.AddonOperationService;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextModuleApi;
-import org.exbin.jaguif.context.api.ContextRegistration;
-import org.exbin.jaguif.context.api.ContextUpdateManagement;
 import org.exbin.jaguif.operation.api.ProgressOperation;
 import org.exbin.jaguif.operation.api.TitledOperation;
 import org.exbin.jaguif.tabpages.api.ComponentTabPagesContribution;
@@ -68,6 +65,9 @@ import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.WindowModuleApi;
 import org.exbin.jaguif.window.api.controller.MultiStepControlController;
 import org.exbin.jaguif.window.api.gui.MultiStepControlPanel;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Addon manager.
@@ -204,11 +204,11 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         TabPagesModuleApi tabPagesModule = App.getModule(TabPagesModuleApi.class);
         TabPages tabPages = managerPanel.getTabPages();
-        ActiveContextManagement contextManagement = contextModule.createContextManager();
+        ContextStateManagement contextManagement = contextModule.createContextManager();
         contextManagement.changeActiveState(AddonsManagementContext.class, this);
         // contextManagement.changeActiveState(UpdateAvailabilityContext.class, this);
-        ContextUpdateManagement updateManagement = contextModule.createContextUpdateManagement(contextManagement);
-        ContextRegistration contextRegistrator = contextModule.createContextRegistrator("", updateManagement, contextManagement);
+        ContextMonitoringManagement monitoringManagement = contextModule.createContextUpdateManagement(contextManagement);
+        ContextMonitoringRegistration contextRegistrator = contextModule.createContextRegistrator("", monitoringManagement, contextManagement);
         tabPagesModule.buildTabPages(tabPages, AddonManagerModuleApi.ADDON_MANAGER_TABPAGES_ID, contextRegistrator);
 
         return managerPanel;

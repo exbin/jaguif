@@ -20,32 +20,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateUpdateListener;
 import org.exbin.jaguif.context.api.ContextValues;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Context registration.
  */
 @NullMarked
-public class ContextRegistrar implements ContextRegistration, ContextChangeRegistration {
+public class ContextRegistrar implements ContextMonitoringRegistration, ContextChangeRegistration {
 
     public static final String KEY_CONTEXT_CHANGE = "ContextChange";
-    protected final List<ContextValues> contextItems = new ArrayList<>();
+    protected final List<ContextValues> monitoringItems = new ArrayList<>();
     protected final Map<Class<?>, List<ContextStateChangeListener<?>>> contextChangeListeners = new HashMap<>();
     protected final Map<Class<?>, List<ContextStateUpdateListener<?>>> contextStateUpdateListeners = new HashMap<>();
-    protected final ActiveContextManagement contextManagement;
+    protected final ContextStateManagement contextManagement;
 
-    public ContextRegistrar(ActiveContextManagement contextManagement) {
+    public ContextRegistrar(ContextStateManagement contextManagement) {
         this.contextManagement = contextManagement;
     }
 
     @Override
-    public void registerContextChange(ContextChange contextChange) {
+    public void registerContextMonitoring(ContextChange contextChange) {
         contextChange.register(this);
     }
 

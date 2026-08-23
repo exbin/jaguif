@@ -28,12 +28,12 @@ public interface ContextActivable {
      *
      * @param contextManager context manager
      */
-    void notifyActivated(ActiveContextManagement contextManager);
+    void notifyActivated(ContextStateManagement contextManager);
 
     /**
      * Notifies deactivation of the component.
      *
      * @param contextManager context manager
      */
-    void notifyDeactivated(ActiveContextManagement contextManager);
+    void notifyDeactivated(ContextStateManagement contextManager);
 }

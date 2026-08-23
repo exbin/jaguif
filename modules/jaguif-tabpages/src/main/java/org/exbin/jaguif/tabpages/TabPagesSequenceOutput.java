@@ -22,12 +22,12 @@ import javax.swing.Action;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.contribution.api.ContributionSequenceOutput;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.tabpages.api.ActionTabPagesContribution;
 import org.exbin.jaguif.tabpages.api.ComponentTabPagesContribution;
 import org.exbin.jaguif.tabpages.api.TabPages;
 import org.exbin.jaguif.tabpages.api.TabPagesComponent;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Tab pages sequence output.
@@ -36,12 +36,12 @@ import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 public class TabPagesSequenceOutput implements ContributionSequenceOutput {
 
     protected final TabPages tabPages;
-    protected final ContextRegistration contextRegistration;
+    protected final ContextMonitoringRegistration contextMonitoringRegistration;
     protected final Map<SequenceContribution, TabPagesComponent> tabPagesItems = new HashMap<>();
 
-    public TabPagesSequenceOutput(TabPages tabPages, ContextRegistration contextRegistration) {
+    public TabPagesSequenceOutput(TabPages tabPages, ContextMonitoringRegistration contextMonitoringRegistration) {
         this.tabPages = tabPages;
-        this.contextRegistration = contextRegistration;
+        this.contextMonitoringRegistration = contextMonitoringRegistration;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class TabPagesSequenceOutput implements ContributionSequenceOutput {
         } else if (itemContribution instanceof ComponentTabPagesContribution) {
             TabPagesComponent tabPagesComponent = tabPagesItems.get(itemContribution);
             tabPages.addPage(tabPagesComponent);
-            TabPagesSequenceOutput.finishTabPagesItem(tabPagesComponent, contextRegistration);
+            TabPagesSequenceOutput.finishTabPagesItem(tabPagesComponent, contextMonitoringRegistration);
         }
     }
 
@@ -79,7 +79,7 @@ public class TabPagesSequenceOutput implements ContributionSequenceOutput {
         return tabPages.getPagesCount() == 0;
     }
 
-    protected static void finishTabPagesItem(TabPagesComponent tabPagesComponent, ContextRegistration contextRegistration) {
+    protected static void finishTabPagesItem(TabPagesComponent tabPagesComponent, ContextMonitoringRegistration contextMonitoringRegistration) {
         if (tabPagesComponent == null) {
             return;
         }
@@ -87,7 +87,7 @@ public class TabPagesSequenceOutput implements ContributionSequenceOutput {
         Object contextChange = tabPagesComponent.getValue(TabPagesComponent.KEY_CONTEXT_CHANGE);
 
         if (contextChange instanceof ContextChange) {
-            contextRegistration.registerContextChange((ContextChange) contextChange);
+            contextMonitoringRegistration.registerContextMonitoring((ContextChange) contextChange);
         }
     }
 }

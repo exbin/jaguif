@@ -18,7 +18,7 @@ package org.exbin.jaguif.tabpages.api;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
-import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for tab pages support module.
@@ -83,9 +83,9 @@ public interface TabPagesModuleApi extends Module {
      *
      * @param targetTabPages target tab pages
      * @param tabPagesId tab pages id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextRegistration contextRegistration);
+    void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Creates new tabbed pages panel.

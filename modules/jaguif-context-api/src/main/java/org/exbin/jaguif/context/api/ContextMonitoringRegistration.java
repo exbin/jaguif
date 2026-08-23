@@ -13,21 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.action.api;
+package org.exbin.jaguif.context.api;
 
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
- * Provider for context registration.
+ * Context monitoring registration.
  */
 @NullMarked
-public interface ContextRegistrationProvider {
+public interface ContextMonitoringRegistration {
 
     /**
-     * Returns context monitoring registration.
+     * Registers context change monitoring.
      *
-     * @return context monitoring registration
+     * @param contextChange context change
      */
-    ContextMonitoringRegistration getRegistration();
+    void registerContextMonitoring(ContextChange contextChange);
+
+    /**
+     * Finish registration process.
+     */
+    void finish();
 }

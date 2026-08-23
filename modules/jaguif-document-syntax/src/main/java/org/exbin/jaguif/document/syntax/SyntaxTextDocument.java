@@ -32,7 +32,6 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.operation.undo.api.UndoRedoState;
 import org.exbin.jaguif.action.api.DialogParentComponent;
 import org.exbin.jaguif.operation.undo.api.UndoRedoController;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.document.api.ComponentDocument;
 import org.exbin.jaguif.document.api.ContextDocument;
@@ -46,6 +45,7 @@ import org.exbin.jaguif.document.syntax.gui.SyntaxTextPanel;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Text document.
@@ -57,7 +57,7 @@ public class SyntaxTextDocument implements ContextDocument, ComponentDocument, F
 
     protected String title;
     protected DocumentSource documentSource = null;
-    protected ActiveContextManagement contextManager;
+    protected ContextStateManagement contextManager;
     protected DialogParentComponent dialogParentComponent;
     protected UndoRedoController undoRedoControl = null;
     protected SyntaxTextPanelComponent textPanelComponent;
@@ -215,7 +215,7 @@ public class SyntaxTextDocument implements ContextDocument, ComponentDocument, F
         return textPanel.isModified();
     }
 
-    public void componentActivated(ActiveContextManagement contextManager) {
+    public void componentActivated(ContextStateManagement contextManager) {
         this.contextManager = contextManager;
         contextManager.changeActiveState(ContextComponent.class, textPanelComponent);
         contextManager.changeActiveState(TextFontState.class, textPanelComponent);
@@ -224,7 +224,7 @@ public class SyntaxTextDocument implements ContextDocument, ComponentDocument, F
         contextManager.changeActiveState(DialogParentComponent.class, (DialogParentComponent) () -> textPanel);
     }
 
-    public void componentDeactivated(ActiveContextManagement contextManager) {
+    public void componentDeactivated(ContextStateManagement contextManager) {
         this.contextManager = null;
         contextManager.changeActiveState(ContextComponent.class, null);
         contextManager.changeActiveState(TextFontState.class, null);

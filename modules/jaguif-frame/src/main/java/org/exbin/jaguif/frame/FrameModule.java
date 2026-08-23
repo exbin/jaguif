@@ -45,7 +45,6 @@ import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 import org.exbin.jaguif.utils.DesktopUtils;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.frame.settings.FrameAppearanceOptions;
 import org.exbin.jaguif.frame.settings.FrameAppearanceSettingsApplier;
 import org.exbin.jaguif.frame.settings.FrameAppearanceSettingsComponent;
@@ -67,6 +66,7 @@ import org.exbin.jaguif.utils.ComponentProvider;
 import org.exbin.jaguif.utils.WindowClosingListener;
 import org.exbin.jaguif.frame.api.FrameController;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Module for window frame support.
@@ -230,7 +230,7 @@ public class FrameModule implements FrameModuleApi {
             applicationFrame.setApplicationExitHandler(exitHandler);
             appIcon = applicationFrame.getIconImage();
 
-            ActiveContextManagement contextManager = applicationFrame.getContextManager();
+            ContextStateManagement contextManager = applicationFrame.getContextManager();
             contextManager.changeActiveState(ContextFrame.class, applicationFrame);
             contextManager.changeActiveState(DialogParentComponent.class, new DialogParentComponent() {
                 @Override
@@ -252,7 +252,7 @@ public class FrameModule implements FrameModuleApi {
         FrameController frameController = getFrameController();
         frameController.setMainPanel(componentProvider.getComponent());
         if (componentProvider instanceof ContextActivable) {
-            ActiveContextManagement contextManager = frameController.getContextManager();
+            ContextStateManagement contextManager = frameController.getContextManager();
             ((ContextActivable) componentProvider).notifyActivated(contextManager);
         }
         if (componentProvider instanceof WindowClosingListener) {

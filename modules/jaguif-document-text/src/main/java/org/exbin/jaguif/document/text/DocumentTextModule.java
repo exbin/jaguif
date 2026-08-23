@@ -47,7 +47,6 @@ import org.exbin.jaguif.text.font.TextFontModule;
 import org.exbin.jaguif.text.font.action.TextFontAction;
 import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 import org.exbin.jaguif.context.api.ContextModuleApi;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.contribution.api.GroupSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
@@ -75,6 +74,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.text.font.contribution.TextFontContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Text editor module.
@@ -393,8 +393,8 @@ public class DocumentTextModule implements Module {
                 JPopupMenu popupMenu = menuBuilder.createPopupMenu();
                 FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
                 ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
-                ContextRegistration contextRegistrar = contextModule.createContextRegistrator(frameModule.getFrameController().getContextManager());
-                menuModule.buildMenu(popupMenu, TEXT_POPUP_MENU_ID, contextRegistrar);
+                ContextMonitoringRegistration contextMonitoringRegistrar = contextModule.createContextRegistrator(frameModule.getFrameController().getContextManager());
+                menuModule.buildMenu(popupMenu, TEXT_POPUP_MENU_ID, contextMonitoringRegistrar);
                 popupMenu.show(invoker, x, y);
             }
         };

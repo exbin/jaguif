@@ -27,9 +27,9 @@ import javax.swing.JPopupMenu;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.contribution.api.SeparationSequenceContributionRule;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for menu support module.
@@ -126,38 +126,38 @@ public interface MenuModuleApi extends Module {
      *
      * @param targetMenu target menu
      * @param menuId menu identification
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildMenu(JPopupMenu targetMenu, String menuId, ContextRegistration contextRegistration);
+    void buildMenu(JPopupMenu targetMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Returns menu using given identification.
      *
      * @param targetMenu target menu
      * @param menuId menu identification
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      * @param creationContext creation context
      */
-    void buildMenu(JPopupMenu targetMenu, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext);
+    void buildMenu(JPopupMenu targetMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext);
 
     /**
      * Returns menu using given identification.
      *
      * @param targetMenuBar target menu bar
      * @param menuId menu identification
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildMenu(JMenuBar targetMenuBar, String menuId, ContextRegistration contextRegistration);
+    void buildMenu(JMenuBar targetMenuBar, String menuId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Returns menu using given identification.
      *
      * @param targetMenuBar target menu bar
      * @param menuId menu identification
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      * @param creationContext creation context
      */
-    void buildMenu(JMenuBar targetMenuBar, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext);
+    void buildMenu(JMenuBar targetMenuBar, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext);
 
     /**
      * Returns current popup menu builder.

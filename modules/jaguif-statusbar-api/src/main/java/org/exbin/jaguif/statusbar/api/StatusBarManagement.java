@@ -19,7 +19,7 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
-import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for status bar management.
@@ -32,9 +32,9 @@ public interface StatusBarManagement {
      *
      * @param targetStatusBar output status bar
      * @param statusBarId status bar definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildStatusBar(StatusBar targetStatusBar, String statusBarId, ContextRegistration contextRegistration);
+    void buildStatusBar(StatusBar targetStatusBar, String statusBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Registers status bar.

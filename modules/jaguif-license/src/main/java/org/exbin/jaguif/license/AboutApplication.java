@@ -22,10 +22,10 @@ import org.exbin.jaguif.license.action.AboutAction;
 import org.exbin.jaguif.license.api.LicenseModuleApi;
 import org.exbin.jaguif.license.gui.AboutPanel;
 import org.exbin.jaguif.context.api.ContextModuleApi;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.tabpages.api.TabPages;
 import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Manager for data about the application.
@@ -52,8 +52,8 @@ public class AboutApplication {
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         TabPagesModuleApi tabPagesModule = App.getModule(TabPagesModuleApi.class);
         TabPages tabbedPagesPanel = tabPagesModule.createTabbedPagesPanel();
-        ContextRegistration contextRegistration = contextModule.createContextRegistrator();
-        tabPagesModule.buildTabPages(tabbedPagesPanel, LicenseModuleApi.ABOUT_PAGES_ID, contextRegistration);
+        ContextMonitoringRegistration contextMonitoringRegistration = contextModule.createContextRegistrator();
+        tabPagesModule.buildTabPages(tabbedPagesPanel, LicenseModuleApi.ABOUT_PAGES_ID, contextMonitoringRegistration);
         aboutPanel.loadFields();
         aboutPanel.setSideComponent(sideComponent);
         aboutPanel.setCenterComponent(tabbedPagesPanel.getComponent());

@@ -22,15 +22,15 @@ import java.util.List;
 import java.util.Map;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.StateUpdateType;
 import org.exbin.jaguif.context.api.ContextChangeListener;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
- * Default active context manager.
+ * Default context state manager.
  */
 @NullMarked
-public class ActiveContextManager implements ActiveContextManagement {
+public class ContextStateManager implements ContextStateManagement, ContextChangeListener {
 
     protected final Map<Class<?>, Object> activeStates = new HashMap<>();
     protected final List<ContextChangeListener> changeListeners = new ArrayList<>();
@@ -58,7 +58,7 @@ public class ActiveContextManager implements ActiveContextManagement {
     public <T> void updateActiveState(Class<T> stateClass, T activeState, StateUpdateType updateType) {
         Object currentState = getActiveState(stateClass);
         if (currentState == activeState) {
-            ActiveContextManager.this.notifyStateUpdated(stateClass, activeState, updateType);
+            ContextStateManager.this.notifyStateUpdated(stateClass, activeState, updateType);
         }
     }
 
@@ -72,13 +72,15 @@ public class ActiveContextManager implements ActiveContextManagement {
         changeListeners.remove(changeListener);
     }
 
-    protected <T> void notifyStateChanged(Class<T> stateClass, T activeState) {
+    @Override
+    public <T> void notifyStateChanged(Class<T> stateClass, @Nullable T activeState) {
         for (ContextChangeListener changeListener : changeListeners) {
             changeListener.notifyStateChanged(stateClass, activeState);
         }
     }
 
-    protected <T> void notifyStateUpdated(Class<T> stateClass, T activeState, StateUpdateType updateType) {
+    @Override
+    public <T> void notifyStateUpdated(Class<T> stateClass, T activeState, StateUpdateType updateType) {
         for (ContextChangeListener changeListener : changeListeners) {
             changeListener.notifyStateUpdated(stateClass, activeState, updateType);
         }

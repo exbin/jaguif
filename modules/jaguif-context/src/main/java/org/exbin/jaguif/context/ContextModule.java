@@ -20,12 +20,12 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.context.api.ContextModuleApi;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextChangeListener;
-import org.exbin.jaguif.context.api.ContextRegistration;
-import org.exbin.jaguif.context.api.ContextUpdateManagement;
 import org.exbin.jaguif.context.api.StateUpdateType;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Implementation of context module.
@@ -35,7 +35,7 @@ public class ContextModule implements ContextModuleApi {
 
     private @Nullable ResourceBundle resourceBundle;
 
-    private @Nullable ActiveContextManager applicationContextManager;
+    private @Nullable ContextStateManager applicationContextManager;
 
     public ContextModule() {
     }
@@ -52,44 +52,44 @@ public class ContextModule implements ContextModuleApi {
     }
 
     @Override
-    public ActiveContextManagement getMainContextManager() {
+    public ContextStateManagement getMainContextManager() {
         if (applicationContextManager == null) {
-            applicationContextManager = new ActiveContextManager();
+            applicationContextManager = new ContextStateManager();
         }
         return applicationContextManager;
     }
 
     @Override
-    public ActiveContextManagement createContextManager() {
-        return new ActiveContextManager();
+    public ContextStateManagement createContextManager() {
+        return new ContextStateManager();
     }
 
     @Override
-    public ContextRegistration createContextRegistrator() {
+    public ContextMonitoringRegistration createContextRegistrator() {
         return new ContextRegistrar(getMainContextManager());
     }
 
     @Override
-    public ContextRegistration createContextRegistrator(ActiveContextManagement contextManager) {
+    public ContextMonitoringRegistration createContextRegistrator(ContextStateManagement contextManager) {
         return new ContextRegistrar(contextManager);
     }
 
     @Override
-    public ContextRegistration createContextRegistrator(String recordId, ContextUpdateManagement contextUpdateManagement, ActiveContextManagement contextManager) {
+    public ContextMonitoringRegistration createContextRegistrator(String recordId, ContextMonitoringManagement contextUpdateManagement, ContextStateManagement contextManager) {
         return new ContextUpdateRegistrar(recordId, contextUpdateManagement, contextManager);
     }
 
     @Override
-    public ContextUpdateManagement createContextUpdateManagement() {
-        return new ContextUpdateManager();
+    public ContextMonitoringManagement createContextUpdateManagement() {
+        return new ContextMonitoringManager();
     }
 
     @Override
-    public ContextUpdateManagement createContextUpdateManagement(ActiveContextManagement contextManagement) {
-        ContextUpdateManager contextUpdateManager = new ContextUpdateManager();
+    public ContextMonitoringManagement createContextUpdateManagement(ContextStateManagement contextManagement) {
+        ContextMonitoringManager contextUpdateManager = new ContextMonitoringManager();
         contextManagement.addChangeListener(new ContextChangeListener() {
             @Override
-            public <T> void notifyStateChanged(Class<T> stateClass, T activeState) {
+            public <T> void notifyStateChanged(Class<T> stateClass, @Nullable T activeState) {
                 contextUpdateManager.notifyStateChanged(stateClass, activeState);
             }
 
@@ -102,7 +102,7 @@ public class ContextModule implements ContextModuleApi {
     }
 
     @Override
-    public ActiveContextManagement createChildContextManager(ActiveContextManagement parentContextManager) {
-        return new ChildActiveContextManager(parentContextManager);
+    public ContextStateManagement createChildContextManager(ContextStateManagement parentContextManager) {
+        return new ChildContextStateManager(parentContextManager);
     }
 }

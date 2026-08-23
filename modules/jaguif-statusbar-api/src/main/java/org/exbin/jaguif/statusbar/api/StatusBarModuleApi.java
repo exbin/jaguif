@@ -18,7 +18,7 @@ package org.exbin.jaguif.statusbar.api;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
-import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Support for status bar.
@@ -83,16 +83,16 @@ public interface StatusBarModuleApi extends Module {
      *
      * @param targetStatusBar target status bar
      * @param statusBarId status bar id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildStatusBar(StatusBar targetStatusBar, String statusBarId, ContextRegistration contextRegistration);
+    void buildStatusBar(StatusBar targetStatusBar, String statusBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Creates new status bar using given identification.
      *
      * @param statusBarId status bar id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      * @return status bar
      */
-    StatusBar createStatusBar(String statusBarId, ContextRegistration contextRegistration);
+    StatusBar createStatusBar(String statusBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 }

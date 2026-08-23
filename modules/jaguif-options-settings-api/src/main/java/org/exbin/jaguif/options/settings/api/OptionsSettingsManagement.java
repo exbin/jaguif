@@ -18,10 +18,10 @@ package org.exbin.jaguif.options.settings.api;
 import java.util.Collection;
 import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Interface for management of options settings.
@@ -165,7 +165,7 @@ public interface OptionsSettingsManagement {
      * @param contextManager context manager
      * @param provider settings options provider
      */
-    void applyAllOptions(ActiveContextManagement contextManager, SettingsOptionsProvider provider);
+    void applyAllOptions(ContextStateManagement contextManager, SettingsOptionsProvider provider);
 
     /**
      * Returns settings options provider.

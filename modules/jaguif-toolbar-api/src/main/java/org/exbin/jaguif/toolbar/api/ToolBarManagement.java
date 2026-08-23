@@ -21,7 +21,7 @@ import javax.swing.JToolBar;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
-import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for toolbar management.
@@ -34,18 +34,18 @@ public interface ToolBarManagement {
      *
      * @param targetToolBar output toolbar
      * @param toolBarId toolbar definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration);
+    void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Builds toolbar with icons only from given definition id.
      *
      * @param targetToolBar output toolbar
      * @param toolBarId toolbar definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildIconToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration);
+    void buildIconToolBar(JToolBar targetToolBar, String toolBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Registers toolbar.

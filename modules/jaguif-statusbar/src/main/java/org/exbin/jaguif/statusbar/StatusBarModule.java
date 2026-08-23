@@ -18,13 +18,13 @@ package org.exbin.jaguif.statusbar;
 import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.statusbar.api.StatusBar;
 import org.exbin.jaguif.statusbar.api.StatusBarDefinitionManagement;
 import org.exbin.jaguif.statusbar.api.StatusBarManagement;
 import org.exbin.jaguif.statusbar.api.StatusBarModuleApi;
 import org.exbin.jaguif.statusbar.gui.DefaultStatusBar;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Support for status bar module.
@@ -78,14 +78,14 @@ public class StatusBarModule implements StatusBarModuleApi {
     }
 
     @Override
-    public void buildStatusBar(StatusBar targetStatusBar, String statusBarId, ContextRegistration contextRegistration) {
-        StatusBarModule.this.getMainStatusBarManager().buildStatusBar(targetStatusBar, statusBarId, contextRegistration);
+    public void buildStatusBar(StatusBar targetStatusBar, String statusBarId, ContextMonitoringRegistration contextMonitoringRegistration) {
+        StatusBarModule.this.getMainStatusBarManager().buildStatusBar(targetStatusBar, statusBarId, contextMonitoringRegistration);
     }
 
     @Override
-    public StatusBar createStatusBar(String statusBarId, ContextRegistration contextRegistration) {
+    public StatusBar createStatusBar(String statusBarId, ContextMonitoringRegistration contextMonitoringRegistration) {
         StatusBar statusBar = new DefaultStatusBar();
-        buildStatusBar(statusBar, statusBarId, contextRegistration);
+        buildStatusBar(statusBar, statusBarId, contextMonitoringRegistration);
         return statusBar;
     }
 }

@@ -36,10 +36,10 @@ import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.exbin.jaguif.menu.api.MenuManagement;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 import org.exbin.jaguif.menu.api.MenuBuilder;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Implementation of menu module.
@@ -159,23 +159,23 @@ public class MenuModule implements MenuModuleApi {
     }
 
     @Override
-    public void buildMenu(JPopupMenu targetMenu, String menuId, ContextRegistration contextRegistration) {
-        MenuModule.this.getMainMenuManager().buildMenu(targetMenu, menuId, contextRegistration, null);
+    public void buildMenu(JPopupMenu targetMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration) {
+        MenuModule.this.getMainMenuManager().buildMenu(targetMenu, menuId, contextMonitoringRegistration, null);
     }
 
     @Override
-    public void buildMenu(JPopupMenu targetMenu, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext) {
-        MenuModule.this.getMainMenuManager().buildMenu(targetMenu, menuId, contextRegistration, creationContext);
+    public void buildMenu(JPopupMenu targetMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext) {
+        MenuModule.this.getMainMenuManager().buildMenu(targetMenu, menuId, contextMonitoringRegistration, creationContext);
     }
 
     @Override
-    public void buildMenu(JMenuBar targetMenuBar, String menuId, ContextRegistration contextRegistration) {
-        MenuModule.this.getMainMenuManager().buildMenu(targetMenuBar, menuId, contextRegistration, null);
+    public void buildMenu(JMenuBar targetMenuBar, String menuId, ContextMonitoringRegistration contextMonitoringRegistration) {
+        MenuModule.this.getMainMenuManager().buildMenu(targetMenuBar, menuId, contextMonitoringRegistration, null);
     }
 
     @Override
-    public void buildMenu(JMenuBar targetMenuBar, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext) {
-        MenuModule.this.getMainMenuManager().buildMenu(targetMenuBar, menuId, contextRegistration, creationContext);
+    public void buildMenu(JMenuBar targetMenuBar, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext) {
+        MenuModule.this.getMainMenuManager().buildMenu(targetMenuBar, menuId, contextMonitoringRegistration, creationContext);
     }
 
     @Override

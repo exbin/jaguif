@@ -19,7 +19,7 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
-import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for sidebar management.
@@ -32,9 +32,9 @@ public interface SideBarManagement {
      *
      * @param targetSideBar output sidebar
      * @param sideBarId sidebar definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildSideBar(SideBar targetSideBar, String sideBarId, ContextRegistration contextRegistration);
+    void buildSideBar(SideBar targetSideBar, String sideBarId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Registers sidebar.

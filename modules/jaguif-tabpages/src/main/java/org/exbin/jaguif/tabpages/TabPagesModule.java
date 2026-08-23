@@ -19,13 +19,13 @@ import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.tabpages.api.TabPages;
 import org.exbin.jaguif.tabpages.api.TabPagesDefinitionManagement;
 import org.exbin.jaguif.tabpages.api.TabPagesManagement;
 import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
 import org.exbin.jaguif.tabpages.gui.OptTabbedPagesPanel;
 import org.exbin.jaguif.tabpages.gui.TabbedPagesPanel;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Implementation of tab pages module.
@@ -65,8 +65,8 @@ public class TabPagesModule implements TabPagesModuleApi {
     }
 
     @Override
-    public void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextRegistration contextRegistration) {
-        TabPagesModule.this.getMainTabPagesManager().buildTabPages(targetTabPages, tabPagesId, contextRegistration);
+    public void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextMonitoringRegistration contextMonitoringRegistration) {
+        TabPagesModule.this.getMainTabPagesManager().buildTabPages(targetTabPages, tabPagesId, contextMonitoringRegistration);
     }
 
     @Override

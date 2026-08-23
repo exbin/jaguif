@@ -33,7 +33,6 @@ import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JPopupMenu;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.docking.api.ContextDocking;
 import org.exbin.jaguif.docking.gui.DockingPanel;
 import org.exbin.jaguif.docking.multi.api.MultiDocking;
@@ -45,7 +44,6 @@ import org.exbin.jaguif.document.api.DocumentManagement;
 import org.exbin.jaguif.document.api.DocumentModuleApi;
 import org.exbin.jaguif.context.api.ContextActivable;
 import org.exbin.jaguif.context.api.ContextModuleApi;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.docking.api.SidePanelDocking;
 import org.exbin.jaguif.docking.multi.api.DockingMultiModuleApi;
 import org.exbin.jaguif.document.api.DocumentSource;
@@ -58,6 +56,8 @@ import org.exbin.jaguif.file.api.SaveModifiedResult;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
 import org.exbin.jaguif.utils.WindowClosingListener;
 import org.exbin.jaguif.document.api.EmptyDocumentSource;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Default implementation of the document docking supporting multiple documents.
@@ -69,7 +69,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
     protected final DockingPanel dockingComponent = new DockingPanel();
     protected final MultiDocumentPanel documentPanel = new MultiDocumentPanel();
     protected @Nullable Document lastActiveDocument = null;
-    protected @Nullable ActiveContextManagement contextManager = null;
+    protected @Nullable ContextStateManagement contextManager = null;
 
     public DefaultMultiDocking() {
         dockingComponent.setContentComponent(documentPanel);
@@ -86,14 +86,14 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
                 }
 
                 ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
-                ActiveContextManagement popupContextManager = contextModule.createChildContextManager(contextManager);
+                ContextStateManagement popupContextManager = contextModule.createChildContextManager(contextManager);
                 Document refDocument = openDocuments.get(index);
                 popupContextManager.changeActiveState(ContextDocument.class, (ContextDocument) refDocument);
 
                 MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
                 JPopupMenu documentContextPopupMenu = menuModule.getMenuBuilder().createPopupMenu();
-                ContextRegistration contextRegistrar = contextModule.createContextRegistrator(contextManager);
-                menuModule.buildMenu(documentContextPopupMenu, DockingMultiModule.DOCUMENT_CONTEXT_MENU_ID, contextRegistrar);
+                ContextMonitoringRegistration contextMonitoringRegistrar = contextModule.createContextRegistrator(contextManager);
+                menuModule.buildMenu(documentContextPopupMenu, DockingMultiModule.DOCUMENT_CONTEXT_MENU_ID, contextMonitoringRegistrar);
                 documentContextPopupMenu.show(component, positionX, positionY);
             }
 
@@ -313,7 +313,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
     }
 
     @Override
-    public void notifyActivated(ActiveContextManagement contextManager) {
+    public void notifyActivated(ContextStateManagement contextManager) {
         this.contextManager = contextManager;
         contextManager.changeActiveState(ContextDocking.class, this);
         Document document = getDocument();
@@ -328,7 +328,7 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
     }
 
     @Override
-    public void notifyDeactivated(ActiveContextManagement contextManager) {
+    public void notifyDeactivated(ContextStateManagement contextManager) {
         Optional<Document> optActiveDocument = getActiveDocument();
         if (optActiveDocument.isPresent()) {
             Document activeDocument = optActiveDocument.get();

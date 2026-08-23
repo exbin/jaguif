@@ -32,46 +32,46 @@ public interface ContextModuleApi extends Module {
      *
      * @return context manager
      */
-    ActiveContextManagement getMainContextManager();
+    ContextStateManagement getMainContextManager();
 
     /**
      * Creates new default context manager.
      *
      * @return context manager
      */
-    ActiveContextManagement createContextManager();
+    ContextStateManagement createContextManager();
 
     /**
      * Creates new context registrator.
      *
      * @return context registrator
      */
-    ContextRegistration createContextRegistrator();
+    ContextMonitoringRegistration createContextRegistrator();
 
     /**
      * Creates new context registrator for specific context manager.
      *
-     * @param contextManager context manager
+     * @param contextMonitoringManager context monitoring manager
      * @return context registrator
      */
-    ContextRegistration createContextRegistrator(ActiveContextManagement contextManager);
+    ContextMonitoringRegistration createContextRegistrator(ContextStateManagement contextMonitoringManager);
 
     /**
      * Creates new context registrator for specific context manager.
      *
      * @param recordId record identifier
      * @param contextUpdateManagement context update management
-     * @param contextManagement context management
+     * @param contextMonitoringManagement context monitoring management
      * @return context registrator
      */
-    ContextRegistration createContextRegistrator(String recordId, ContextUpdateManagement contextUpdateManagement, ActiveContextManagement contextManagement);
+    ContextMonitoringRegistration createContextRegistrator(String recordId, ContextMonitoringManagement contextUpdateManagement, ContextStateManagement contextMonitoringManagement);
 
     /**
      * Creates new context update manager.
      *
      * @return context update manager
      */
-    ContextUpdateManagement createContextUpdateManagement();
+    ContextMonitoringManagement createContextUpdateManagement();
 
     /**
      * Creates new context update manager.
@@ -79,7 +79,7 @@ public interface ContextModuleApi extends Module {
      * @param contextManagement context management
      * @return context update manager
      */
-    ContextUpdateManagement createContextUpdateManagement(ActiveContextManagement contextManagement);
+    ContextMonitoringManagement createContextUpdateManagement(ContextStateManagement contextManagement);
 
     /**
      * Creates new child context manager for given parent context manager.
@@ -87,5 +87,5 @@ public interface ContextModuleApi extends Module {
      * @param parentContextManager parent context manager
      * @return context manager
      */
-    ActiveContextManagement createChildContextManager(ActiveContextManagement parentContextManager);
+    ContextStateManagement createChildContextManager(ContextStateManagement parentContextManager);
 }

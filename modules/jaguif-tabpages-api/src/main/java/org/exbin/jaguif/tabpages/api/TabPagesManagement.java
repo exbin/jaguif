@@ -19,7 +19,7 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
-import org.exbin.jaguif.context.api.ContextRegistration;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Interface for tab pages management.
@@ -32,9 +32,9 @@ public interface TabPagesManagement {
      *
      * @param targetTabPages output tab pages
      * @param tabPagesId tab pages definition id
-     * @param contextRegistration context registration
+     * @param contextMonitoringRegistration context monitoring registration
      */
-    void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextRegistration contextRegistration);
+    void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextMonitoringRegistration contextMonitoringRegistration);
 
     /**
      * Registers tab pages.

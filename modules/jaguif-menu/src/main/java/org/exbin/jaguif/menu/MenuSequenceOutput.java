@@ -32,12 +32,12 @@ import org.exbin.jaguif.contribution.api.TreeContributionSequenceOutput;
 import org.exbin.jaguif.menu.api.ActionMenuCreation;
 import org.exbin.jaguif.menu.api.DirectMenuContribution;
 import org.exbin.jaguif.menu.api.SubMenuContribution;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 import org.exbin.jaguif.context.api.EmptyContextStateProvider;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.menu.api.ActionMenuOnCreation;
 import org.exbin.jaguif.menu.api.MenuModuleApi;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Menu sequence output.
@@ -46,22 +46,22 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 public class MenuSequenceOutput implements TreeContributionSequenceOutput {
 
     protected final JMenu menu;
-    protected final ContextRegistration contextRegistration;
+    protected final ContextMonitoringRegistration contextMonitoringRegistration;
     protected final ContextStateProvider creationContext;
     protected final Map<String, ButtonGroup> buttonGroups;
     protected final boolean isPopup;
     protected final Map<SequenceContribution, JMenuItem> menuItems = new HashMap<>();
 
-    public MenuSequenceOutput(JMenu menu, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext, Map<String, ButtonGroup> buttonGroups, boolean isPopup) {
+    public MenuSequenceOutput(JMenu menu, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext, Map<String, ButtonGroup> buttonGroups, boolean isPopup) {
         this.menu = menu;
-        this.contextRegistration = contextRegistration;
+        this.contextMonitoringRegistration = contextMonitoringRegistration;
         this.creationContext = creationContext == null ? new EmptyContextStateProvider() : creationContext;
         this.buttonGroups = buttonGroups;
         this.isPopup = isPopup;
     }
 
-    public MenuSequenceOutput(JMenu menu, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext, Map<String, ButtonGroup> buttonGroups) {
-        this(menu, contextRegistration, creationContext, buttonGroups, false);
+    public MenuSequenceOutput(JMenu menu, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext, Map<String, ButtonGroup> buttonGroups) {
+        this(menu, contextMonitoringRegistration, creationContext, buttonGroups, false);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
         if (contribution instanceof SubSequenceContribution) {
             JMenu subMenu = ((SubMenuContribution) contribution).getSubMenu().get();
             menu.add(subMenu);
-            MenuSequenceOutput.finishMenuItem(subMenu, contextRegistration);
+            MenuSequenceOutput.finishMenuItem(subMenu, contextMonitoringRegistration);
             return;
         }
 
@@ -144,7 +144,7 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
         if (contribution instanceof ActionSequenceContribution) {
             JMenuItem menuItem = menuItems.get(contribution);
             menu.add(menuItem);
-            MenuSequenceOutput.finishMenuItem(menuItem, contextRegistration);
+            MenuSequenceOutput.finishMenuItem(menuItem, contextMonitoringRegistration);
             return;
         }
 
@@ -162,7 +162,7 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
 
     @Override
     public TreeContributionSequenceOutput createSubOutput(SubSequenceContribution subContribution) {
-        return new MenuSequenceOutput(((SubMenuContribution) subContribution).getSubMenu().get(), contextRegistration, creationContext, buttonGroups, isPopup);
+        return new MenuSequenceOutput(((SubMenuContribution) subContribution).getSubMenu().get(), contextMonitoringRegistration, creationContext, buttonGroups, isPopup);
     }
 
     @Override
@@ -175,7 +175,7 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
         return menuModule.actionToMenuItem(action, buttonGroups);
     }
 
-    private static void finishMenuAction(@Nullable Action action, ContextRegistration contextRegistration) {
+    private static void finishMenuAction(@Nullable Action action, ContextMonitoringRegistration contextMonitoringRegistration) {
         if (action == null) {
             return;
         }
@@ -183,26 +183,26 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
         Object contextChange = action.getValue(ActionConsts.ACTION_CONTEXT_CHANGE);
 
         if (contextChange instanceof ActionContextChange) {
-            contextRegistration.registerContextChange((ActionContextChange) contextChange);
+            contextMonitoringRegistration.registerContextMonitoring((ActionContextChange) contextChange);
         }
     }
 
-    public static void finishMenuItem(@Nullable JMenuItem menuItem, ContextRegistration contextRegistration) {
+    public static void finishMenuItem(@Nullable JMenuItem menuItem, ContextMonitoringRegistration contextMonitoringRegistration) {
         if (menuItem == null) {
             return;
         }
 
         if (menuItem instanceof JMenu) {
-            finishMenu((JMenu) menuItem, contextRegistration);
+            finishMenu((JMenu) menuItem, contextMonitoringRegistration);
         } else {
             Action action = menuItem.getAction();
             if (action != null) {
-                finishMenuAction(action, contextRegistration);
+                finishMenuAction(action, contextMonitoringRegistration);
             }
         }
     }
 
-    private static void finishMenu(JMenu menu, ContextRegistration contextRegistration) {
+    private static void finishMenu(JMenu menu, ContextMonitoringRegistration contextMonitoringRegistration) {
         int i = 0;
         int itemCount = menu.getItemCount();
         while (i < itemCount) {
@@ -213,10 +213,10 @@ public class MenuSequenceOutput implements TreeContributionSequenceOutput {
             }
             Action action = menuItem.getAction();
             if (action != null) {
-                finishMenuAction(action, contextRegistration);
+                finishMenuAction(action, contextMonitoringRegistration);
             }
             if (menuItem instanceof JMenu) {
-                finishMenu((JMenu) menuItem, contextRegistration);
+                finishMenu((JMenu) menuItem, contextMonitoringRegistration);
             }
             itemCount = menu.getItemCount();
             if (i < itemCount && menu.getItem(i) == menuItem) {

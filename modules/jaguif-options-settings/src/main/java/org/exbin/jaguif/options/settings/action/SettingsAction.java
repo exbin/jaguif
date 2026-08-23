@@ -36,7 +36,6 @@ import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.gui.OptionsControlPanel;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
 import org.exbin.jaguif.options.settings.SettingsPageReceiver;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.frame.api.FrameModuleApi;
 import org.exbin.jaguif.options.settings.SettingsOptionsStorage;
 import org.exbin.jaguif.options.settings.SettingsPage;
@@ -46,6 +45,7 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
 import org.exbin.jaguif.frame.api.FrameController;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Options settings action.
@@ -163,7 +163,7 @@ public class SettingsAction extends AbstractAction {
         // TODO Run in top context
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ActiveContextManagement contextManager = frameHandler.getContextManager();
+        ContextStateManagement contextManager = frameHandler.getContextManager();
 
         for (SettingsPage page : pages) {
             try {
@@ -182,7 +182,7 @@ public class SettingsAction extends AbstractAction {
         // TODO Run in top context
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ActiveContextManagement contextManager = frameHandler.getContextManager();
+        ContextStateManagement contextManager = frameHandler.getContextManager();
 
         for (SettingsPage page : pages) {
             try {
@@ -199,7 +199,7 @@ public class SettingsAction extends AbstractAction {
         // TODO Run in top context
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ActiveContextManagement contextManager = frameHandler.getContextManager();
+        ContextStateManagement contextManager = frameHandler.getContextManager();
 
         SettingsOptionsStorage settingsOptionsStorage = new SettingsOptionsStorage();
         for (SettingsPage page : pages) {
@@ -212,7 +212,7 @@ public class SettingsAction extends AbstractAction {
         applyAllOptions(contextManager, settingsOptionsStorage);
     }
 
-    private void applyAllOptions(ActiveContextManagement contextManager, SettingsOptionsProvider settingsOptionsProvider) {
+    private void applyAllOptions(ContextStateManagement contextManager, SettingsOptionsProvider settingsOptionsProvider) {
         OptionsSettingsModuleApi optionsSettingsModule = App.getModule(OptionsSettingsModuleApi.class);
         OptionsSettingsManagement mainSettingsManager = optionsSettingsModule.getMainSettingsManager();
         for (Class<? extends SettingsOptions> optionsClass : mainSettingsManager.getOptionsClasses()) {

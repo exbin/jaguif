@@ -19,8 +19,8 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
-import org.exbin.jaguif.context.api.ContextUpdateManagement;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 
 /**
  * Interface for frame controller.
@@ -123,12 +123,12 @@ public interface FrameController extends ContextFrame {
      *
      * @return context manager
      */
-    ActiveContextManagement getContextManager();
+    ContextStateManagement getContextManager();
 
     /**
      * Returns update manager.
      *
      * @return update manager
      */
-    ContextUpdateManagement getUpdateManager();
+    ContextMonitoringManagement getUpdateManager();
 }

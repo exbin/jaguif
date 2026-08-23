@@ -17,14 +17,11 @@ package org.exbin.jaguif.sidebar;
 
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 import org.exbin.jaguif.sidebar.api.SideBarManagement;
 import org.exbin.jaguif.context.api.ContextModuleApi;
-import org.exbin.jaguif.context.api.ContextRegistration;
-import org.exbin.jaguif.context.api.ContextUpdateManagement;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.ContributionManagement;
 import org.exbin.jaguif.contribution.api.ContributionModuleApi;
@@ -34,6 +31,9 @@ import org.exbin.jaguif.frame.api.FrameModuleApi;
 import org.exbin.jaguif.sidebar.api.SideBarModuleApi;
 import org.exbin.jaguif.sidebar.api.SideBar;
 import org.exbin.jaguif.frame.api.FrameController;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Default sidebar manager.
@@ -51,10 +51,10 @@ public class SideBarManager implements SideBarManagement {
     }
 
     @Override
-    public void buildSideBar(SideBar targetSideBar, String sideBarId, ContextRegistration contextRegistration) {
+    public void buildSideBar(SideBar targetSideBar, String sideBarId, ContextMonitoringRegistration contextMonitoringRegistration) {
         ContributionDefinition definition = contributionManagement.getDefinition(sideBarId);
-        builder.buildSequence(new SideToolBarSequenceOutput(targetSideBar, contextRegistration), definition);
-        contextRegistration.finish();
+        builder.buildSequence(new SideToolBarSequenceOutput(targetSideBar, contextMonitoringRegistration), definition);
+        contextMonitoringRegistration.finish();
     }
 
     @Override
@@ -87,8 +87,8 @@ public class SideBarManager implements SideBarManagement {
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ContextUpdateManagement updateManager = frameHandler.getUpdateManager();
-        ActiveContextManagement contextManager = frameHandler.getContextManager();
+        ContextMonitoringManagement updateManager = frameHandler.getUpdateManager();
+        ContextStateManagement contextManager = frameHandler.getContextManager();
         updateManager.addGroup("mainSideBar");
         buildSideBar(sideBar, SideBarModuleApi.MAIN_SIDE_BAR_ID, contextModule.createContextRegistrator(SideBarModuleApi.MAIN_SIDE_BAR_ID, updateManager, contextManager));
         return sideBar;

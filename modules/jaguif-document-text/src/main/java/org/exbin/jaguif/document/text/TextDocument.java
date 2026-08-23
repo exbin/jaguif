@@ -33,7 +33,6 @@ import org.exbin.jaguif.document.text.gui.TextPanel;
 import org.exbin.jaguif.operation.undo.api.UndoRedoState;
 import org.exbin.jaguif.action.api.DialogParentComponent;
 import org.exbin.jaguif.operation.undo.api.UndoRedoController;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.document.api.ComponentDocument;
 import org.exbin.jaguif.document.api.ContextDocument;
@@ -45,6 +44,7 @@ import org.exbin.jaguif.file.api.FileDocumentSource;
 import org.exbin.jaguif.text.encoding.ContextEncoding;
 import org.exbin.jaguif.text.font.TextFontState;
 import org.exbin.jaguif.document.api.EmptyDocumentSource;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Text document.
@@ -56,7 +56,7 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
 
     protected @Nullable DocumentSource documentSource = null;
     protected @Nullable String title;
-    protected @Nullable ActiveContextManagement contextManager;
+    protected @Nullable ContextStateManagement contextManager;
     protected @Nullable DialogParentComponent dialogParentComponent;
     protected @Nullable UndoRedoController undoRedoControl = null;
     protected @Nullable EditorTextPanelComponent textPanelComponent;
@@ -209,7 +209,7 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         return textPanel.isModified();
     }
 
-    public void componentActivated(ActiveContextManagement contextManager) {
+    public void componentActivated(ContextStateManagement contextManager) {
         this.contextManager = contextManager;
         contextManager.changeActiveState(ContextComponent.class, textPanelComponent);
         contextManager.changeActiveState(TextFontState.class, textPanelComponent);
@@ -218,7 +218,7 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
         contextManager.changeActiveState(DialogParentComponent.class, (DialogParentComponent) () -> textPanel);
     }
 
-    public void componentDeactivated(ActiveContextManagement contextManager) {
+    public void componentDeactivated(ContextStateManagement contextManager) {
         this.contextManager = null;
         contextManager.changeActiveState(ContextComponent.class, null);
         contextManager.changeActiveState(TextFontState.class, null);

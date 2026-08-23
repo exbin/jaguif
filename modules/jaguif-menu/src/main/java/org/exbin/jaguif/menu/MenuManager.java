@@ -36,12 +36,12 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 import org.exbin.jaguif.menu.api.DirectMenuContribution;
 import org.exbin.jaguif.menu.api.MenuItemProvider;
 import org.exbin.jaguif.menu.api.MenuManagement;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateProvider;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.ContributionModuleApi;
 import org.exbin.jaguif.contribution.api.TreeContributionManagement;
 import org.exbin.jaguif.contribution.api.TreeContributionSequenceBuilder;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Default menus manager.
@@ -59,27 +59,27 @@ public class MenuManager implements MenuManagement {
     }
 
     @Override
-    public void buildMenu(JMenu outputMenu, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext) {
+    public void buildMenu(JMenu outputMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext) {
         ContributionDefinition definition = contributionManagement.getDefinition(menuId);
         Map<String, ButtonGroup> buttonGroups = new HashMap<>();
-        builder.buildSequence(new MenuSequenceOutput(outputMenu, contextRegistration, creationContext, buttonGroups), menuId, definition);
-        contextRegistration.finish();
+        builder.buildSequence(new MenuSequenceOutput(outputMenu, contextMonitoringRegistration, creationContext, buttonGroups), menuId, definition);
+        contextMonitoringRegistration.finish();
     }
 
     @Override
-    public void buildMenu(JPopupMenu outputMenu, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext) {
+    public void buildMenu(JPopupMenu outputMenu, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext) {
         ContributionDefinition definition = contributionManagement.getDefinition(menuId);
         Map<String, ButtonGroup> buttonGroups = new HashMap<>();
-        builder.buildSequence(new PopupMenuSequenceOutput(outputMenu, contextRegistration, creationContext, buttonGroups), menuId, definition);
-        contextRegistration.finish();
+        builder.buildSequence(new PopupMenuSequenceOutput(outputMenu, contextMonitoringRegistration, creationContext, buttonGroups), menuId, definition);
+        contextMonitoringRegistration.finish();
     }
 
     @Override
-    public void buildMenu(JMenuBar outputMenuBar, String menuId, ContextRegistration contextRegistration, @Nullable ContextStateProvider creationContext) {
+    public void buildMenu(JMenuBar outputMenuBar, String menuId, ContextMonitoringRegistration contextMonitoringRegistration, @Nullable ContextStateProvider creationContext) {
         ContributionDefinition definition = contributionManagement.getDefinition(menuId);
         Map<String, ButtonGroup> buttonGroups = new HashMap<>();
-        builder.buildSequence(new MenuBarSequenceOutput(outputMenuBar, contextRegistration, creationContext, buttonGroups), menuId, definition);
-        contextRegistration.finish();
+        builder.buildSequence(new MenuBarSequenceOutput(outputMenuBar, contextMonitoringRegistration, creationContext, buttonGroups), menuId, definition);
+        contextMonitoringRegistration.finish();
     }
 
     @Override

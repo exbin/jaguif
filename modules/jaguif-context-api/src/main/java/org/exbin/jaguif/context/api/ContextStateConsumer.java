@@ -15,22 +15,14 @@
  */
 package org.exbin.jaguif.context.api;
 
-import java.util.Collection;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Interface for context state management.
+ * Interface for context state consumer.
  */
 @NullMarked
-public interface ActiveContextManagement extends ContextStateProvider {
-
-    /**
-     * Returns state classes.
-     *
-     * @return state classes
-     */
-    Collection<Class<?>> getStateClasses();
+public interface ContextStateConsumer {
 
     /**
      * Changes active state.
@@ -50,18 +42,4 @@ public interface ActiveContextManagement extends ContextStateProvider {
      * @param updateType update type
      */
     <T> void updateActiveState(Class<T> stateClass, T activeState, StateUpdateType updateType);
-
-    /**
-     * Adds change listener.
-     *
-     * @param changeListener change listener
-     */
-    void addChangeListener(ContextChangeListener changeListener);
-
-    /**
-     * Removes change listener.
-     *
-     * @param changeListener change listener
-     */
-    void removeChangeListener(ContextChangeListener changeListener);
 }

@@ -21,7 +21,6 @@ import java.util.ResourceBundle;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextModuleApi;
 import org.exbin.jaguif.contribution.api.GroupSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
@@ -39,6 +38,7 @@ import org.exbin.jaguif.options.settings.api.SettingsOptionsOverrides;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.exbin.jaguif.options.settings.contribution.SettingsContribution;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 
 /**
  * Implementation of framework options settings module.
@@ -91,7 +91,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         OptionsSettingsManager mainSettingsManager = getMainSettingsManager();
         SettingsOptionsProvider settingsOptionsProvider = mainSettingsManager.getSettingsOptionsProvider();
-        ActiveContextManagement mainContextManager = contextModule.getMainContextManager();
+        ContextStateManagement mainContextManager = contextModule.getMainContextManager();
         mainSettingsManager.applyAllOptions(mainContextManager, settingsOptionsProvider);
     }
 

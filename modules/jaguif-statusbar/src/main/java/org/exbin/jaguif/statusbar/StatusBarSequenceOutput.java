@@ -21,11 +21,11 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.contribution.api.ContributionSequenceOutput;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.statusbar.api.ComponentStatusBarContribution;
 import org.exbin.jaguif.statusbar.api.StatusBar;
 import org.exbin.jaguif.statusbar.api.StatusBarComponent;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Status bar sequence output.
@@ -34,12 +34,12 @@ import org.exbin.jaguif.statusbar.api.StatusBarComponent;
 public class StatusBarSequenceOutput implements ContributionSequenceOutput {
 
     protected final StatusBar statusBar;
-    protected final ContextRegistration contextRegistration;
+    protected final ContextMonitoringRegistration contextRegistration;
     protected final Map<SequenceContribution, StatusBarComponent> statusBarItems = new HashMap<>();
 
-    public StatusBarSequenceOutput(StatusBar statusBar, ContextRegistration contextRegistration) {
+    public StatusBarSequenceOutput(StatusBar statusBar, ContextMonitoringRegistration contextMonitoringRegistration) {
         this.statusBar = statusBar;
-        this.contextRegistration = contextRegistration;
+        this.contextRegistration = contextMonitoringRegistration;
     }
 
     @Override
@@ -72,11 +72,11 @@ public class StatusBarSequenceOutput implements ContributionSequenceOutput {
         return statusBar.getItemsCount() == 0;
     }
 
-    protected static void finishStatusBarItem(StatusBarComponent statusBarComponent, ContextRegistration contextRegistration) {
+    protected static void finishStatusBarItem(StatusBarComponent statusBarComponent, ContextMonitoringRegistration contextMonitoringRegistration) {
         Object contextChange = statusBarComponent.getValue(StatusBarComponent.KEY_CONTEXT_CHANGE);
 
         if (contextChange instanceof ContextChange) {
-            contextRegistration.registerContextChange((ContextChange) contextChange);
+            contextMonitoringRegistration.registerContextMonitoring((ContextChange) contextChange);
         }
     }
 }

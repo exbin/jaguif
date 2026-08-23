@@ -24,10 +24,10 @@ import javax.swing.JComponent;
 import javax.swing.JToolBar;
 import org.exbin.jaguif.contribution.api.ContributionSequenceOutput;
 import org.exbin.jaguif.contribution.api.ItemSequenceContribution;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarComponent;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Icon toolbar sequence output.
@@ -36,12 +36,12 @@ import org.exbin.jaguif.toolbar.api.ToolBarComponent;
 public class IconToolBarSequenceOutput implements ContributionSequenceOutput {
 
     protected final JToolBar toolBar;
-    protected final ContextRegistration contextRegistration;
+    protected final ContextMonitoringRegistration contextRegistration;
     protected final Map<SequenceContribution, ToolBarComponent> toolBarItems = new HashMap<>();
 
-    public IconToolBarSequenceOutput(JToolBar menuBar, ContextRegistration contextRegistration) {
+    public IconToolBarSequenceOutput(JToolBar menuBar, ContextMonitoringRegistration contextMonitoringRegistration) {
         this.toolBar = menuBar;
-        this.contextRegistration = contextRegistration;
+        this.contextRegistration = contextMonitoringRegistration;
     }
 
     @Override

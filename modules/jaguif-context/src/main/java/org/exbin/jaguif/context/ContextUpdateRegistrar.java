@@ -17,30 +17,30 @@ package org.exbin.jaguif.context;
 
 import java.util.List;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
 import org.exbin.jaguif.context.api.ContextChange;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
-import org.exbin.jaguif.context.api.ContextUpdateManagement;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Context registration.
  */
 @NullMarked
-public class ContextUpdateRegistrar implements ContextRegistration {
+public class ContextUpdateRegistrar implements ContextMonitoringRegistration {
 
     protected final String recordId;
-    protected final ContextUpdateManagement updateManagement;
-    protected final ActiveContextManagement contextManagement;
+    protected final ContextMonitoringManagement updateManagement;
+    protected final ContextStateManagement contextManagement;
 
-    public ContextUpdateRegistrar(String recordId, ContextUpdateManagement updateManagement, ActiveContextManagement contextManagement) {
+    public ContextUpdateRegistrar(String recordId, ContextMonitoringManagement updateManagement, ContextStateManagement contextManagement) {
         this.recordId = recordId;
         this.updateManagement = updateManagement;
         this.contextManagement = contextManagement;
     }
 
     @Override
-    public void registerContextChange(ContextChange contextChange) {
+    public void registerContextMonitoring(ContextChange contextChange) {
         updateManagement.addContextItem(recordId, contextChange);
     }
 

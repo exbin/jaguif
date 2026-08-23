@@ -40,10 +40,10 @@ import org.exbin.jaguif.menu.api.MenuModuleApi;
 import org.exbin.jaguif.toolbar.api.ToolBarModuleApi;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.context.api.ContextModuleApi;
-import org.exbin.jaguif.context.api.ActiveContextManagement;
-import org.exbin.jaguif.context.api.ContextRegistration;
-import org.exbin.jaguif.context.api.ContextUpdateManagement;
 import org.exbin.jaguif.frame.api.FrameController;
+import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Basic application frame.
@@ -56,8 +56,8 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
     protected @Nullable Component mainComponent;
     protected boolean captionsVisible = true;
     protected WindowHeaderPanel.@Nullable WindowHeaderDecorationProvider windowHeaderDecorationProvider;
-    protected @Nullable ActiveContextManagement frameContextManager;
-    protected @Nullable ContextUpdateManagement updateManager;
+    protected @Nullable ContextStateManagement frameContextManager;
+    protected @Nullable ContextMonitoringManagement updateManager;
 
     public ApplicationFrame() {
         this(true);
@@ -279,7 +279,7 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         updateManager.addGroup("mainMenu");
-        ContextRegistration contextRegistrar = contextModule.createContextRegistrator("mainMenu", updateManager, frameContextManager);
+        ContextMonitoringRegistration contextRegistrar = contextModule.createContextRegistrator("mainMenu", updateManager, frameContextManager);
         menuModule.buildMenu(menuBar, MenuModuleApi.MAIN_MENU_ID, contextRegistrar);
         menuBar.revalidate();
         menuBar.repaint();
@@ -290,7 +290,7 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
         ToolBarModuleApi toolBarModule = App.getModule(ToolBarModuleApi.class);
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         updateManager.addGroup("mainToolbar");
-        ContextRegistration contextRegistrar = contextModule.createContextRegistrator("mainToolbar", updateManager, frameContextManager);
+        ContextMonitoringRegistration contextRegistrar = contextModule.createContextRegistrator("mainToolbar", updateManager, frameContextManager);
         toolBarModule.buildToolBar(toolBar, ToolBarModuleApi.MAIN_TOOL_BAR_ID, contextRegistrar);
         if (!captionsVisible) {
             setToolBarCaptionsVisible(false);
@@ -334,12 +334,12 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
     }
 
     @Override
-    public ActiveContextManagement getContextManager() {
+    public ContextStateManagement getContextManager() {
         return frameContextManager;
     }
 
     @Override
-    public ContextUpdateManagement getUpdateManager() {
+    public ContextMonitoringManagement getUpdateManager() {
         return updateManager;
     }
 

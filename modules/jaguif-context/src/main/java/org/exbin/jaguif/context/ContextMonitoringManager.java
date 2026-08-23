@@ -25,21 +25,21 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
 import org.exbin.jaguif.context.api.ContextStateUpdateListener;
-import org.exbin.jaguif.context.api.ContextUpdateManagement;
 import org.exbin.jaguif.context.api.StateUpdateType;
 import org.exbin.jaguif.context.service.ContextMessagingService;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 
 /**
- * Context update manager.
+ * Context monitoring manager.
  */
 @NullMarked
-public class ContextUpdateManager implements ContextUpdateManagement {
+public class ContextMonitoringManager implements ContextMonitoringManagement {
 
     public static final String DEFAULT_GROUP = "";
     protected final ContextMessagingService messagingService = new ContextMessagingService();
     protected final Map<String, ContextUpdateRecord> records = new HashMap<>();
 
-    public ContextUpdateManager() {
+    public ContextMonitoringManager() {
         records.put(DEFAULT_GROUP, new ContextUpdateRecord());
     }
 

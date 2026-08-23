@@ -20,13 +20,13 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.contribution.api.GroupSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContributionRule;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.contribution.api.ContributionDefinition;
 import org.exbin.jaguif.contribution.api.ContributionManagement;
 import org.exbin.jaguif.contribution.api.ContributionModuleApi;
 import org.exbin.jaguif.contribution.api.ContributionSequenceBuilder;
 import org.exbin.jaguif.tabpages.api.TabPages;
 import org.exbin.jaguif.tabpages.api.TabPagesManagement;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Default tab pages manager.
@@ -44,10 +44,10 @@ public class TabPagesManager implements TabPagesManagement {
     }
 
     @Override
-    public void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextRegistration contextRegistration) {
+    public void buildTabPages(TabPages targetTabPages, String tabPagesId, ContextMonitoringRegistration contextMonitoringRegistration) {
         ContributionDefinition definition = contributionManagement.getDefinition(tabPagesId);
-        builder.buildSequence(new TabPagesSequenceOutput(targetTabPages, contextRegistration), definition);
-        contextRegistration.finish();
+        builder.buildSequence(new TabPagesSequenceOutput(targetTabPages, contextMonitoringRegistration), definition);
+        contextMonitoringRegistration.finish();
     }
 
     @Override

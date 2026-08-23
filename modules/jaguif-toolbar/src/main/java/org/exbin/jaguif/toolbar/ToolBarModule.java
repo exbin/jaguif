@@ -28,9 +28,9 @@ import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule.Positi
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.toolbar.api.ToolBarDefinitionManagement;
 import org.exbin.jaguif.toolbar.api.ToolBarManagement;
-import org.exbin.jaguif.context.api.ContextRegistration;
 import org.exbin.jaguif.action.api.clipboard.ClipboardOperationActions;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
  * Implementation of toolbar module.
@@ -72,8 +72,8 @@ public class ToolBarModule implements ToolBarModuleApi {
     }
 
     @Override
-    public void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextRegistration contextRegistration) {
-        ToolBarModule.this.getMainToolBarManager().buildToolBar(targetToolBar, toolBarId, contextRegistration);
+    public void buildToolBar(JToolBar targetToolBar, String toolBarId, ContextMonitoringRegistration contextMonitoringRegistration) {
+        ToolBarModule.this.getMainToolBarManager().buildToolBar(targetToolBar, toolBarId, contextMonitoringRegistration);
     }
 
     @Override
