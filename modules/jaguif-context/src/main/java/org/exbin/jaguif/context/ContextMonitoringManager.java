@@ -37,15 +37,15 @@ public class ContextMonitoringManager implements ContextMonitoringManagement {
 
     public static final String DEFAULT_GROUP = "";
     protected final ContextMessagingService messagingService = new ContextMessagingService();
-    protected final Map<String, ContextUpdateRecord> records = new HashMap<>();
+    protected final Map<String, ContextMonitoringRecord> records = new HashMap<>();
 
     public ContextMonitoringManager() {
-        records.put(DEFAULT_GROUP, new ContextUpdateRecord());
+        records.put(DEFAULT_GROUP, new ContextMonitoringRecord());
     }
 
     @Override
     public void addGroup(String groupId) {
-        records.put(groupId, new ContextUpdateRecord());
+        records.put(groupId, new ContextMonitoringRecord());
     }
 
     @Override
@@ -60,7 +60,7 @@ public class ContextMonitoringManager implements ContextMonitoringManagement {
 
     @Override
     public void addContextItem(String groupId, ContextChange contextChange) {
-        ContextUpdateRecord record = records.get(groupId);
+        ContextMonitoringRecord record = records.get(groupId);
         if (record == null) {
             throw new IllegalStateException("Invalid group with id: " + groupId);
         }
@@ -72,7 +72,7 @@ public class ContextMonitoringManager implements ContextMonitoringManagement {
     @Override
     public <T> void notifyStateChanged(Class<T> stateClass, @Nullable T contextInstance) {
         LinkedList<ContextStateChangeListener> listeners = new LinkedList<>();
-        for (ContextUpdateRecord record : records.values()) {
+        for (ContextMonitoringRecord record : records.values()) {
             List<ContextStateChangeListener<?>> changeListeners = record.getChangeListeners(stateClass);
             if (changeListeners == null) {
                 continue;
@@ -90,7 +90,7 @@ public class ContextMonitoringManager implements ContextMonitoringManagement {
     @Override
     public <T> void notifyStateUpdated(Class<T> stateClass, T contextInstance, StateUpdateType updateType) {
         LinkedList<ContextStateUpdateListener> listeners = new LinkedList<>();
-        for (ContextUpdateRecord record : records.values()) {
+        for (ContextMonitoringRecord record : records.values()) {
             List<ContextStateUpdateListener<?>> updateListeners = record.getUpdateListeners(stateClass);
             if (updateListeners == null) {
                 continue;
@@ -107,7 +107,7 @@ public class ContextMonitoringManager implements ContextMonitoringManagement {
     @Override
     public <T> List<ContextStateChangeListener<?>> getChangeListeners(String groupId, Class<T> contextClass) {
         List<ContextStateChangeListener<?>> listeners = null;
-        ContextUpdateRecord record = records.get(groupId);
+        ContextMonitoringRecord record = records.get(groupId);
         if (record != null) {
             listeners = record.getChangeListeners(contextClass);
         }
@@ -122,7 +122,7 @@ public class ContextMonitoringManager implements ContextMonitoringManagement {
     @Override
     public <T> List<ContextStateUpdateListener<?>> getUpdateListeners(String groupId, Class<T> contextClass) {
         List<ContextStateUpdateListener<?>> listeners = null;
-        ContextUpdateRecord record = records.get(groupId);
+        ContextMonitoringRecord record = records.get(groupId);
         if (record != null) {
             listeners = record.getUpdateListeners(contextClass);
         }

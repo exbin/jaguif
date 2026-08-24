@@ -66,17 +66,17 @@ public class ContextModule implements ContextModuleApi {
 
     @Override
     public ContextMonitoringRegistration createContextRegistrator() {
-        return new ContextRegistrar(getMainContextManager());
+        return new ContextMonitoringRegistrar(getMainContextManager());
     }
 
     @Override
-    public ContextMonitoringRegistration createContextRegistrator(ContextStateManagement contextManager) {
-        return new ContextRegistrar(contextManager);
+    public ContextMonitoringRegistration createContextRegistrator(ContextStateManagement contextStateManager) {
+        return new ContextMonitoringRegistrar(contextStateManager);
     }
 
     @Override
-    public ContextMonitoringRegistration createContextRegistrator(String recordId, ContextMonitoringManagement contextUpdateManagement, ContextStateManagement contextManager) {
-        return new ContextUpdateRegistrar(recordId, contextUpdateManagement, contextManager);
+    public ContextMonitoringRegistration createContextRegistrator(ContextMonitoringManagement contextMonitoring, ContextStateManagement contextStateManager) {
+        return new ContextMonitoringRegistrar(contextStateManager, contextMonitoring);
     }
 
     @Override

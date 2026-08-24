@@ -19,49 +19,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
-import org.exbin.jaguif.context.api.ContextStateUpdateListener;
-import org.exbin.jaguif.context.api.ContextValues;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
-import org.exbin.jaguif.context.api.ContextStateManagement;
-import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
+import org.exbin.jaguif.context.api.ContextStateUpdateListener;
 
 /**
- * Context registration.
+ * Context monitoring record.
  */
 @NullMarked
-public class ContextRegistrar implements ContextMonitoringRegistration, ContextChangeRegistration {
+public class ContextMonitoringRecord implements ContextChangeRegistration {
 
-    public static final String KEY_CONTEXT_CHANGE = "ContextChange";
-    protected final List<ContextValues> monitoringItems = new ArrayList<>();
     protected final Map<Class<?>, List<ContextStateChangeListener<?>>> contextChangeListeners = new HashMap<>();
     protected final Map<Class<?>, List<ContextStateUpdateListener<?>>> contextStateUpdateListeners = new HashMap<>();
-    protected final ContextStateManagement contextManagement;
-
-    public ContextRegistrar(ContextStateManagement contextManagement) {
-        this.contextManagement = contextManagement;
-    }
-
-    @Override
-    public void registerContextMonitoring(ContextChange contextChange) {
-        contextChange.register(this);
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public void finish() {
-        for (Class<?> stateClass : contextManagement.getStateClasses()) {
-            Object instance = contextManagement.getActiveState(stateClass);
-            List<ContextStateChangeListener<?>> listeners = contextChangeListeners.get(stateClass);
-            if (listeners != null) {
-                for (ContextStateChangeListener listener : listeners) {
-                    listener.stateChanged(instance);
-                }
-            }
-        }
-    }
 
     @Override
     public <T> void registerChangeListener(Class<T> contextClass, ContextStateChangeListener<T> listener) {
@@ -83,5 +54,15 @@ public class ContextRegistrar implements ContextMonitoringRegistration, ContextC
         }
 
         listeners.add(listener);
+    }
+
+    @Nullable
+    public <T> List<ContextStateChangeListener<?>> getChangeListeners(Class<T> contextClass) {
+        return contextChangeListeners.get(contextClass);
+    }
+
+    @Nullable
+    public <T> List<ContextStateUpdateListener<?>> getUpdateListeners(Class<T> contextClass) {
+        return contextStateUpdateListeners.get(contextClass);
     }
 }

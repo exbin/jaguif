@@ -24,24 +24,24 @@ import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 
 /**
- * Context registration.
+ * Context manager.
  */
 @NullMarked
-public class ContextUpdateRegistrar implements ContextMonitoringRegistration {
+public class ContextManager implements ContextMonitoringRegistration {
 
-    protected final String recordId;
+    protected final String contextId;
     protected final ContextMonitoringManagement updateManagement;
     protected final ContextStateManagement contextManagement;
 
-    public ContextUpdateRegistrar(String recordId, ContextMonitoringManagement updateManagement, ContextStateManagement contextManagement) {
-        this.recordId = recordId;
+    public ContextManager(String contextId, ContextMonitoringManagement updateManagement, ContextStateManagement contextManagement) {
+        this.contextId = contextId;
         this.updateManagement = updateManagement;
         this.contextManagement = contextManagement;
     }
 
     @Override
     public void registerContextMonitoring(ContextChange contextChange) {
-        updateManagement.addContextItem(recordId, contextChange);
+        updateManagement.addContextItem(contextId, contextChange);
     }
 
     @SuppressWarnings("unchecked")
@@ -49,7 +49,7 @@ public class ContextUpdateRegistrar implements ContextMonitoringRegistration {
     public void finish() {
         for (Class<?> stateClass : contextManagement.getStateClasses()) {
             Object instance = contextManagement.getActiveState(stateClass);
-            List<ContextStateChangeListener<?>> changeListeners = updateManagement.getChangeListeners(recordId, stateClass);
+            List<ContextStateChangeListener<?>> changeListeners = updateManagement.getChangeListeners(contextId, stateClass);
             for (ContextStateChangeListener changeListener : changeListeners) {
                 changeListener.stateChanged(instance);
             }

@@ -59,12 +59,11 @@ public interface ContextModuleApi extends Module {
     /**
      * Creates new context registrator for specific context manager.
      *
-     * @param recordId record identifier
      * @param contextUpdateManagement context update management
      * @param contextMonitoringManagement context monitoring management
      * @return context registrator
      */
-    ContextMonitoringRegistration createContextRegistrator(String recordId, ContextMonitoringManagement contextUpdateManagement, ContextStateManagement contextMonitoringManagement);
+    ContextMonitoringRegistration createContextRegistrator(ContextMonitoringManagement contextUpdateManagement, ContextStateManagement contextMonitoringManagement);
 
     /**
      * Creates new context update manager.

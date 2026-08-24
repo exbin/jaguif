@@ -278,8 +278,7 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
     public void loadMainMenu() {
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
-        updateManager.addGroup("mainMenu");
-        ContextMonitoringRegistration contextRegistrar = contextModule.createContextRegistrator("mainMenu", updateManager, frameContextManager);
+        ContextMonitoringRegistration contextRegistrar = contextModule.createContextRegistrator(updateManager, frameContextManager);
         menuModule.buildMenu(menuBar, MenuModuleApi.MAIN_MENU_ID, contextRegistrar);
         menuBar.revalidate();
         menuBar.repaint();
@@ -289,8 +288,7 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
     public void loadMainToolBar() {
         ToolBarModuleApi toolBarModule = App.getModule(ToolBarModuleApi.class);
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
-        updateManager.addGroup("mainToolbar");
-        ContextMonitoringRegistration contextRegistrar = contextModule.createContextRegistrator("mainToolbar", updateManager, frameContextManager);
+        ContextMonitoringRegistration contextRegistrar = contextModule.createContextRegistrator(updateManager, frameContextManager);
         toolBarModule.buildToolBar(toolBar, ToolBarModuleApi.MAIN_TOOL_BAR_ID, contextRegistrar);
         if (!captionsVisible) {
             setToolBarCaptionsVisible(false);

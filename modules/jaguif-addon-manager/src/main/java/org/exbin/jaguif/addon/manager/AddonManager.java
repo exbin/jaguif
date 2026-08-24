@@ -208,7 +208,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         contextManagement.changeActiveState(AddonsManagementContext.class, this);
         // contextManagement.changeActiveState(UpdateAvailabilityContext.class, this);
         ContextMonitoringManagement monitoringManagement = contextModule.createContextUpdateManagement(contextManagement);
-        ContextMonitoringRegistration contextRegistrator = contextModule.createContextRegistrator("", monitoringManagement, contextManagement);
+        ContextMonitoringRegistration contextRegistrator = contextModule.createContextRegistrator(monitoringManagement, contextManagement);
         tabPagesModule.buildTabPages(tabPages, AddonManagerModuleApi.ADDON_MANAGER_TABPAGES_ID, contextRegistrator);
 
         return managerPanel;
