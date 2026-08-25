@@ -52,7 +52,7 @@ public class AboutApplication {
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         TabPagesModuleApi tabPagesModule = App.getModule(TabPagesModuleApi.class);
         TabPages tabbedPagesPanel = tabPagesModule.createTabbedPagesPanel();
-        ContextMonitoringRegistration contextMonitoringRegistration = contextModule.createContextRegistrator();
+        ContextMonitoringRegistration contextMonitoringRegistration = contextModule.createMonitoringRegistrator();
         tabPagesModule.buildTabPages(tabbedPagesPanel, LicenseModuleApi.ABOUT_PAGES_ID, contextMonitoringRegistration);
         aboutPanel.loadFields();
         aboutPanel.setSideComponent(sideComponent);

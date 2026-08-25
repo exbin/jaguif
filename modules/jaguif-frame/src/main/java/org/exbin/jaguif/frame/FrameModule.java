@@ -230,14 +230,9 @@ public class FrameModule implements FrameModuleApi {
             applicationFrame.setApplicationExitHandler(exitHandler);
             appIcon = applicationFrame.getIconImage();
 
-            ContextStateManagement contextManager = applicationFrame.getContextManager();
-            contextManager.changeActiveState(ContextFrame.class, applicationFrame);
-            contextManager.changeActiveState(DialogParentComponent.class, new DialogParentComponent() {
-                @Override
-                public Component getComponent() {
-                    return applicationFrame;
-                }
-            });
+            ContextStateManagement stateManager = applicationFrame.getStateManager();
+            stateManager.changeActiveState(ContextFrame.class, applicationFrame);
+            stateManager.changeActiveState(DialogParentComponent.class, (DialogParentComponent) () -> applicationFrame);
 
             OptionsSettingsModuleApi optionsSettingsModule = App.getModule(OptionsSettingsModuleApi.class);
             OptionsSettingsManagement mainSettingsManager = optionsSettingsModule.getMainSettingsManager();
@@ -252,7 +247,7 @@ public class FrameModule implements FrameModuleApi {
         FrameController frameController = getFrameController();
         frameController.setMainPanel(componentProvider.getComponent());
         if (componentProvider instanceof ContextActivable) {
-            ContextStateManagement contextManager = frameController.getContextManager();
+            ContextStateManagement contextManager = frameController.getStateManager();
             ((ContextActivable) componentProvider).notifyActivated(contextManager);
         }
         if (componentProvider instanceof WindowClosingListener) {

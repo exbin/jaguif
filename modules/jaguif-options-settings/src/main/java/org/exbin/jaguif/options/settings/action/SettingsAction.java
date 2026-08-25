@@ -163,7 +163,7 @@ public class SettingsAction extends AbstractAction {
         // TODO Run in top context
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ContextStateManagement contextManager = frameHandler.getContextManager();
+        ContextStateManagement contextManager = frameHandler.getStateManager();
 
         for (SettingsPage page : pages) {
             try {
@@ -182,7 +182,7 @@ public class SettingsAction extends AbstractAction {
         // TODO Run in top context
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ContextStateManagement contextManager = frameHandler.getContextManager();
+        ContextStateManagement contextManager = frameHandler.getStateManager();
 
         for (SettingsPage page : pages) {
             try {
@@ -199,7 +199,7 @@ public class SettingsAction extends AbstractAction {
         // TODO Run in top context
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ContextStateManagement contextManager = frameHandler.getContextManager();
+        ContextStateManagement contextManager = frameHandler.getStateManager();
 
         SettingsOptionsStorage settingsOptionsStorage = new SettingsOptionsStorage();
         for (SettingsPage page : pages) {

@@ -28,63 +28,63 @@ public interface ContextModuleApi extends Module {
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(ContextModuleApi.class);
 
     /**
-     * Returns main application context manager.
+     * Returns main application context state manager.
      *
-     * @return context manager
+     * @return context state manager
      */
-    ContextStateManagement getMainContextManager();
+    ContextStateManagement getMainStateManager();
 
     /**
-     * Creates new default context manager.
+     * Creates new default context state manager.
      *
-     * @return context manager
+     * @return context state manager
      */
-    ContextStateManagement createContextManager();
+    ContextStateManagement createStateManager();
 
     /**
-     * Creates new context registrator.
+     * Creates new context monitoring registrator.
      *
-     * @return context registrator
+     * @return context monitoring registrator
      */
-    ContextMonitoringRegistration createContextRegistrator();
-
-    /**
-     * Creates new context registrator for specific context manager.
-     *
-     * @param contextMonitoringManager context monitoring manager
-     * @return context registrator
-     */
-    ContextMonitoringRegistration createContextRegistrator(ContextStateManagement contextMonitoringManager);
+    ContextMonitoringRegistration createMonitoringRegistrator();
 
     /**
      * Creates new context registrator for specific context manager.
      *
-     * @param contextUpdateManagement context update management
-     * @param contextMonitoringManagement context monitoring management
-     * @return context registrator
+     * @param monitoringManager context monitoring manager
+     * @return context monitoring registrator
      */
-    ContextMonitoringRegistration createContextRegistrator(ContextMonitoringManagement contextUpdateManagement, ContextStateManagement contextMonitoringManagement);
+    ContextMonitoringRegistration createMonitoringRegistrator(ContextStateManagement monitoringManager);
 
     /**
-     * Creates new context update manager.
+     * Creates new context registrator for specific context manager.
      *
-     * @return context update manager
+     * @param monitoringManagement context monitoring management
+     * @param stateManagement context state management
+     * @return context monitoring registrator
      */
-    ContextMonitoringManagement createContextUpdateManagement();
+    ContextMonitoringRegistration createMonitoringRegistrator(ContextMonitoringManagement monitoringManagement, ContextStateManagement stateManagement);
 
     /**
-     * Creates new context update manager.
+     * Creates new context monitoring manager.
      *
-     * @param contextManagement context management
-     * @return context update manager
+     * @return context monitoring manager
      */
-    ContextMonitoringManagement createContextUpdateManagement(ContextStateManagement contextManagement);
+    ContextMonitoringManagement createMonitoringManager();
+
+    /**
+     * Creates new context monitoring manager.
+     *
+     * @param stateManagement context state management
+     * @return context monitoring manager
+     */
+    ContextMonitoringManagement createMonitoringManager(ContextStateManagement stateManagement);
 
     /**
      * Creates new child context manager for given parent context manager.
      *
-     * @param parentContextManager parent context manager
+     * @param parentStateManager parent context manager
      * @return context manager
      */
-    ContextStateManagement createChildContextManager(ContextStateManagement parentContextManager);
+    ContextStateManagement createChildStateManager(ContextStateManagement parentStateManager);
 }

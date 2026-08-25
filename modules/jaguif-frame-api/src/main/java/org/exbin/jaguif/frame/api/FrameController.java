@@ -119,16 +119,16 @@ public interface FrameController extends ContextFrame {
     void setDefaultSize(Dimension windowSize);
 
     /**
-     * Returns context manager for this frame.
+     * Returns context state manager for this frame.
      *
-     * @return context manager
+     * @return context state manager
      */
-    ContextStateManagement getContextManager();
+    ContextStateManagement getStateManager();
 
     /**
-     * Returns update manager.
+     * Returns monitoring manager.
      *
-     * @return update manager
+     * @return monitoring manager
      */
-    ContextMonitoringManagement getUpdateManager();
+    ContextMonitoringManagement getMonitoringManager();
 }

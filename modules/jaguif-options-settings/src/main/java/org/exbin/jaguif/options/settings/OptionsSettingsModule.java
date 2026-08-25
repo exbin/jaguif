@@ -91,7 +91,7 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         OptionsSettingsManager mainSettingsManager = getMainSettingsManager();
         SettingsOptionsProvider settingsOptionsProvider = mainSettingsManager.getSettingsOptionsProvider();
-        ContextStateManagement mainContextManager = contextModule.getMainContextManager();
+        ContextStateManagement mainContextManager = contextModule.getMainStateManager();
         mainSettingsManager.applyAllOptions(mainContextManager, settingsOptionsProvider);
     }
 

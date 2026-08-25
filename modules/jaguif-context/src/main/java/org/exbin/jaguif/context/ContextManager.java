@@ -30,26 +30,26 @@ import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 public class ContextManager implements ContextMonitoringRegistration {
 
     protected final String contextId;
-    protected final ContextMonitoringManagement updateManagement;
-    protected final ContextStateManagement contextManagement;
+    protected final ContextMonitoringManagement monitoringManagement;
+    protected final ContextStateManagement stateManagement;
 
-    public ContextManager(String contextId, ContextMonitoringManagement updateManagement, ContextStateManagement contextManagement) {
+    public ContextManager(String contextId, ContextMonitoringManagement monitoringManagement, ContextStateManagement stateManagement) {
         this.contextId = contextId;
-        this.updateManagement = updateManagement;
-        this.contextManagement = contextManagement;
+        this.monitoringManagement = monitoringManagement;
+        this.stateManagement = stateManagement;
     }
 
     @Override
     public void registerContextMonitoring(ContextChange contextChange) {
-        updateManagement.addContextItem(contextId, contextChange);
+        monitoringManagement.addContextItem(contextId, contextChange);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public void finish() {
-        for (Class<?> stateClass : contextManagement.getStateClasses()) {
-            Object instance = contextManagement.getActiveState(stateClass);
-            List<ContextStateChangeListener<?>> changeListeners = updateManagement.getChangeListeners(contextId, stateClass);
+        for (Class<?> stateClass : stateManagement.getStateClasses()) {
+            Object instance = stateManagement.getActiveState(stateClass);
+            List<ContextStateChangeListener<?>> changeListeners = monitoringManagement.getChangeListeners(contextId, stateClass);
             for (ContextStateChangeListener changeListener : changeListeners) {
                 changeListener.stateChanged(instance);
             }

@@ -86,13 +86,13 @@ public class DefaultMultiDocking implements MultiDocking, SidePanelDocking, Wind
                 }
 
                 ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
-                ContextStateManagement popupContextManager = contextModule.createChildContextManager(contextManager);
+                ContextStateManagement popupContextManager = contextModule.createChildStateManager(contextManager);
                 Document refDocument = openDocuments.get(index);
                 popupContextManager.changeActiveState(ContextDocument.class, (ContextDocument) refDocument);
 
                 MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
                 JPopupMenu documentContextPopupMenu = menuModule.getMenuBuilder().createPopupMenu();
-                ContextMonitoringRegistration contextMonitoringRegistrar = contextModule.createContextRegistrator(contextManager);
+                ContextMonitoringRegistration contextMonitoringRegistrar = contextModule.createMonitoringRegistrator(contextManager);
                 menuModule.buildMenu(documentContextPopupMenu, DockingMultiModule.DOCUMENT_CONTEXT_MENU_ID, contextMonitoringRegistrar);
                 documentContextPopupMenu.show(component, positionX, positionY);
             }

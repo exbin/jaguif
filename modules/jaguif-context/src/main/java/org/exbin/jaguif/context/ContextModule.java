@@ -52,7 +52,7 @@ public class ContextModule implements ContextModuleApi {
     }
 
     @Override
-    public ContextStateManagement getMainContextManager() {
+    public ContextStateManagement getMainStateManager() {
         if (applicationContextManager == null) {
             applicationContextManager = new ContextStateManager();
         }
@@ -60,49 +60,49 @@ public class ContextModule implements ContextModuleApi {
     }
 
     @Override
-    public ContextStateManagement createContextManager() {
+    public ContextStateManagement createStateManager() {
         return new ContextStateManager();
     }
 
     @Override
-    public ContextMonitoringRegistration createContextRegistrator() {
-        return new ContextMonitoringRegistrar(getMainContextManager());
+    public ContextMonitoringRegistration createMonitoringRegistrator() {
+        return new ContextMonitoringRegistrar(getMainStateManager());
     }
 
     @Override
-    public ContextMonitoringRegistration createContextRegistrator(ContextStateManagement contextStateManager) {
-        return new ContextMonitoringRegistrar(contextStateManager);
+    public ContextMonitoringRegistration createMonitoringRegistrator(ContextStateManagement stateManagement) {
+        return new ContextMonitoringRegistrar(stateManagement);
     }
 
     @Override
-    public ContextMonitoringRegistration createContextRegistrator(ContextMonitoringManagement contextMonitoring, ContextStateManagement contextStateManager) {
-        return new ContextMonitoringRegistrar(contextStateManager, contextMonitoring);
+    public ContextMonitoringRegistration createMonitoringRegistrator(ContextMonitoringManagement monitoringMonitoring, ContextStateManagement stateManagement) {
+        return new ContextMonitoringRegistrar(stateManagement, monitoringMonitoring);
     }
 
     @Override
-    public ContextMonitoringManagement createContextUpdateManagement() {
+    public ContextMonitoringManagement createMonitoringManager() {
         return new ContextMonitoringManager();
     }
 
     @Override
-    public ContextMonitoringManagement createContextUpdateManagement(ContextStateManagement contextManagement) {
-        ContextMonitoringManager contextUpdateManager = new ContextMonitoringManager();
-        contextManagement.addChangeListener(new ContextChangeListener() {
+    public ContextMonitoringManagement createMonitoringManager(ContextStateManagement stateManagement) {
+        ContextMonitoringManager monitoringManager = new ContextMonitoringManager();
+        stateManagement.addChangeListener(new ContextChangeListener() {
             @Override
             public <T> void notifyStateChanged(Class<T> stateClass, @Nullable T activeState) {
-                contextUpdateManager.notifyStateChanged(stateClass, activeState);
+                monitoringManager.notifyStateChanged(stateClass, activeState);
             }
 
             @Override
             public <T> void notifyStateUpdated(Class<T> stateClass, T activeState, StateUpdateType updateType) {
-                contextUpdateManager.notifyStateUpdated(stateClass, activeState, updateType);
+                monitoringManager.notifyStateUpdated(stateClass, activeState, updateType);
             }
         });
-        return contextUpdateManager;
+        return monitoringManager;
     }
 
     @Override
-    public ContextStateManagement createChildContextManager(ContextStateManagement parentContextManager) {
-        return new ChildContextStateManager(parentContextManager);
+    public ContextStateManagement createChildStateManager(ContextStateManagement parentStateManagement) {
+        return new ChildContextStateManager(parentStateManagement);
     }
 }

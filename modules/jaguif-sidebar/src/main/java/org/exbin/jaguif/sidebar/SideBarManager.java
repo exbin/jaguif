@@ -87,9 +87,9 @@ public class SideBarManager implements SideBarManagement {
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
         FrameController frameHandler = frameModule.getFrameController();
-        ContextMonitoringManagement updateManager = frameHandler.getUpdateManager();
-        ContextStateManagement contextManager = frameHandler.getContextManager();
-        buildSideBar(sideBar, SideBarModuleApi.MAIN_SIDE_BAR_ID, contextModule.createContextRegistrator(updateManager, contextManager));
+        ContextMonitoringManagement monitoringManager = frameHandler.getMonitoringManager();
+        ContextStateManagement stateManager = frameHandler.getStateManager();
+        buildSideBar(sideBar, SideBarModuleApi.MAIN_SIDE_BAR_ID, contextModule.createMonitoringRegistrator(monitoringManager, stateManager));
         return sideBar;
     }
 }
