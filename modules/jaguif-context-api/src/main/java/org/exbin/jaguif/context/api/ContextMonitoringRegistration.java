@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.context.api;
 
+import javax.swing.Action;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -29,6 +30,13 @@ public interface ContextMonitoringRegistration {
      * @param contextChange context change
      */
     void registerContextMonitoring(ContextChange contextChange);
+
+    /**
+     * Registers context change monitoring.
+     *
+     * @param action action instance
+     */
+    void registerContextMonitoring(Action action);
 
     /**
      * Finish registration process.

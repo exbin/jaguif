@@ -16,6 +16,8 @@
 package org.exbin.jaguif.context;
 
 import java.util.List;
+import javax.swing.Action;
+import org.exbin.jaguif.action.api.ActionConsts;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextStateChangeListener;
@@ -42,6 +44,15 @@ public class ContextManager implements ContextMonitoringRegistration {
     @Override
     public void registerContextMonitoring(ContextChange contextChange) {
         monitoringManagement.addContextItem(contextId, contextChange);
+    }
+
+    @Override
+    public void registerContextMonitoring(Action action) {
+        Object contextChange = action.getValue(ActionConsts.ACTION_CONTEXT_CHANGE);
+
+        if (contextChange instanceof ContextChange) {
+            monitoringManagement.addContextItem(contextId, (ContextChange) contextChange);
+        }
     }
 
     @SuppressWarnings("unchecked")
