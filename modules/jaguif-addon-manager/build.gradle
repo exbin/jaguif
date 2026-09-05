@@ -46,4 +46,5 @@ dependencies {
 
     testImplementation group : 'junit', name: 'junit', version: '4.13.2'
     testImplementation project(path: moduleDepPath('Jaguif', 'modules', 'jaguif-language-api'), configuration: 'tests')
+    testImplementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-tabpages')
 }

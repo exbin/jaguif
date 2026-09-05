@@ -84,6 +84,10 @@ public class WindowUtils {
     }
 
     public static void invokeWindow(final JComponent component) {
+        invokeWindow(wrapInWindow(component));
+    }
+
+    public static Window wrapInWindow(final JComponent component) {
         JDialog dialog = new JDialog();
         Dimension size = component.getPreferredSize();
         if (size.width < 10) {
@@ -95,7 +99,7 @@ public class WindowUtils {
         dialog.add(component);
         dialog.getContentPane().setPreferredSize(new Dimension(size.width, size.height));
         dialog.pack();
-        invokeWindow(dialog);
+        return dialog;
     }
 
     @Nullable

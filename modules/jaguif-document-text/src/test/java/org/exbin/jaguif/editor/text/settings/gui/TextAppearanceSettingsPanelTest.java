@@ -17,10 +17,8 @@ package org.exbin.jaguif.editor.text.settings.gui;
 
 import org.exbin.jaguif.document.text.settings.gui.TextAppearanceSettingsPanel;
 import org.exbin.jaguif.utils.TestApplication;
-import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.utils.UtilsModule;
 import org.exbin.jaguif.utils.WindowUtils;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -29,14 +27,11 @@ import org.junit.Test;
 public class TextAppearanceSettingsPanelTest {
 
     @Test
-    @Ignore
     public void testPanel() {
         TestApplication testApplication = UtilsModule.createTestApplication();
         testApplication.launch(() -> {
             testApplication.addModule(org.exbin.jaguif.language.api.LanguageModuleApi.MODULE_ID, new org.exbin.jaguif.language.api.TestLanguageModule());
-            WindowUtils.invokeWindow(new TextAppearanceSettingsPanel());
+            WindowUtils.wrapInWindow(new TextAppearanceSettingsPanel());
         });
-
-        UiUtils.waitForUiThread();
     }
 }

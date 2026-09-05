@@ -15,11 +15,9 @@
  */
 package org.exbin.jaguif.action.manager.settings.gui;
 
-import org.exbin.jaguif.action.manager.gui.KeyMapTablePanel;
 import org.exbin.jaguif.utils.TestApplication;
-import org.exbin.jaguif.utils.UiUtils;
+import org.exbin.jaguif.utils.UtilsModule;
 import org.exbin.jaguif.utils.WindowUtils;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -28,18 +26,11 @@ import org.junit.Test;
 public class KeyMapSettingsPanelTest {
 
     @Test
-    @Ignore
     public void testPanel() {
-        TestApplication.run(() -> WindowUtils.invokeWindow(new KeyMapTablePanel()));
-//        TestApplication testApplication = UtilsModule.createTestApplication();
-//        testApplication.launch(() -> {
-//            testApplication.addModule(org.exbin.jaguif.language.api.LanguageModuleApi.MODULE_ID, new org.exbin.jaguif.language.api.utils.TestLanguageModule());
-//
-//            KeyMapSettingsPanel keyMapSettingsPanel = new KeyMapSettingsPanel();
-//            keyMapSettingsPanel.setPreferredSize(new Dimension(640, 400));
-//            WindowUtils.invokeWindow(keyMapSettingsPanel);
-//        });
-
-        UiUtils.waitForUiThread();
+        TestApplication testApplication = UtilsModule.createTestApplication();
+        testApplication.launch(() -> {
+            testApplication.addModule(org.exbin.jaguif.language.api.LanguageModuleApi.MODULE_ID, new org.exbin.jaguif.language.api.TestLanguageModule());
+            WindowUtils.wrapInWindow(new KeyMapSettingsPanel());
+        });
     }
 }

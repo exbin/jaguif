@@ -1,0 +1,92 @@
+/*
+ * Copyright (C) ExBin Project, https://exbin.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.exbin.jaguif.utils;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jspecify.annotations.NullMarked;
+import org.exbin.jaguif.LauncherModule;
+import org.exbin.jaguif.Module;
+import org.exbin.jaguif.ModuleProvider;
+
+/**
+ * Some simple static methods usable for testing windows and dialogs.
+ */
+@NullMarked
+public class TestModuleProvider implements ModuleProvider {
+
+    private static final String MODULE_ID = "MODULE_ID";
+    private final Map<String, Module> modules = new HashMap<>();
+
+    @Override
+    public Class getManifestClass() {
+        return TestModuleProvider.this.getClass();
+    }
+
+    @Override
+    public void launch(Runnable runnable) {
+        runnable.run();
+    }
+
+    @Override
+    public void launch(String launcherModuleId, String[] args) {
+        try {
+            Class<?> launcherClass = Class.forName(launcherModuleId);
+            Constructor<?> constructor = launcherClass.getConstructor();
+            LauncherModule launcherModule = (LauncherModule) constructor.newInstance();
+            launcherModule.launch(args);
+        } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ClassNotFoundException ex) {
+            Logger.getLogger(TestModuleProvider.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public <T extends Module> T getModule(Class<T> interfaceClass) {
+        try {
+            Field declaredField = interfaceClass.getDeclaredField(MODULE_ID);
+            if (declaredField != null) {
+                Object interfaceModuleId = declaredField.get(null);
+                if (interfaceModuleId instanceof String) {
+                    Module module = modules.get((String) interfaceModuleId);
+                    if (module != null) {
+                        return (T) module;
+                    }
+
+                    throw new IllegalStateException("Module not included in test application: " + interfaceModuleId);
+                }
+            }
+        } catch (IllegalAccessException | NoSuchFieldException | SecurityException ex) {
+            Logger.getLogger(TestModuleProvider.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        throw new IllegalStateException("Module not included in test application");
+    }
+
+    public void setModules(Map<String, Module> modules) {
+        this.modules.clear();
+        this.modules.putAll(modules);
+    }
+
+    public void addModule(String moduleId, Module module) {
+        modules.put(moduleId, module);
+    }
+}

@@ -18,8 +18,6 @@ package org.exbin.jaguif.license.page.gui;
 import org.exbin.jaguif.utils.TestApplication;
 import org.exbin.jaguif.utils.UtilsModule;
 import org.exbin.jaguif.utils.WindowUtils;
-import org.exbin.jaguif.utils.UiUtils;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -27,15 +25,12 @@ import org.junit.Test;
  */
 public class BasicInfoPanelTest {
 
-    @Ignore
     @Test
     public void testPanel() {
         TestApplication testApplication = UtilsModule.createTestApplication();
         testApplication.launch(() -> {
             testApplication.addModule(org.exbin.jaguif.language.api.LanguageModuleApi.MODULE_ID, new org.exbin.jaguif.language.api.TestLanguageModule());
-            WindowUtils.invokeWindow(new BasicInfoPanel());
+            WindowUtils.wrapInWindow(new BasicInfoPanel());
         });
-
-        UiUtils.waitForUiThread();
     }
 }

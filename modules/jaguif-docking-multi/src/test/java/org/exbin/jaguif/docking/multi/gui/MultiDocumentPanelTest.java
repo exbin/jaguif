@@ -15,11 +15,9 @@
  */
 package org.exbin.jaguif.docking.multi.gui;
 
-import org.exbin.jaguif.docking.multi.gui.MultiDocumentPanel;
 import org.exbin.jaguif.utils.TestApplication;
-import org.exbin.jaguif.utils.UiUtils;
+import org.exbin.jaguif.utils.UtilsModule;
 import org.exbin.jaguif.utils.WindowUtils;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -28,10 +26,12 @@ import org.junit.Test;
 public class MultiDocumentPanelTest {
 
     @Test
-    @Ignore
     public void testPanel() {
-        TestApplication.run(() -> WindowUtils.invokeWindow(new MultiDocumentPanel()));
-
-        UiUtils.waitForUiThread();
+        TestApplication testApplication = UtilsModule.createTestApplication();
+        testApplication.launch(() -> {
+            testApplication.addModule(org.exbin.jaguif.language.api.LanguageModuleApi.MODULE_ID, new org.exbin.jaguif.language.api.TestLanguageModule());
+            testApplication.addModule(org.exbin.jaguif.menu.api.MenuModuleApi.MODULE_ID, new org.exbin.jaguif.menu.MenuModule());
+            WindowUtils.wrapInWindow(new MultiDocumentPanel());
+        });
     }
 }

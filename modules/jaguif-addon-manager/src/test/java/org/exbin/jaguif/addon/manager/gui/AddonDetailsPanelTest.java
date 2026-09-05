@@ -17,10 +17,8 @@ package org.exbin.jaguif.addon.manager.gui;
 
 import org.exbin.jaguif.addon.manager.AddonManagerModule;
 import org.exbin.jaguif.utils.TestApplication;
-import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.utils.UtilsModule;
 import org.exbin.jaguif.utils.WindowUtils;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -29,15 +27,12 @@ import org.junit.Test;
 public class AddonDetailsPanelTest {
 
     @Test
-    @Ignore
     public void testPanel() {
         TestApplication testApplication = UtilsModule.createTestApplication();
         testApplication.launch(() -> {
             testApplication.addModule(org.exbin.jaguif.language.api.LanguageModuleApi.MODULE_ID, new org.exbin.jaguif.language.api.TestLanguageModule());
             testApplication.addModule(AddonManagerModule.MODULE_ID, new AddonManagerModule());
-            WindowUtils.invokeWindow(new AddonDetailsPanel());
+            WindowUtils.wrapInWindow(new AddonDetailsPanel());
         });
-
-        UiUtils.waitForUiThread();
     }
 }

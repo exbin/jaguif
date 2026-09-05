@@ -17,10 +17,8 @@ package org.exbin.jaguif.action.manager.gui;
 
 import java.awt.Dimension;
 import org.exbin.jaguif.utils.TestApplication;
-import org.exbin.jaguif.utils.UiUtils;
 import org.exbin.jaguif.utils.UtilsModule;
 import org.exbin.jaguif.utils.WindowUtils;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -29,7 +27,6 @@ import org.junit.Test;
 public class KeyMapTablePanelTest {
 
     @Test
-    @Ignore
     public void testPanel() {
         TestApplication testApplication = UtilsModule.createTestApplication();
         testApplication.launch(() -> {
@@ -37,9 +34,7 @@ public class KeyMapTablePanelTest {
 
             KeyMapTablePanel keyMapTablePanel = new KeyMapTablePanel();
             keyMapTablePanel.setPreferredSize(new Dimension(640, 400));
-            WindowUtils.invokeWindow(keyMapTablePanel);
+            WindowUtils.wrapInWindow(keyMapTablePanel);
         });
-
-        UiUtils.waitForUiThread();
     }
 }

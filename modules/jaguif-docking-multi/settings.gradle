@@ -18,6 +18,9 @@ if (rootProject.path == ':') {
     include ':modules:jaguif-options-settings-api'
     include ':modules:jaguif-language-api'
     include ':modules:jaguif-utils'
+
+    include ':modules:jaguif-frame-api'
+    include ':modules:jaguif-menu'
 }
 
 apply from: '../jaguif-modules-settings.gradle'

@@ -18,6 +18,9 @@ if (rootProject.path == ':') {
     include ':modules:jaguif-options-api'
     include ':modules:jaguif-utils'
     include ':modules:jaguif-window-api'
+
+    include ':modules:jaguif-frame-api'
+    include ':modules:jaguif-tabpages'
 }
 
 apply from: '../jaguif-modules-settings.gradle'

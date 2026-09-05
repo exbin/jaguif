@@ -19,16 +19,17 @@ import java.io.File;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 /**
- * Framework application.
+ * Application core.
  */
 @NullMarked
 public final class App {
 
-    private static ModuleProvider moduleProvider = null;
-    private static ResourceBundle appBundle = null;
-    private static File configDirectory = null;
+    private static @Nullable ModuleProvider moduleProvider = null;
+    private static @Nullable ResourceBundle appBundle = null;
+    private static @Nullable File configDirectory = null;
 
     private App() {
         // No instance
@@ -60,6 +61,10 @@ public final class App {
 
     public static ModuleProvider getModuleProvider() {
         return Objects.requireNonNull(moduleProvider);
+    }
+    
+    public static boolean hasModuleProvider() {
+        return moduleProvider != null;
     }
 
     public static File getConfigDirectory() {

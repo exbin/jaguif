@@ -34,10 +34,8 @@ import org.exbin.jaguif.ModuleProvider;
 @NullMarked
 public class TestApplication {
 
-    private static final String MODULE_ID = "MODULE_ID";
-
     private final Map<String, Module> modules = new HashMap<>();
-
+    
     TestApplication() {
     }
 
@@ -52,52 +50,17 @@ public class TestApplication {
     }
 
     private void attachModuleProvider() {
-        App.setModuleProvider(new ModuleProvider() {
-            @Override
-            public Class getManifestClass() {
-                return TestApplication.this.getClass();
+        if (App.hasModuleProvider()) {
+            ModuleProvider moduleProvider = App.getModuleProvider();
+            if (moduleProvider instanceof TestModuleProvider) {
+                ((TestModuleProvider) moduleProvider).setModules(modules);
+                return;
             }
+        }
 
-            @Override
-            public void launch(Runnable runnable) {
-                runnable.run();
-            }
-
-            @Override
-            public void launch(String launcherModuleId, String[] args) {
-                try {
-                    Class<?> launcherClass = Class.forName(launcherModuleId);
-                    Constructor<?> constructor = launcherClass.getConstructor();
-                    LauncherModule launcherModule = (LauncherModule) constructor.newInstance();
-                    launcherModule.launch(args);
-                } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ClassNotFoundException ex) {
-                    Logger.getLogger(TestApplication.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
-            @Override
-            @SuppressWarnings("unchecked")
-            public <T extends Module> T getModule(Class<T> interfaceClass) {
-                try {
-                    Field declaredField = interfaceClass.getDeclaredField(MODULE_ID);
-                    if (declaredField != null) {
-                        Object interfaceModuleId = declaredField.get(null);
-                        if (interfaceModuleId instanceof String) {
-                            Module module = modules.get((String) interfaceModuleId);
-                            if (module != null) {
-                                return (T) module;
-                            }
-
-                            throw new IllegalStateException("Module not included in test application: " + interfaceModuleId);
-                        }
-                    }
-                } catch (IllegalAccessException | NoSuchFieldException | SecurityException ex) {
-                    Logger.getLogger(TestApplication.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                throw new IllegalStateException("Module not included in test application");
-            }
-        });
+        TestModuleProvider testModuleProvider = new TestModuleProvider();
+        testModuleProvider.setModules(modules);
+        App.setModuleProvider(testModuleProvider);
     }
 
     public static void run(Runnable runnable) {
@@ -106,5 +69,12 @@ public class TestApplication {
 
     public void addModule(String moduleId, Module module) {
         modules.put(moduleId, module);
+
+        if (App.hasModuleProvider()) {
+            ModuleProvider moduleProvider = App.getModuleProvider();
+            if (moduleProvider instanceof TestModuleProvider) {
+                ((TestModuleProvider) moduleProvider).addModule(moduleId, module);
+            }
+        }
     }
 }
