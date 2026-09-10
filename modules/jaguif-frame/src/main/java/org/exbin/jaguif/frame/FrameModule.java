@@ -16,7 +16,6 @@
 package org.exbin.jaguif.frame;
 
 import com.formdev.flatlaf.extras.FlatDesktop;
-import java.awt.Component;
 import java.awt.Frame;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -58,6 +57,8 @@ import org.exbin.jaguif.frame.api.ContextFrame;
 import org.exbin.jaguif.options.api.PrefixOptionsStorage;
 import org.exbin.jaguif.window.settings.WindowPositionOptions;
 import org.exbin.jaguif.context.api.ContextActivable;
+import org.exbin.jaguif.context.api.ContextModuleApi;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 import org.exbin.jaguif.frame.contribution.ExitContribution;
 import org.exbin.jaguif.frame.contribution.ViewStatusBarContribution;
 import org.exbin.jaguif.frame.contribution.ViewToolBarCaptionsContribution;
@@ -81,6 +82,9 @@ public class FrameModule implements FrameModuleApi {
 
     private @Nullable ResourceBundle resourceBundle;
     private @Nullable ApplicationFrame applicationFrame;
+    private @Nullable ContextStateManagement frameStateManager;
+    private @Nullable ContextMonitoringManagement frameMonitoringManager;
+    private @Nullable String initialStatusBarId;
     private boolean undecorated = false;
     private @Nullable FrameClosingHandler exitHandler = null;
     private @Nullable StatusBarHandler statusBarHandler = null;
@@ -230,18 +234,44 @@ public class FrameModule implements FrameModuleApi {
             applicationFrame.setApplicationExitHandler(exitHandler);
             appIcon = applicationFrame.getIconImage();
 
-            ContextStateManagement stateManager = applicationFrame.getStateManager();
+            ContextStateManagement stateManager = getFrameStateManager();
             stateManager.changeActiveState(ContextFrame.class, applicationFrame);
             stateManager.changeActiveState(DialogParentComponent.class, (DialogParentComponent) () -> applicationFrame);
+            applicationFrame.setStateManager(stateManager);
+            applicationFrame.setMonitoringManager(getFrameMonitoringManager());
 
             OptionsSettingsModuleApi optionsSettingsModule = App.getModule(OptionsSettingsModuleApi.class);
             OptionsSettingsManagement mainSettingsManager = optionsSettingsModule.getMainSettingsManager();
             mainSettingsManager.applyContextOptions(ContextFrame.class, applicationFrame, mainSettingsManager.getSettingsOptionsProvider());
+            if (initialStatusBarId != null) {
+                switchStatusBar(initialStatusBarId);
+            }
         }
 
         return applicationFrame;
     }
-    
+
+    @Override
+    public ContextStateManagement getFrameStateManager() {
+        if (frameStateManager == null) {
+            ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
+            frameStateManager = contextModule.createChildStateManager(contextModule.getMainStateManager());
+        }
+
+        return frameStateManager;
+    }
+
+    @Override
+    public ContextMonitoringManagement getFrameMonitoringManager() {
+        if (frameMonitoringManager == null) {
+            ContextStateManagement stateManager = getFrameStateManager();
+            ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
+            frameMonitoringManager = contextModule.createMonitoringManager(stateManager);
+        }
+
+        return frameMonitoringManager;
+    }
+
     @Override
     public void attachFrameContentComponent(ComponentProvider componentProvider) {
         FrameController frameController = getFrameController();
@@ -277,9 +307,8 @@ public class FrameModule implements FrameModuleApi {
     }
 
     private StatusBarHandler getStatusBarHandler() {
-        getFrameController();
         if (statusBarHandler == null) {
-            statusBarHandler = new StatusBarHandler(applicationFrame);
+            statusBarHandler = new StatusBarHandler();
         }
 
         return statusBarHandler;
@@ -292,7 +321,12 @@ public class FrameModule implements FrameModuleApi {
 
     @Override
     public void switchStatusBar(String statusBarId) {
-        getStatusBarHandler().switchStatusBar(statusBarId);
+        if (applicationFrame == null) {
+            initialStatusBarId = statusBarId;
+            return;
+        }
+
+        getStatusBarHandler().switchStatusBar(statusBarId, applicationFrame);
     }
 
     public FrameActions getFrameActions() {

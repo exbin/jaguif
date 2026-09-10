@@ -24,6 +24,8 @@ import javax.swing.Action;
 import javax.swing.JComponent;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
+import org.exbin.jaguif.context.api.ContextMonitoringManagement;
+import org.exbin.jaguif.context.api.ContextStateManagement;
 import org.exbin.jaguif.utils.ComponentProvider;
 import org.exbin.jaguif.utils.WindowClosingListener;
 
@@ -56,6 +58,20 @@ public interface FrameModuleApi extends Module {
      * @return frame controller
      */
     FrameController getFrameController();
+
+    /**
+     * Returns frame state manager.
+     *
+     * @return state manager
+     */
+    ContextStateManagement getFrameStateManager();
+
+    /**
+     * Returns frame monitoring manager.
+     *
+     * @return monitoring manager
+     */
+    ContextMonitoringManagement getFrameMonitoringManager();
 
     /**
      * Attaches component provider to the component frame.

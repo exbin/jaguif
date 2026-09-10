@@ -26,15 +26,12 @@ import javax.swing.JComponent;
 @NullMarked
 public class StatusBarHandler {
 
-    private final ApplicationFrame frame;
-
     private final Map<String, JComponent> statusBars = new HashMap<>();
 
     // Map of status bar to module connections
     private final Map<String, String> statusBarModules = new HashMap<>();
 
-    public StatusBarHandler(ApplicationFrame frame) {
-        this.frame = frame;
+    public StatusBarHandler() {
     }
 
     public void registerStatusBar(String moduleId, String statusBarId, JComponent component) {
@@ -42,7 +39,7 @@ public class StatusBarHandler {
         statusBarModules.put(moduleId, statusBarId);
     }
 
-    public void switchStatusBar(String statusBarId) {
+    public void switchStatusBar(String statusBarId, ApplicationFrame frame) {
         JComponent component = statusBars.get(statusBarId);
         frame.switchStatusBar(component);
     }

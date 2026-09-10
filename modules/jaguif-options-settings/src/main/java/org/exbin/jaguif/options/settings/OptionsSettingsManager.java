@@ -192,7 +192,7 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
 
         // TODO Rework for context provider parameter?
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
-        ContextStateManagement contextProvider = frameModule.getFrameController().getStateManager();
+        ContextStateManagement contextProvider = frameModule.getFrameStateManager();
         contextProvider.changeActiveState((Class) contextTypeClass, contextInstance);
 
         for (ApplySettingsContribution applySettings : contribution) {
@@ -210,7 +210,7 @@ public class OptionsSettingsManager implements OptionsSettingsManagement {
 
         // TODO Rework for context provider parameter?
         FrameModuleApi frameModule = App.getModule(FrameModuleApi.class);
-        ContextStateManagement contextProvider = frameModule.getFrameController().getStateManager();
+        ContextStateManagement contextProvider = frameModule.getFrameStateManager();
 
         for (ApplySettingsContribution applySettings : contribution) {
             SettingsApplier settingsApplier = applySettings.getSettingsApplier();

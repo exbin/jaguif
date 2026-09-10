@@ -64,10 +64,6 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
     }
 
     public ApplicationFrame(boolean undecorated) {
-        ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
-        stateManager = contextModule.createChildStateManager(contextModule.getMainStateManager());
-        monitoringManager = contextModule.createMonitoringManager(stateManager);
-
         if (undecorated) {
             setUndecorated(true);
         }
@@ -203,6 +199,14 @@ public class ApplicationFrame extends javax.swing.JFrame implements FrameControl
             ApplicationFrame frame = new ApplicationFrame();
             frame.setVisible(true);
         });
+    }
+
+    public void setStateManager(ContextStateManagement stateManager) {
+        this.stateManager = stateManager;
+    }
+
+    public void setMonitoringManager(ContextMonitoringManagement monitoringManager) {
+        this.monitoringManager = monitoringManager;
     }
 
     @Override
