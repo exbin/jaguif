@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager;
 
+import java.util.Optional;
 import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -45,7 +46,7 @@ import org.jspecify.annotations.Nullable;
 public class AddonManagerModule implements AddonManagerModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "addonManager";
-    private String manualLegacyGitHubUrl = "https://github.com/exbin/bined/releases/tag/";
+    private String manualCatalogUrl = null;
 
     private static boolean devMode = false;
     private @Nullable AddonManager addonManager = null;
@@ -103,9 +104,13 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     }
 
     @Override
-    public String getManualLegacyUrl() {
-        ResourceBundle appBundle = App.getAppBundle();
-        return manualLegacyGitHubUrl + appBundle.getString(ApplicationBundleKeys.APPLICATION_RELEASE);
+    public Optional<String> getManualCatalogUrl() {
+        return Optional.ofNullable(manualCatalogUrl);
+    }
+
+    @Override
+    public void setManualCatalogUrl(String manualCatalogUrl) {
+        this.manualCatalogUrl = manualCatalogUrl;
     }
 
     @Override

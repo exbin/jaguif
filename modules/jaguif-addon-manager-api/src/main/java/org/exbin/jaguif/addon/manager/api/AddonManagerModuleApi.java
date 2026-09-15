@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
+import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
@@ -66,11 +67,18 @@ public interface AddonManagerModuleApi extends Module {
     void registerBasicAddonManager();
 
     /**
-     * Returns link URL for manual addon download page.
+     * Returns link URL for manual catalog access.
      *
      * @return link
      */
-    String getManualLegacyUrl();
+    Optional<String> getManualCatalogUrl();
+
+    /**
+     * Sets manual catalog link URL.
+     *
+     * @param manualCatalogUrl link
+     */
+    void setManualCatalogUrl(String manualCatalogUrl);
 
     /**
      * Creates addons list component.

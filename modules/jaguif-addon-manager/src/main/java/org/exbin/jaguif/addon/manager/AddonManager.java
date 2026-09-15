@@ -68,6 +68,7 @@ import org.exbin.jaguif.window.api.gui.MultiStepControlPanel;
 import org.exbin.jaguif.context.api.ContextStateManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addon manager.
@@ -77,16 +78,16 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManager.class);
 
-    protected AddonsManagerPanel managerPanel;
+    protected @Nullable AddonsManagerPanel managerPanel;
     protected final List<AddonManagerPage> managerPages = new ArrayList<>();
     protected final List<CartOperation> cartOperations = new ArrayList<>();
 
-    protected AddonCatalogService addonCatalogService;
+    protected @Nullable AddonCatalogService addonCatalogService;
     protected final AddonsState addonsState = new AddonsState();
-    protected AddonManagerStatusListener statusListener;
+    protected @Nullable AddonManagerStatusListener statusListener;
 
     protected final ExecutorService operationsExecutor = Executors.newFixedThreadPool(1);
-    protected TabPagesDefinitionManagement pagesDefinitions;
+    protected @Nullable TabPagesDefinitionManagement pagesDefinitions;
 
     public AddonManager() {
     }

@@ -105,12 +105,12 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
 
     public void showManualOnlyWarning() {
         AddonManagerModuleApi addonManagerModule = App.getModule(AddonManagerModuleApi.class);
-        String link = addonManagerModule.getManualLegacyUrl();
+        String link = addonManagerModule.getManualCatalogUrl().orElse(null);
         manualOnlyModeLabel.setText(String.format(resourceBundle.getString("manualOnlyModeLabel.text"), link));
         manualOnlyModeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (evt.getButton() == MouseEvent.BUTTON1 && !evt.isPopupTrigger()) {
+                if (evt.getButton() == MouseEvent.BUTTON1 && !evt.isPopupTrigger() && link != null) {
                     DesktopUtils.openDesktopURL(link);
                 }
             }
@@ -120,8 +120,10 @@ public class AddonsManagerControlPanel extends javax.swing.JPanel implements Clo
 
             @Override
             public void show(Component invoker, int x, int y) {
-                MenuPopupModuleApi actionPopupModule = App.getModule(MenuPopupModuleApi.class);
-                actionPopupModule.createLinkPopupMenu(link).show(invoker, x, y);
+                if (link != null) {
+                    MenuPopupModuleApi actionPopupModule = App.getModule(MenuPopupModuleApi.class);
+                    actionPopupModule.createLinkPopupMenu(link).show(invoker, x, y);
+                }
             }
         });
         add(manualOnlyModePanel, BorderLayout.CENTER);

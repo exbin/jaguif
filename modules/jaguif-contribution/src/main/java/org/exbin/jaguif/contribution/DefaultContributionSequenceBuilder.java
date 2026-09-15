@@ -232,6 +232,9 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
                         builderRecord.processedContributions.add(record.contributionId);
                     } else {
                         Logger.getLogger(DefaultContributionSequenceBuilder.class.getName()).log(Level.SEVERE, "Skipping items");
+//                        for (BuilderContributionRecord contribution : processingRecord.contributions) {
+//                            Logger.getLogger(DefaultContributionSequenceBuilder.class.getName()).log(Level.SEVERE, "item: " + contribution.contributionId);
+//                        }
                         processingRecord.contributions.clear();
                     }
                     continue;
@@ -269,7 +272,8 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
         Map<String, BuilderContributionRecord> contributionsMap = new HashMap<>();
 
         boolean separatorQueued = false;
-        @Nullable BuilderContributionRecord previousContribution = null;
+        @Nullable
+        BuilderContributionRecord previousContribution = null;
         Map<String, List<String>> afterMap = new HashMap<>();
         Set<String> processedContributions = new HashSet<>();
     }
@@ -309,11 +313,13 @@ public class DefaultContributionSequenceBuilder implements ContributionSequenceB
 
     private static class BuilderContributionRecord {
 
-        @Nullable String contributionId;
+        @Nullable
+        String contributionId;
 
         SeparationSequenceContributionRule.@Nullable SeparationMode separationMode;
         PositionSequenceContributionRule.PositionMode positionHint = PositionSequenceContributionRule.PositionMode.DEFAULT;
-        @Nullable BuilderContributionRecord previousHint = null;
+        @Nullable
+        BuilderContributionRecord previousHint = null;
         final Set<String> placeAfter = new HashSet<>();
     }
 

@@ -261,6 +261,9 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
                         subRecord.processedContributions.add(record.contributionId);
                     } else {
                         Logger.getLogger(DefaultTreeContributionSequenceBuilder.class.getName()).log(Level.SEVERE, "Skipping items");
+//                        for (BuilderContributionRecord contribution : groupRecord.contributions) {
+//                            Logger.getLogger(DefaultContributionSequenceBuilder.class.getName()).log(Level.SEVERE, "item: " + contribution.contributionId);
+//                        }
                         groupRecord.contributions.clear();
                     }
                     continue;
