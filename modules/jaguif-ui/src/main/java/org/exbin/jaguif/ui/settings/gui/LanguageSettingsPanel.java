@@ -28,7 +28,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.ui.model.LanguageRecord;
+import org.exbin.jaguif.ui.LanguageRecord;
 import org.exbin.jaguif.ui.settings.LanguageOptions;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;

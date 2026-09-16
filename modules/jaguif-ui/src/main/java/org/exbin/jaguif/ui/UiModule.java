@@ -54,13 +54,13 @@ public class UiModule implements UiModuleApi {
 
     @Override
     public void initSwingUi() {
+        // TODO: Actions ordering / order dependency
         executePreInitActions();
 
+        // Switching language
+        // TODO: Move to init action
         OptionsModuleApi optionsModule = App.getModule(OptionsModuleApi.class);
         LanguageOptions languageOptions = new LanguageOptions(optionsModule.getAppOptions());
-
-        // Switching language
-        // TODO Move to language module, because language can be independent of UI
         Locale locale = languageOptions.getLocale();
         LanguageModuleApi languageModule = App.getModule(LanguageModuleApi.class);
         languageModule.switchToLanguage(locale);

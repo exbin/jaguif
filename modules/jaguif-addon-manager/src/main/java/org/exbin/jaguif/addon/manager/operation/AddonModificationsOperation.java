@@ -36,7 +36,7 @@ import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.model.AddonUpdateChanges;
+import org.exbin.jaguif.addon.manager.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.operation.model.DownloadItemRecord;

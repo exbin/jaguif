@@ -17,7 +17,6 @@ package org.exbin.jaguif.utils;
 
 import java.util.Objects;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 

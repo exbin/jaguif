@@ -23,7 +23,6 @@ import org.exbin.jaguif.ModuleProvider;
 import org.exbin.jaguif.addon.AddonModuleFileLocation;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
-import org.exbin.jaguif.addon.manager.model.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.basic.ModuleRecord;

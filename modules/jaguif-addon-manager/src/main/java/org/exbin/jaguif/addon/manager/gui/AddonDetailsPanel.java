@@ -33,7 +33,6 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonOperationVariant;
 import org.exbin.jaguif.menu.popup.api.MenuPopupModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.model.DependenciesTableModel;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.DesktopUtils;

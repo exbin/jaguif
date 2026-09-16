@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.ui.model;
+package org.exbin.jaguif.ui;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -28,10 +28,8 @@ import javax.swing.ImageIcon;
 public class LanguageRecord {
 
     private final Locale locale;
-    @Nullable
-    private final ImageIcon flag;
-    @Nullable
-    private final String note;
+    private final @Nullable ImageIcon flag;
+    private final @Nullable String note;
 
     public LanguageRecord(Locale locale, @Nullable ImageIcon flag) {
         this(locale, flag, null);

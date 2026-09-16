@@ -31,7 +31,7 @@ import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
 import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.AddonOperation;
-import org.exbin.jaguif.addon.manager.model.AddonUpdateChanges;
+import org.exbin.jaguif.addon.manager.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import org.exbin.jaguif.addon.manager.api.CartOperation;
 import org.jspecify.annotations.Nullable;

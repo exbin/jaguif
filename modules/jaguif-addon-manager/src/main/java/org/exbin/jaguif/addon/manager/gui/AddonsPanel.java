@@ -26,7 +26,6 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
-import org.exbin.jaguif.addon.manager.model.AddonsListModel;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.jspecify.annotations.Nullable;

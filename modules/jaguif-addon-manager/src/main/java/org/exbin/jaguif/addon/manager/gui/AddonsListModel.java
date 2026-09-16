@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.model;
+package org.exbin.jaguif.addon.manager.gui;
 
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.jspecify.annotations.NullMarked;
