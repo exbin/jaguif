@@ -39,14 +39,14 @@ import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
-import org.exbin.jaguif.addon.manager.operation.model.DownloadItemRecord;
-import org.exbin.jaguif.addon.manager.operation.model.LicenseItemRecord;
+import org.exbin.jaguif.addon.manager.DownloadItemRecord;
+import org.exbin.jaguif.addon.manager.LicenseItemRecord;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerOptions;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
 import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 
 /**
  * Addon modifications operation.
@@ -57,8 +57,8 @@ public class AddonModificationsOperation {
     protected static final String MAVEN_CENTRAL_URL = "https://repo1.maven.org/maven2/";
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonModificationsOperation.class);
 
-    protected final String primaryLicense = "Apache-2.0";
-    protected final AddonCatalogService addonCatalogService;
+    protected final String primarySpdxLicense = "Apache-2.0";
+    protected final AddonResolutionService resolutionService;
     protected final AddonUpdateChanges addonUpdateChanges;
     protected final ApplicationModulesUsage applicationModulesUsage;
     protected final List<LicenseItemRecord> licenseRecords = new ArrayList<>();
@@ -67,8 +67,8 @@ public class AddonModificationsOperation {
 
     protected final ModificationOperations modificationOperations = new ModificationOperations();
 
-    public AddonModificationsOperation(AddonCatalogService addonCatalogService, ApplicationModulesUsage applicationModulesUsage, AddonUpdateChanges addonUpdateChanges) {
-        this.addonCatalogService = addonCatalogService;
+    public AddonModificationsOperation(AddonResolutionService resolutionService, ApplicationModulesUsage applicationModulesUsage, AddonUpdateChanges addonUpdateChanges) {
+        this.resolutionService = resolutionService;
         this.applicationModulesUsage = applicationModulesUsage;
         this.addonUpdateChanges = addonUpdateChanges;
     }
@@ -109,8 +109,8 @@ public class AddonModificationsOperation {
     public List<LicenseItemRecord> getLicenseRecords() {
         for (LicenseItemRecord record : licenseRecords) {
             try {
-                record.setUrl(addonCatalogService.getLicenseDownloadUrl(record.getRemoteFile()));
-            } catch (AddonCatalogServiceException ex) {
+                record.setUrl(resolutionService.getLicenseDownloadUrl(record.getRemoteFile()));
+            } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -124,9 +124,9 @@ public class AddonModificationsOperation {
         for (String moduleFile : modificationOperations.downloadModule) {
             DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, moduleFile), moduleFile);
             try {
-                record.setUrl(addonCatalogService.getFileDownloadUrl(moduleFile));
+                record.setUrl(resolutionService.getFileDownloadUrl(moduleFile));
                 downloadRecords.add(record);
-            } catch (AddonCatalogServiceException ex) {
+            } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -134,9 +134,9 @@ public class AddonModificationsOperation {
         for (String library : modificationOperations.downloadLibraries) {
             DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, library), library);
             try {
-                record.setUrl(addonCatalogService.getFileDownloadUrl(library));
+                record.setUrl(resolutionService.getFileDownloadUrl(library));
                 downloadRecords.add(record);
-            } catch (AddonCatalogServiceException ex) {
+            } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -162,9 +162,9 @@ public class AddonModificationsOperation {
             }
             processAddonLicense((AddonRecord) item);
             try {
-                modificationOperations.downloadModule.add(addonCatalogService.getAddonFile(addonId));
+                modificationOperations.downloadModule.add(resolutionService.getAddonFile(addonId));
                 modificationOperations.installAddons.add(addonId);
-            } catch (AddonCatalogServiceException ex) {
+            } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
             addAddonDependencies((AddonRecord) item);
@@ -188,8 +188,8 @@ public class AddonModificationsOperation {
                 }
             }
             try {
-                modificationOperations.downloadModule.add(addonCatalogService.getAddonFile(item.getId()));
-            } catch (AddonCatalogServiceException ex) {
+                modificationOperations.downloadModule.add(resolutionService.getAddonFile(item.getId()));
+            } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
             addAddonDependencies((AddonRecord) item);
@@ -297,12 +297,12 @@ public class AddonModificationsOperation {
                     if (include) {
                         AddonRecord addonRecord;
                         try {
-                            addonRecord = addonCatalogService.getAddonDependency(dependencyId);
+                            addonRecord = resolutionService.getAddonDependency(dependencyId);
                             modificationOperations.dependencyAddons.add(addonRecord.getId());
                             processAddonLicense(addonRecord);
-                            modificationOperations.downloadModule.add(addonCatalogService.getAddonFile(addonRecord.getId()));
+                            modificationOperations.downloadModule.add(resolutionService.getAddonFile(addonRecord.getId()));
                             dependencies.addAll(addonRecord.getDependencies());
-                        } catch (AddonCatalogServiceException ex) {
+                        } catch (AddonResolutionServiceException ex) {
                             Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
@@ -323,7 +323,7 @@ public class AddonModificationsOperation {
 
     public void processAddonLicense(AddonRecord addonRecord) {
         String remoteFile = addonRecord.getLicenseRemoteFile();
-        if (primaryLicense.equals(addonRecord.getLicenseSpdx().orElse(null)) || remoteFile.isEmpty()) {
+        if (primarySpdxLicense.equals(addonRecord.getLicenseSpdx().orElse(null)) || remoteFile.isEmpty()) {
             return;
         }
         if (!licenseCodes.contains(remoteFile)) {
@@ -358,8 +358,8 @@ public class AddonModificationsOperation {
             addonUpdateChanges.removeInstallAddon(moduleId);
             if ("org.exbin.jaguif.addon.manager.AddonManagerModule".equals(moduleId)) {
                 OptionsModuleApi preferencesModule = App.getModule(OptionsModuleApi.class);
-                AddonManagerOptions addonPreferences = new AddonManagerOptions(preferencesModule.getAppOptions());
-                addonPreferences.setActivatedVersion("0.3.0-SNAPSHOT");
+                AddonManagerOptions addonOptions = new AddonManagerOptions(preferencesModule.getAppOptions());
+                addonOptions.setActivatedVersion("0.3.0-SNAPSHOT");
             }
             addonUpdateChanges.addRemoveAddon(moduleId);
         }

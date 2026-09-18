@@ -21,7 +21,7 @@ import org.jspecify.annotations.NullMarked;
  * Available module updates.
  */
 @NullMarked
-public interface UpdateAvailabilityModules extends UpdateAvailabilityContext {
+public interface UpdateAvailabilityManagement extends UpdateAvailabilityContext {
 
     /**
      * Returns revision of update sequence.

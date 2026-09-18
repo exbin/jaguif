@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.operation;
+package org.exbin.jaguif.addon.catalog.operation;
 
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -21,9 +21,9 @@ import java.util.logging.Logger;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ApplicationBundleKeys;
-import org.exbin.jaguif.addon.manager.AddonManager;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
+import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 import org.exbin.jaguif.operation.api.TitledOperation;
 
@@ -33,13 +33,12 @@ import org.exbin.jaguif.operation.api.TitledOperation;
 @NullMarked
 public class CatalogCheckStatusOperation implements Runnable, CancellableOperation, TitledOperation {
 
-    protected final AddonManager addonManager;
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CatalogCheckStatusOperation.class);
     protected final AddonCatalogService addonCatalogService;
     protected final Output output;
     protected boolean cancelled = false;
 
-    public CatalogCheckStatusOperation(AddonManager addonManager, AddonCatalogService addonCatalogService, Output output) {
-        this.addonManager = addonManager;
+    public CatalogCheckStatusOperation(AddonCatalogService addonCatalogService, Output output) {
         this.addonCatalogService = addonCatalogService;
         this.output = output;
     }
@@ -69,7 +68,7 @@ public class CatalogCheckStatusOperation implements Runnable, CancellableOperati
 
     @Override
     public String getTitle() {
-        return addonManager.getResourceBundle().getString("catalogCheckStatusOperation");
+        return resourceBundle.getString("operation.name");
     }
 
     public interface Output {

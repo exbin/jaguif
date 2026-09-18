@@ -21,7 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.update.api.VersionNumbers;
+import org.exbin.jaguif.addon.catalog.api.VersionNumbers;
 import org.exbin.jaguif.addon.update.service.CheckForUpdateService;
 import org.exbin.jaguif.utils.DesktopUtils;
 import org.exbin.jaguif.language.api.LanguageModuleApi;

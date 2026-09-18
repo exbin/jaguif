@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.action.manager.model;
+package org.exbin.jaguif.action.manager.gui;
 
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;

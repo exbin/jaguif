@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.List;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.operation.model.DownloadItemRecord;
+import org.exbin.jaguif.addon.manager.DownloadItemRecord;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 import org.exbin.jaguif.operation.api.ProgressOperation;
 

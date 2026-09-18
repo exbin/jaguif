@@ -3,6 +3,7 @@ rootProject.name = 'jaguif-addon-update-api'
 if (rootProject.path == ':') {
     include ':core:jaguif-core'
     include ':modules:jaguif-utils'
+    include ':modules:jaguif-addon-catalog-api'
 }
 
 apply from: '../jaguif-modules-settings.gradle'

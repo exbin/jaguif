@@ -25,7 +25,7 @@ import javax.swing.KeyStroke;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.manager.ActionManagerModule;
 import org.exbin.jaguif.action.manager.settings.gui.KeyMapSettingsPanel;
-import org.exbin.jaguif.action.manager.model.KeyMapRecord;
+import org.exbin.jaguif.action.manager.gui.KeyMapRecord;
 import org.exbin.jaguif.contribution.api.ActionSequenceContribution;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;

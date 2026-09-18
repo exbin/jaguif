@@ -38,8 +38,8 @@ import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityContext;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
 
 /**
  * Installed addons manager page.
@@ -98,7 +98,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
                     setAddonManager(instance);
                 });
                 registrar.registerChangeListener(UpdateAvailabilityContext.class, (instance) -> {
-                    setAvailableModuleUpdates((UpdateAvailabilityModules) instance);
+                    setAvailableModuleUpdates((UpdateAvailabilityManagement) instance);
                 });
             }
         });
@@ -131,7 +131,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         notifyItemsChanged();
     }
 
-    public void setAvailableModuleUpdates(UpdateAvailabilityModules availableModuleUpdates) {
+    public void setAvailableModuleUpdates(UpdateAvailabilityManagement availableModuleUpdates) {
         int itemsCount = getItemsCount();
         for (int i = 0; i < itemsCount; i++) {
             availableModuleUpdates.applyTo(getItem(i));

@@ -88,8 +88,8 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
         return resourceBundle;
     }
 
-    public void setController(Controller control) {
-        this.controller = control;
+    public void setController(Controller controller) {
+        this.controller = controller;
     }
 
     public void setCatalogUrl(String addonServiceUrl) {

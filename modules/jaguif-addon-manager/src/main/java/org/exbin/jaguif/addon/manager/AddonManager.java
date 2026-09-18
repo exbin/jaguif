@@ -31,7 +31,6 @@ import javax.swing.JOptionPane;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.gui.AddonsCartPanel;
 import org.exbin.jaguif.addon.manager.gui.AddonsManagerPanel;
@@ -41,17 +40,13 @@ import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
 import org.exbin.jaguif.addon.manager.api.CartOperation;
 import org.exbin.jaguif.addon.manager.api.CartOperationVariant;
-import org.exbin.jaguif.addon.manager.gui.AddonsPanel;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationStep;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
-import org.exbin.jaguif.addon.manager.operation.CatalogModuleDetailOperation;
 import org.exbin.jaguif.addon.manager.operation.DownloadOperation;
 import org.exbin.jaguif.addon.manager.operation.gui.AddonOperationDownloadPanel;
 import org.exbin.jaguif.addon.manager.operation.gui.AddonOperationLicensePanel;
 import org.exbin.jaguif.addon.manager.operation.gui.AddonOperationOverviewPanel;
 import org.exbin.jaguif.addon.manager.operation.gui.AddonOperationPanel;
-import org.exbin.jaguif.addon.manager.operation.model.DownloadItemRecord;
-import org.exbin.jaguif.addon.manager.operation.model.LicenseItemRecord;
 import org.exbin.jaguif.addon.manager.operation.service.AddonOperationService;
 import org.exbin.jaguif.context.api.ContextModuleApi;
 import org.exbin.jaguif.operation.api.ProgressOperation;
@@ -68,6 +63,7 @@ import org.exbin.jaguif.context.api.ContextStateManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 
 /**
  * Addon manager.
@@ -81,7 +77,8 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     protected final List<AddonManagerPage> managerPages = new ArrayList<>();
     protected final List<CartOperation> cartOperations = new ArrayList<>();
 
-    protected @Nullable AddonCatalogService addonCatalogService;
+    protected @Nullable AddonResolutionService resolutionService;
+    protected @Nullable String catalogWebsiteUrl;
     protected final AddonsState addonsState = new AddonsState();
     protected @Nullable AddonManagerStatusListener statusListener;
 
@@ -125,12 +122,6 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     public void notifyChanged() {
         AddonManagerPage managerTab = managerPanel.getActiveTab();
         managerTab.notifyChanged();
-
-//        if (managerTab instanceof AddonsCatalogPage) {
-//            ((AddonsCatalogPage) managerTab).set
-//        } else if (managerTab instanceof AddonsInstalledPage) {
-//            ((AddonsInstalledPage) managerTab).set
-//        }
     }
 
     public void addManagerPage(ComponentTabPagesContribution pageContribution) {
@@ -154,18 +145,13 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         managerPanel.setCartComponent(cartPanel);
         managerPanel.setController(new AddonsManagerPanel.Controller() {
             @Override
-            public void tabSwitched() {
-                notifyChanged();
-            }
+            public void notifyTabSwitched() {
+                if (managerPanel.isCartOpened()) {
+                    cartPanel.setCartItems(getCartOperations());
+                    return;
+                }
 
-            @Override
-            public void openCatalog() {
                 notifyChanged();
-            }
-
-            @Override
-            public void openCart() {
-                cartPanel.setCartItems(getCartOperations());
             }
 
             @Override
@@ -184,8 +170,8 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
                 }
             }
         });
-        if (addonCatalogService != null) {
-            managerPanel.setCatalogUrl(addonCatalogService.getCatalogPageUrl());
+        if (resolutionService != null) {
+            managerPanel.setCatalogUrl(catalogWebsiteUrl);
         }
 
         cartPanel.setController(new AddonsCartPanel.Controller() {
@@ -221,10 +207,14 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         pagesDefinitions.registerTabPagesContribution(new InstalledAddonsPage.Contribution());
     }
 
-    public void setAddonCatalogService(AddonCatalogService addonCatalogService) {
-        this.addonCatalogService = addonCatalogService;
+    public void setResolutionService(AddonResolutionService resolutionService) {
+        this.resolutionService = resolutionService;
+    }
+
+    public void setCatalogWebsiteUrl(String catalogWebsiteUrl) {
+        this.catalogWebsiteUrl = catalogWebsiteUrl;
         if (managerPanel != null) {
-            managerPanel.setCatalogUrl(addonCatalogService.getCatalogPageUrl());
+            managerPanel.setCatalogUrl(catalogWebsiteUrl);
         }
     }
 
@@ -245,7 +235,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         }
 
         AddonOperationService addonOperationService = new AddonOperationService(AddonManager.this);
-        addonOperationService.setAddonCatalogService(addonCatalogService);
+        addonOperationService.setResolutionService(resolutionService);
         AddonModificationsOperation modificationsOperations = addonOperationService.performAddonOperations(updateOperations);
         if (performAddonsOperation(modificationsOperations, managerPanel)) {
             notifyChanged();
@@ -299,7 +289,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     public void runCartModifications() {
         AddonOperationService addonOperationService = new AddonOperationService(AddonManager.this);
-        addonOperationService.setAddonCatalogService(addonCatalogService);
+        addonOperationService.setResolutionService(resolutionService);
         AddonModificationsOperation modificationsOperations = addonOperationService.performAddonOperations(cartOperations);
         if (performAddonsOperation(modificationsOperations, managerPanel)) {
             cartOperations.clear();
@@ -475,10 +465,6 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             }
         }
         statusListener.setAvailableUpdates(availableUpdates);
-    }
-
-    public void requestModuleDetail(ItemRecord itemRecord, AddonsPanel addonsPanel) {
-        runOperation(new CatalogModuleDetailOperation(addonCatalogService, this, itemRecord, (details) -> addonsPanel.setModuleDetail(itemRecord, details)));
     }
 
     @NullMarked

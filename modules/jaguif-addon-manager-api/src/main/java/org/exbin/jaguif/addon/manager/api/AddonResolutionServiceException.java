@@ -22,24 +22,24 @@ import org.jspecify.annotations.NullMarked;
  * Addon catalog service exception.
  */
 @NullMarked
-public class AddonCatalogServiceException extends Exception {
+public class AddonResolutionServiceException extends Exception {
 
-    public AddonCatalogServiceException() {
+    public AddonResolutionServiceException() {
     }
 
-    public AddonCatalogServiceException(String string) {
+    public AddonResolutionServiceException(String string) {
         super(string);
     }
 
-    public AddonCatalogServiceException(String string, @Nullable Throwable thrwbl) {
+    public AddonResolutionServiceException(String string, @Nullable Throwable thrwbl) {
         super(string, thrwbl);
     }
 
-    public AddonCatalogServiceException(@Nullable Throwable thrwbl) {
+    public AddonResolutionServiceException(@Nullable Throwable thrwbl) {
         super(thrwbl);
     }
 
-    public AddonCatalogServiceException(String string, @Nullable Throwable thrwbl, boolean enableSuppression, boolean writableStackTrace) {
+    public AddonResolutionServiceException(String string, @Nullable Throwable thrwbl, boolean enableSuppression, boolean writableStackTrace) {
         super(string, thrwbl, enableSuppression, writableStackTrace);
     }
 }

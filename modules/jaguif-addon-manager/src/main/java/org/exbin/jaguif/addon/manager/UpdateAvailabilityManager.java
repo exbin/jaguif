@@ -32,13 +32,13 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.utils.VersionUtils;
-import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
+import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
 
 /**
  * Manager for available module updates.
  */
 @NullMarked
-public class UpdateAvailabilityManager implements UpdateAvailabilityModules {
+public class UpdateAvailabilityManager implements UpdateAvailabilityManagement {
 
     protected static final String MODULE_UPDATES_FILE = "available-updates.cfg";
     protected final Map<String, String> latestVersions = new HashMap<>();

@@ -18,8 +18,6 @@ package org.exbin.jaguif.action.manager.gui;
 import java.util.List;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.KeyStroke;
-import org.exbin.jaguif.action.manager.model.KeyMapRecord;
-import org.exbin.jaguif.action.manager.model.KeyMapTableModel;
 
 /**
  * Keymap table panel.

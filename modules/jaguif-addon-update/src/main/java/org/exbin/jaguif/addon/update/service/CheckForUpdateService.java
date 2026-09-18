@@ -16,9 +16,9 @@
 package org.exbin.jaguif.addon.update.service;
 
 import java.net.URL;
+import org.exbin.jaguif.addon.catalog.api.VersionNumbers;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.addon.update.api.VersionNumbers;
 
 /**
  * Check for update service.

@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.operation;
+package org.exbin.jaguif.addon.catalog.operation;
 
+import java.util.ResourceBundle;
+import org.exbin.jaguif.App;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.addon.manager.AddonManager;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
-import org.exbin.jaguif.addon.manager.UpdateAvailabilityManager;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
+import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
+import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 import org.exbin.jaguif.operation.api.TitledOperation;
 
@@ -28,27 +30,28 @@ import org.exbin.jaguif.operation.api.TitledOperation;
 @NullMarked
 public class CatalogAvailableUpdatesOperation implements Runnable, CancellableOperation, TitledOperation {
 
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CatalogAvailableUpdatesOperation.class);
+    protected final UpdateAvailabilityManagement updateAvailabilityManager;
     protected final AddonCatalogService addonCatalogService;
-    protected final AddonManager addonManager;
     protected final int catalogRevision;
     protected final Output output;
     protected boolean cancelled = false;
 
-    public CatalogAvailableUpdatesOperation(AddonCatalogService addonCatalogService, AddonManager addonManager, int catalogRevision, Output output) {
+    public CatalogAvailableUpdatesOperation(AddonCatalogService addonCatalogService, UpdateAvailabilityManagement updateAvailabilityManager, int catalogRevision, Output output) {
         this.addonCatalogService = addonCatalogService;
-        this.addonManager = addonManager;
+        this.updateAvailabilityManager = updateAvailabilityManager;
         this.catalogRevision = catalogRevision;
         this.output = output;
     }
 
     @Override
     public void run() {
-        UpdateAvailabilityManager availableModuleUpdates = addonManager.getAvailableModuleUpdates();
-        if (catalogRevision > availableModuleUpdates.getRevision()) {
+        if (catalogRevision > updateAvailabilityManager.getRevision()) {
             UpdateAvailabilityOperation availabilityOperation = new UpdateAvailabilityOperation(addonCatalogService);
             availabilityOperation.run();
-            availableModuleUpdates.setLatestVersion(catalogRevision, availabilityOperation.getLatestVersions());
-            availableModuleUpdates.writeConfigFile();
+            // TODO
+            // updateAvailabilityManager.setLatestVersion(catalogRevision, availabilityOperation.getLatestVersions());
+            // updateAvailabilityManager.writeConfigFile();
             output.latestVersionsChanged();
         }
     }
@@ -65,7 +68,7 @@ public class CatalogAvailableUpdatesOperation implements Runnable, CancellableOp
 
     @Override
     public String getTitle() {
-        return addonManager.getResourceBundle().getString("catalogAvailableUpdatesOperation");
+        return resourceBundle.getString("operation.name");
     }
 
     @NullMarked

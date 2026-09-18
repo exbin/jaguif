@@ -25,7 +25,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.operation.model.DownloadItemRecord;
+import org.exbin.jaguif.addon.manager.DownloadItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 
 /**

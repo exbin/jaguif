@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.operation;
+package org.exbin.jaguif.addon.catalog.operation;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,8 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.manager.api.UpdateRecord;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 
 /**

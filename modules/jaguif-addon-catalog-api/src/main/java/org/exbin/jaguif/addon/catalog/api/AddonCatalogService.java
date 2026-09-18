@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.api;
+package org.exbin.jaguif.addon.catalog.api;
 
 import java.net.URL;
 import java.util.List;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.UpdateRecord;
 import org.jspecify.annotations.NullMarked;
 
 /**

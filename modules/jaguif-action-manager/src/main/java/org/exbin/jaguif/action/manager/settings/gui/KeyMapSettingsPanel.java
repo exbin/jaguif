@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.action.manager.gui.KeyMapTablePanel;
-import org.exbin.jaguif.action.manager.model.KeyMapRecord;
+import org.exbin.jaguif.action.manager.gui.KeyMapRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.settings.api.SettingsComponent;
 import org.exbin.jaguif.options.settings.api.SettingsModifiedListener;

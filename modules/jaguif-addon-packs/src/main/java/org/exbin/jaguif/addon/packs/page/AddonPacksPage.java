@@ -23,7 +23,7 @@ import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.AddonOperationVariant;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
@@ -39,7 +39,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.tabpages.api.AbstractTabPagesComponent;
 import org.exbin.jaguif.tabpages.api.ComponentTabPagesContribution;
 import org.exbin.jaguif.tabpages.api.TabPagesComponent;
-import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
+import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
 
 /**
  * Addons manager page.
@@ -99,7 +99,7 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
                     setAddonManager(instance);
                 });
                 registrar.registerChangeListener(UpdateAvailabilityContext.class, (instance) -> {
-                    setAvailableModuleUpdates((UpdateAvailabilityModules) instance);
+                    setAvailableModuleUpdates((UpdateAvailabilityManagement) instance);
                 });
             }
         });
@@ -162,7 +162,7 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         notifyItemsChanged();
     }
 
-    public void setAvailableModuleUpdates(UpdateAvailabilityModules availableModuleUpdates) {
+    public void setAvailableModuleUpdates(UpdateAvailabilityManagement availableModuleUpdates) {
         int itemsCount = getItemsCount();
         for (int i = 0; i < itemsCount; i++) {
             availableModuleUpdates.applyTo(getItem(i));
@@ -187,6 +187,7 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         void itemChanged();
     }
 
+    @NullMarked
     public static class Contribution implements ComponentTabPagesContribution {
 
         @Override

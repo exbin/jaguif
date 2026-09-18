@@ -25,14 +25,14 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 
 /**
- * Addon dependency record.
+ * Addon dependencies table model.
  */
 @NullMarked
 public class DependenciesTableModel extends AbstractTableModel {
 
     private final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(DependenciesTableModel.class);
 
-    protected List<DependencyRecord> dependencies;
+    protected @Nullable List<DependencyRecord> dependencies;
 
     public DependenciesTableModel() {
     }

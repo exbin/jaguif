@@ -27,12 +27,12 @@ import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
 import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.AddonOperation;
 import org.exbin.jaguif.addon.manager.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
 import org.exbin.jaguif.addon.manager.api.CartOperation;
 import org.jspecify.annotations.Nullable;
 
@@ -45,7 +45,7 @@ public class AddonOperationService {
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationService.class);
 
     protected final AddonManager addonManager;
-    protected @Nullable AddonCatalogService addonCatalogService;
+    protected @Nullable AddonResolutionService resolutionService;
 
     public AddonOperationService(AddonManager addonManager) {
         this.addonManager = addonManager;
@@ -55,8 +55,8 @@ public class AddonOperationService {
         return resourceBundle;
     }
 
-    public void setAddonCatalogService(AddonCatalogService addonCatalogService) {
-        this.addonCatalogService = addonCatalogService;
+    public void setResolutionService(AddonResolutionService resolutionService) {
+        this.resolutionService = resolutionService;
     }
 
     public AddonModificationsOperation performAddonOperations(List<CartOperation> operations) {
@@ -93,9 +93,9 @@ public class AddonOperationService {
         AddonModificationsOperation operation = createOperation();
         AddonRecord addonRecord;
         try {
-            addonRecord = addonCatalogService.getAddonDependency(item.getId());
+            addonRecord = resolutionService.getAddonDependency(item.getId());
             operation.updateItem(addonRecord, item);
-        } catch (AddonCatalogServiceException ex) {
+        } catch (AddonResolutionServiceException ex) {
             Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return operation;
@@ -115,9 +115,9 @@ public class AddonOperationService {
                 if (addon.isUpdateAvailable()) {
                     AddonRecord addonRecord;
                     try {
-                        addonRecord = addonCatalogService.getAddonDependency(addon.getId());
+                        addonRecord = resolutionService.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
-                    } catch (AddonCatalogServiceException ex) {
+                    } catch (AddonResolutionServiceException ex) {
                         Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -126,9 +126,9 @@ public class AddonOperationService {
             for (String addonId : toInstall) {
                 AddonRecord addonRecord;
                 try {
-                    addonRecord = addonCatalogService.getAddonDependency(addonId);
+                    addonRecord = resolutionService.getAddonDependency(addonId);
                     operation.installItem(addonRecord);
-                } catch (AddonCatalogServiceException ex) {
+                } catch (AddonResolutionServiceException ex) {
                     Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -144,9 +144,9 @@ public class AddonOperationService {
                 if (addon.isUpdateAvailable()) {
                     AddonRecord addonRecord;
                     try {
-                        addonRecord = addonCatalogService.getAddonDependency(addon.getId());
+                        addonRecord = resolutionService.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
-                    } catch (AddonCatalogServiceException ex) {
+                    } catch (AddonResolutionServiceException ex) {
                         Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -156,9 +156,9 @@ public class AddonOperationService {
                 if (toUpdate.contains(addon.getId())) {
                     AddonRecord addonRecord;
                     try {
-                        addonRecord = addonCatalogService.getAddonDependency(addon.getId());
+                        addonRecord = resolutionService.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
-                    } catch (AddonCatalogServiceException ex) {
+                    } catch (AddonResolutionServiceException ex) {
                         Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -170,6 +170,6 @@ public class AddonOperationService {
     private AddonModificationsOperation createOperation() {
         AddonUpdateChanges addonUpdateChanges = addonManager.getAddonUpdateChanges();
         ApplicationModulesUsage applicationModulesUsage = addonManager.getApplicationModulesUsage();
-        return new AddonModificationsOperation(addonCatalogService, applicationModulesUsage, addonUpdateChanges);
+        return new AddonModificationsOperation(resolutionService, applicationModulesUsage, addonUpdateChanges);
     }
 }

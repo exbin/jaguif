@@ -58,7 +58,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
             if (controller == null) {
                 return;
             }
-            controller.tabSwitched();
+            controller.notifyTabSwitched();
         });
         add(tabPages.getComponent(), BorderLayout.CENTER);
         Document document = filterTextField.getDocument();
@@ -185,6 +185,10 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         };
     }
 
+    public boolean isCartOpened() {
+        return cartButton.isSelected();
+    }
+
     public AddonManagerPage getActiveTab() {
         int activeIndex = tabPages.getActivePageIndex();
         return managerTabs.get(activeIndex);
@@ -269,12 +273,11 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         if (cartButton.isSelected()) {
             remove(tabPages.getComponent());
             add(cartComponent, BorderLayout.CENTER);
-            controller.openCart();
         } else {
             remove(cartComponent);
             add(tabPages.getComponent(), BorderLayout.CENTER);
-            controller.openCatalog();
         }
+        controller.notifyTabSwitched();
         revalidate();
         repaint();
     }//GEN-LAST:event_cartButtonActionPerformed
@@ -291,11 +294,10 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
     @NullMarked
     public interface Controller {
 
-        void openCatalog();
-
-        void openCart();
-
-        void tabSwitched();
+        /**
+         * Notifies manager page was switched.
+         */
+        void notifyTabSwitched();
 
         /**
          * Sets filter.

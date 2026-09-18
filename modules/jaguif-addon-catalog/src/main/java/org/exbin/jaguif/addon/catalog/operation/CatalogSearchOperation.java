@@ -22,16 +22,16 @@ import java.util.logging.Logger;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleProvider;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
-import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityModules;
 import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 import org.exbin.jaguif.operation.api.ProgressOperation;
 import org.exbin.jaguif.operation.api.TitledOperation;
+import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
 
 /**
  * Operation to search in catalog.
@@ -41,13 +41,13 @@ public class CatalogSearchOperation implements Runnable, CancellableOperation, P
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CatalogSearchOperation.class);
     protected final AddonsManagementLocalState localState;
-    protected final UpdateAvailabilityModules updateAvailabilityModules;
+    protected final UpdateAvailabilityManagement updateAvailabilityModules;
     protected final AddonCatalogService addonCatalogService;
     protected final Output output;
     protected boolean cancelled = false;
     protected final String searchCondition;
 
-    public CatalogSearchOperation(AddonCatalogService addonCatalogService, AddonsManagementLocalState localState, UpdateAvailabilityModules updateAvailabilityModules, String searchCondition, Output output) {
+    public CatalogSearchOperation(AddonCatalogService addonCatalogService, AddonsManagementLocalState localState, UpdateAvailabilityManagement updateAvailabilityModules, String searchCondition, Output output) {
         this.addonCatalogService = addonCatalogService;
         this.localState = localState;
         this.updateAvailabilityModules = updateAvailabilityModules;

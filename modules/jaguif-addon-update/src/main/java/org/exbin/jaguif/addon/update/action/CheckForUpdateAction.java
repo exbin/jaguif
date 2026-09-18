@@ -15,7 +15,6 @@
  */
 package org.exbin.jaguif.addon.update.action;
 
-import org.exbin.jaguif.addon.update.api.VersionNumbers;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.net.URL;
@@ -33,6 +32,7 @@ import org.exbin.jaguif.addon.update.gui.CheckForUpdatePanel;
 import org.exbin.jaguif.addon.update.settings.CheckForUpdateOptions;
 import org.exbin.jaguif.addon.update.service.CheckForUpdateService;
 import org.exbin.jaguif.ApplicationBundleKeys;
+import org.exbin.jaguif.addon.catalog.api.VersionNumbers;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.gui.CloseControlPanel;

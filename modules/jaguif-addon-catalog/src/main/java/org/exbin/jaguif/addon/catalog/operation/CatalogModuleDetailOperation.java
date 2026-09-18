@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.operation;
+package org.exbin.jaguif.addon.catalog.operation;
 
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.exbin.jaguif.App;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.addon.manager.AddonManager;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogServiceException;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 import org.exbin.jaguif.operation.api.ProgressOperation;
 import org.exbin.jaguif.operation.api.TitledOperation;
@@ -32,15 +34,14 @@ import org.exbin.jaguif.operation.api.TitledOperation;
 @NullMarked
 public class CatalogModuleDetailOperation implements Runnable, CancellableOperation, ProgressOperation, TitledOperation {
 
-    protected final AddonManager addonManager;
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CatalogModuleDetailOperation.class);
     protected final AddonCatalogService addonCatalogService;
     protected final Output output;
     protected boolean cancelled = false;
     protected final ItemRecord itemRecord;
 
-    public CatalogModuleDetailOperation(AddonCatalogService addonCatalogService, AddonManager addonManager, ItemRecord itemRecord, Output output) {
+    public CatalogModuleDetailOperation(AddonCatalogService addonCatalogService, ItemRecord itemRecord, Output output) {
         this.addonCatalogService = addonCatalogService;
-        this.addonManager = addonManager;
         this.itemRecord = itemRecord;
         this.output = output;
     }
@@ -69,7 +70,7 @@ public class CatalogModuleDetailOperation implements Runnable, CancellableOperat
 
     @Override
     public String getTitle() {
-        return addonManager.getResourceBundle().getString("catalogModuleDetailOperation");
+        return resourceBundle.getString("catalogModuleDetailOperation");
     }
 
     @Override

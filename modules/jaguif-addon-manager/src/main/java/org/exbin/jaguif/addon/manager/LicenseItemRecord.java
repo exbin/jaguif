@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.operation.model;
+package org.exbin.jaguif.addon.manager;
 
 import java.net.URL;
 import org.jspecify.annotations.NullMarked;

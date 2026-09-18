@@ -21,7 +21,6 @@ import org.jspecify.annotations.Nullable;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
-import org.exbin.jaguif.action.manager.model.KeyMapRecord;
 
 /**
  * Keymap table renderer.

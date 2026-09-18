@@ -26,7 +26,7 @@ import org.exbin.jaguif.addon.catalog.page.AddonsCatalogPage;
 import org.exbin.jaguif.addon.catalog.service.DefaultAddonCatalogService;
 import org.exbin.jaguif.addon.catalog.settings.AddonCatalogOptions;
 import org.exbin.jaguif.addon.catalog.settings.AddonCatalogSettingsComponent;
-import org.exbin.jaguif.addon.manager.api.AddonCatalogService;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.contribution.api.RelativeSequenceContributionRule;
 import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
@@ -96,6 +96,11 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
         pagesDefinitions.registerTabPagesContribution(pageContribution);
         pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.BEFORE, "installedAddons"));
     }
+
+    // TODO
+//    public void requestModuleDetail(ItemRecord itemRecord, AddonsPanel addonsPanel) {
+//        runOperation(new CatalogModuleDetailOperation(addonCatalogService, this, itemRecord, (details) -> addonsPanel.setModuleDetail(itemRecord, details)));
+//    }
 
     @Override
     public URL getUpdateUrl() {

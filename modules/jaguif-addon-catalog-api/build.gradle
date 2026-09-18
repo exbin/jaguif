@@ -23,6 +23,7 @@ repositories {
 }
 
 dependencies {
+    api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-addon-manager-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'core', 'jaguif-core')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-utils')
     compileOnly group: 'org.jspecify', name: 'jspecify', version: '1.0.0'
