@@ -30,7 +30,7 @@ import org.exbin.jaguif.addon.update.settings.CheckForUpdateSettingsComponent;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
 import org.exbin.jaguif.contribution.api.SequenceContribution;
 import org.exbin.jaguif.ApplicationBundleKeys;
-import org.exbin.jaguif.addon.catalog.api.VersionNumbers;
+import org.exbin.jaguif.addon.manager.api.VersionNumbers;
 import org.exbin.jaguif.addon.update.contribution.CheckForUpdateContribution;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.menu.api.MenuModuleApi;

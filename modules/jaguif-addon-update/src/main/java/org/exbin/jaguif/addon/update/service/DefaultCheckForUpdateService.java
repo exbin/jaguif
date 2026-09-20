@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import org.exbin.jaguif.addon.catalog.api.VersionNumbers;
+import org.exbin.jaguif.addon.manager.api.VersionNumbers;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.update.AddonUpdateModule;

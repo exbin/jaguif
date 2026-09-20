@@ -32,7 +32,7 @@ import org.exbin.jaguif.addon.update.gui.CheckForUpdatePanel;
 import org.exbin.jaguif.addon.update.settings.CheckForUpdateOptions;
 import org.exbin.jaguif.addon.update.service.CheckForUpdateService;
 import org.exbin.jaguif.ApplicationBundleKeys;
-import org.exbin.jaguif.addon.catalog.api.VersionNumbers;
+import org.exbin.jaguif.addon.manager.api.VersionNumbers;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.window.api.WindowHandler;
 import org.exbin.jaguif.window.api.gui.CloseControlPanel;

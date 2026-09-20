@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.catalog.api;
+package org.exbin.jaguif.addon.manager.api;
 
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;

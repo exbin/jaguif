@@ -26,8 +26,12 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
@@ -65,7 +69,7 @@ public class AddonModificationsOperation {
     protected final Set<String> licenseCodes = new HashSet<>();
     protected final Set<String> availableUpdates = new HashSet<>();
 
-    protected final List<AddonModification> modifications = new ArrayList<>();
+    protected final Map<AddonModificationType, List<?>> modifications = new HashMap<>();
 
     public AddonModificationsOperation(AddonResolutionService resolutionService, ApplicationModulesUsage applicationModulesUsage, AddonUpdateChanges addonUpdateChanges) {
         this.resolutionService = resolutionService;
@@ -80,46 +84,34 @@ public class AddonModificationsOperation {
     public List<String> getOperations() {
         List<String> operations = new ArrayList<>();
         String operationMessage = resourceBundle.getString("operationMessage.installModule");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.INSTALL_ADDON.equals(modification.getModificationType())) {
-                String moduleId = modification.getIdentifier();
-                operations.add(String.format(operationMessage, moduleId));
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.INSTALL_ADDON)) {
+            String moduleId = (String) identifier;
+            operations.add(String.format(operationMessage, moduleId));
         }
         operationMessage = resourceBundle.getString("operationMessage.removeModule");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.REMOVE_ADDON.equals(modification.getModificationType())) {
-                String moduleId = modification.getIdentifier();
-                operations.add(String.format(operationMessage, moduleId));
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.REMOVE_ADDON)) {
+            String moduleId = (String) identifier;
+            operations.add(String.format(operationMessage, moduleId));
         }
         operationMessage = resourceBundle.getString("operationMessage.dependencyAddon");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DEPENDENCY_ADDON.equals(modification.getModificationType())) {
-                String moduleId = modification.getIdentifier();
-                operations.add(String.format(operationMessage, moduleId));
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.DEPENDENCY_ADDON)) {
+            String moduleId = (String) identifier;
+            operations.add(String.format(operationMessage, moduleId));
         }
         operationMessage = resourceBundle.getString("operationMessage.downloadLibrary");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_LIBRARY.equals(modification.getModificationType())) {
-                String libraryFile = modification.getIdentifier();
-                operations.add(String.format(operationMessage, libraryFile));
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_LIBRARY)) {
+            String libraryFile = (String) identifier;
+            operations.add(String.format(operationMessage, libraryFile));
         }
         operationMessage = resourceBundle.getString("operationMessage.downloadMavenLibrary");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY.equals(modification.getModificationType())) {
-                String libraryFile = modification.getIdentifier();
-                operations.add(String.format(operationMessage, libraryFile));
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY)) {
+            String libraryFile = (String) identifier;
+            operations.add(String.format(operationMessage, libraryFile));
         }
         operationMessage = resourceBundle.getString("operationMessage.removeLibrary");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.REMOVE_LIBRARY.equals(modification.getModificationType())) {
-                String libraryFile = modification.getIdentifier();
-                operations.add(String.format(operationMessage, libraryFile));
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.REMOVE_LIBRARY)) {
+            String libraryFile = (String) identifier;
+            operations.add(String.format(operationMessage, libraryFile));
         }
         return operations;
     }
@@ -139,43 +131,37 @@ public class AddonModificationsOperation {
     public List<DownloadItemRecord> getDownloadRecords() {
         List<DownloadItemRecord> downloadRecords = new ArrayList<>();
         String downloadItemDescription = resourceBundle.getString("downloadItemDescription.module");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_MODULE.equals(modification.getModificationType())) {
-                String moduleFile = modification.getIdentifier();
-                DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, moduleFile), moduleFile);
-                try {
-                    record.setUrl(resolutionService.getFileDownloadUrl(moduleFile));
-                    downloadRecords.add(record);
-                } catch (AddonResolutionServiceException ex) {
-                    Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_MODULE)) {
+            String moduleFile = (String) identifier;
+            DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, moduleFile), moduleFile);
+            try {
+                record.setUrl(resolutionService.getFileDownloadUrl(moduleFile));
+                downloadRecords.add(record);
+            } catch (AddonResolutionServiceException ex) {
+                Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         downloadItemDescription = resourceBundle.getString("downloadItemDescription.library");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_LIBRARY.equals(modification.getModificationType())) {
-                String library = modification.getIdentifier();
-                DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, library), library);
-                try {
-                    record.setUrl(resolutionService.getFileDownloadUrl(library));
-                    downloadRecords.add(record);
-                } catch (AddonResolutionServiceException ex) {
-                    Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_LIBRARY)) {
+            String library = (String) identifier;
+            DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, library), library);
+            try {
+                record.setUrl(resolutionService.getFileDownloadUrl(library));
+                downloadRecords.add(record);
+            } catch (AddonResolutionServiceException ex) {
+                Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         downloadItemDescription = resourceBundle.getString("downloadItemDescription.mavenLibrary");
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY.equals(modification.getModificationType())) {
-                String library = modification.getIdentifier();
-                String libraryFile = BasicModuleProvider.mavenCodeToFileName(library);
-                DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, library), libraryFile);
-                try {
-                    record.setUrl(new URI(AddonModificationsOperation.mavenCodeToDownloadUrl(library)).toURL());
-                    downloadRecords.add(record);
-                } catch (MalformedURLException | URISyntaxException ex) {
-                    Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY)) {
+            String library = (String) identifier;
+            String libraryFile = BasicModuleProvider.mavenCodeToFileName(library);
+            DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, library), libraryFile);
+            try {
+                record.setUrl(new URI(AddonModificationsOperation.mavenCodeToDownloadUrl(library)).toURL());
+                downloadRecords.add(record);
+            } catch (MalformedURLException | URISyntaxException ex) {
+                Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return downloadRecords;
@@ -189,8 +175,8 @@ public class AddonModificationsOperation {
             }
             processAddonLicense((AddonRecord) item);
             try {
-                modifications.add(new AddonModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(addonId)));
-                modifications.add(new AddonModification(LocalAddonModificationType.INSTALL_ADDON, addonId));
+                addModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(addonId));
+                addModification(LocalAddonModificationType.INSTALL_ADDON, addonId);
             } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -206,16 +192,16 @@ public class AddonModificationsOperation {
             if (addonUpdateChanges.hasInstallAddon(addonId)) {
                 throw new IllegalStateException("Addon already queued for installation: " + addonId);
             }
-            modifications.add(new AddonModification(LocalAddonModificationType.INSTALL_ADDON, addonId));
+            addModification(LocalAddonModificationType.INSTALL_ADDON, addonId);
             processAddonLicense((AddonRecord) item);
             if (previousItem.isAddon()) {
                 String addonFile = findAddonFileName(item.getId());
                 if (addonFile != null) {
-                    modifications.add(new AddonModification(LocalAddonModificationType.REMOVE_LIBRARY, addonFile));
+                    addModification(LocalAddonModificationType.REMOVE_LIBRARY, addonFile);
                 }
             }
             try {
-                modifications.add(new AddonModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(item.getId())));
+                addModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(item.getId()));
             } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -231,10 +217,10 @@ public class AddonModificationsOperation {
             if (addonUpdateChanges.hasRemoveAddon(addonId)) {
                 throw new IllegalStateException("Addon already queued for removal: " + addonId);
             }
-            modifications.add(new AddonModification(LocalAddonModificationType.REMOVE_ADDON, addonId));
+            addModification(LocalAddonModificationType.REMOVE_ADDON, addonId);
             String addonFile = findAddonFileName(item.getId());
             if (addonFile != null) {
-                modifications.add(new AddonModification(LocalAddonModificationType.REMOVE_LIBRARY, addonFile));
+                addModification(LocalAddonModificationType.REMOVE_LIBRARY, addonFile);
             }
         } else {
             throw new IllegalStateException("Unable to install non-addon item");
@@ -325,9 +311,9 @@ public class AddonModificationsOperation {
                         AddonRecord addonRecord;
                         try {
                             addonRecord = resolutionService.getAddonDependency(dependencyId);
-                            modifications.add(new AddonModification(LocalAddonModificationType.DEPENDENCY_ADDON, addonRecord.getId()));
+                            addModification(LocalAddonModificationType.DEPENDENCY_ADDON, addonRecord.getId());
                             processAddonLicense(addonRecord);
-                            modifications.add(new AddonModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(addonRecord.getId())));
+                            addModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(addonRecord.getId()));
                             dependencies.addAll(addonRecord.getDependencies());
                         } catch (AddonResolutionServiceException ex) {
                             Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
@@ -336,12 +322,12 @@ public class AddonModificationsOperation {
                     break;
                 case JAR_LIBRARY:
                     if (!applicationModulesUsage.hasLibrary(dependencyId) && !containModification(LocalAddonModificationType.DOWNLOAD_LIBRARY, dependencyId)) {
-                        modifications.add(new AddonModification(LocalAddonModificationType.DOWNLOAD_LIBRARY, dependencyId));
+                        addModification(LocalAddonModificationType.DOWNLOAD_LIBRARY, dependencyId);
                     }
                     break;
                 case MAVEN_LIBRARY:
                     if (!applicationModulesUsage.hasLibrary(BasicModuleProvider.mavenCodeToFileName(dependencyId)) && !containModification(LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY, dependencyId)) {
-                        modifications.add(new AddonModification(LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY, dependencyId));
+                        addModification(LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY, dependencyId);
                     }
                     break;
             }
@@ -360,60 +346,46 @@ public class AddonModificationsOperation {
     }
 
     public void finished() {
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.INSTALL_ADDON.equals(modification.getModificationType())) {
-                String moduleId = modification.getIdentifier();
-                addonUpdateChanges.removeRemoveAddon(moduleId);
-                addonUpdateChanges.addInstallAddon(moduleId);
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.INSTALL_ADDON)) {
+            String moduleId = (String) identifier;
+            addonUpdateChanges.removeRemoveAddon(moduleId);
+            addonUpdateChanges.addInstallAddon(moduleId);
         }
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DEPENDENCY_ADDON.equals(modification.getModificationType())) {
-                String moduleId = modification.getIdentifier();
-                addonUpdateChanges.removeRemoveAddon(moduleId);
-                addonUpdateChanges.addInstallAddon(moduleId);
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.DEPENDENCY_ADDON)) {
+            String moduleId = (String) identifier;
+            addonUpdateChanges.removeRemoveAddon(moduleId);
+            addonUpdateChanges.addInstallAddon(moduleId);
         }
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_MODULE.equals(modification.getModificationType())) {
-                String moduleFile = modification.getIdentifier();
-                addonUpdateChanges.removeRemoveFile(moduleFile);
-                addonUpdateChanges.addUpdateFile(moduleFile);
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_MODULE)) {
+            String moduleFile = (String) identifier;
+            addonUpdateChanges.removeRemoveFile(moduleFile);
+            addonUpdateChanges.addUpdateFile(moduleFile);
         }
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_LIBRARY.equals(modification.getModificationType())) {
-                String libraryFile = modification.getIdentifier();
-                addonUpdateChanges.removeRemoveFile(libraryFile);
-                addonUpdateChanges.addUpdateFile(libraryFile);
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_LIBRARY)) {
+            String libraryFile = (String) identifier;
+            addonUpdateChanges.removeRemoveFile(libraryFile);
+            addonUpdateChanges.addUpdateFile(libraryFile);
         }
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY.equals(modification.getModificationType())) {
-                String libraryFile = modification.getIdentifier();
-                addonUpdateChanges.removeRemoveFile(libraryFile);
-                addonUpdateChanges.addUpdateFile(libraryFile);
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.DOWNLOAD_MAVEN_LIBRARY)) {
+            String libraryFile = (String) identifier;
+            addonUpdateChanges.removeRemoveFile(libraryFile);
+            addonUpdateChanges.addUpdateFile(libraryFile);
         }
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.REMOVE_ADDON.equals(modification.getModificationType())) {
-                String moduleId = modification.getIdentifier();
-                addonUpdateChanges.removeInstallAddon(moduleId);
-                if ("org.exbin.jaguif.addon.manager.AddonManagerModule".equals(moduleId)) {
-                    OptionsModuleApi preferencesModule = App.getModule(OptionsModuleApi.class);
-                    AddonManagerOptions addonOptions = new AddonManagerOptions(preferencesModule.getAppOptions());
-                    addonOptions.setActivatedVersion("0.3.0-SNAPSHOT");
-                }
-                addonUpdateChanges.addRemoveAddon(moduleId);
+        for (Object identifier : getModifications(LocalAddonModificationType.REMOVE_ADDON)) {
+            String moduleId = (String) identifier;
+            addonUpdateChanges.removeInstallAddon(moduleId);
+            if ("org.exbin.jaguif.addon.manager.AddonManagerModule".equals(moduleId)) {
+                OptionsModuleApi preferencesModule = App.getModule(OptionsModuleApi.class);
+                AddonManagerOptions addonOptions = new AddonManagerOptions(preferencesModule.getAppOptions());
+                addonOptions.setActivatedVersion("0.3.0-SNAPSHOT");
             }
+            addonUpdateChanges.addRemoveAddon(moduleId);
         }
-        for (AddonModification modification : modifications) {
-            if (LocalAddonModificationType.REMOVE_LIBRARY.equals(modification.getModificationType())) {
-                String file = modification.getIdentifier();
-                addonUpdateChanges.removeUpdateFile(file);
-                // TODO delete file
-                addonUpdateChanges.addRemoveFile(file);
-            }
+        for (Object identifier : getModifications(LocalAddonModificationType.REMOVE_LIBRARY)) {
+            String file = (String) identifier;
+            addonUpdateChanges.removeUpdateFile(file);
+            // TODO delete file
+            addonUpdateChanges.addRemoveFile(file);
         }
         addonUpdateChanges.writeConfigFile();
     }
@@ -447,15 +419,26 @@ public class AddonModificationsOperation {
         return builder.toString();
     }
     
-    public boolean containModification(AddonModificationType type, String identifier) {
-        for (AddonModification modification : modifications) {
-            if (type.equals(modification.getModificationType())) {
-                if (identifier.equals(modification.getIdentifier())) {
-                    return true;
-                }
-            }
+    public Collection<?> getModifications(AddonModificationType type) {
+        List<?> list = modifications.get(type);
+        return list == null ? Collections.emptyList() : list;
+    }
+    
+    public void addModification(AddonModificationType type, Object identifier) {
+        List<?> list = modifications.get(type);
+        if (list == null) {
+            list = new ArrayList<>();
+            modifications.put(type, list);
         }
-        
-        return false;
+        ((List) list).add(identifier);
+    }
+    
+    public boolean containModification(AddonModificationType type, String identifier) {
+        List<?> identifiers = modifications.get(type);
+        if (identifiers == null) {
+            return false;
+        }
+
+        return identifiers.contains(identifier);
     }
 }

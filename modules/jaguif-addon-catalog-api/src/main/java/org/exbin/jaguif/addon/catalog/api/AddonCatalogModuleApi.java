@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.catalog.api;
 
+import org.exbin.jaguif.addon.manager.api.VersionNumbers;
 import java.awt.Frame;
 import java.net.URL;
 import org.jspecify.annotations.Nullable;

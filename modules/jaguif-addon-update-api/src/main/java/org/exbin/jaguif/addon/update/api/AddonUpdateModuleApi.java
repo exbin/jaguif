@@ -22,7 +22,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
-import org.exbin.jaguif.addon.catalog.api.VersionNumbers;
+import org.exbin.jaguif.addon.manager.api.VersionNumbers;
 
 /**
  * Interface of the addon update checking module.
