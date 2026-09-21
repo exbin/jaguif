@@ -15,51 +15,30 @@
  */
 package org.exbin.jaguif.addon.update;
 
-import java.awt.Frame;
-import java.net.URL;
 import java.util.ResourceBundle;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.update.service.CheckForUpdateService;
-import org.exbin.jaguif.addon.update.service.DefaultCheckForUpdateService;
-import org.exbin.jaguif.addon.update.action.CheckForUpdateAction;
+import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.addon.update.api.AddonUpdateModuleApi;
-import org.exbin.jaguif.addon.update.settings.CheckForUpdateOptions;
-import org.exbin.jaguif.addon.update.settings.CheckForUpdateSettingsComponent;
-import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
-import org.exbin.jaguif.contribution.api.SequenceContribution;
-import org.exbin.jaguif.ApplicationBundleKeys;
-import org.exbin.jaguif.addon.manager.api.VersionNumbers;
-import org.exbin.jaguif.addon.update.contribution.CheckForUpdateContribution;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.exbin.jaguif.menu.api.MenuModuleApi;
-import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
-import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
-import org.exbin.jaguif.options.settings.api.SettingsComponentContribution;
-import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
-import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
-import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 
 /**
- * Implementation of framework check update module.
+ * Addon update module.
  */
 @NullMarked
 public class AddonUpdateModule implements AddonUpdateModuleApi {
 
-    public static final String SETTINGS_PAGE_ID = "checkForUpdate";
+    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonUpdateModule.class);
 
-    private java.util.ResourceBundle resourceBundle = null;
+    public static final String SETTINGS_PAGE_ID = "keymap";
 
-    private CheckForUpdateAction checkUpdateAction;
-
-    private URL checkUpdateUrl;
-    private VersionNumbers updateVersion;
-    private URL downloadUrl;
-
-    private CheckForUpdateService checkForUpdateService;
+    private @Nullable ResourceBundle resourceBundle;
 
     public AddonUpdateModule() {
+    }
+
+    public void unregisterModule(String moduleId) {
     }
 
     public ResourceBundle getResourceBundle() {
@@ -70,102 +49,4 @@ public class AddonUpdateModule implements AddonUpdateModuleApi {
         return resourceBundle;
     }
 
-    @Override
-    public CheckForUpdateAction getCheckUpdateAction() {
-        if (checkUpdateAction == null) {
-            checkUpdateAction = new CheckForUpdateAction();
-            checkUpdateAction.setCheckForUpdateService(getCheckForUpdateService());
-            checkUpdateAction.setUpdateUrl(checkUpdateUrl);
-            checkUpdateAction.setUpdateVersion(updateVersion);
-            checkUpdateAction.setUpdateDownloadUrl(downloadUrl);
-        }
-
-        return checkUpdateAction;
-    }
-
-    @Override
-    public void registerDefaultMenuItem() {
-        MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
-        MenuDefinitionManagement mgmt = menuModule.getMainMenuDefinition(MODULE_ID).getSubMenu(MenuModuleApi.HELP_SUBMENU_ID);
-        SequenceContribution contribution = new CheckForUpdateContribution();
-        mgmt.registerMenuContribution(contribution);
-        mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE_LAST));
-    }
-
-    @Override
-    public void registerSettings() {
-        OptionsSettingsModuleApi settingsModule = App.getModule(OptionsSettingsModuleApi.class);
-        OptionsSettingsManagement settingsManagement = settingsModule.getMainSettingsManager();
-        settingsManagement.registerSettingsOptions(CheckForUpdateOptions.class, (optionsStorage) -> new CheckForUpdateOptions(optionsStorage));
-
-        SettingsPageContribution pageContribution = new SettingsPageContribution(SETTINGS_PAGE_ID, getResourceBundle());
-        settingsManagement.registerPage(pageContribution);
-        SettingsComponentContribution settingsComponent = settingsManagement.registerComponent(CheckForUpdateSettingsComponent.COMPONENT_ID, new CheckForUpdateSettingsComponent());
-        settingsManagement.registerSettingsRule(settingsComponent, new SettingsPageContributionRule(pageContribution));
-    }
-
-    public VersionNumbers getCurrentVersion() {
-        ResourceBundle appBundle = App.getAppBundle();
-        String releaseString = appBundle.getString(ApplicationBundleKeys.APPLICATION_RELEASE);
-        VersionNumbers versionNumbers = new VersionNumbers();
-        versionNumbers.versionFromString(releaseString);
-        return versionNumbers;
-    }
-
-    @Override
-    public void setUpdateUrl(URL updateUrl) {
-        this.checkUpdateUrl = updateUrl;
-        if (checkUpdateAction != null) {
-            checkUpdateAction.setUpdateUrl(updateUrl);
-        }
-    }
-
-    @Nullable
-    @Override
-    public URL getUpdateUrl() {
-        return checkUpdateUrl;
-    }
-
-    public CheckForUpdateService getCheckForUpdateService() {
-        if (checkForUpdateService == null) {
-            checkForUpdateService = new DefaultCheckForUpdateService(this);
-        }
-
-        return checkForUpdateService;
-    }
-
-    @Override
-    public void setUpdateVersion(VersionNumbers updateVersion) {
-        this.updateVersion = updateVersion;
-
-        if (checkUpdateAction != null) {
-            checkUpdateAction.setUpdateVersion(updateVersion);
-        }
-    }
-
-    @Nullable
-    @Override
-    public VersionNumbers getUpdateVersion() {
-        return updateVersion;
-    }
-
-    @Nullable
-    @Override
-    public URL getUpdateDownloadUrl() {
-        return downloadUrl;
-    }
-
-    @Override
-    public void setUpdateDownloadUrl(URL downloadUrl) {
-        this.downloadUrl = downloadUrl;
-
-        if (checkUpdateAction != null) {
-            checkUpdateAction.setUpdateDownloadUrl(downloadUrl);
-        }
-    }
-
-    @Override
-    public void checkOnStart(Frame frame) {
-        getCheckUpdateAction().checkOnStart(frame);
-    }
 }

@@ -86,6 +86,8 @@ include ":modules:jaguif-search-area-api"
 include ":modules:jaguif-search-area"
 include ":modules:jaguif-text-encoding"
 include ":modules:jaguif-text-font"
+include ":modules:jaguif-update-check-api"
+include ":modules:jaguif-update-check"
 
 File placeholder = file("deps/.downloaded")
 if (placeholder.exists()) {

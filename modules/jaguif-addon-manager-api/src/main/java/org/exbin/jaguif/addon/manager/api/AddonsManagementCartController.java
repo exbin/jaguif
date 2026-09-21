@@ -15,6 +15,8 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
+import org.exbin.jaguif.addon.manager.api.operation.CartOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 import java.util.List;
 import org.jspecify.annotations.NullMarked;
 

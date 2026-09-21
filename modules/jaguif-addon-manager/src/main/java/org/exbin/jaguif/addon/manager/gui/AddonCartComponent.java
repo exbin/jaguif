@@ -21,7 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 

@@ -1,0 +1,171 @@
+/*
+ * Copyright (C) ExBin Project, https://exbin.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.exbin.jaguif.update.check;
+
+import java.awt.Frame;
+import java.net.URL;
+import java.util.ResourceBundle;
+import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
+import org.exbin.jaguif.App;
+import org.exbin.jaguif.update.check.service.CheckForUpdateService;
+import org.exbin.jaguif.update.check.service.DefaultCheckForUpdateService;
+import org.exbin.jaguif.update.check.action.CheckForUpdateAction;
+import org.exbin.jaguif.update.check.settings.CheckForUpdateOptions;
+import org.exbin.jaguif.update.check.settings.CheckForUpdateSettingsComponent;
+import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
+import org.exbin.jaguif.contribution.api.SequenceContribution;
+import org.exbin.jaguif.ApplicationBundleKeys;
+import org.exbin.jaguif.utils.VersionNumbers;
+import org.exbin.jaguif.update.check.contribution.CheckForUpdateContribution;
+import org.exbin.jaguif.language.api.LanguageModuleApi;
+import org.exbin.jaguif.menu.api.MenuModuleApi;
+import org.exbin.jaguif.options.settings.api.OptionsSettingsModuleApi;
+import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
+import org.exbin.jaguif.options.settings.api.SettingsComponentContribution;
+import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
+import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
+import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
+import org.exbin.jaguif.update.check.api.UpdateCheckModuleApi;
+
+/**
+ * Check for available app update module.
+ */
+@NullMarked
+public class UpdateCheckModule implements UpdateCheckModuleApi {
+
+    public static final String SETTINGS_PAGE_ID = "checkForUpdate";
+
+    private java.util.ResourceBundle resourceBundle = null;
+
+    private CheckForUpdateAction checkUpdateAction;
+
+    private URL checkUpdateUrl;
+    private VersionNumbers updateVersion;
+    private URL downloadUrl;
+
+    private CheckForUpdateService checkForUpdateService;
+
+    public UpdateCheckModule() {
+    }
+
+    public ResourceBundle getResourceBundle() {
+        if (resourceBundle == null) {
+            resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(UpdateCheckModule.class);
+        }
+
+        return resourceBundle;
+    }
+
+    @Override
+    public CheckForUpdateAction getCheckUpdateAction() {
+        if (checkUpdateAction == null) {
+            checkUpdateAction = new CheckForUpdateAction();
+            checkUpdateAction.setCheckForUpdateService(getCheckForUpdateService());
+            checkUpdateAction.setUpdateUrl(checkUpdateUrl);
+            checkUpdateAction.setUpdateVersion(updateVersion);
+            checkUpdateAction.setUpdateDownloadUrl(downloadUrl);
+        }
+
+        return checkUpdateAction;
+    }
+
+    @Override
+    public void registerDefaultMenuItem() {
+        MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
+        MenuDefinitionManagement mgmt = menuModule.getMainMenuDefinition(MODULE_ID).getSubMenu(MenuModuleApi.HELP_SUBMENU_ID);
+        SequenceContribution contribution = new CheckForUpdateContribution();
+        mgmt.registerMenuContribution(contribution);
+        mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE_LAST));
+    }
+
+    @Override
+    public void registerSettings() {
+        OptionsSettingsModuleApi settingsModule = App.getModule(OptionsSettingsModuleApi.class);
+        OptionsSettingsManagement settingsManagement = settingsModule.getMainSettingsManager();
+        settingsManagement.registerSettingsOptions(CheckForUpdateOptions.class, (optionsStorage) -> new CheckForUpdateOptions(optionsStorage));
+
+        SettingsPageContribution pageContribution = new SettingsPageContribution(SETTINGS_PAGE_ID, getResourceBundle());
+        settingsManagement.registerPage(pageContribution);
+        SettingsComponentContribution settingsComponent = settingsManagement.registerComponent(CheckForUpdateSettingsComponent.COMPONENT_ID, new CheckForUpdateSettingsComponent());
+        settingsManagement.registerSettingsRule(settingsComponent, new SettingsPageContributionRule(pageContribution));
+    }
+
+    public VersionNumbers getCurrentVersion() {
+        ResourceBundle appBundle = App.getAppBundle();
+        String releaseString = appBundle.getString(ApplicationBundleKeys.APPLICATION_RELEASE);
+        VersionNumbers versionNumbers = new VersionNumbers();
+        versionNumbers.versionFromString(releaseString);
+        return versionNumbers;
+    }
+
+    @Override
+    public void setUpdateUrl(URL updateUrl) {
+        this.checkUpdateUrl = updateUrl;
+        if (checkUpdateAction != null) {
+            checkUpdateAction.setUpdateUrl(updateUrl);
+        }
+    }
+
+    @Nullable
+    @Override
+    public URL getUpdateUrl() {
+        return checkUpdateUrl;
+    }
+
+    public CheckForUpdateService getCheckForUpdateService() {
+        if (checkForUpdateService == null) {
+            checkForUpdateService = new DefaultCheckForUpdateService(this);
+        }
+
+        return checkForUpdateService;
+    }
+
+    @Override
+    public void setUpdateVersion(VersionNumbers updateVersion) {
+        this.updateVersion = updateVersion;
+
+        if (checkUpdateAction != null) {
+            checkUpdateAction.setUpdateVersion(updateVersion);
+        }
+    }
+
+    @Nullable
+    @Override
+    public VersionNumbers getUpdateVersion() {
+        return updateVersion;
+    }
+
+    @Nullable
+    @Override
+    public URL getUpdateDownloadUrl() {
+        return downloadUrl;
+    }
+
+    @Override
+    public void setUpdateDownloadUrl(URL downloadUrl) {
+        this.downloadUrl = downloadUrl;
+
+        if (checkUpdateAction != null) {
+            checkUpdateAction.setUpdateDownloadUrl(downloadUrl);
+        }
+    }
+
+    @Override
+    public void checkOnStart(Frame frame) {
+        getCheckUpdateAction().checkOnStart(frame);
+    }
+}

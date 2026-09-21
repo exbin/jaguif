@@ -15,74 +15,16 @@
  */
 package org.exbin.jaguif.addon.update.api;
 
-import java.awt.Frame;
-import java.net.URL;
-import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
-import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
-import org.exbin.jaguif.addon.manager.api.VersionNumbers;
 
 /**
- * Interface of the addon update checking module.
+ * Interface of the addon update module.
  */
 @NullMarked
 public interface AddonUpdateModuleApi extends Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonUpdateModuleApi.class);
 
-    /**
-     * Returns check for available updates action.
-     *
-     * @return action
-     */
-    Action getCheckUpdateAction();
-
-    /**
-     * Registers default menu item.
-     */
-    void registerDefaultMenuItem();
-
-    /**
-     * Registers settings pages and components.
-     */
-    void registerSettings();
-
-    /**
-     * Returns URL of update data source.
-     *
-     * @return update URL
-     */
-    @Nullable
-    URL getUpdateUrl();
-
-    /**
-     * Sets URL of update data source.
-     *
-     * @param updateUrl update URL
-     */
-    void setUpdateUrl(URL updateUrl);
-
-    @Nullable
-    VersionNumbers getUpdateVersion();
-
-    void setUpdateVersion(VersionNumbers updateVersion);
-
-    @Nullable
-    URL getUpdateDownloadUrl();
-
-    /**
-     * Sets URL of download website for updated application.
-     *
-     * @param downloadUrl download URL
-     */
-    void setUpdateDownloadUrl(URL downloadUrl);
-
-    /**
-     * Performs check for update on application start.
-     *
-     * @param frame frame
-     */
-    void checkOnStart(Frame frame);
 }

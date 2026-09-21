@@ -23,7 +23,7 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.AddonOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;

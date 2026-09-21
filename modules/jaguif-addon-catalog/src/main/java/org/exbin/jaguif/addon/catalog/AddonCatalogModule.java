@@ -21,7 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogModuleApi;
-import org.exbin.jaguif.addon.manager.api.VersionNumbers;
+import org.exbin.jaguif.utils.VersionNumbers;
 import org.exbin.jaguif.addon.catalog.page.AddonsCatalogPage;
 import org.exbin.jaguif.addon.catalog.service.DefaultAddonCatalogService;
 import org.exbin.jaguif.addon.catalog.settings.AddonCatalogOptions;

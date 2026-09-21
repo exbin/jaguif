@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.addon.manager;
 
-import org.exbin.jaguif.addon.manager.api.AddonOperation;
-import org.exbin.jaguif.addon.manager.api.AddonOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.page.InstalledAddonsPage;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -38,8 +38,8 @@ import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCartController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
-import org.exbin.jaguif.addon.manager.api.CartOperation;
-import org.exbin.jaguif.addon.manager.api.CartOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
+import org.exbin.jaguif.addon.manager.api.operation.CartOperationVariant;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationStep;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
 import org.exbin.jaguif.addon.manager.operation.DownloadOperation;

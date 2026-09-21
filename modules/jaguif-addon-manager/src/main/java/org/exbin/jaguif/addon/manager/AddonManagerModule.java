@@ -16,11 +16,9 @@
 package org.exbin.jaguif.addon.manager;
 
 import java.util.Optional;
-import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.ApplicationBundleKeys;
 import org.exbin.jaguif.addon.manager.action.AddonManagerAction;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
@@ -48,7 +46,6 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     public static final String SETTINGS_PAGE_ID = "addonManager";
     private String manualCatalogUrl = null;
 
-    private static boolean devMode = false;
     private @Nullable AddonManager addonManager = null;
 
     public AddonManagerModule() {
@@ -66,16 +63,6 @@ public class AddonManagerModule implements AddonManagerModuleApi {
         SequenceContribution contribution = new AddonManagerContribution();
         mgmt.registerMenuContribution(contribution);
         mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.MIDDLE_LAST));
-    }
-
-    @Override
-    public boolean isDevMode() {
-        return devMode;
-    }
-
-    @Override
-    public void setDevMode(boolean devMode) {
-        AddonManagerModule.devMode = devMode;
     }
 
     @Override

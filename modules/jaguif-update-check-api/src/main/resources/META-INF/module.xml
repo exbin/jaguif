@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<module>
+  <api>org.exbin.jaguif.addon.checkfor.api.AddonCheckForModuleApi</api>
+  <name>Addon Update Support API</name>
+  <provider>ExBin Project</provider>
+  <homepage>https://exbin.org</homepage>
+  <description>Module with check for updates</description>
+  <dependency>
+  </dependency>
+</module>

@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
+import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.jspecify.annotations.NullMarked;
 
 /**

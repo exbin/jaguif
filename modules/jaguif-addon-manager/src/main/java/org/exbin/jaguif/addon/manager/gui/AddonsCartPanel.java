@@ -26,8 +26,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.event.ListSelectionEvent;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.AddonOperation;
-import org.exbin.jaguif.addon.manager.api.CartOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.jspecify.annotations.Nullable;
 

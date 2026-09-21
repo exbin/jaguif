@@ -16,6 +16,7 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import java.net.URL;
+import org.exbin.jaguif.addon.manager.api.operation.AddonModification;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -31,7 +32,7 @@ public interface AddonResolutionService {
      * @return addon filename
      * @throws AddonResolutionServiceException when service fails
      */
-    String getAddonFile(String moduleId) throws AddonResolutionServiceException;
+    AddonModification getAddonFile(String moduleId) throws AddonResolutionServiceException;
 
     /**
      * Returns simplified record of specific addon with dependency / license

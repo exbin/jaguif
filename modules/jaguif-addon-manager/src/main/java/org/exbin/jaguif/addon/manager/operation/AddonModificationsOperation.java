@@ -15,6 +15,8 @@
  */
 package org.exbin.jaguif.addon.manager.operation;
 
+import org.exbin.jaguif.addon.manager.api.operation.AddonModificationType;
+import org.exbin.jaguif.addon.manager.api.operation.AddonModification;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -175,7 +177,7 @@ public class AddonModificationsOperation {
             }
             processAddonLicense((AddonRecord) item);
             try {
-                addModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(addonId));
+                addModification(resolutionService.getAddonFile(addonId));
                 addModification(LocalAddonModificationType.INSTALL_ADDON, addonId);
             } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
@@ -201,7 +203,7 @@ public class AddonModificationsOperation {
                 }
             }
             try {
-                addModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(item.getId()));
+                addModification(resolutionService.getAddonFile(item.getId()));
             } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -313,7 +315,7 @@ public class AddonModificationsOperation {
                             addonRecord = resolutionService.getAddonDependency(dependencyId);
                             addModification(LocalAddonModificationType.DEPENDENCY_ADDON, addonRecord.getId());
                             processAddonLicense(addonRecord);
-                            addModification(LocalAddonModificationType.DOWNLOAD_MODULE, resolutionService.getAddonFile(addonRecord.getId()));
+                            addModification(resolutionService.getAddonFile(addonRecord.getId()));
                             dependencies.addAll(addonRecord.getDependencies());
                         } catch (AddonResolutionServiceException ex) {
                             Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
@@ -431,6 +433,14 @@ public class AddonModificationsOperation {
             modifications.put(type, list);
         }
         ((List) list).add(identifier);
+    }
+    
+    public void addModification(AddonModification modification) {
+        if (LocalAddonModificationType.NO_ACTION.equals(modification.getModificationType())) {
+            return;
+        }
+
+        addModification(modification.getModificationType(), modification.getIdentifier());
     }
     
     public boolean containModification(AddonModificationType type, String identifier) {

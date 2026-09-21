@@ -15,29 +15,29 @@ if (!hasProperty('mainClass')) {
 }
 
 repositories {
-    mavenCentral()
-    mavenLocal()
     flatDir {
         dirs "../../lib"
     }
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
-    api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-addon-update-api')
-    api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-addon-catalog-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'core', 'jaguif-core')
+    api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-addon-update-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-context-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-action-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-contribution-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-menu-api')
-    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-frame-api')
-    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-window-api')
+    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-menu-popup-api')
+    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-toolbar-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-options-settings-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-options-api')
-    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-language-api')
+    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-window-api')
+    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-frame-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-utils')
+    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-language-api')
     compileOnly group: 'org.jspecify', name: 'jspecify', version: '1.0.0'
-
     testImplementation group : 'junit', name: 'junit', version: '4.13.2'
     testImplementation project(path: moduleDepPath('Jaguif', 'modules', 'jaguif-language-api'), configuration: 'tests')
 }

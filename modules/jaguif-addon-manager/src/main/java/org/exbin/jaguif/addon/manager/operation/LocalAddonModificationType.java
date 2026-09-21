@@ -15,11 +15,14 @@
  */
 package org.exbin.jaguif.addon.manager.operation;
 
+import org.exbin.jaguif.addon.manager.api.operation.AddonModificationType;
+
 /**
  * Local addon modification types.
  */
 public enum LocalAddonModificationType implements AddonModificationType {
 
+    NO_ACTION,
     INSTALL_ADDON,
     DEPENDENCY_ADDON,
     REMOVE_ADDON,

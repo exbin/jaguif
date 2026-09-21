@@ -28,12 +28,12 @@ import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.AddonManager;
-import org.exbin.jaguif.addon.manager.api.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
-import org.exbin.jaguif.addon.manager.api.CartOperation;
+import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 import org.jspecify.annotations.Nullable;
 
 /**
