@@ -22,6 +22,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.addon.update.api.AddonUpdateModuleApi;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
+import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
  * Addon update module.
@@ -30,8 +31,6 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 public class AddonUpdateModule implements AddonUpdateModuleApi {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonUpdateModule.class);
-
-    public static final String SETTINGS_PAGE_ID = "keymap";
 
     private @Nullable ResourceBundle resourceBundle;
 
@@ -49,4 +48,8 @@ public class AddonUpdateModule implements AddonUpdateModuleApi {
         return resourceBundle;
     }
 
+    @Override
+    public AddonUpdateChangesManagement createUpdateChangesManager() {
+        return new LocalAddonUpdateChangesManager();
+    }
 }

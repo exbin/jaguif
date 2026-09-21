@@ -24,8 +24,10 @@ import org.exbin.jaguif.addon.AddonModuleFileLocation;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.addon.update.api.AddonUpdateModuleApi;
 import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.basic.ModuleRecord;
+import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
  * Addons target state including queued changes.
@@ -35,15 +37,17 @@ public class AddonsState {
 
     protected final List<ItemRecord> installedAddons = new ArrayList<>();
     protected final UpdateAvailabilityManager availableModuleUpdates = new UpdateAvailabilityManager();
-    protected final AddonUpdateChanges addonUpdateChanges = new AddonUpdateChanges();
+    protected final AddonUpdateChangesManagement addonUpdateChanges;
     protected ApplicationModulesUsage applicationModulesUsage;
 
     public AddonsState() {
+        AddonUpdateModuleApi addonUpdateModule = App.getModule(AddonUpdateModuleApi.class);
+        addonUpdateChanges = addonUpdateModule.createUpdateChangesManager();
     }
 
     public void init() {
         availableModuleUpdates.readConfigFile();
-        addonUpdateChanges.readConfigFile();
+        addonUpdateChanges.readConfig();
 
         ModuleProvider moduleProvider = App.getModuleProvider();
         if (moduleProvider instanceof BasicModuleProvider) {
@@ -93,7 +97,7 @@ public class AddonsState {
         return availableModuleUpdates;
     }
 
-    public AddonUpdateChanges getAddonUpdateChanges() {
+    public AddonUpdateChangesManagement getAddonUpdateChanges() {
         return addonUpdateChanges;
     }
 

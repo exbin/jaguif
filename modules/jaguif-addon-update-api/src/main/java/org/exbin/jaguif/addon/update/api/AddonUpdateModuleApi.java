@@ -27,4 +27,10 @@ public interface AddonUpdateModuleApi extends Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonUpdateModuleApi.class);
 
+    /**
+     * Creates addon update changes manager.
+     *
+     * @return addon update changes
+     */
+    AddonUpdateChangesManagement createUpdateChangesManager();
 }

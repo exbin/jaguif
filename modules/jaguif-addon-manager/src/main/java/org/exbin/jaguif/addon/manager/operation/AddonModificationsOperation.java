@@ -15,8 +15,8 @@
  */
 package org.exbin.jaguif.addon.manager.operation;
 
-import org.exbin.jaguif.addon.manager.api.operation.AddonModificationType;
-import org.exbin.jaguif.addon.manager.api.operation.AddonModification;
+import org.exbin.jaguif.addon.update.api.AddonModificationType;
+import org.exbin.jaguif.addon.update.api.AddonModification;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,7 +42,6 @@ import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.DownloadItemRecord;
@@ -53,6 +52,7 @@ import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
+import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
  * Addon modifications operation.
@@ -65,7 +65,7 @@ public class AddonModificationsOperation {
 
     protected final String primarySpdxLicense = "Apache-2.0";
     protected final AddonResolutionService resolutionService;
-    protected final AddonUpdateChanges addonUpdateChanges;
+    protected final AddonUpdateChangesManagement addonUpdateChanges;
     protected final ApplicationModulesUsage applicationModulesUsage;
     protected final List<LicenseItemRecord> licenseRecords = new ArrayList<>();
     protected final Set<String> licenseCodes = new HashSet<>();
@@ -73,13 +73,13 @@ public class AddonModificationsOperation {
 
     protected final Map<AddonModificationType, List<?>> modifications = new HashMap<>();
 
-    public AddonModificationsOperation(AddonResolutionService resolutionService, ApplicationModulesUsage applicationModulesUsage, AddonUpdateChanges addonUpdateChanges) {
+    public AddonModificationsOperation(AddonResolutionService resolutionService, ApplicationModulesUsage applicationModulesUsage, AddonUpdateChangesManagement addonUpdateChanges) {
         this.resolutionService = resolutionService;
         this.applicationModulesUsage = applicationModulesUsage;
         this.addonUpdateChanges = addonUpdateChanges;
     }
 
-    public AddonUpdateChanges getAddonUpdateChanges() {
+    public AddonUpdateChangesManagement getAddonUpdateChanges() {
         return addonUpdateChanges;
     }
 
@@ -389,7 +389,7 @@ public class AddonModificationsOperation {
             // TODO delete file
             addonUpdateChanges.addRemoveFile(file);
         }
-        addonUpdateChanges.writeConfigFile();
+        addonUpdateChanges.writeConfig();
     }
 
     public static String mavenCodeToDownloadUrl(String mavenCode) {

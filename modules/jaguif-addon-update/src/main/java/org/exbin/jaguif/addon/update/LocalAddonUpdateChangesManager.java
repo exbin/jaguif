@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager;
+package org.exbin.jaguif.addon.update;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,12 +28,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
- * Addon update changes.
+ * Addon update changes manager.
  */
 @NullMarked
-public class AddonUpdateChanges {
+public class LocalAddonUpdateChangesManager implements AddonUpdateChangesManagement {
 
     public static final String ADDON_UPDATES_DIR = "addons_update";
     public static final String CHANGES_FILE = "changes.cfg";
@@ -42,71 +43,88 @@ public class AddonUpdateChanges {
     protected final List<String> updateFiles = new ArrayList<>();
     protected final List<String> removeFiles = new ArrayList<>();
 
+    @Override
     public List<String> getInstallAddons() {
         return installAddons;
     }
 
+    @Override
     public List<String> getRemoveAddons() {
         return removeAddons;
     }
 
+    @Override
     public List<String> getUpdateFiles() {
         return updateFiles;
     }
 
+    @Override
     public List<String> getRemoveFiles() {
         return removeFiles;
     }
 
+    @Override
     public void addInstallAddon(String addonId) {
         installAddons.add(addonId);
     }
 
+    @Override
     public void removeInstallAddon(String addonId) {
         installAddons.remove(addonId);
     }
 
+    @Override
     public boolean hasInstallAddon(String addonId) {
         return installAddons.contains(addonId);
     }
 
+    @Override
     public void addRemoveAddon(String addonId) {
         removeAddons.add(addonId);
     }
 
+    @Override
     public void removeRemoveAddon(String addonId) {
         removeAddons.remove(addonId);
     }
 
+    @Override
     public boolean hasRemoveAddon(String addonId) {
         return removeAddons.contains(addonId);
     }
 
+    @Override
     public void addUpdateFile(String fileName) {
         updateFiles.add(fileName);
     }
 
+    @Override
     public void removeUpdateFile(String fileName) {
         updateFiles.remove(fileName);
     }
 
+    @Override
     public boolean hasUpdateFile(String fileName) {
         return updateFiles.contains(fileName);
     }
 
+    @Override
     public void addRemoveFile(String fileName) {
         removeFiles.add(fileName);
     }
 
+    @Override
     public void removeRemoveFile(String fileName) {
         removeFiles.remove(fileName);
     }
 
+    @Override
     public boolean hasRemoveFile(String fileName) {
         return removeFiles.contains(fileName);
     }
 
-    public void readConfigFile() {
+    @Override
+    public void readConfig() {
         File targetDirectory = new File(App.getConfigDirectory(), ADDON_UPDATES_DIR);
         File changesConfigFile = new File(targetDirectory, CHANGES_FILE);
         installAddons.clear();
@@ -134,12 +152,13 @@ public class AddonUpdateChanges {
                     }
                 } while (line != null);
             } catch (IOException ex) {
-                Logger.getLogger(AddonUpdateChanges.class.getName()).log(Level.SEVERE, "Failed to read config file " + line, ex);
+                Logger.getLogger(LocalAddonUpdateChangesManager.class.getName()).log(Level.SEVERE, "Failed to read config file " + line, ex);
             }
         }
     }
 
-    public void writeConfigFile() {
+    @Override
+    public void writeConfig() {
         File targetDirectory = new File(App.getConfigDirectory(), ADDON_UPDATES_DIR);
         File changesConfigFile = new File(targetDirectory, CHANGES_FILE);
         try (OutputStreamWriter writer = new FileWriter(changesConfigFile)) {
@@ -160,7 +179,7 @@ public class AddonUpdateChanges {
                 writer.write(prefix + line + "\r\n");
             }
         } catch (IOException ex) {
-            Logger.getLogger(AddonUpdateChanges.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LocalAddonUpdateChangesManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

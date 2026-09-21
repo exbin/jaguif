@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.operation;
 
-import org.exbin.jaguif.addon.manager.api.operation.AddonModificationType;
+import org.exbin.jaguif.addon.update.api.AddonModificationType;
 
 /**
  * Local addon modification types.

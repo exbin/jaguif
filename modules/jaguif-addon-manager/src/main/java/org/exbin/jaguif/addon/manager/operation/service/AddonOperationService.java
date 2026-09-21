@@ -29,12 +29,12 @@ import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
-import org.exbin.jaguif.addon.manager.AddonUpdateChanges;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
  * Addon operation service.
@@ -168,7 +168,7 @@ public class AddonOperationService {
     }
 
     private AddonModificationsOperation createOperation() {
-        AddonUpdateChanges addonUpdateChanges = addonManager.getAddonUpdateChanges();
+        AddonUpdateChangesManagement addonUpdateChanges = addonManager.getAddonUpdateChanges();
         ApplicationModulesUsage applicationModulesUsage = addonManager.getApplicationModulesUsage();
         return new AddonModificationsOperation(resolutionService, applicationModulesUsage, addonUpdateChanges);
     }

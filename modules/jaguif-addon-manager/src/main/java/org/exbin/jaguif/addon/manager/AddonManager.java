@@ -64,6 +64,7 @@ import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
+import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
  * Addon manager.
@@ -246,7 +247,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         return addonsState.getAvailableModuleUpdates();
     }
 
-    public AddonUpdateChanges getAddonUpdateChanges() {
+    public AddonUpdateChangesManagement getAddonUpdateChanges() {
         return addonsState.getAddonUpdateChanges();
     }
 

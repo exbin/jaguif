@@ -16,7 +16,7 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import java.net.URL;
-import org.exbin.jaguif.addon.manager.api.operation.AddonModification;
+import org.exbin.jaguif.addon.update.api.AddonModification;
 import org.jspecify.annotations.NullMarked;
 
 /**

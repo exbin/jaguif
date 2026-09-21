@@ -6,6 +6,7 @@ if (rootProject.path == ':') {
     include ':modules:jaguif-contribution-api'
     include ':modules:jaguif-context-api'
     include ':modules:jaguif-tabpages-api'
+    include ':modules:jaguif-addon-update-api'
 }
 
 apply from: '../jaguif-modules-settings.gradle'
