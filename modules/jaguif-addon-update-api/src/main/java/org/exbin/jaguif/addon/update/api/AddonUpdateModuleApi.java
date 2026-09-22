@@ -18,6 +18,7 @@ package org.exbin.jaguif.addon.update.api;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
+import org.exbin.jaguif.addon.AddonApplication;
 
 /**
  * Interface of the addon update module.
@@ -33,4 +34,11 @@ public interface AddonUpdateModuleApi extends Module {
      * @return addon update changes
      */
     AddonUpdateChangesManagement createUpdateChangesManager();
+
+    /**
+     * Setups addons at the application start.
+     *
+     * @param application addon application
+     */
+    void setupAddons(AddonApplication application);
 }

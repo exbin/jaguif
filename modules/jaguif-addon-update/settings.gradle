@@ -2,6 +2,8 @@ rootProject.name = 'jaguif-addon-update'
 
 if (rootProject.path == ':') {
     include ':core:jaguif-core'
+    include ':core:jaguif-basic'
+    include ':core:jaguif-addon'
     include ':modules:jaguif-context-api'
     include ':modules:jaguif-action-api'
     include ':modules:jaguif-help-api'

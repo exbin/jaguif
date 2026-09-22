@@ -36,8 +36,6 @@ import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 @NullMarked
 public class LocalAddonUpdateChangesManager implements AddonUpdateChangesManagement {
 
-    public static final String ADDON_UPDATES_DIR = "addons_update";
-    public static final String CHANGES_FILE = "changes.cfg";
     protected final List<String> installAddons = new ArrayList<>();
     protected final List<String> removeAddons = new ArrayList<>();
     protected final List<String> updateFiles = new ArrayList<>();
@@ -125,8 +123,8 @@ public class LocalAddonUpdateChangesManager implements AddonUpdateChangesManagem
 
     @Override
     public void readConfig() {
-        File targetDirectory = new File(App.getConfigDirectory(), ADDON_UPDATES_DIR);
-        File changesConfigFile = new File(targetDirectory, CHANGES_FILE);
+        File targetDirectory = new File(App.getConfigDirectory(), AddonUpdateModule.ADDONS_UPDATE_DIRECTORY);
+        File changesConfigFile = new File(targetDirectory, AddonUpdateModule.ADDONS_CHANGES_FILE);
         installAddons.clear();
         removeAddons.clear();
         updateFiles.clear();
@@ -159,8 +157,8 @@ public class LocalAddonUpdateChangesManager implements AddonUpdateChangesManagem
 
     @Override
     public void writeConfig() {
-        File targetDirectory = new File(App.getConfigDirectory(), ADDON_UPDATES_DIR);
-        File changesConfigFile = new File(targetDirectory, CHANGES_FILE);
+        File targetDirectory = new File(App.getConfigDirectory(), AddonUpdateModule.ADDONS_UPDATE_DIRECTORY);
+        File changesConfigFile = new File(targetDirectory, AddonUpdateModule.ADDONS_CHANGES_FILE);
         try (OutputStreamWriter writer = new FileWriter(changesConfigFile)) {
             String prefix = ChangeType.INSTALL_ADDON.name() + ":";
             for (String line : installAddons) {
