@@ -53,7 +53,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
 
     protected @Nullable AddonsManagementContext addonsManagement;
-    protected @Nullable List<Integer> filterItems = null;
+    protected @Nullable List<ItemRecord> addonItems = null;
 
     public InstalledAddonsPage() {
         init();
@@ -105,30 +105,20 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     }
 
     private int getItemsCount() {
-        if (addonsManagement == null) {
+        if (addonsManagement == null || addonItems == null) {
             return 0;
         }
 
-        List<ItemRecord> installedAddons = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
-        if (filterItems != null) {
-            return filterItems.size();
-        }
-
-        return installedAddons.size();
+        return addonItems.size();
     }
 
     private ItemRecord getItem(int index) {
-        List<ItemRecord> installedAddons = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
-        if (filterItems != null) {
-            return installedAddons.get(filterItems.get(index));
-        }
-
-        return installedAddons.get(index);
+        return addonItems.get(index);
     }
 
     public void setAddonManager(AddonsManagementContext addonsManagement) {
         this.addonsManagement = addonsManagement;
-        notifyItemsChanged();
+        refreshContent();
     }
 
     public void setAvailableModuleUpdates(UpdateAvailabilityManagement availableModuleUpdates) {
@@ -156,6 +146,8 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
     @Override
     public void refreshContent() {
+        addonItems = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
+        notifyItemsChanged();
     }
 
     @Override
@@ -169,19 +161,22 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     public Runnable createSearchOperation(String search) {
         return () -> {
             // TODO Implement as background thread
-            List<ItemRecord> installedAddons = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
-            List<Integer> items = null;
             String searchCondition = search.trim().toLowerCase();
-            if (!searchCondition.isEmpty()) {
-                items = new ArrayList<>();
-                for (int i = 0; i < installedAddons.size(); i++) {
-                    ItemRecord record = installedAddons.get(i);
-                    if (record.getName().toLowerCase().contains(searchCondition)) {
-                        items.add(i);
-                    }
+            if (searchCondition.isEmpty()) {
+                refreshContent();
+                return;
+            }
+
+            List<ItemRecord> installedAddons = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
+            List<ItemRecord> items = null;
+            items = new ArrayList<>();
+            for (int i = 0; i < installedAddons.size(); i++) {
+                ItemRecord record = installedAddons.get(i);
+                if (record.getName().toLowerCase().contains(searchCondition)) {
+                    items.add(record);
                 }
             }
-            filterItems = items;
+            addonItems = items;
             notifyItemsChanged();
         };
     }

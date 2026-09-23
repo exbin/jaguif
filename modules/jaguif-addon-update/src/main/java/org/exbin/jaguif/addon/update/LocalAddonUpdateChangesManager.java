@@ -28,6 +28,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.AddonApplication;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
@@ -123,8 +124,8 @@ public class LocalAddonUpdateChangesManager implements AddonUpdateChangesManagem
 
     @Override
     public void readConfig() {
-        File targetDirectory = new File(App.getConfigDirectory(), AddonUpdateModule.ADDONS_UPDATE_DIRECTORY);
-        File changesConfigFile = new File(targetDirectory, AddonUpdateModule.ADDONS_CHANGES_FILE);
+        File targetDirectory = new File(App.getConfigDirectory(), AddonApplication.ADDONS_UPDATE_DIRECTORY);
+        File changesConfigFile = new File(targetDirectory, AddonApplication.ADDONS_CHANGES_FILE);
         installAddons.clear();
         removeAddons.clear();
         updateFiles.clear();
@@ -157,8 +158,8 @@ public class LocalAddonUpdateChangesManager implements AddonUpdateChangesManagem
 
     @Override
     public void writeConfig() {
-        File targetDirectory = new File(App.getConfigDirectory(), AddonUpdateModule.ADDONS_UPDATE_DIRECTORY);
-        File changesConfigFile = new File(targetDirectory, AddonUpdateModule.ADDONS_CHANGES_FILE);
+        File targetDirectory = new File(App.getConfigDirectory(), AddonApplication.ADDONS_UPDATE_DIRECTORY);
+        File changesConfigFile = new File(targetDirectory, AddonApplication.ADDONS_CHANGES_FILE);
         try (OutputStreamWriter writer = new FileWriter(changesConfigFile)) {
             String prefix = ChangeType.INSTALL_ADDON.name() + ":";
             for (String line : installAddons) {

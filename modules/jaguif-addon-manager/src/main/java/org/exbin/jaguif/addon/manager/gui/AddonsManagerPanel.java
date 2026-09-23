@@ -145,7 +145,11 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         }
     }
 
-    public TabPages getTabPages() {
+    public List<AddonManagerPage> getManagerTabs() {
+        return managerTabs;
+    }
+
+    public TabPages createTabPagesWrapper() {
         return new TabPages() {
             @Override
             public JComponent getComponent() {

@@ -75,7 +75,6 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManager.class);
 
     protected @Nullable AddonsManagerPanel managerPanel;
-    protected final List<AddonManagerPage> managerPages = new ArrayList<>();
     protected final List<CartOperation> cartOperations = new ArrayList<>();
 
     protected @Nullable AddonResolutionService resolutionService;
@@ -157,6 +156,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
             @Override
             public void setFilter(String filter) {
+                List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
                 for (AddonManagerPage managerPage : managerPages) {
                     Runnable operation = managerPage.createFilterOperation(filter);
                     runOperation(operation);
@@ -165,6 +165,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
             @Override
             public void setSearch(String search) {
+                List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
                 for (AddonManagerPage managerPage : managerPages) {
                     Runnable operation = managerPage.createSearchOperation(search);
                     runOperation(operation);
@@ -190,7 +191,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
         ContextModuleApi contextModule = App.getModule(ContextModuleApi.class);
         TabPagesModuleApi tabPagesModule = App.getModule(TabPagesModuleApi.class);
-        TabPages tabPages = managerPanel.getTabPages();
+        TabPages tabPages = managerPanel.createTabPagesWrapper();
         ContextStateManagement contextManagement = contextModule.createStateManager();
         contextManagement.changeActiveState(AddonsManagementContext.class, this);
         // contextManagement.changeActiveState(UpdateAvailabilityContext.class, this);
@@ -220,6 +221,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     }
 
     public void refreshContent() {
+        List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
         for (AddonManagerPage managerPage : managerPages) {
             managerPage.refreshContent();
         }

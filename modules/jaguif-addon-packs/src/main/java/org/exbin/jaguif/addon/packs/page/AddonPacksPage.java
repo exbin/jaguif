@@ -133,7 +133,9 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
 
     @Override
     public Runnable createSearchOperation(String search) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return () -> {
+            // TODO
+        };
 //        return new CatalogSearchOperation(addonCatalogService, null, search, this::setAddonItems); // addonManager
 //        addonsPanel.notifyItemsChanged();
 //        ResourceBundle resourceBundle = addonManager.getResourceBundle();
