@@ -28,6 +28,7 @@ import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
+import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCartController;
@@ -53,6 +54,7 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
     protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
     protected AddonCatalogService addonCatalogService;
 
+    protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
     protected AddonsManagementContext addonsManagement;
     protected List<AddonRecord> addonItems;
 
@@ -111,28 +113,22 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
     }
 
     @Override
-    public void setCatalogUrl(String addonCatalogUrl) {
-        listComponent.setCatalogUrl(addonCatalogUrl);
+    public void setContext(AddonsManagementContext context) {
+        listComponent.setContext(context);
     }
 
     @Override
-    public void refreshContent() {
-        // TODO
-    }
-
-    public void setAddonCatalogService(AddonCatalogService addonCatalogService) {
-        this.addonCatalogService = addonCatalogService;
+    public AddonPageRefreshFilter getFilter() {
+        return filter;
     }
 
     @Override
-    public Runnable createFilterOperation(Object filter) {
-        return () -> {
-            // TODO
-        };
+    public void setFilter(AddonPageRefreshFilter filter) {
+        this.filter = filter;
     }
 
     @Override
-    public Runnable createSearchOperation(String search) {
+    public Runnable createRefreshMethod() {
         return () -> {
             // TODO
         };
@@ -140,6 +136,10 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
 //        addonsPanel.notifyItemsChanged();
 //        ResourceBundle resourceBundle = addonManager.getResourceBundle();
 //        JOptionPane.showMessageDialog(addonsPanel, resourceBundle.getString("addonServiceApiError.message"), resourceBundle.getString("addonServiceApiError.title"), JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void setAddonCatalogService(AddonCatalogService addonCatalogService) {
+        this.addonCatalogService = addonCatalogService;
     }
 
     public void setAddonItems(List<AddonRecord> addonItems) {
@@ -169,11 +169,6 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         for (int i = 0; i < itemsCount; i++) {
             availableModuleUpdates.applyTo(getItem(i));
         }
-        notifyItemsChanged();
-    }
-
-    @Override
-    public void notifyChanged() {
         notifyItemsChanged();
     }
 

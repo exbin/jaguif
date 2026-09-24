@@ -139,12 +139,6 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         ((CartButton) cartButton).setChangesCount(itemsCount);
     }
 
-    public void setCatalogUrl(String addonCatalogUrl) {
-        for (AddonManagerPage managerTab : managerTabs) {
-            managerTab.setCatalogUrl(addonCatalogUrl);
-        }
-    }
-
     public List<AddonManagerPage> getManagerTabs() {
         return managerTabs;
     }

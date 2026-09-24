@@ -35,6 +35,7 @@ import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.gui.AddonsCartPanel;
 import org.exbin.jaguif.addon.manager.gui.AddonsManagerPanel;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
+import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCartController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
@@ -64,13 +65,14 @@ import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
+import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 
 /**
  * Addon manager.
  */
 @NullMarked
-public class AddonManager implements AddonsManagementCartController, AddonsManagementLocalState {
+public class AddonManager implements AddonsManagementCartController, AddonsManagementLocalState, AddonsManagementCatalogState {
 
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManager.class);
 
@@ -121,7 +123,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     public void notifyChanged() {
         AddonManagerPage managerTab = managerPanel.getActiveTab();
-        managerTab.notifyChanged();
+        runOperation(managerTab.createRefreshMethod());
     }
 
     public void addManagerPage(ComponentTabPagesContribution pageContribution) {
@@ -130,6 +132,11 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     public ResourceBundle getResourceBundle() {
         return resourceBundle;
+    }
+
+    @Override
+    public String getAddonServiceUrl() {
+        return catalogWebsiteUrl;
     }
 
     public AddonsManagerPanel getManagerPanel() {
@@ -158,8 +165,9 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             public void setFilter(String filter) {
                 List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
                 for (AddonManagerPage managerPage : managerPages) {
-                    Runnable operation = managerPage.createFilterOperation(filter);
-                    runOperation(operation);
+                    // TODO AddonPageFilter filter1 = managerPage.getFilter();
+                    // TODO managerPage.setFilter(filter);
+                    runOperation(managerPage.createRefreshMethod());
                 }
             }
 
@@ -167,14 +175,13 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             public void setSearch(String search) {
                 List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
                 for (AddonManagerPage managerPage : managerPages) {
-                    Runnable operation = managerPage.createSearchOperation(search);
-                    runOperation(operation);
+                    AddonPageRefreshFilter filter = managerPage.getFilter();
+                    filter.setSearchCondition(search);
+                    managerPage.setFilter(filter);
+                    runOperation(managerPage.createRefreshMethod());
                 }
             }
         });
-        if (resolutionService != null) {
-            managerPanel.setCatalogUrl(catalogWebsiteUrl);
-        }
 
         cartPanel.setController(new AddonsCartPanel.Controller() {
             @Override
@@ -215,15 +222,12 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     public void setCatalogWebsiteUrl(String catalogWebsiteUrl) {
         this.catalogWebsiteUrl = catalogWebsiteUrl;
-        if (managerPanel != null) {
-            managerPanel.setCatalogUrl(catalogWebsiteUrl);
-        }
     }
 
     public void refreshContent() {
         List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
         for (AddonManagerPage managerPage : managerPages) {
-            managerPage.refreshContent();
+            runOperation(managerPage.createRefreshMethod());
         }
     }
 

@@ -25,6 +25,7 @@ import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
+import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
@@ -52,7 +53,8 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     protected @Nullable AddonsListComponent listComponent;
     protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
 
-    protected @Nullable AddonsManagementContext addonsManagement;
+    protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
+    protected @Nullable AddonsManagementContext managementContext;
     protected @Nullable List<ItemRecord> addonItems = null;
 
     public InstalledAddonsPage() {
@@ -76,12 +78,12 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
             @Override
             public void addToCart(ItemRecord itemRecord, AddonOperationVariant variant) {
-                ((AddonsManagementCartController) addonsManagement).addCartOperation(new AddonOperation(variant, itemRecord));
+                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, itemRecord));
             }
 
             @Override
             public boolean isInCart(String moduleId, AddonOperationVariant variant) {
-                return ((AddonsManagementCartController) addonsManagement).isInCart(moduleId, variant);
+                return ((AddonsManagementCartController) managementContext).isInCart(moduleId, variant);
             }
 
             @Override
@@ -95,7 +97,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
             @Override
             public void register(ContextChangeRegistration registrar) {
                 registrar.registerChangeListener(AddonsManagementContext.class, (instance) -> {
-                    setAddonManager(instance);
+                    setContext(instance);
                 });
                 registrar.registerChangeListener(UpdateAvailabilityContext.class, (instance) -> {
                     setAvailableModuleUpdates((UpdateAvailabilityManagement) instance);
@@ -105,7 +107,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     }
 
     private int getItemsCount() {
-        if (addonsManagement == null || addonItems == null) {
+        if (managementContext == null || addonItems == null) {
             return 0;
         }
 
@@ -114,11 +116,6 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
     private ItemRecord getItem(int index) {
         return addonItems.get(index);
-    }
-
-    public void setAddonManager(AddonsManagementContext addonsManagement) {
-        this.addonsManagement = addonsManagement;
-        refreshContent();
     }
 
     public void setAvailableModuleUpdates(UpdateAvailabilityManagement availableModuleUpdates) {
@@ -135,41 +132,34 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     }
 
     @Override
-    public void notifyChanged() {
-        notifyItemsChanged();
+    public void setContext(AddonsManagementContext context) {
+        this.managementContext = context;
+        listComponent.setContext(context);
     }
 
     @Override
-    public void setCatalogUrl(String addonCatalogUrl) {
-        listComponent.setCatalogUrl(addonCatalogUrl);
+    public AddonPageRefreshFilter getFilter() {
+        return filter;
     }
 
     @Override
-    public void refreshContent() {
-        addonItems = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
-        notifyItemsChanged();
+    public void setFilter(AddonPageRefreshFilter filter) {
+        this.filter = filter;
     }
 
     @Override
-    public Runnable createFilterOperation(Object filter) {
-        return () -> {
-            // TODO
-        };
-    }
-
-    @Override
-    public Runnable createSearchOperation(String search) {
+    public Runnable createRefreshMethod() {
         return () -> {
             // TODO Implement as background thread
-            String searchCondition = search.trim().toLowerCase();
+            List<ItemRecord> installedAddons = ((AddonsManagementLocalState) managementContext).getInstalledAddons();
+            String searchCondition = filter.getSearchCondition().trim().toLowerCase();
             if (searchCondition.isEmpty()) {
-                refreshContent();
+                addonItems = installedAddons;
+                notifyItemsChanged();
                 return;
             }
 
-            List<ItemRecord> installedAddons = ((AddonsManagementLocalState) addonsManagement).getInstalledAddons();
-            List<ItemRecord> items = null;
-            items = new ArrayList<>();
+            List<ItemRecord> items = new ArrayList<>();
             for (int i = 0; i < installedAddons.size(); i++) {
                 ItemRecord record = installedAddons.get(i);
                 if (record.getName().toLowerCase().contains(searchCondition)) {

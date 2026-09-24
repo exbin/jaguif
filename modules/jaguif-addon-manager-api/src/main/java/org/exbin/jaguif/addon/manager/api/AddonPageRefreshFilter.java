@@ -15,40 +15,32 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 
 /**
  * Addon manager page.
  */
 @NullMarked
-public interface AddonManagerPage extends TabPagesComponent {
+public class AddonPageRefreshFilter {
 
-    /**
-     * Sets addon management context.
-     *
-     * @param context addon management context
-     */
-    void setContext(AddonsManagementContext context);
+    protected String searchCondition = "";
+    protected List<AddonPageFilter> filters = new ArrayList<>();
 
-    /**
-     * Returns filter condifion.
-     *
-     * @return filter condifion
-     */
-    AddonPageRefreshFilter getFilter();
+    public String getSearchCondition() {
+        return searchCondition;
+    }
 
-    /**
-     * Sets filter condifion.
-     *
-     * @param filter filter
-     */
-    void setFilter(AddonPageRefreshFilter filter);
+    public void setSearchCondition(String searchCondition) {
+        this.searchCondition = searchCondition;
+    }
 
-    /**
-     * Creates refresh content operation method.
-     *
-     * @return operation
-     */
-    Runnable createRefreshMethod();
+    public List<AddonPageFilter> getFilters() {
+        return filters;
+    }
+
+    public void setFilters(List<AddonPageFilter> filters) {
+        this.filters = filters;
+    }
 }

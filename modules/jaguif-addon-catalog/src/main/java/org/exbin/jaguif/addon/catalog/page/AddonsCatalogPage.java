@@ -27,6 +27,7 @@ import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
+import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
@@ -54,6 +55,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
     protected AddonCatalogService addonCatalogService;
 
+    protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
     protected AddonsManagementContext addonsManagement;
     protected List<AddonRecord> addonItems;
 
@@ -112,8 +114,8 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     }
 
     @Override
-    public void setCatalogUrl(String addonCatalogUrl) {
-        listComponent.setCatalogUrl(addonCatalogUrl);
+    public void setContext(AddonsManagementContext context) {
+        listComponent.setContext(context);
     }
 
     public void setAddonCatalogService(AddonCatalogService addonCatalogService) {
@@ -122,9 +124,19 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     }
 
     @Override
-    public void refreshContent() {
-        AddonManagerModuleApi addonManagerModule = App.getModule(AddonManagerModuleApi.class);
-        /* setAddonCatalogService(addonManagerModule.addonCatalogService);
+    public AddonPageRefreshFilter getFilter() {
+        return filter;
+    }
+
+    @Override
+    public void setFilter(AddonPageRefreshFilter filter) {
+        this.filter = filter;
+    }
+
+    @Override
+    public Runnable createRefreshMethod() {
+        /* AddonManagerModuleApi addonManagerModule = App.getModule(AddonManagerModuleApi.class);
+        setAddonCatalogService(addonManagerModule.addonCatalogService);
 
         runOperation(new CatalogCheckStatusOperation(this, addonCatalogService, (status) -> {
             if (status > 0) {
@@ -138,17 +150,8 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
                 ((AddonsCatalogPage) managerPage).setAddonItems(new ArrayList<>());
             }
         })); */
-    }
 
-    @Override
-    public Runnable createFilterOperation(Object filter) {
-        return () -> {
-            // TODO
-        };
-    }
-
-    @Override
-    public Runnable createSearchOperation(String search) {
+        String search = filter.getSearchCondition();
         return new CatalogSearchOperation(addonCatalogService, null, null, search, this::setAddonItems); // addonManager
 //        addonsPanel.notifyItemsChanged();
 //        ResourceBundle resourceBundle = addonManager.getResourceBundle();
@@ -182,11 +185,6 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         for (int i = 0; i < itemsCount; i++) {
             availableModuleUpdates.applyTo(getItem(i));
         }
-        notifyItemsChanged();
-    }
-
-    @Override
-    public void notifyChanged() {
         notifyItemsChanged();
     }
 

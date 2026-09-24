@@ -33,6 +33,8 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.menu.popup.api.MenuPopupModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
+import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.DesktopUtils;
@@ -92,13 +94,15 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
         this.controller = controller;
     }
 
-    public void setCatalogUrl(String addonServiceUrl) {
-        try {
-            HTMLDocument htmlDocument = new HTMLDocument();
-            htmlDocument.setBase(new URI(addonServiceUrl).toURL());
-            overviewTextPane.setDocument(htmlDocument);
-        } catch (MalformedURLException | URISyntaxException ex) {
-            Logger.getLogger(AddonDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
+    public void setContext(AddonsManagementContext context) {
+        if (context instanceof AddonsManagementCatalogState) {
+            try {
+                HTMLDocument htmlDocument = new HTMLDocument();
+                htmlDocument.setBase(new URI(((AddonsManagementCatalogState) context).getAddonServiceUrl()).toURL());
+                overviewTextPane.setDocument(htmlDocument);
+            } catch (MalformedURLException | URISyntaxException ex) {
+                Logger.getLogger(AddonDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

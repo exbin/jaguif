@@ -16,39 +16,17 @@
 package org.exbin.jaguif.addon.manager.api;
 
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 
 /**
- * Addon manager page.
+ * Addons management local state interface.
  */
 @NullMarked
-public interface AddonManagerPage extends TabPagesComponent {
+public interface AddonsManagementCatalogState extends AddonsManagementContext {
 
     /**
-     * Sets addon management context.
+     * Returns catalog service URL.
      *
-     * @param context addon management context
+     * @return catalog service URL
      */
-    void setContext(AddonsManagementContext context);
-
-    /**
-     * Returns filter condifion.
-     *
-     * @return filter condifion
-     */
-    AddonPageRefreshFilter getFilter();
-
-    /**
-     * Sets filter condifion.
-     *
-     * @param filter filter
-     */
-    void setFilter(AddonPageRefreshFilter filter);
-
-    /**
-     * Creates refresh content operation method.
-     *
-     * @return operation
-     */
-    Runnable createRefreshMethod();
+    String getAddonServiceUrl();
 }

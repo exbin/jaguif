@@ -26,6 +26,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
+import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
 import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.jspecify.annotations.Nullable;
@@ -111,8 +112,8 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
     }
 
     @Override
-    public void setCatalogUrl(String addonCatalogUrl) {
-        addonDetailsPanel.setCatalogUrl(addonCatalogUrl);
+    public void setContext(AddonsManagementContext context) {
+        addonDetailsPanel.setContext(context);
     }
 
     private void notifyItemSelected() {

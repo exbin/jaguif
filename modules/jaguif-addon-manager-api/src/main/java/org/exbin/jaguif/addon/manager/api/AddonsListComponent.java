@@ -39,11 +39,11 @@ public interface AddonsListComponent {
     void setController(AddonsListComponentController controller);
 
     /**
-     * Sets remove addon catalog URL.
+     * Sets addon management context.
      *
-     * @param addonCatalogUrl addon catalog URL
+     * @param context addon management context
      */
-    void setCatalogUrl(String addonCatalogUrl);
+    void setContext(AddonsManagementContext context);
 
     /**
      * Notifies item changed.
