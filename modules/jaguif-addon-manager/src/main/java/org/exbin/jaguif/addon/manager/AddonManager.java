@@ -80,7 +80,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     protected final List<CartOperation> cartOperations = new ArrayList<>();
 
     protected @Nullable AddonResolutionService resolutionService;
-    protected @Nullable String catalogWebsiteUrl;
+    protected String catalogWebsiteUrl = "";
     protected final AddonsState addonsState = new AddonsState();
     protected @Nullable AddonManagerStatusListener statusListener;
 
@@ -106,7 +106,8 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         managerPanel.setCartItemsCount(cartOperations.size());
     }
 
-    private void runOperation(Runnable operation) {
+    @Override
+    public void runOperation(Runnable operation) {
         operationsExecutor.submit(() -> {
             if (operation instanceof TitledOperation) {
                 if (operation instanceof ProgressOperation) {
@@ -123,7 +124,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     public void notifyChanged() {
         AddonManagerPage managerTab = managerPanel.getActiveTab();
-        runOperation(managerTab.createRefreshMethod());
+        managerTab.refreshContent();
     }
 
     public void addManagerPage(ComponentTabPagesContribution pageContribution) {
@@ -162,12 +163,12 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             }
 
             @Override
-            public void setFilter(String filter) {
+            public void changeFilter() {
                 List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
                 for (AddonManagerPage managerPage : managerPages) {
                     // TODO AddonPageFilter filter1 = managerPage.getFilter();
                     // TODO managerPage.setFilter(filter);
-                    runOperation(managerPage.createRefreshMethod());
+                    managerPage.refreshContent();
                 }
             }
 
@@ -178,7 +179,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
                     AddonPageRefreshFilter filter = managerPage.getFilter();
                     filter.setSearchCondition(search);
                     managerPage.setFilter(filter);
-                    runOperation(managerPage.createRefreshMethod());
+                    managerPage.refreshContent();
                 }
             }
         });
@@ -225,9 +226,10 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     }
 
     public void refreshContent() {
+        // TODO Replace with on switch update
         List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
         for (AddonManagerPage managerPage : managerPages) {
-            runOperation(managerPage.createRefreshMethod());
+            managerPage.refreshContent();
         }
     }
 

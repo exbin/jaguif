@@ -104,12 +104,15 @@ public class AddonsCartPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        wrapperPanel = new javax.swing.JPanel();
         scrollPane = new javax.swing.JScrollPane();
         itemsList = new javax.swing.JList<>();
         controlPanel = new javax.swing.JPanel();
         selectAllButton = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
         runButton = new javax.swing.JButton();
+
+        wrapperPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(resourceBundle.getString("border.title"))); // NOI18N
 
         scrollPane.setViewportView(itemsList);
 
@@ -161,23 +164,45 @@ public class AddonsCartPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout wrapperPanelLayout = new javax.swing.GroupLayout(wrapperPanel);
+        wrapperPanel.setLayout(wrapperPanelLayout);
+        wrapperPanelLayout.setHorizontalGroup(
+            wrapperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+            .addGroup(wrapperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(wrapperPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(scrollPane)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+        wrapperPanelLayout.setVerticalGroup(
+            wrapperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 142, Short.MAX_VALUE)
+            .addGroup(wrapperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(wrapperPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(wrapperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(controlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(scrollPane))
+                    .addContainerGap()))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPane)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(wrapperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(controlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPane)
-                .addContainerGap())
+                .addComponent(wrapperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -217,6 +242,7 @@ public class AddonsCartPanel extends javax.swing.JPanel {
     private javax.swing.JButton runButton;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JButton selectAllButton;
+    private javax.swing.JPanel wrapperPanel;
     // End of variables declaration//GEN-END:variables
 
     public interface Controller {

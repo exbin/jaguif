@@ -96,8 +96,8 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
             }
 
             @Override
-            public boolean isInCart(String moduleId, AddonOperationVariant variant) {
-                return controller.isInCart(moduleId, variant);
+            public boolean isInCart(String addonId, AddonOperationVariant variant) {
+                return controller.isInCart(addonId, variant);
             }
 
             @Override

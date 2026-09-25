@@ -148,8 +148,12 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
     }
 
     @Override
-    public Runnable createRefreshMethod() {
-        return () -> {
+    public void refreshContent() {
+        if (managementContext == null) {
+            return;
+        }
+
+        managementContext.runOperation(() -> {
             // TODO Implement as background thread
             List<ItemRecord> installedAddons = ((AddonsManagementLocalState) managementContext).getInstalledAddons();
             String searchCondition = filter.getSearchCondition().trim().toLowerCase();
@@ -168,7 +172,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
             }
             addonItems = items;
             notifyItemsChanged();
-        };
+        });
     }
 
     private void notifyItemsChanged() {

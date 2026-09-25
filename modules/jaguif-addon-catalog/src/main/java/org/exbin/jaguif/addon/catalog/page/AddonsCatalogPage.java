@@ -56,7 +56,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     protected AddonCatalogService addonCatalogService;
 
     protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
-    protected AddonsManagementContext addonsManagement;
+    protected AddonsManagementContext managementContext;
     protected List<AddonRecord> addonItems;
 
     public AddonsCatalogPage() {
@@ -80,12 +80,12 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
 
             @Override
             public void addToCart(ItemRecord itemRecord, AddonOperationVariant variant) {
-                ((AddonsManagementCartController) addonsManagement).addCartOperation(new AddonOperation(variant, itemRecord));
+                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, itemRecord));
             }
 
             @Override
             public boolean isInCart(String moduleId, AddonOperationVariant variant) {
-                return ((AddonsManagementCartController) addonsManagement).isInCart(moduleId, variant);
+                return ((AddonsManagementCartController) managementContext).isInCart(moduleId, variant);
             }
 
             @Override
@@ -134,7 +134,11 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     }
 
     @Override
-    public Runnable createRefreshMethod() {
+    public void refreshContent() {
+        if (managementContext == null) {
+            return;
+        }
+
         /* AddonManagerModuleApi addonManagerModule = App.getModule(AddonManagerModuleApi.class);
         setAddonCatalogService(addonManagerModule.addonCatalogService);
 
@@ -152,7 +156,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         })); */
 
         String search = filter.getSearchCondition();
-        return new CatalogSearchOperation(addonCatalogService, null, null, search, this::setAddonItems); // addonManager
+        managementContext.runOperation(new CatalogSearchOperation(addonCatalogService, null, null, search, this::setAddonItems));
 //        addonsPanel.notifyItemsChanged();
 //        ResourceBundle resourceBundle = addonManager.getResourceBundle();
 //        JOptionPane.showMessageDialog(addonsPanel, resourceBundle.getString("addonServiceApiError.message"), resourceBundle.getString("addonServiceApiError.title"), JOptionPane.ERROR_MESSAGE);
@@ -176,7 +180,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     }
 
     public void setAddonManager(AddonsManagementContext addonsManagement) {
-        this.addonsManagement = addonsManagement;
+        this.managementContext = addonsManagement;
         notifyItemsChanged();
     }
 

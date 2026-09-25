@@ -55,7 +55,7 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
     protected AddonCatalogService addonCatalogService;
 
     protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
-    protected AddonsManagementContext addonsManagement;
+    protected AddonsManagementContext managementContext;
     protected List<AddonRecord> addonItems;
 
     public AddonPacksPage() {
@@ -79,12 +79,12 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
 
             @Override
             public void addToCart(ItemRecord itemRecord, AddonOperationVariant variant) {
-                ((AddonsManagementCartController) addonsManagement).addCartOperation(new AddonOperation(variant, itemRecord));
+                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, itemRecord));
             }
 
             @Override
             public boolean isInCart(String moduleId, AddonOperationVariant variant) {
-                return ((AddonsManagementCartController) addonsManagement).isInCart(moduleId, variant);
+                return ((AddonsManagementCartController) managementContext).isInCart(moduleId, variant);
             }
 
             @Override
@@ -128,10 +128,14 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
     }
 
     @Override
-    public Runnable createRefreshMethod() {
-        return () -> {
+    public void refreshContent() {
+        if (managementContext == null) {
+            return;
+        }
+
+        managementContext.runOperation(() -> {
             // TODO
-        };
+        });
 //        return new CatalogSearchOperation(addonCatalogService, null, search, this::setAddonItems); // addonManager
 //        addonsPanel.notifyItemsChanged();
 //        ResourceBundle resourceBundle = addonManager.getResourceBundle();
@@ -159,8 +163,8 @@ public class AddonPacksPage extends AbstractTabPagesComponent implements AddonMa
         return addonItems.get(index);
     }
 
-    public void setAddonManager(AddonsManagementContext addonsManagement) {
-        this.addonsManagement = addonsManagement;
+    public void setAddonManager(AddonsManagementContext managementContext) {
+        this.managementContext = managementContext;
         notifyItemsChanged();
     }
 

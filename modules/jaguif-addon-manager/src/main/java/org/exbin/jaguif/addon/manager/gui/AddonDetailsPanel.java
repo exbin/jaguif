@@ -98,7 +98,10 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
         if (context instanceof AddonsManagementCatalogState) {
             try {
                 HTMLDocument htmlDocument = new HTMLDocument();
-                htmlDocument.setBase(new URI(((AddonsManagementCatalogState) context).getAddonServiceUrl()).toURL());
+                String addonServiceUrl = ((AddonsManagementCatalogState) context).getAddonServiceUrl();
+                if (!addonServiceUrl.isEmpty()) {
+                    htmlDocument.setBase(new URI(addonServiceUrl).toURL());
+                }
                 overviewTextPane.setDocument(htmlDocument);
             } catch (MalformedURLException | URISyntaxException ex) {
                 Logger.getLogger(AddonDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -318,10 +321,27 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
     @NullMarked
     public interface Controller {
 
+        /**
+         * Adds addon operation to the cart.
+         *
+         * @param variant operation variant
+         */
         void addToCart(AddonOperationVariant variant);
 
-        boolean isInCart(String moduleId, AddonOperationVariant variant);
+        /**
+         * Check whether addon operation is in cart.
+         *
+         * @param addonId addon identifier
+         * @param variant operation variant
+         * @return true if present in cart
+         */
+        boolean isInCart(String addonId, AddonOperationVariant variant);
 
+        /**
+         * Requests to receive module detail.
+         * 
+         * @param itemRecord item record
+         */
         void requestModuleDetail(ItemRecord itemRecord);
     }
 }

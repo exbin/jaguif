@@ -20,4 +20,10 @@ package org.exbin.jaguif.addon.manager.api;
  */
 public interface AddonsManagementContext {
 
+    /**
+     * Runs operation in background.
+     *
+     * @param operation operation to run
+     */
+    void runOperation(Runnable operation);
 }

@@ -64,8 +64,6 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         Document document = filterTextField.getDocument();
         document.addDocumentListener(new DocumentListener() {
 
-            private String lastFilter = "";
-
             @Override
             public void insertUpdate(DocumentEvent de) {
                 filterValueChanged();
@@ -83,11 +81,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
 
             public void filterValueChanged() {
                 if (controller != null) {
-                    String newFilter = filterTextField.getText();
-                    if (!lastFilter.equals(newFilter)) {
-                        lastFilter = newFilter;
-                        controller.setFilter(newFilter);
-                    }
+                    controller.changeFilter();
                 }
             }
         });
@@ -298,11 +292,9 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         void notifyTabSwitched();
 
         /**
-         * Sets filter.
-         *
-         * @param filter filter
+         * Changes filter.
          */
-        void setFilter(String filter);
+        void changeFilter();
 
         /**
          * Sets search condition.

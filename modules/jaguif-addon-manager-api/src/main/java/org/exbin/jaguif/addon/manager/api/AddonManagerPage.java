@@ -46,9 +46,7 @@ public interface AddonManagerPage extends TabPagesComponent {
     void setFilter(AddonPageRefreshFilter filter);
 
     /**
-     * Creates refresh content operation method.
-     *
-     * @return operation
+     * Refreshes content of the page.
      */
-    Runnable createRefreshMethod();
+    void refreshContent();
 }
