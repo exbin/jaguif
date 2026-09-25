@@ -23,6 +23,10 @@ import org.exbin.jaguif.basic.ModuleFileLocation;
 public enum AddonModuleFileLocation implements ModuleFileLocation {
 
     /**
+     * Unspecified file location.
+     */
+    UNSPECIFIED,
+    /**
      * Addon file location,
      */
     ADDON

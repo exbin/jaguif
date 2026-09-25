@@ -26,7 +26,7 @@ import org.jspecify.annotations.NullMarked;
 public class CategoryFilter implements AddonPageFilter {
 
     protected final List<String> categoryIds = new ArrayList<>();
-    protected final List<String> excludeIds = new ArrayList<>();
+    protected Mode mode = Mode.INCLUDE;
 
     public List<String> getCategoryIds() {
         return categoryIds;
@@ -37,16 +37,20 @@ public class CategoryFilter implements AddonPageFilter {
         categoryIds.addAll(ids);
     }
 
-    public List<String> getExcludeIds() {
-        return excludeIds;
-    }
-
-    public void setExcludeIds(List<String> ids) {
-        excludeIds.clear();
-        excludeIds.addAll(ids);
-    }
-
     public boolean isEmpty() {
-        return categoryIds.isEmpty() && excludeIds.isEmpty();
+        return categoryIds.isEmpty();
+    }
+
+    public Mode getMode() {
+        return mode;
+    }
+
+    public void setMode(Mode mode) {
+        this.mode = mode;
+    }
+
+    public enum Mode {
+        INCLUDE,
+        EXCLUDE
     }
 }

@@ -29,7 +29,7 @@ public interface AddonsManagementLocalState extends AddonsManagementContext {
      *
      * @return installed addons
      */
-    List<ItemRecord> getInstalledAddons();
+    List<AddonRecord> getInstalledAddons();
 
     /**
      * Returns true if module is installed.

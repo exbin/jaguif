@@ -24,10 +24,10 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.catalog.operation.CatalogSearchOperation;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
 import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
@@ -57,7 +57,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
 
     protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
     protected AddonsManagementContext managementContext;
-    protected List<AddonRecord> addonItems;
+    protected List<RepositoryAddonRecord> addonItems;
 
     public AddonsCatalogPage() {
         init();
@@ -74,13 +74,13 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
             }
 
             @Override
-            public ItemRecord getItem(int index) {
+            public AddonRecord getItem(int index) {
                 return AddonsCatalogPage.this.getItem(index);
             }
 
             @Override
-            public void addToCart(ItemRecord itemRecord, AddonOperationVariant variant) {
-                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, itemRecord));
+            public void addToCart(AddonRecord addonRecord, AddonOperationVariant variant) {
+                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, addonRecord));
             }
 
             @Override
@@ -89,8 +89,8 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
             }
 
             @Override
-            public void requestModuleDetail(ItemRecord itemRecord) {
-                // TODO addonManager.requestModuleDetail(itemRecord, addonsPanel);
+            public void requestModuleDetail(AddonRecord addonRecord) {
+                // TODO addonManager.requestModuleDetail(addonRecord, addonsPanel);
             }
         });
         itemChangedListeners.add((ItemChangedListener) listComponent::notifyItemChanged);
@@ -162,7 +162,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
 //        JOptionPane.showMessageDialog(addonsPanel, resourceBundle.getString("addonServiceApiError.message"), resourceBundle.getString("addonServiceApiError.title"), JOptionPane.ERROR_MESSAGE);
     }
 
-    public void setAddonItems(List<AddonRecord> addonItems) {
+    public void setAddonItems(List<RepositoryAddonRecord> addonItems) {
         this.addonItems = addonItems;
         notifyItemsChanged();
     }
@@ -175,7 +175,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         return addonItems.size();
     }
 
-    private ItemRecord getItem(int index) {
+    private AddonRecord getItem(int index) {
         return addonItems.get(index);
     }
 

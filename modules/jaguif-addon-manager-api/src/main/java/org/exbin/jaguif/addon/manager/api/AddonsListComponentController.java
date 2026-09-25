@@ -26,11 +26,11 @@ public interface AddonsListComponentController {
 
     int getItemsCount();
 
-    ItemRecord getItem(int index);
+    AddonRecord getItem(int index);
 
-    void addToCart(ItemRecord itemRecord, AddonOperationVariant variant);
+    void addToCart(AddonRecord itemRecord, AddonOperationVariant variant);
 
     boolean isInCart(String moduleId, AddonOperationVariant variant);
 
-    void requestModuleDetail(ItemRecord itemRecord);
+    void requestModuleDetail(AddonRecord itemRecord);
 }

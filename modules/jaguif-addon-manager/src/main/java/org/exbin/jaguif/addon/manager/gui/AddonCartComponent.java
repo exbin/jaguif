@@ -21,8 +21,8 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 
 /**
@@ -46,10 +46,10 @@ public class AddonCartComponent extends javax.swing.JPanel {
     }
 
     public void setCartRecord(JList<?> list, AddonOperation addonOperation, boolean isSelected, boolean cellHasFocus) {
-        ItemRecord itemRecord = addonOperation.getItem();
-        nameLabel.setText(itemRecord.getName());
-        iconLabel.setIcon(itemRecord.getIcon().orElse(defaultItemIcon));
-        providerLabel.setText(itemRecord.getProvider().orElse(""));
+        AddonRecord addonRecord = addonOperation.getRecord();
+        nameLabel.setText(addonRecord.getName());
+        iconLabel.setIcon(addonRecord.getIcon().orElse(defaultItemIcon));
+        providerLabel.setText(addonRecord.getProvider().orElse(""));
 
         if (isSelected) {
             setBackground(list.getSelectionBackground());

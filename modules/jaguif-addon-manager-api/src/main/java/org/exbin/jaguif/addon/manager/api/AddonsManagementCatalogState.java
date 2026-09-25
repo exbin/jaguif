@@ -24,9 +24,9 @@ import org.jspecify.annotations.NullMarked;
 public interface AddonsManagementCatalogState extends AddonsManagementContext {
 
     /**
-     * Returns catalog service URL.
+     * Returns catalog base URL.
      *
-     * @return catalog service URL
+     * @return catalog base URL
      */
-    String getAddonServiceUrl();
+    String getCatalogBaseUrl();
 }

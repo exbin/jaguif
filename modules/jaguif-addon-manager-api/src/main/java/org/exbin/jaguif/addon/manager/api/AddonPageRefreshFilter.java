@@ -20,7 +20,7 @@ import java.util.List;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Addon manager page.
+ * Addon manager page content refresh filter.
  */
 @NullMarked
 public class AddonPageRefreshFilter {

@@ -17,6 +17,8 @@ package org.exbin.jaguif.addon.manager.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -61,31 +63,15 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
             controller.notifyTabSwitched();
         });
         add(tabPages.getComponent(), BorderLayout.CENTER);
-        Document document = filterTextField.getDocument();
-        document.addDocumentListener(new DocumentListener() {
-
+        filterTextLabel.addMouseListener(new MouseAdapter() {
             @Override
-            public void insertUpdate(DocumentEvent de) {
-                filterValueChanged();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent de) {
-                filterValueChanged();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent de) {
-                filterValueChanged();
-            }
-
-            public void filterValueChanged() {
-                if (controller != null) {
+            public void mouseClicked(MouseEvent e) {
+                if (controller != null && e.getButton() == MouseEvent.BUTTON1 && !e.isPopupTrigger()) {
                     controller.changeFilter();
                 }
             }
         });
-        document = searchTextField.getDocument();
+        Document document = searchTextField.getDocument();
         document.addDocumentListener(new DocumentListener() {
 
             private String lastSearch = "";
@@ -197,7 +183,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
 
         headerPanel = new javax.swing.JPanel();
         filterLabel = new javax.swing.JLabel();
-        filterTextField = new javax.swing.JTextField();
+        filterTextLabel = new javax.swing.JLabel();
         searchLabel = new javax.swing.JLabel();
         searchTextField = new javax.swing.JTextField();
         cartButton = new CartButton();
@@ -207,7 +193,8 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         filterLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource(resourceBundle.getString("filterLabel.icon"))));
         filterLabel.setToolTipText(resourceBundle.getString("filterLabel.toolTipText")); // NOI18N
 
-        filterTextField.setEditable(false);
+        filterTextLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        filterTextLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         searchLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource(resourceBundle.getString("searchLabel.icon"))));
         searchLabel.setToolTipText(resourceBundle.getString("searchLabel.toolTipText")); // NOI18N
@@ -228,14 +215,12 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(headerPanelLayout.createSequentialGroup()
-                        .addComponent(searchLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchTextField))
-                    .addGroup(headerPanelLayout.createSequentialGroup()
-                        .addComponent(filterLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(filterTextField)))
+                    .addComponent(searchLabel)
+                    .addComponent(filterLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(filterTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(cartButton)
                 .addContainerGap())
@@ -246,14 +231,13 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(headerPanelLayout.createSequentialGroup()
-                        .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(filterLabel)
-                            .addComponent(filterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(filterTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(filterLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(searchLabel)
-                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(cartButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -277,7 +261,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton cartButton;
     private javax.swing.JLabel filterLabel;
-    private javax.swing.JTextField filterTextField;
+    private javax.swing.JLabel filterTextLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel searchLabel;
     private javax.swing.JTextField searchTextField;

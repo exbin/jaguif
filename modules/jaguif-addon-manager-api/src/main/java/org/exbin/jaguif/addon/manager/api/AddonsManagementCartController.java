@@ -27,6 +27,13 @@ import org.jspecify.annotations.NullMarked;
 public interface AddonsManagementCartController extends AddonsManagementContext {
 
     /**
+     * Adds operation to the cart.
+     *
+     * @param operation cart operation
+     */
+    void addCartOperation(CartOperation operation);
+
+    /**
      * Checks whether specific module operation is present in cart.
      *
      * @param moduleId module identifier
@@ -34,13 +41,6 @@ public interface AddonsManagementCartController extends AddonsManagementContext 
      * @return true if present
      */
     boolean isInCart(String moduleId, CartOperationVariant variant);
-
-    /**
-     * Adds operation to the cart.
-     *
-     * @param operation cart operation
-     */
-    void addCartOperation(CartOperation operation);
 
     /**
      * Returns list of cart operations.

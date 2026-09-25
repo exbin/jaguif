@@ -38,10 +38,11 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.AddonModuleFileLocation;
 import org.exbin.jaguif.addon.catalog.AddonCatalogModule;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import org.exbin.jaguif.addon.manager.api.UpdateRecord;
 import org.w3c.dom.Document;
@@ -58,7 +59,7 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
 
     protected String addonServiceUrl;
     protected String catalogPageUrl = "";
-    protected final Map<AddonRecord, String> iconPaths = new HashMap<>();
+    protected final Map<RepositoryAddonRecord, String> iconPaths = new HashMap<>();
     protected final List<IconChangeListener> iconChangeListeners = new ArrayList<>();
 
     public DefaultAddonCatalogService() {
@@ -90,8 +91,8 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
     }
 
     @Override
-    public List<AddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException {
-        List<AddonRecord> searchResult = new ArrayList<>();
+    public List<RepositoryAddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException {
+        List<RepositoryAddonRecord> searchResult = new ArrayList<>();
         URL searchUrl;
         if (searchCondition.isEmpty()) {
             searchUrl = createApiCall("list");
@@ -121,8 +122,8 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
                         String moduleId = moduleIdNode.getNodeValue();
                         Node moduleNameNode = moduleAttributes.getNamedItem("name");
                         String moduleName = moduleNameNode.getNodeValue();
-                        AddonRecord record = new AddonRecord(moduleId, moduleName);
-                        record.setAddon(true);
+                        RepositoryAddonRecord record = new RepositoryAddonRecord(moduleId, moduleName);
+                        record.setFileLocation(AddonModuleFileLocation.ADDON);
                         NodeList moduleChildNodes = childNode.getChildNodes();
                         int moduleChildCount = moduleChildNodes.getLength();
                         for (int moduleNodeIndex = 0; moduleNodeIndex < moduleChildCount; moduleNodeIndex++) {
@@ -189,7 +190,7 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
     }
 
     @Override
-    public AddonRecord getAddonDependency(String addonId) throws AddonCatalogServiceException {
+    public RepositoryAddonRecord getAddonDependency(String addonId) throws AddonCatalogServiceException {
         URL requestUrl = createApiCall("=addondep", "id=" + addonId);
         try (InputStream searchStream = requestUrl.openStream()) {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -208,8 +209,8 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
                         String moduleId = moduleIdNode.getNodeValue();
                         Node moduleNameNode = moduleAttributes.getNamedItem("name");
                         String moduleName = moduleNameNode.getNodeValue();
-                        AddonRecord record = new AddonRecord(moduleId, moduleName);
-                        record.setAddon(true);
+                        RepositoryAddonRecord record = new RepositoryAddonRecord(moduleId, moduleName);
+                        record.setFileLocation(AddonModuleFileLocation.ADDON);
                         NodeList moduleChildNodes = childNode.getChildNodes();
                         int moduleChildCount = moduleChildNodes.getLength();
                         for (int moduleNodeIndex = 0; moduleNodeIndex < moduleChildCount; moduleNodeIndex++) {

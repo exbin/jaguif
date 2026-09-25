@@ -15,65 +15,124 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Optional;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
+import javax.swing.ImageIcon;
+import org.exbin.jaguif.addon.AddonModuleFileLocation;
 
 /**
  * Addon record.
  */
 @NullMarked
-public class AddonRecord extends ItemRecord {
+public class AddonRecord {
 
-    protected RepositoryRecord repository;
-    protected List<DependencyRecord> dependencies = new ArrayList<>();
-    protected String license = "";
-    protected @Nullable String licenseSpdx;
-    protected String licenseRemoteFile = "";
+    protected String id;
+    protected String name;
+    protected String version = "";
+    protected boolean enabled = true;
+    protected boolean installed = false;
+    protected boolean updateAvailable = false;
+    protected AddonModuleFileLocation fileLocation = AddonModuleFileLocation.UNSPECIFIED;
+    protected @Nullable ImageIcon icon = null;
+    protected @Nullable String provider = null;
+    protected @Nullable String homepage = null;
+    protected @Nullable String description = null;
+
+    public AddonRecord() {
+        this("", "");
+    }
 
     public AddonRecord(String id, String name) {
-        super(id, name);
+        this.id = id;
+        this.name = name;
     }
 
-    public RepositoryRecord getRepository() {
-        return repository;
+    public String getId() {
+        return id;
     }
 
-    public void setRepository(RepositoryRecord repository) {
-        this.repository = repository;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public List<DependencyRecord> getDependencies() {
-        return dependencies;
+    public String getName() {
+        return name;
     }
 
-    public void setDependencies(List<DependencyRecord> dependencies) {
-        this.dependencies = dependencies;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLicense() {
-        return license;
+    public String getVersion() {
+        return version;
     }
 
-    public void setLicense(String license) {
-        this.license = license;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
-    public Optional<String> getLicenseSpdx() {
-        return Optional.ofNullable(licenseSpdx);
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void setLicenseSpdx(@Nullable String licenseSpdx) {
-        this.licenseSpdx = licenseSpdx;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
-    public String getLicenseRemoteFile() {
-        return licenseRemoteFile;
+    public boolean isInstalled() {
+        return installed;
     }
 
-    public void setLicenseRemoteFile(String licenseRemoteFile) {
-        this.licenseRemoteFile = licenseRemoteFile;
+    public void setInstalled(boolean installed) {
+        this.installed = installed;
+    }
+
+    public boolean isUpdateAvailable() {
+        return updateAvailable;
+    }
+
+    public void setUpdateAvailable(boolean updateAvailable) {
+        this.updateAvailable = updateAvailable;
+    }
+
+    public AddonModuleFileLocation getFileLocation() {
+        return fileLocation;
+    }
+
+    public void setFileLocation(AddonModuleFileLocation fileLocation) {
+        this.fileLocation = fileLocation;
+    }
+
+    public Optional<ImageIcon> getIcon() {
+        return Optional.ofNullable(icon);
+    }
+
+    public void setIcon(@Nullable ImageIcon icon) {
+        this.icon = icon;
+    }
+
+    public Optional<String> getProvider() {
+        return Optional.ofNullable(provider);
+    }
+
+    public void setProvider(@Nullable String provider) {
+        this.provider = provider;
+    }
+
+    public Optional<String> getHomepage() {
+        return Optional.ofNullable(homepage);
+    }
+
+    public void setHomepage(@Nullable String homepage) {
+        this.homepage = homepage;
+    }
+
+    public Optional<String> getDescription() {
+        return Optional.ofNullable(description);
+    }
+
+    public void setDescription(@Nullable String description) {
+        this.description = description;
     }
 }

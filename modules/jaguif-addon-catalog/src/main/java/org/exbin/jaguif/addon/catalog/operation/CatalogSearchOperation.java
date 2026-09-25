@@ -24,7 +24,7 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleProvider;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
 import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -58,9 +58,9 @@ public class CatalogSearchOperation implements Runnable, CancellableOperation, P
     @Override
     public void run() {
         try {
-            List<AddonRecord> searchResult = addonCatalogService.searchForAddons(searchCondition);
+            List<RepositoryAddonRecord> searchResult = addonCatalogService.searchForAddons(searchCondition);
             for (int i = searchResult.size() - 1; i >= 0; i--) {
-                AddonRecord record = searchResult.get(i);
+                RepositoryAddonRecord record = searchResult.get(i);
                 ModuleProvider moduleProvider = App.getModuleProvider();
                 if (((BasicModuleProvider) moduleProvider).hasModule(record.getId()) && !localState.isModuleRemoved(record.getId())) {
                     searchResult.remove(i);
@@ -98,6 +98,6 @@ public class CatalogSearchOperation implements Runnable, CancellableOperation, P
 
     public interface Output {
 
-        void outputItems(List<AddonRecord> addonItems);
+        void outputItems(List<RepositoryAddonRecord> addonItems);
     }
 }

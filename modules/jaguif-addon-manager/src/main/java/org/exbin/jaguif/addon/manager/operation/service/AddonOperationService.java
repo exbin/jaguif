@@ -23,13 +23,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
@@ -69,29 +69,29 @@ public class AddonOperationService {
             AddonOperation addonOperation = (AddonOperation) operation;
             switch (addonOperation.getVariant()) {
                 case INSTALL:
-                    modifications.installItem(addonOperation.getItem());
+                    modifications.installItem(addonOperation.getRecord());
                     break;
                 case UPDATE:
-                    ItemRecord item = addonOperation.getItem();
+                    AddonRecord item = addonOperation.getRecord();
                     modifications.updateItem(item, item);
                     break;
                 case REMOVE:
-                    modifications.removeItem(addonOperation.getItem());
+                    modifications.removeItem(addonOperation.getRecord());
                     break;
             }
         }
         return modifications;
     }
 
-    public AddonModificationsOperation installItem(ItemRecord item, Component parentComponent) {
+    public AddonModificationsOperation installItem(AddonRecord item, Component parentComponent) {
         AddonModificationsOperation operation = createOperation();
         operation.installItem(item);
         return operation;
     }
 
-    public AddonModificationsOperation updateItem(ItemRecord item) {
+    public AddonModificationsOperation updateItem(AddonRecord item) {
         AddonModificationsOperation operation = createOperation();
-        AddonRecord addonRecord;
+        RepositoryAddonRecord addonRecord;
         try {
             addonRecord = resolutionService.getAddonDependency(item.getId());
             operation.updateItem(addonRecord, item);
@@ -101,19 +101,19 @@ public class AddonOperationService {
         return operation;
     }
 
-    public AddonModificationsOperation removeItem(ItemRecord item) {
+    public AddonModificationsOperation removeItem(AddonRecord item) {
         AddonModificationsOperation operation = createOperation();
         operation.removeItem(item);
         return operation;
     }
 
     public AddonModificationsOperation installAddons(Set<String> toInstall) {
-        List<ItemRecord> installedAddons = addonManager.getInstalledAddons();
+        List<AddonRecord> installedAddons = addonManager.getInstalledAddons();
         AddonModificationsOperation operation = createOperation();
         if (toInstall.isEmpty()) {
-            for (ItemRecord addon : installedAddons) {
+            for (AddonRecord addon : installedAddons) {
                 if (addon.isUpdateAvailable()) {
-                    AddonRecord addonRecord;
+                    RepositoryAddonRecord addonRecord;
                     try {
                         addonRecord = resolutionService.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
@@ -124,7 +124,7 @@ public class AddonOperationService {
             }
         } else {
             for (String addonId : toInstall) {
-                AddonRecord addonRecord;
+                RepositoryAddonRecord addonRecord;
                 try {
                     addonRecord = resolutionService.getAddonDependency(addonId);
                     operation.installItem(addonRecord);
@@ -137,12 +137,12 @@ public class AddonOperationService {
     }
 
     public AddonModificationsOperation updateAddons(Set<String> toUpdate) {
-        List<ItemRecord> installedAddons = addonManager.getInstalledAddons();
+        List<AddonRecord> installedAddons = addonManager.getInstalledAddons();
         AddonModificationsOperation operation = createOperation();
         if (toUpdate.isEmpty()) {
-            for (ItemRecord addon : installedAddons) {
+            for (AddonRecord addon : installedAddons) {
                 if (addon.isUpdateAvailable()) {
-                    AddonRecord addonRecord;
+                    RepositoryAddonRecord addonRecord;
                     try {
                         addonRecord = resolutionService.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
@@ -152,9 +152,9 @@ public class AddonOperationService {
                 }
             }
         } else {
-            for (ItemRecord addon : installedAddons) {
+            for (AddonRecord addon : installedAddons) {
                 if (toUpdate.contains(addon.getId())) {
-                    AddonRecord addonRecord;
+                    RepositoryAddonRecord addonRecord;
                     try {
                         addonRecord = resolutionService.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);

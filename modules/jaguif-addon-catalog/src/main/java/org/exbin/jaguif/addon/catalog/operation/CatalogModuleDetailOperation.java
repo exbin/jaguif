@@ -19,10 +19,11 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.AddonModuleFileLocation;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 import org.exbin.jaguif.operation.api.ProgressOperation;
@@ -38,19 +39,19 @@ public class CatalogModuleDetailOperation implements Runnable, CancellableOperat
     protected final AddonCatalogService addonCatalogService;
     protected final Output output;
     protected boolean cancelled = false;
-    protected final ItemRecord itemRecord;
+    protected final AddonRecord addonRecord;
 
-    public CatalogModuleDetailOperation(AddonCatalogService addonCatalogService, ItemRecord itemRecord, Output output) {
+    public CatalogModuleDetailOperation(AddonCatalogService addonCatalogService, AddonRecord addonRecord, Output output) {
         this.addonCatalogService = addonCatalogService;
-        this.itemRecord = itemRecord;
+        this.addonRecord = addonRecord;
         this.output = output;
     }
 
     @Override
     public void run() {
-        if (itemRecord.isAddon()) {
+        if (addonRecord.getFileLocation() == AddonModuleFileLocation.ADDON) {
             try {
-                String moduleDetail = addonCatalogService.getModuleDetails(itemRecord.getId());
+                String moduleDetail = addonCatalogService.getModuleDetails(addonRecord.getId());
                 output.outputModuleDetail(moduleDetail);
             } catch (AddonCatalogServiceException ex) {
                 Logger.getLogger(CatalogModuleDetailOperation.class.getName()).log(Level.SEVERE, null, ex);

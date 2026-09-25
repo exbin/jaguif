@@ -30,12 +30,13 @@ import javax.swing.JPopupMenu;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.text.html.HTMLDocument;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.AddonModuleFileLocation;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.menu.popup.api.MenuPopupModuleApi;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.utils.DesktopUtils;
 import org.jspecify.annotations.Nullable;
@@ -98,9 +99,9 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
         if (context instanceof AddonsManagementCatalogState) {
             try {
                 HTMLDocument htmlDocument = new HTMLDocument();
-                String addonServiceUrl = ((AddonsManagementCatalogState) context).getAddonServiceUrl();
-                if (!addonServiceUrl.isEmpty()) {
-                    htmlDocument.setBase(new URI(addonServiceUrl).toURL());
+                String catalogBaseUrl = ((AddonsManagementCatalogState) context).getCatalogBaseUrl();
+                if (!catalogBaseUrl.isEmpty()) {
+                    htmlDocument.setBase(new URI(catalogBaseUrl).toURL());
                 }
                 overviewTextPane.setDocument(htmlDocument);
             } catch (MalformedURLException | URISyntaxException ex) {
@@ -109,11 +110,11 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
         }
     }
 
-    public void setRecord(ItemRecord itemRecord) {
-        addonNameLabel.setText(itemRecord.getName());
-        versionLabel.setText(itemRecord.getVersion());
-        String provider = itemRecord.getProvider().orElse("");
-        String providerHomepage = itemRecord.getHomepage().orElse(null);
+    public void setRecord(AddonRecord addonRecord) {
+        addonNameLabel.setText(addonRecord.getName());
+        versionLabel.setText(addonRecord.getVersion());
+        String provider = addonRecord.getProvider().orElse("");
+        String providerHomepage = addonRecord.getHomepage().orElse(null);
 
         if (providerHomepage != null) {
             provider = "<html><body><a href=\"" + providerHomepage + "\">" + (provider.isEmpty() ? resourceBundle.getString("record.provider") : provider) + "</a></body></html>";
@@ -126,38 +127,38 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
             providerLink = null;
         }
         providerLabel.setText(provider);
-        setModuleDetail(itemRecord, "");
-        controller.requestModuleDetail(itemRecord);
-        if (itemRecord instanceof AddonRecord) {
-            dependenciesTableModel.setDependencies(((AddonRecord) itemRecord).getDependencies());
+        setModuleDetail(addonRecord, "");
+        controller.requestModuleDetail(addonRecord);
+        if (addonRecord instanceof RepositoryAddonRecord) {
+            dependenciesTableModel.setDependencies(((RepositoryAddonRecord) addonRecord).getDependencies());
         } else {
             dependenciesTableModel.setDependencies(null);
         }
-        updateRecordControlState(itemRecord);
+        updateRecordControlState(addonRecord);
     }
 
-    public void setModuleDetail(ItemRecord itemRecord, String details) {
-        String description = itemRecord.getDescription().orElse("");
+    public void setModuleDetail(AddonRecord addonRecord, String details) {
+        String description = addonRecord.getDescription().orElse("");
         if (!details.isEmpty()) {
             details = "<hr/>" + details;
         }
-        overviewTextPane.setText("<html><body><p>" + description + "<br/>id: " + itemRecord.getId() + "</p>" + details + "</body></html>");
+        overviewTextPane.setText("<html><body><p>" + description + "<br/>id: " + addonRecord.getId() + "</p>" + details + "</body></html>");
     }
 
-    public void updateRecordControlState(ItemRecord itemRecord) {
+    public void updateRecordControlState(AddonRecord addonRecord) {
         controlPanel.removeAll();
-        if (itemRecord.isInstalled()) {
-            boolean alreadyRemoved = controller.isInCart(itemRecord.getId(), AddonOperationVariant.REMOVE);
-            boolean alreadyInstalled = controller.isInCart(itemRecord.getId(), AddonOperationVariant.INSTALL);
-            removeButton.setEnabled(itemRecord.isAddon() && !alreadyRemoved);
+        if (addonRecord.isInstalled()) {
+            boolean alreadyRemoved = controller.isInCart(addonRecord.getId(), AddonOperationVariant.REMOVE);
+            boolean alreadyInstalled = controller.isInCart(addonRecord.getId(), AddonOperationVariant.INSTALL);
+            removeButton.setEnabled(addonRecord.getFileLocation() == AddonModuleFileLocation.ADDON && !alreadyRemoved);
             controlPanel.add(removeButton);
-            enablementMode = itemRecord.isEnabled();
+            enablementMode = addonRecord.isEnabled();
             enablementButton.setText(resourceBundle.getString(enablementMode ? "disableButton.text" : "enableButton.text"));
             controlPanel.add(enablementButton);
-            updateButton.setEnabled(itemRecord.isUpdateAvailable() && !alreadyInstalled);
+            updateButton.setEnabled(addonRecord.isUpdateAvailable() && !alreadyInstalled);
             controlPanel.add(updateButton);
         } else {
-            boolean isInstalled = controller.isInCart(itemRecord.getId(), AddonOperationVariant.INSTALL);
+            boolean isInstalled = controller.isInCart(addonRecord.getId(), AddonOperationVariant.INSTALL);
             installButton.setEnabled(!isInstalled);
             controlPanel.add(installButton);
         }
@@ -338,10 +339,10 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
         boolean isInCart(String addonId, AddonOperationVariant variant);
 
         /**
-         * Requests to receive module detail.
+         * Requests to receive addon module detail.
          * 
-         * @param itemRecord item record
+         * @param addonRecord addon record
          */
-        void requestModuleDetail(ItemRecord itemRecord);
+        void requestModuleDetail(AddonRecord addonRecord);
     }
 }

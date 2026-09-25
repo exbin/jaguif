@@ -30,7 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.utils.VersionUtils;
 import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
 
@@ -69,11 +69,11 @@ public class UpdateAvailabilityManager implements UpdateAvailabilityManagement {
     /**
      * Applies availability state to records.
      *
-     * @param record target record
+     * @param addonRecord target record
      */
     @Override
-    public void applyTo(ItemRecord record) {
-        record.setUpdateAvailable(isUpdateAvailable(record.getId(), record.getVersion()));
+    public void applyTo(AddonRecord addonRecord) {
+        addonRecord.setUpdateAvailable(isUpdateAvailable(addonRecord.getId(), addonRecord.getVersion()));
     }
 
     public void setLatestVersion(int revision, Map<String, String> latestVersions) {

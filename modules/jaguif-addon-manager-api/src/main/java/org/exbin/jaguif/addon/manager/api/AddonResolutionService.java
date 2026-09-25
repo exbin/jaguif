@@ -42,7 +42,7 @@ public interface AddonResolutionService {
      * @return addon record
      * @throws AddonResolutionServiceException when service fails
      */
-    AddonRecord getAddonDependency(String moduleId) throws AddonResolutionServiceException;
+    RepositoryAddonRecord getAddonDependency(String moduleId) throws AddonResolutionServiceException;
 
     /**
      * Returns remote download URI for module file.

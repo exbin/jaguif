@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.api.operation;
 
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -25,11 +25,11 @@ import org.jspecify.annotations.NullMarked;
 public class AddonOperation implements CartOperation {
 
     protected final AddonOperationVariant variant;
-    protected final ItemRecord item;
+    protected final AddonRecord record;
 
-    public AddonOperation(AddonOperationVariant variant, ItemRecord item) {
+    public AddonOperation(AddonOperationVariant variant, AddonRecord record) {
         this.variant = variant;
-        this.item = item;
+        this.record = record;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class AddonOperation implements CartOperation {
         return variant;
     }
 
-    public ItemRecord getItem() {
-        return item;
+    public AddonRecord getRecord() {
+        return record;
     }
 }

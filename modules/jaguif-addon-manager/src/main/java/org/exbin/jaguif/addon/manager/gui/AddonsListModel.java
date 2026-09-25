@@ -15,15 +15,15 @@
  */
 package org.exbin.jaguif.addon.manager.gui;
 
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.AbstractListModel;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 
 /**
  * Addons list model.
  */
 @NullMarked
-public class AddonsListModel extends AbstractListModel<ItemRecord> {
+public class AddonsListModel extends AbstractListModel<AddonRecord> {
 
     protected RecordsProvider provider;
     protected int size = 0;
@@ -48,11 +48,11 @@ public class AddonsListModel extends AbstractListModel<ItemRecord> {
     }
 
     @Override
-    public ItemRecord getElementAt(int index) {
+    public AddonRecord getElementAt(int index) {
         try {
             return provider.getItem(index);
         } catch (IndexOutOfBoundsException ex) {
-            return new ItemRecord();
+            return new AddonRecord();
         }
     }
 
@@ -60,6 +60,6 @@ public class AddonsListModel extends AbstractListModel<ItemRecord> {
 
         int getItemsCount();
 
-        ItemRecord getItem(int index);
+        AddonRecord getItem(int index);
     }
 }

@@ -23,9 +23,9 @@ import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
 import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
@@ -55,7 +55,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
     protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
     protected @Nullable AddonsManagementContext managementContext;
-    protected @Nullable List<ItemRecord> addonItems = null;
+    protected @Nullable List<AddonRecord> addonItems = null;
 
     public InstalledAddonsPage() {
         init();
@@ -72,13 +72,13 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
             }
 
             @Override
-            public ItemRecord getItem(int index) {
+            public AddonRecord getItem(int index) {
                 return InstalledAddonsPage.this.getItem(index);
             }
 
             @Override
-            public void addToCart(ItemRecord itemRecord, AddonOperationVariant variant) {
-                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, itemRecord));
+            public void addToCart(AddonRecord addonRecord, AddonOperationVariant variant) {
+                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, addonRecord));
             }
 
             @Override
@@ -87,8 +87,8 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
             }
 
             @Override
-            public void requestModuleDetail(ItemRecord itemRecord) {
-                // TODO addonManager.requestModuleDetail(itemRecord, addonsPanel);
+            public void requestModuleDetail(AddonRecord addonRecord) {
+                // TODO addonManager.requestModuleDetail(addonRecord, addonsPanel);
             }
         });
         itemChangedListeners.add(listComponent::notifyItemChanged);
@@ -114,7 +114,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
         return addonItems.size();
     }
 
-    private ItemRecord getItem(int index) {
+    private AddonRecord getItem(int index) {
         return addonItems.get(index);
     }
 
@@ -155,7 +155,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
         managementContext.runOperation(() -> {
             // TODO Implement as background thread
-            List<ItemRecord> installedAddons = ((AddonsManagementLocalState) managementContext).getInstalledAddons();
+            List<AddonRecord> installedAddons = ((AddonsManagementLocalState) managementContext).getInstalledAddons();
             String searchCondition = filter.getSearchCondition().trim().toLowerCase();
             if (searchCondition.isEmpty()) {
                 addonItems = installedAddons;
@@ -163,9 +163,9 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
                 return;
             }
 
-            List<ItemRecord> items = new ArrayList<>();
+            List<AddonRecord> items = new ArrayList<>();
             for (int i = 0; i < installedAddons.size(); i++) {
-                ItemRecord record = installedAddons.get(i);
+                AddonRecord record = installedAddons.get(i);
                 if (record.getName().toLowerCase().contains(searchCondition)) {
                     items.add(record);
                 }

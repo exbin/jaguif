@@ -44,5 +44,5 @@ public interface UpdateAvailabilityManagement extends UpdateAvailabilityContext 
      *
      * @param record addon item record
      */
-    void applyTo(ItemRecord record);
+    void applyTo(AddonRecord record);
 }

@@ -27,7 +27,7 @@ import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.jspecify.annotations.Nullable;
 
@@ -40,7 +40,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsPanel.class);
     protected final AddonsListModel addonsListModel = new AddonsListModel();
     protected final AddonDetailsPanel addonDetailsPanel = new AddonDetailsPanel();
-    protected @Nullable ItemRecord activeRecord;
+    protected @Nullable AddonRecord activeRecord;
     protected @Nullable AddonsListComponentController controller;
 
     public AddonsPanel() {
@@ -55,7 +55,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                ItemRecord record = (ItemRecord) value;
+                AddonRecord record = (AddonRecord) value;
                 addonItemPanel.setItemRecord(list, record, isSelected, cellHasFocus);
                 return addonItemPanel;
             }
@@ -80,7 +80,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
             }
 
             @Override
-            public ItemRecord getItem(int index) {
+            public AddonRecord getItem(int index) {
                 return AddonsPanel.this.controller.getItem(index);
             }
         });
@@ -90,7 +90,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
             @Override
             public void addToCart(AddonOperationVariant variant) {
-                ItemRecord record = activeRecord;
+                AddonRecord record = activeRecord;
                 controller.addToCart(record, variant);
                 addonDetailsPanel.updateRecordControlState(record);
             }
@@ -101,7 +101,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
             }
 
             @Override
-            public void requestModuleDetail(ItemRecord itemRecord) {
+            public void requestModuleDetail(AddonRecord itemRecord) {
                 controller.requestModuleDetail(itemRecord);
             }
         });
@@ -118,7 +118,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
     private void notifyItemSelected() {
         int index = itemsList.getSelectedIndex();
-        ItemRecord itemRecord = index >= 0 ? itemsList.getModel().getElementAt(index) : null;
+        AddonRecord itemRecord = index >= 0 ? itemsList.getModel().getElementAt(index) : null;
 
         if (activeRecord != itemRecord) {
             if (activeRecord == null) {
@@ -151,7 +151,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
         addonsListModel.notifyItemsChanged();
     }
 
-    public void setModuleDetail(ItemRecord itemRecord, String details) {
+    public void setModuleDetail(AddonRecord itemRecord, String details) {
         addonDetailsPanel.setModuleDetail(itemRecord, details);
     }
 
@@ -193,7 +193,7 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JList<org.exbin.jaguif.addon.manager.api.ItemRecord> itemsList;
+    private javax.swing.JList<org.exbin.jaguif.addon.manager.api.AddonRecord> itemsList;
     private javax.swing.JScrollPane itemsListScrollPane;
     private javax.swing.JLabel noItemSelectedLabel;
     private javax.swing.JSplitPane splitPane;

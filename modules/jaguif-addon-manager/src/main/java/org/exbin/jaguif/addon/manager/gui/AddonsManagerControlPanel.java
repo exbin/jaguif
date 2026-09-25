@@ -43,7 +43,7 @@ import org.jspecify.annotations.Nullable;
 public class AddonsManagerControlPanel extends javax.swing.JPanel implements CloseControlController.CloseControlComponent {
 
     protected final java.util.ResourceBundle resourceBundle;
-    protected @Nullable Controller controller;
+    protected @Nullable Controller controller = null;
     protected @Nullable Component activeStatusComponent = null;
     protected @Nullable Component defaultStatusComponent = null;
 

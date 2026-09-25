@@ -26,16 +26,18 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import javax.swing.JDialog;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.gui.AddonsCartPanel;
 import org.exbin.jaguif.addon.manager.gui.AddonsManagerPanel;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
 import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCartController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
@@ -67,6 +69,8 @@ import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
+import org.exbin.jaguif.window.api.controller.DefaultControlController;
+import org.exbin.jaguif.window.api.gui.DefaultControlPanel;
 
 /**
  * Addon manager.
@@ -88,22 +92,6 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     protected @Nullable TabPagesDefinitionManagement pagesDefinitions;
 
     public AddonManager() {
-    }
-
-    public void setStatusListener(AddonManagerStatusListener statusListener) {
-        this.statusListener = statusListener;
-    }
-
-    private void removeIndices(int[] indices) {
-        if (indices.length == 0) {
-            return;
-        }
-
-        Arrays.sort(indices);
-        for (int i = indices.length - 1; i >= 0; i--) {
-            cartOperations.remove(i);
-        }
-        managerPanel.setCartItemsCount(cartOperations.size());
     }
 
     @Override
@@ -136,7 +124,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     }
 
     @Override
-    public String getAddonServiceUrl() {
+    public String getCatalogBaseUrl() {
         return catalogWebsiteUrl;
     }
 
@@ -164,12 +152,25 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
             @Override
             public void changeFilter() {
-                List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
-                for (AddonManagerPage managerPage : managerPages) {
-                    // TODO AddonPageFilter filter1 = managerPage.getFilter();
-                    // TODO managerPage.setFilter(filter);
-                    managerPage.refreshContent();
-                }
+                AddonManagerPage activePage = managerPanel.getActiveTab();
+                JPanel filtersPanel = new JPanel();
+                filtersPanel.setPreferredSize(new Dimension(600, 400));
+                WindowModuleApi windowModule = App.getModule(WindowModuleApi.class);
+                DefaultControlPanel controlPanel = new DefaultControlPanel();
+                final WindowHandler dialog = windowModule.createDialog(filtersPanel, controlPanel);
+                // windowModule.addHeaderPanel(dialog.getWindow(), operationPanel.getClass(), operationPanel.getResourceBundle());
+                ((JDialog) dialog.getWindow()).setTitle("Filter");
+                controlPanel.setController((actionType) -> {
+                    if (actionType == DefaultControlController.ControlActionType.OK) {
+                        // TODO AddonPageFilter filter1 = managerPage.getFilter();
+                        // TODO managerPage.setFilter(filter);
+                        activePage.refreshContent();
+                    }
+
+                    dialog.close();
+                    dialog.dispose();
+                });
+                dialog.showCentered(managerPanel);
             }
 
             @Override
@@ -225,6 +226,22 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         this.catalogWebsiteUrl = catalogWebsiteUrl;
     }
 
+    public void setStatusListener(AddonManagerStatusListener statusListener) {
+        this.statusListener = statusListener;
+    }
+
+    private void removeIndices(int[] indices) {
+        if (indices.length == 0) {
+            return;
+        }
+
+        Arrays.sort(indices);
+        for (int i = indices.length - 1; i >= 0; i--) {
+            cartOperations.remove(i);
+        }
+        managerPanel.setCartItemsCount(cartOperations.size());
+    }
+
     public void refreshContent() {
         // TODO Replace with on switch update
         List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
@@ -235,9 +252,9 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     public void updateAll() {
         List<CartOperation> updateOperations = new ArrayList<>();
-        List<ItemRecord> installedAddons = addonsState.getInstalledAddons();
+        List<AddonRecord> installedAddons = addonsState.getInstalledAddons();
         UpdateAvailabilityManager availableModuleUpdates = addonsState.getAvailableModuleUpdates();
-        for (ItemRecord installedAddon : installedAddons) {
+        for (AddonRecord installedAddon : installedAddons) {
             if (availableModuleUpdates.isUpdateAvailable(installedAddon.getId(), installedAddon.getVersion())) {
                 updateOperations.add(new AddonOperation(AddonOperationVariant.UPDATE, installedAddon));
             }
@@ -441,7 +458,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     public boolean isInCart(String moduleId, CartOperationVariant variant) {
         for (CartOperation cartOperation : cartOperations) {
             if (cartOperation instanceof AddonOperation) {
-                if (moduleId.equals(((AddonOperation) cartOperation).getItem().getId()) && variant == cartOperation.getVariant()) {
+                if (moduleId.equals(((AddonOperation) cartOperation).getRecord().getId()) && variant == cartOperation.getVariant()) {
                     return true;
                 }
             }
@@ -451,7 +468,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     }
 
     @Override
-    public List<ItemRecord> getInstalledAddons() {
+    public List<AddonRecord> getInstalledAddons() {
         return addonsState.getInstalledAddons();
     }
 
@@ -466,9 +483,9 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     private void updateLatestVersions() {
         UpdateAvailabilityManager availableModuleUpdates = getAvailableModuleUpdates();
-        List<ItemRecord> installedAddons = addonsState.getInstalledAddons();
+        List<AddonRecord> installedAddons = addonsState.getInstalledAddons();
         int availableUpdates = 0;
-        for (ItemRecord installedAddon : installedAddons) {
+        for (AddonRecord installedAddon : installedAddons) {
             if (availableModuleUpdates.isUpdateAvailable(installedAddon.getId(), installedAddon.getVersion())) {
                 availableUpdates++;
             }

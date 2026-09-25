@@ -16,7 +16,7 @@
 package org.exbin.jaguif.addon.manager.service;
 
 import java.net.URL;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
 import org.exbin.jaguif.addon.update.api.AddonModification;
@@ -34,7 +34,7 @@ public class LocalAddonResolutionService implements AddonResolutionService {
     }
 
     @Override
-    public AddonRecord getAddonDependency(String moduleId) throws AddonResolutionServiceException {
+    public RepositoryAddonRecord getAddonDependency(String moduleId) throws AddonResolutionServiceException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

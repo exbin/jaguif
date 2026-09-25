@@ -17,7 +17,7 @@ package org.exbin.jaguif.addon.catalog.api;
 
 import java.net.URL;
 import java.util.List;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.UpdateRecord;
 import org.jspecify.annotations.NullMarked;
 
@@ -44,7 +44,7 @@ public interface AddonCatalogService {
      * @return list of found addons
      * @throws AddonCatalogServiceException when service fails
      */
-    List<AddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException;
+    List<RepositoryAddonRecord> searchForAddons(String searchCondition) throws AddonCatalogServiceException;
 
     /**
      * Returns simplified record of specific addon with dependency / license info
@@ -54,7 +54,7 @@ public interface AddonCatalogService {
      * @return addon record
      * @throws AddonCatalogServiceException when service fails
      */
-    AddonRecord getAddonDependency(String moduleId) throws AddonCatalogServiceException;
+    RepositoryAddonRecord getAddonDependency(String moduleId) throws AddonCatalogServiceException;
 
     /**
      * Returns module filename for specific addon.

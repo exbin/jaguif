@@ -22,8 +22,8 @@ import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleProvider;
 import org.exbin.jaguif.addon.AddonModuleFileLocation;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.update.api.AddonUpdateModuleApi;
 import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.basic.ModuleRecord;
@@ -35,7 +35,7 @@ import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 @NullMarked
 public class AddonsState {
 
-    protected final List<ItemRecord> installedAddons = new ArrayList<>();
+    protected final List<AddonRecord> installedAddons = new ArrayList<>();
     protected final UpdateAvailabilityManager availableModuleUpdates = new UpdateAvailabilityManager();
     protected final AddonUpdateChangesManagement addonUpdateChanges;
     protected ApplicationModulesUsage applicationModulesUsage;
@@ -53,14 +53,14 @@ public class AddonsState {
         if (moduleProvider instanceof BasicModuleProvider) {
             List<ModuleRecord> basicModulesList = ((BasicModuleProvider) moduleProvider).getModulesList();
             for (ModuleRecord moduleRecord : basicModulesList) {
-                AddonRecord itemRecord = new AddonRecord(moduleRecord.getModuleId(), moduleRecord.getName());
-                itemRecord.setInstalled(true);
-                itemRecord.setAddon(moduleRecord.getFileLocation() == AddonModuleFileLocation.ADDON);
-                itemRecord.setVersion(moduleRecord.getVersion());
-                itemRecord.setProvider(moduleRecord.getProvider().orElse(null));
-                itemRecord.setHomepage(moduleRecord.getHomepage().orElse(null));
-                itemRecord.setDescription(moduleRecord.getDescription().orElse(null));
-                itemRecord.setIcon(moduleRecord.getIcon().orElse(null));
+                RepositoryAddonRecord addonRecord = new RepositoryAddonRecord(moduleRecord.getModuleId(), moduleRecord.getName());
+                addonRecord.setInstalled(true);
+                addonRecord.setFileLocation(AddonModuleFileLocation.ADDON);
+                addonRecord.setVersion(moduleRecord.getVersion());
+                addonRecord.setProvider(moduleRecord.getProvider().orElse(null));
+                addonRecord.setHomepage(moduleRecord.getHomepage().orElse(null));
+                addonRecord.setDescription(moduleRecord.getDescription().orElse(null));
+                addonRecord.setIcon(moduleRecord.getIcon().orElse(null));
                 List<DependencyRecord> dependencyRecords = new ArrayList<>();
                 for (String dependencyModuleId : moduleRecord.getDependencyModuleIds()) {
                     dependencyRecords.add(new DependencyRecord(dependencyModuleId));
@@ -68,8 +68,8 @@ public class AddonsState {
                 for (String dependencyLibraryId : moduleRecord.getDependencyLibraries()) {
                     dependencyRecords.add(new DependencyRecord(DependencyRecord.Type.JAR_LIBRARY, dependencyLibraryId));
                 }
-                itemRecord.setDependencies(dependencyRecords);
-                installedAddons.add(itemRecord);
+                addonRecord.setDependencies(dependencyRecords);
+                installedAddons.add(addonRecord);
                 /*System.out.println(moduleRecord.getModuleId() + "," + moduleRecord.getName() + "," + moduleRecord.getDescription().orElse("") + "," + moduleRecord.getVersion() + "," + moduleRecord.getHomepage().orElse(""));
                 for (DependencyRecord dependency : dependencyRecords) {
                     System.out.println("- " + dependency.getType().name() + ", " + dependency.getId());
@@ -89,7 +89,7 @@ public class AddonsState {
         }
     }
 
-    public List<ItemRecord> getInstalledAddons() {
+    public List<AddonRecord> getInstalledAddons() {
         return installedAddons;
     }
 

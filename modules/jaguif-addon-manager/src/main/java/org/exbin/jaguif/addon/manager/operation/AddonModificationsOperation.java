@@ -41,11 +41,12 @@ import java.util.logging.Logger;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.exbin.jaguif.addon.AddonModuleFileLocation;
+import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
-import org.exbin.jaguif.addon.manager.api.ItemRecord;
 import org.exbin.jaguif.addon.manager.DownloadItemRecord;
 import org.exbin.jaguif.addon.manager.LicenseItemRecord;
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerOptions;
 import org.exbin.jaguif.basic.BasicModuleProvider;
@@ -169,34 +170,34 @@ public class AddonModificationsOperation {
         return downloadRecords;
     }
 
-    public void installItem(ItemRecord item) {
-        if (item instanceof AddonRecord) {
+    public void installItem(AddonRecord item) {
+        if (item instanceof RepositoryAddonRecord) {
             String addonId = item.getId();
             if (addonUpdateChanges.hasInstallAddon(addonId)) {
                 throw new IllegalStateException("Addon already queued for installation: " + addonId);
             }
-            processAddonLicense((AddonRecord) item);
+            processAddonLicense((RepositoryAddonRecord) item);
             try {
                 addModification(resolutionService.getAddonFile(addonId));
                 addModification(LocalAddonModificationType.INSTALL_ADDON, addonId);
             } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
-            addAddonDependencies((AddonRecord) item);
+            addAddonDependencies((RepositoryAddonRecord) item);
         } else {
             throw new IllegalStateException("Unable to install non-addon item");
         }
     }
 
-    public void updateItem(ItemRecord item, ItemRecord previousItem) {
-        if (item instanceof AddonRecord) {
+    public void updateItem(AddonRecord item, AddonRecord previousItem) {
+        if (item instanceof RepositoryAddonRecord) {
             String addonId = item.getId();
             if (addonUpdateChanges.hasInstallAddon(addonId)) {
                 throw new IllegalStateException("Addon already queued for installation: " + addonId);
             }
             addModification(LocalAddonModificationType.INSTALL_ADDON, addonId);
-            processAddonLicense((AddonRecord) item);
-            if (previousItem.isAddon()) {
+            processAddonLicense((RepositoryAddonRecord) item);
+            if (previousItem.getFileLocation() == AddonModuleFileLocation.ADDON) {
                 String addonFile = findAddonFileName(item.getId());
                 if (addonFile != null) {
                     addModification(LocalAddonModificationType.REMOVE_LIBRARY, addonFile);
@@ -207,14 +208,14 @@ public class AddonModificationsOperation {
             } catch (AddonResolutionServiceException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
-            addAddonDependencies((AddonRecord) item);
+            addAddonDependencies((RepositoryAddonRecord) item);
         } else {
             throw new IllegalStateException("Unable to update non-addon item");
         }
     }
 
-    public void removeItem(ItemRecord item) {
-        if (item instanceof AddonRecord) {
+    public void removeItem(AddonRecord item) {
+        if (item instanceof RepositoryAddonRecord) {
             String addonId = item.getId();
             if (addonUpdateChanges.hasRemoveAddon(addonId)) {
                 throw new IllegalStateException("Addon already queued for removal: " + addonId);
@@ -291,7 +292,7 @@ public class AddonModificationsOperation {
         return null;
     }
 
-    private void addAddonDependencies(AddonRecord record) {
+    private void addAddonDependencies(RepositoryAddonRecord record) {
         List<DependencyRecord> dependencies = new ArrayList<>();
         dependencies.addAll(record.getDependencies());
         while (!dependencies.isEmpty()) {
@@ -310,7 +311,7 @@ public class AddonModificationsOperation {
                     }
 
                     if (include) {
-                        AddonRecord addonRecord;
+                        RepositoryAddonRecord addonRecord;
                         try {
                             addonRecord = resolutionService.getAddonDependency(dependencyId);
                             addModification(LocalAddonModificationType.DEPENDENCY_ADDON, addonRecord.getId());
@@ -336,7 +337,7 @@ public class AddonModificationsOperation {
         }
     }
 
-    public void processAddonLicense(AddonRecord addonRecord) {
+    public void processAddonLicense(RepositoryAddonRecord addonRecord) {
         String remoteFile = addonRecord.getLicenseRemoteFile();
         if (primarySpdxLicense.equals(addonRecord.getLicenseSpdx().orElse(null)) || remoteFile.isEmpty()) {
             return;
