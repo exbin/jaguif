@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
+import javax.swing.UIManager;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
@@ -32,6 +35,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 public class AddonCartComponent extends javax.swing.JPanel {
 
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonCartComponent.class);
+    protected final Border noFocusBorder = new EmptyBorder(1, 1, 1, 1);
     protected final ImageIcon defaultItemIcon;
     protected final ImageIcon installVariantIcon;
     protected final ImageIcon updateVariantIcon;
@@ -58,6 +62,7 @@ public class AddonCartComponent extends javax.swing.JPanel {
             setBackground(list.getBackground());
             setForeground(list.getForeground());
         }
+        setBorder(cellHasFocus ? UIManager.getBorder("List.focusCellHighlightBorder") : noFocusBorder);
         switch (addonOperation.getVariant()) {
             case INSTALL:
                 variantLabel.setIcon(installVariantIcon);

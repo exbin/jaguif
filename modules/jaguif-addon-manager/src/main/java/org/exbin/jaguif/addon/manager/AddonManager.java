@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager;
 
+import java.awt.BorderLayout;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.page.InstalledAddonsPage;
@@ -30,6 +31,7 @@ import javax.swing.JDialog;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
@@ -68,6 +70,8 @@ import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
+import org.exbin.jaguif.addon.manager.gui.CategoryFilterPanel;
+import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
 import org.exbin.jaguif.window.api.gui.DefaultControlPanel;
@@ -153,7 +157,14 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             @Override
             public void changeFilter() {
                 AddonManagerPage activePage = managerPanel.getActiveTab();
-                JPanel filtersPanel = new JPanel();
+                JPanel filtersPanel = new JPanel(new BorderLayout());
+                JTabbedPane tabbedPane = new JTabbedPane();
+                CategoryFilterPanel categoryFilterPanel = new CategoryFilterPanel();
+                List<CategoryRecord> categoryRecords = new ArrayList<>();
+                categoryRecords.add(new CategoryRecord("test", "Test"));
+                categoryFilterPanel.setCategories(categoryRecords);
+                tabbedPane.addTab("Category", categoryFilterPanel);
+                filtersPanel.add(tabbedPane, BorderLayout.CENTER);
                 filtersPanel.setPreferredSize(new Dimension(600, 400));
                 WindowModuleApi windowModule = App.getModule(WindowModuleApi.class);
                 DefaultControlPanel controlPanel = new DefaultControlPanel();
