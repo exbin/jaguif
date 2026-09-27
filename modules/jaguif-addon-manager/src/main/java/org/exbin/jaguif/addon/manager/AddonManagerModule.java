@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager;
 
+import org.exbin.jaguif.addon.manager.filter.CategoryManager;
 import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -47,6 +48,7 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     private String manualCatalogUrl = null;
 
     private @Nullable AddonManager addonManager = null;
+    private @Nullable CategoryManager categoryManager = null;
 
     public AddonManagerModule() {
     }
@@ -88,6 +90,13 @@ public class AddonManagerModule implements AddonManagerModuleApi {
             addonManager = new AddonManager();
         }
         return addonManager;
+    }
+
+    public CategoryManager getCategoryManager() {
+        if (categoryManager == null) {
+            categoryManager = new CategoryManager();
+        }
+        return categoryManager;
     }
 
     @Override

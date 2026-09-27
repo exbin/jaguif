@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager;
 
-import java.awt.BorderLayout;
+import org.exbin.jaguif.addon.manager.filter.CategoryManager;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
 import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
 import org.exbin.jaguif.addon.manager.page.InstalledAddonsPage;
@@ -30,8 +30,6 @@ import java.util.concurrent.Executors;
 import javax.swing.JDialog;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
@@ -70,7 +68,8 @@ import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
-import org.exbin.jaguif.addon.manager.gui.CategoryFilterPanel;
+import org.exbin.jaguif.addon.manager.gui.AddonsFilterPanel;
+import org.exbin.jaguif.addon.manager.filter.gui.CategoryFilterPanel;
 import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
@@ -157,15 +156,15 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             @Override
             public void changeFilter() {
                 AddonManagerPage activePage = managerPanel.getActiveTab();
-                JPanel filtersPanel = new JPanel(new BorderLayout());
-                JTabbedPane tabbedPane = new JTabbedPane();
+                AddonManagerModule managerModule = (AddonManagerModule) App.getModule(AddonManagerModuleApi.class);
+                CategoryManager categoryManager = managerModule.getCategoryManager();
+                
+                AddonsFilterPanel filtersPanel = new AddonsFilterPanel();
                 CategoryFilterPanel categoryFilterPanel = new CategoryFilterPanel();
                 List<CategoryRecord> categoryRecords = new ArrayList<>();
                 categoryRecords.add(new CategoryRecord("test", "Test"));
                 categoryFilterPanel.setCategories(categoryRecords);
-                tabbedPane.addTab("Category", categoryFilterPanel);
-                filtersPanel.add(tabbedPane, BorderLayout.CENTER);
-                filtersPanel.setPreferredSize(new Dimension(600, 400));
+                filtersPanel.addFilter("Category", categoryFilterPanel);
                 WindowModuleApi windowModule = App.getModule(WindowModuleApi.class);
                 DefaultControlPanel controlPanel = new DefaultControlPanel();
                 final WindowHandler dialog = windowModule.createDialog(filtersPanel, controlPanel);
@@ -174,7 +173,8 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
                 controlPanel.setController((actionType) -> {
                     if (actionType == DefaultControlController.ControlActionType.OK) {
                         // TODO AddonPageFilter filter1 = managerPage.getFilter();
-                        // TODO managerPage.setFilter(filter);
+                        managerPanel.setFilter("category:" + "test");
+                        // activePage.setFilter(filter);
                         activePage.refreshContent();
                     }
 
@@ -185,7 +185,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             }
 
             @Override
-            public void setSearch(String search) {
+            public void performSearch(String search) {
                 List<AddonManagerPage> managerPages = managerPanel.getManagerTabs();
                 for (AddonManagerPage managerPage : managerPages) {
                     AddonPageRefreshFilter filter = managerPage.getFilter();

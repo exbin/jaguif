@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.gui;
 
+import org.exbin.jaguif.addon.manager.filter.gui.CategoryFilterPanel;
 import org.exbin.jaguif.addon.manager.AddonManagerModule;
 import org.exbin.jaguif.utils.TestApplication;
 import org.exbin.jaguif.utils.UtilsModule;

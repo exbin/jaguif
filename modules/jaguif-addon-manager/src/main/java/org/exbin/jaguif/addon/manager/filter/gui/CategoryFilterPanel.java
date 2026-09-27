@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.gui;
+package org.exbin.jaguif.addon.manager.filter.gui;
 
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
@@ -29,6 +29,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.jspecify.annotations.Nullable;
 

@@ -96,7 +96,7 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
                     String newSearch = searchTextField.getText();
                     if (!lastSearch.equals(newSearch)) {
                         lastSearch = newSearch;
-                        controller.setSearch(newSearch);
+                        controller.performSearch(newSearch);
                     }
                 }
             }
@@ -117,6 +117,10 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
 
     public void setCartItemsCount(int itemsCount) {
         ((CartButton) cartButton).setChangesCount(itemsCount);
+    }
+
+    public void setFilter(String filterText) {
+        filterTextLabel.setText(filterText);
     }
 
     public List<AddonManagerPage> getManagerTabs() {
@@ -281,10 +285,10 @@ public class AddonsManagerPanel extends javax.swing.JPanel {
         void changeFilter();
 
         /**
-         * Sets search condition.
+         * Performs search.
          *
          * @param search search condition
          */
-        void setSearch(String search);
+        void performSearch(String search);
     }
 }
