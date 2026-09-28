@@ -106,7 +106,6 @@ public class AddonManagerAction extends AbstractAction {
         });
 
         WindowModuleApi windowModule = App.getModule(WindowModuleApi.class);
-
         final WindowHandler dialog = windowModule.createDialog(addonManagerPanel, controlPanel);
         controlPanel.setController(new AddonsManagerControlPanel.Controller() {
             @Override
@@ -125,7 +124,6 @@ public class AddonManagerAction extends AbstractAction {
                 dialog.close();
             }
         });
-
         windowModule.addHeaderPanel(dialog.getWindow(), addonManagerPanel.getClass(), addonManagerPanel.getResourceBundle());
         windowModule.setWindowTitle(dialog, addonManagerPanel.getResourceBundle());
         dialog.showCentered(dialogParentComponent.getComponent());

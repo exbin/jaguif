@@ -62,7 +62,7 @@ public class AddonOperationService {
     public AddonModificationsOperation performAddonOperations(List<CartOperation> operations) {
         AddonModificationsOperation modifications = createOperation();
         for (CartOperation operation : operations) {
-            if (operation instanceof AddonOperation) {
+            if (!(operation instanceof AddonOperation)) {
                 throw new IllegalStateException();
             }
             

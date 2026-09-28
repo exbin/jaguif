@@ -52,6 +52,7 @@ public class AddonsFilterPanel extends javax.swing.JPanel {
 
         tabbedPane = new javax.swing.JTabbedPane();
 
+        setPreferredSize(new java.awt.Dimension(473, 373));
         setLayout(new java.awt.BorderLayout());
         add(tabbedPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

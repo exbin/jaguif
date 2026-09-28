@@ -427,6 +427,7 @@ public class AddonModificationsOperation {
         return list == null ? Collections.emptyList() : list;
     }
     
+    @SuppressWarnings("unchecked")
     public void addModification(AddonModificationType type, Object identifier) {
         List<?> list = modifications.get(type);
         if (list == null) {
