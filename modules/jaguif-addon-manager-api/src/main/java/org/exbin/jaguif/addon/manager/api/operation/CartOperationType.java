@@ -15,29 +15,9 @@
  */
 package org.exbin.jaguif.addon.manager.api.operation;
 
-import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.jspecify.annotations.NullMarked;
-
 /**
- * Addon operation record.
+ * Cart operation variant.
  */
-@NullMarked
-public class AddonOperation implements CartOperation {
+public interface CartOperationType {
 
-    protected final AddonOperationVariant variant;
-    protected final AddonRecord record;
-
-    public AddonOperation(AddonOperationVariant variant, AddonRecord record) {
-        this.variant = variant;
-        this.record = record;
-    }
-
-    @Override
-    public AddonOperationVariant getVariant() {
-        return variant;
-    }
-
-    public AddonRecord getRecord() {
-        return record;
-    }
 }

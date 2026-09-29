@@ -15,13 +15,29 @@
  */
 package org.exbin.jaguif.addon.manager.api.operation;
 
+import org.exbin.jaguif.addon.manager.api.AddonRecord;
+import org.jspecify.annotations.NullMarked;
+
 /**
- * Addon operation variant.
+ * Addon cart operation.
  */
-public enum AddonOperationVariant implements CartOperationVariant {
-    INSTALL,
-    UPDATE,
-    REMOVE,
-    ENABLE,
-    DISABLE
+@NullMarked
+public class AddonCartOperation implements CartOperation {
+
+    protected final AddonCartOperationType variant;
+    protected final AddonRecord record;
+
+    public AddonCartOperation(AddonCartOperationType variant, AddonRecord record) {
+        this.variant = variant;
+        this.record = record;
+    }
+
+    @Override
+    public AddonCartOperationType getVariant() {
+        return variant;
+    }
+
+    public AddonRecord getRecord() {
+        return record;
+    }
 }

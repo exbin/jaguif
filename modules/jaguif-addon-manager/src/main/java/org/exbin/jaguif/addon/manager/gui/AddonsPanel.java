@@ -23,7 +23,7 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
@@ -89,14 +89,14 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
         addonDetailsPanel.setController(new AddonDetailsPanel.Controller() {
 
             @Override
-            public void addToCart(AddonOperationVariant variant) {
+            public void addToCart(AddonCartOperationType variant) {
                 AddonRecord record = activeRecord;
                 controller.addToCart(record, variant);
                 addonDetailsPanel.updateRecordControlState(record);
             }
 
             @Override
-            public boolean isInCart(String addonId, AddonOperationVariant variant) {
+            public boolean isInCart(String addonId, AddonCartOperationType variant) {
                 return controller.isInCart(addonId, variant);
             }
 

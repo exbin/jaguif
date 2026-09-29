@@ -23,7 +23,7 @@ import javax.swing.JList;
 import javax.swing.UIManager;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 
 /**
@@ -46,7 +46,7 @@ public class AddonCartComponent extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setCartRecord(JList<?> list, AddonOperation addonOperation, boolean isSelected, boolean cellHasFocus) {
+    public void setCartRecord(JList<?> list, AddonCartOperation addonOperation, boolean isSelected, boolean cellHasFocus) {
         AddonRecord addonRecord = addonOperation.getRecord();
         nameLabel.setText(addonRecord.getName());
         iconLabel.setIcon(addonRecord.getIcon().orElse(defaultItemIcon));

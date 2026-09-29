@@ -16,8 +16,12 @@
 package org.exbin.jaguif.addon.manager.api.operation;
 
 /**
- * Cart operation variant.
+ * Addon operation variant.
  */
-public interface CartOperationVariant {
-
+public enum AddonCartOperationType implements CartOperationType {
+    INSTALL,
+    UPDATE,
+    REMOVE,
+    ENABLE,
+    DISABLE
 }

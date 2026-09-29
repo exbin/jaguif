@@ -15,10 +15,10 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import org.exbin.jaguif.addon.manager.api.operation.CartOperationVariant;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 import java.util.List;
 import org.jspecify.annotations.NullMarked;
+import org.exbin.jaguif.addon.manager.api.operation.CartOperationType;
 
 /**
  * Addons management cart controller interface.
@@ -40,7 +40,7 @@ public interface AddonsManagementCartController extends AddonsManagementContext 
      * @param variant cart operation variant
      * @return true if present
      */
-    boolean isInCart(String moduleId, CartOperationVariant variant);
+    boolean isInCart(String moduleId, CartOperationType variant);
 
     /**
      * Returns list of cart operations.

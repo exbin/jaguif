@@ -32,7 +32,7 @@ import javax.swing.text.html.HTMLDocument;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.AddonModuleFileLocation;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
 import org.exbin.jaguif.menu.popup.api.MenuPopupModuleApi;
 import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
@@ -148,8 +148,8 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
     public void updateRecordControlState(AddonRecord addonRecord) {
         controlPanel.removeAll();
         if (addonRecord.isInstalled()) {
-            boolean alreadyRemoved = controller.isInCart(addonRecord.getId(), AddonOperationVariant.REMOVE);
-            boolean alreadyInstalled = controller.isInCart(addonRecord.getId(), AddonOperationVariant.INSTALL);
+            boolean alreadyRemoved = controller.isInCart(addonRecord.getId(), AddonCartOperationType.REMOVE);
+            boolean alreadyInstalled = controller.isInCart(addonRecord.getId(), AddonCartOperationType.INSTALL);
             removeButton.setEnabled(addonRecord.getFileLocation() == AddonModuleFileLocation.ADDON && !alreadyRemoved);
             controlPanel.add(removeButton);
             enablementMode = addonRecord.isEnabled();
@@ -158,7 +158,7 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
             updateButton.setEnabled(addonRecord.isUpdateAvailable() && !alreadyInstalled);
             controlPanel.add(updateButton);
         } else {
-            boolean isInstalled = controller.isInCart(addonRecord.getId(), AddonOperationVariant.INSTALL);
+            boolean isInstalled = controller.isInCart(addonRecord.getId(), AddonCartOperationType.INSTALL);
             installButton.setEnabled(!isInstalled);
             controlPanel.add(installButton);
         }
@@ -282,24 +282,24 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
 
     private void enablementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enablementButtonActionPerformed
         if (enablementMode) {
-            controller.addToCart(AddonOperationVariant.DISABLE);
+            controller.addToCart(AddonCartOperationType.DISABLE);
         } else {
-            controller.addToCart(AddonOperationVariant.ENABLE);
+            controller.addToCart(AddonCartOperationType.ENABLE);
         }
         enablementMode = !enablementMode;
         enablementButton.setText(resourceBundle.getString(enablementMode ? "disableButton.text" : "enableButton.text"));
     }//GEN-LAST:event_enablementButtonActionPerformed
 
     private void installButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_installButtonActionPerformed
-        controller.addToCart(AddonOperationVariant.INSTALL);
+        controller.addToCart(AddonCartOperationType.INSTALL);
     }//GEN-LAST:event_installButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        controller.addToCart(AddonOperationVariant.UPDATE);
+        controller.addToCart(AddonCartOperationType.UPDATE);
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        controller.addToCart(AddonOperationVariant.REMOVE);
+        controller.addToCart(AddonCartOperationType.REMOVE);
     }//GEN-LAST:event_removeButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -327,7 +327,7 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
          *
          * @param variant operation variant
          */
-        void addToCart(AddonOperationVariant variant);
+        void addToCart(AddonCartOperationType variant);
 
         /**
          * Check whether addon operation is in cart.
@@ -336,7 +336,7 @@ public class AddonDetailsPanel extends javax.swing.JPanel {
          * @param variant operation variant
          * @return true if present in cart
          */
-        boolean isInCart(String addonId, AddonOperationVariant variant);
+        boolean isInCart(String addonId, AddonCartOperationType variant);
 
         /**
          * Requests to receive addon module detail.

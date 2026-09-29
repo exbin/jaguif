@@ -26,7 +26,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.event.ListSelectionEvent;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.jspecify.annotations.Nullable;
@@ -53,7 +53,7 @@ public class AddonsCartPanel extends javax.swing.JPanel {
 
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                AddonOperation record = (AddonOperation) value;
+                AddonCartOperation record = (AddonCartOperation) value;
                 component.setCartRecord(list, record, isSelected, cellHasFocus);
                 return component;
             }
@@ -72,17 +72,17 @@ public class AddonsCartPanel extends javax.swing.JPanel {
     }
 
     public void setCartItems(List<CartOperation> cartOperations) {
-        DefaultListModel<AddonOperation> model = (DefaultListModel<AddonOperation>) itemsList.getModel();
+        DefaultListModel<AddonCartOperation> model = (DefaultListModel<AddonCartOperation>) itemsList.getModel();
         model.removeAllElements();
         for (CartOperation cartOperation : cartOperations) {
-            model.addElement((AddonOperation) cartOperation);
+            model.addElement((AddonCartOperation) cartOperation);
         }
         updateState();
     }
 
-    public List<AddonOperation> getCartItems() {
-        List<AddonOperation> items = new ArrayList<>();
-        DefaultListModel<AddonOperation> model = (DefaultListModel<AddonOperation>) itemsList.getModel();
+    public List<AddonCartOperation> getCartItems() {
+        List<AddonCartOperation> items = new ArrayList<>();
+        DefaultListModel<AddonCartOperation> model = (DefaultListModel<AddonCartOperation>) itemsList.getModel();
         for (int i = 0; i < model.getSize(); i++) {
             items.add(model.getElementAt(i));
         }
@@ -227,7 +227,7 @@ public class AddonsCartPanel extends javax.swing.JPanel {
             return;
         }
 
-        DefaultListModel<AddonOperation> model = (DefaultListModel<AddonOperation>) itemsList.getModel();
+        DefaultListModel<AddonCartOperation> model = (DefaultListModel<AddonCartOperation>) itemsList.getModel();
         Arrays.sort(indices);
         for (int i = indices.length - 1; i >= 0; i--) {
             model.remove(indices[i]);
@@ -237,7 +237,7 @@ public class AddonsCartPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JList<AddonOperation> itemsList;
+    private javax.swing.JList<AddonCartOperation> itemsList;
     private javax.swing.JButton removeButton;
     private javax.swing.JButton runButton;
     private javax.swing.JScrollPane scrollPane;
@@ -247,8 +247,16 @@ public class AddonsCartPanel extends javax.swing.JPanel {
 
     public interface Controller {
 
+        /**
+         * Removes items of specified indices from the list.
+         *
+         * @param indices item indices to remove
+         */
         void performRemove(int[] indices);
 
+        /**
+         * Runs cart operations.
+         */
         void runOperations();
     }
 }

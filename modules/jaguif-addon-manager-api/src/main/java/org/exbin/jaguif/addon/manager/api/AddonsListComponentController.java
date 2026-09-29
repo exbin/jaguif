@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -24,13 +24,42 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public interface AddonsListComponentController {
 
+    /**
+     * Returns number of items.
+     *
+     * @return number of items
+     */
     int getItemsCount();
 
+    /**
+     * Returns specific item.
+     *
+     * @param index order index
+     * @return item record
+     */
     AddonRecord getItem(int index);
 
-    void addToCart(AddonRecord itemRecord, AddonOperationVariant variant);
+    /**
+     * Adds item to the cart.
+     *
+     * @param itemRecord item record
+     * @param variant operation variant
+     */
+    void addToCart(AddonRecord itemRecord, AddonCartOperationType variant);
 
-    boolean isInCart(String moduleId, AddonOperationVariant variant);
+    /**
+     * Checks whether item for specific addon is in cart.
+     *
+     * @param moduleId module id
+     * @param variant operation variant
+     * @return true if present in the cart
+     */
+    boolean isInCart(String moduleId, AddonCartOperationType variant);
 
+    /**
+     * Requests item record to be amended with additional details.
+     *
+     * @param itemRecord item record to update
+     */
     void requestModuleDetail(AddonRecord itemRecord);
 }

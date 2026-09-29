@@ -28,5 +28,5 @@ public interface CartOperation {
      *
      * @return operation variant
      */
-    CartOperationVariant getVariant();
+    CartOperationType getVariant();
 }

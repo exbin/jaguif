@@ -16,8 +16,8 @@
 package org.exbin.jaguif.addon.manager;
 
 import org.exbin.jaguif.addon.manager.filter.CategoryManager;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
 import org.exbin.jaguif.addon.manager.page.InstalledAddonsPage;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -42,7 +42,6 @@ import org.exbin.jaguif.addon.manager.api.AddonsManagementCartController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
-import org.exbin.jaguif.addon.manager.api.operation.CartOperationVariant;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationStep;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
 import org.exbin.jaguif.addon.manager.operation.DownloadOperation;
@@ -74,6 +73,7 @@ import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
 import org.exbin.jaguif.window.api.gui.DefaultControlPanel;
+import org.exbin.jaguif.addon.manager.api.operation.CartOperationType;
 
 /**
  * Addon manager.
@@ -267,7 +267,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         UpdateAvailabilityManager availableModuleUpdates = addonsState.getAvailableModuleUpdates();
         for (AddonRecord installedAddon : installedAddons) {
             if (availableModuleUpdates.isUpdateAvailable(installedAddon.getId(), installedAddon.getVersion())) {
-                updateOperations.add(new AddonOperation(AddonOperationVariant.UPDATE, installedAddon));
+                updateOperations.add(new AddonCartOperation(AddonCartOperationType.UPDATE, installedAddon));
             }
         }
 
@@ -466,10 +466,10 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     }
 
     @Override
-    public boolean isInCart(String moduleId, CartOperationVariant variant) {
+    public boolean isInCart(String moduleId, CartOperationType variant) {
         for (CartOperation cartOperation : cartOperations) {
-            if (cartOperation instanceof AddonOperation) {
-                if (moduleId.equals(((AddonOperation) cartOperation).getRecord().getId()) && variant == cartOperation.getVariant()) {
+            if (cartOperation instanceof AddonCartOperation) {
+                if (moduleId.equals(((AddonCartOperation) cartOperation).getRecord().getId()) && variant == cartOperation.getVariant()) {
                     return true;
                 }
             }

@@ -27,7 +27,7 @@ import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationsOperation;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.addon.manager.AddonManager;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
@@ -62,11 +62,11 @@ public class AddonOperationService {
     public AddonModificationsOperation performAddonOperations(List<CartOperation> operations) {
         AddonModificationsOperation modifications = createOperation();
         for (CartOperation operation : operations) {
-            if (!(operation instanceof AddonOperation)) {
+            if (!(operation instanceof AddonCartOperation)) {
                 throw new IllegalStateException();
             }
             
-            AddonOperation addonOperation = (AddonOperation) operation;
+            AddonCartOperation addonOperation = (AddonCartOperation) operation;
             switch (addonOperation.getVariant()) {
                 case INSTALL:
                     modifications.installItem(addonOperation.getRecord());

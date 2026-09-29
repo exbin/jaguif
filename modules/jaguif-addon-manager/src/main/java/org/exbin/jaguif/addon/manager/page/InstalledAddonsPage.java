@@ -21,12 +21,12 @@ import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperation;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
 import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.api.operation.AddonOperationVariant;
+import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
 import org.exbin.jaguif.tabpages.api.AbstractTabPagesComponent;
@@ -78,12 +78,12 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
             }
 
             @Override
-            public void addToCart(AddonRecord addonRecord, AddonOperationVariant variant) {
-                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonOperation(variant, addonRecord));
+            public void addToCart(AddonRecord addonRecord, AddonCartOperationType variant) {
+                ((AddonsManagementCartController) managementContext).addCartOperation(new AddonCartOperation(variant, addonRecord));
             }
 
             @Override
-            public boolean isInCart(String moduleId, AddonOperationVariant variant) {
+            public boolean isInCart(String moduleId, AddonCartOperationType variant) {
                 return ((AddonsManagementCartController) managementContext).isInCart(moduleId, variant);
             }
 
