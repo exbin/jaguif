@@ -15,9 +15,12 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
+import org.jspecify.annotations.NullMarked;
+
 /**
  * Addons management context interface.
  */
+@NullMarked
 public interface AddonsManagementContext {
 
     /**

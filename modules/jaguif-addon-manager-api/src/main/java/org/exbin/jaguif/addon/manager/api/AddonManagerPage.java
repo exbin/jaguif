@@ -32,14 +32,14 @@ public interface AddonManagerPage extends TabPagesComponent {
     void setContext(AddonsManagementContext context);
 
     /**
-     * Returns filter condifion.
+     * Returns filter condition.
      *
-     * @return filter condifion
+     * @return filter condition
      */
     AddonPageRefreshFilter getFilter();
 
     /**
-     * Sets filter condifion.
+     * Sets filter condition.
      *
      * @param filter filter
      */

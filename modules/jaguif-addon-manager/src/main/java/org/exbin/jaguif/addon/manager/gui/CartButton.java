@@ -21,6 +21,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JToggleButton;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addons manager cart button.
@@ -44,7 +45,7 @@ public class CartButton extends JToggleButton {
     }
 
     @Override
-    protected void paintComponent(Graphics graphics) {
+    protected void paintComponent(@Nullable Graphics graphics) {
         if (ui == null || graphics == null) {
             return;
         }

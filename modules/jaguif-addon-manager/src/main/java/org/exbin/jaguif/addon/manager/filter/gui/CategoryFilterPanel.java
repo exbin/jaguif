@@ -122,7 +122,7 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     @NullMarked
-    public class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<CategoryRecord> {
+    public static class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<CategoryRecord> {
 
         @Override
         public Component getListCellRendererComponent(JList<? extends CategoryRecord> list, @Nullable CategoryRecord value, int index, boolean isSelected, boolean cellHasFocus) {
@@ -135,7 +135,7 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
             setBorderPainted(true);
             setBorder(UIManager.getBorder(cellHasFocus ? "List.focusCellHighlightBorder" : "List.noFocusBorder"));
             setText(value == null ? "" : value.getName());
-            setSelected(value == null ? false : value.isSelected());
+            setSelected(value != null && value.isSelected());
 
             return this;
         }
