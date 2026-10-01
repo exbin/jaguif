@@ -27,6 +27,9 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+/**
+ * Utility static methods usable for desktop tasks.
+ */
 @NullMarked
 public class DesktopUtils {
 

@@ -41,6 +41,7 @@ import java.util.logging.Logger;
 import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.AddonApplication;
 import org.exbin.jaguif.addon.AddonModuleFileLocation;
 import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
@@ -233,7 +234,7 @@ public class AddonModificationsOperation {
     @Nullable
     private static String findAddonFileName(String moduleId) {
         // TODO Replace with including file name in module records
-        File targetDirectory = new File(App.getConfigDirectory(), "addons");
+        File targetDirectory = new File(App.getConfigDirectory(), AddonApplication.ADDONS_DIRECTORY);
         if (!targetDirectory.isDirectory()) {
             return null;
         }
