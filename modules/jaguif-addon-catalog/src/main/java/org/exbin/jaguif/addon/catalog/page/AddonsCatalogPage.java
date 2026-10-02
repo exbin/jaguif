@@ -21,6 +21,8 @@ import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.catalog.AddonCatalogModule;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogModuleApi;
 import org.exbin.jaguif.addon.catalog.operation.CatalogSearchOperation;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
@@ -34,6 +36,7 @@ import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponentController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCartController;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementContext;
+import org.exbin.jaguif.addon.manager.api.AddonsManagementLocalState;
 import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityContext;
 import org.exbin.jaguif.context.api.ContextChange;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
@@ -42,6 +45,7 @@ import org.exbin.jaguif.tabpages.api.AbstractTabPagesComponent;
 import org.exbin.jaguif.tabpages.api.ComponentTabPagesContribution;
 import org.exbin.jaguif.tabpages.api.TabPagesComponent;
 import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addons manager page for remote catalog.
@@ -56,7 +60,8 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
     protected AddonCatalogService addonCatalogService;
 
     protected AddonPageRefreshFilter filter = new AddonPageRefreshFilter();
-    protected AddonsManagementContext managementContext;
+    protected @Nullable AddonsManagementContext managementContext;
+    protected @Nullable UpdateAvailabilityManagement availableModuleUpdates;
     protected List<RepositoryAddonRecord> addonItems;
 
     public AddonsCatalogPage() {
@@ -99,7 +104,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
             @Override
             public void register(ContextChangeRegistration registrar) {
                 registrar.registerChangeListener(AddonsManagementContext.class, (instance) -> {
-                    setAddonManager(instance);
+                    setContext(instance);
                 });
                 registrar.registerChangeListener(UpdateAvailabilityContext.class, (instance) -> {
                     setAvailableModuleUpdates((UpdateAvailabilityManagement) instance);
@@ -115,7 +120,9 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
 
     @Override
     public void setContext(AddonsManagementContext context) {
+        this.managementContext = context;
         listComponent.setContext(context);
+        notifyItemsChanged();
     }
 
     public void setAddonCatalogService(AddonCatalogService addonCatalogService) {
@@ -156,7 +163,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         })); */
 
         String search = filter.getSearchCondition();
-        managementContext.runOperation(new CatalogSearchOperation(addonCatalogService, null, null, search, this::setAddonItems));
+        managementContext.runOperation(new CatalogSearchOperation(addonCatalogService, managementContext instanceof AddonsManagementLocalState ? (AddonsManagementLocalState) managementContext : null, availableModuleUpdates, search, this::setAddonItems));
 //        addonsPanel.notifyItemsChanged();
 //        ResourceBundle resourceBundle = addonManager.getResourceBundle();
 //        JOptionPane.showMessageDialog(addonsPanel, resourceBundle.getString("addonServiceApiError.message"), resourceBundle.getString("addonServiceApiError.title"), JOptionPane.ERROR_MESSAGE);
@@ -179,12 +186,8 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         return addonItems.get(index);
     }
 
-    public void setAddonManager(AddonsManagementContext addonsManagement) {
-        this.managementContext = addonsManagement;
-        notifyItemsChanged();
-    }
-
     public void setAvailableModuleUpdates(UpdateAvailabilityManagement availableModuleUpdates) {
+        this.availableModuleUpdates = availableModuleUpdates;
         int itemsCount = getItemsCount();
         for (int i = 0; i < itemsCount; i++) {
             availableModuleUpdates.applyTo(getItem(i));
@@ -209,7 +212,10 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
 
         @Override
         public TabPagesComponent createComponent() {
-            return new AddonsCatalogPage();
+            AddonsCatalogPage addonsCatalogPage = new AddonsCatalogPage();
+            AddonCatalogModuleApi catalogModule = new AddonCatalogModule();
+            addonsCatalogPage.setAddonCatalogService(catalogModule.getCatalogService());
+            return addonsCatalogPage;
         }
 
         @Override

@@ -37,6 +37,13 @@ public interface AddonCatalogModuleApi extends Module {
     void registerSettings();
 
     /**
+     * Returns catalog service.
+     *
+     * @return catalog service
+     */
+    AddonCatalogService getCatalogService();
+
+    /**
      * Returns URL of update data source.
      *
      * @return update URL

@@ -36,6 +36,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.tabpages.api.TabPagesDefinitionManagement;
 import org.exbin.jaguif.tabpages.api.TabPagesModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Addon manager module.
@@ -48,6 +49,7 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
 
     private static boolean devMode = false;
     private String catalogPageUrl = "https://www.exbin.org/";
+    private @Nullable AddonCatalogService catalogService;
 
     public AddonCatalogModule() {
     }
@@ -72,8 +74,12 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
         AddonCatalogModule.devMode = devMode;
     }
 
-    public AddonCatalogService createCatalogService() {
-        return new DefaultAddonCatalogService();
+    @Override
+    public AddonCatalogService getCatalogService() {
+        if (catalogService == null) {
+            catalogService = new DefaultAddonCatalogService();
+        }
+        return catalogService;
     }
 
     @Override

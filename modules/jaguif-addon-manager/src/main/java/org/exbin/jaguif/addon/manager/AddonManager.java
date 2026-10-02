@@ -67,6 +67,7 @@ import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
+import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityContext;
 import org.exbin.jaguif.addon.manager.gui.AddonsFilterPanel;
 import org.exbin.jaguif.addon.manager.filter.gui.CategoryFilterPanel;
 import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
@@ -214,7 +215,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         TabPages tabPages = managerPanel.createTabPagesWrapper();
         ContextStateManagement contextManagement = contextModule.createStateManager();
         contextManagement.changeActiveState(AddonsManagementContext.class, this);
-        // contextManagement.changeActiveState(UpdateAvailabilityContext.class, this);
+        contextManagement.changeActiveState(UpdateAvailabilityContext.class, getAvailableModuleUpdates());
         ContextMonitoringManagement monitoringManagement = contextModule.createMonitoringManager(contextManagement);
         ContextMonitoringRegistration contextRegistrator = contextModule.createMonitoringRegistrator(monitoringManagement, contextManagement);
         tabPagesModule.buildTabPages(tabPages, AddonManagerModuleApi.ADDON_MANAGER_TABPAGES_ID, contextRegistrator);

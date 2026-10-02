@@ -41,7 +41,6 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
-import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 
 /**
  * Installed addons manager page.

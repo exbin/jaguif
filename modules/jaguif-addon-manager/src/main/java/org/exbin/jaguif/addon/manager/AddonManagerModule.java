@@ -25,6 +25,7 @@ import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.contribution.AddonManagerContribution;
 import org.exbin.jaguif.addon.manager.gui.AddonsPanel;
+import org.exbin.jaguif.addon.manager.service.LocalAddonResolutionService;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerOptions;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerSettingsComponent;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
@@ -88,6 +89,7 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     public AddonManager getAddonManager() {
         if (addonManager == null) {
             addonManager = new AddonManager();
+            // TODO addonManager.setResolutionService(new LocalAddonResolutionService());
         }
         return addonManager;
     }
