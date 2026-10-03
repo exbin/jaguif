@@ -19,27 +19,27 @@ import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Addon catalog service exception.
+ * Addon operation resolution exception.
  */
 @NullMarked
-public class AddonResolutionServiceException extends Exception {
+public class AddonResolutionException extends Exception {
 
-    public AddonResolutionServiceException() {
+    public AddonResolutionException() {
     }
 
-    public AddonResolutionServiceException(String string) {
+    public AddonResolutionException(String string) {
         super(string);
     }
 
-    public AddonResolutionServiceException(String string, @Nullable Throwable thrwbl) {
+    public AddonResolutionException(String string, @Nullable Throwable thrwbl) {
         super(string, thrwbl);
     }
 
-    public AddonResolutionServiceException(@Nullable Throwable thrwbl) {
+    public AddonResolutionException(@Nullable Throwable thrwbl) {
         super(thrwbl);
     }
 
-    public AddonResolutionServiceException(String string, @Nullable Throwable thrwbl, boolean enableSuppression, boolean writableStackTrace) {
+    public AddonResolutionException(String string, @Nullable Throwable thrwbl, boolean enableSuppression, boolean writableStackTrace) {
         super(string, thrwbl, enableSuppression, writableStackTrace);
     }
 }

@@ -30,11 +30,11 @@ import org.exbin.jaguif.addon.manager.AddonManager;
 import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
-import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionException;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperation;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionManagement;
 
 /**
  * Addon operation service.
@@ -45,7 +45,7 @@ public class AddonOperationService {
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonOperationService.class);
 
     protected final AddonManager addonManager;
-    protected @Nullable AddonResolutionService resolutionService;
+    protected @Nullable AddonResolutionManagement resolutionManagement;
 
     public AddonOperationService(AddonManager addonManager) {
         this.addonManager = addonManager;
@@ -55,8 +55,8 @@ public class AddonOperationService {
         return resourceBundle;
     }
 
-    public void setResolutionService(AddonResolutionService resolutionService) {
-        this.resolutionService = resolutionService;
+    public void setResolutionManagement(AddonResolutionManagement resolutionManagement) {
+        this.resolutionManagement = resolutionManagement;
     }
 
     public AddonModificationsOperation performAddonOperations(List<CartOperation> operations) {
@@ -93,9 +93,9 @@ public class AddonOperationService {
         AddonModificationsOperation operation = createOperation();
         RepositoryAddonRecord addonRecord;
         try {
-            addonRecord = resolutionService.getAddonDependency(item.getId());
+            addonRecord = resolutionManagement.getAddonDependency(item.getId());
             operation.updateItem(addonRecord, item);
-        } catch (AddonResolutionServiceException ex) {
+        } catch (AddonResolutionException ex) {
             Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return operation;
@@ -115,9 +115,9 @@ public class AddonOperationService {
                 if (addon.isUpdateAvailable()) {
                     RepositoryAddonRecord addonRecord;
                     try {
-                        addonRecord = resolutionService.getAddonDependency(addon.getId());
+                        addonRecord = resolutionManagement.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
-                    } catch (AddonResolutionServiceException ex) {
+                    } catch (AddonResolutionException ex) {
                         Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -126,9 +126,9 @@ public class AddonOperationService {
             for (String addonId : toInstall) {
                 RepositoryAddonRecord addonRecord;
                 try {
-                    addonRecord = resolutionService.getAddonDependency(addonId);
+                    addonRecord = resolutionManagement.getAddonDependency(addonId);
                     operation.installItem(addonRecord);
-                } catch (AddonResolutionServiceException ex) {
+                } catch (AddonResolutionException ex) {
                     Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -144,9 +144,9 @@ public class AddonOperationService {
                 if (addon.isUpdateAvailable()) {
                     RepositoryAddonRecord addonRecord;
                     try {
-                        addonRecord = resolutionService.getAddonDependency(addon.getId());
+                        addonRecord = resolutionManagement.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
-                    } catch (AddonResolutionServiceException ex) {
+                    } catch (AddonResolutionException ex) {
                         Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -156,9 +156,9 @@ public class AddonOperationService {
                 if (toUpdate.contains(addon.getId())) {
                     RepositoryAddonRecord addonRecord;
                     try {
-                        addonRecord = resolutionService.getAddonDependency(addon.getId());
+                        addonRecord = resolutionManagement.getAddonDependency(addon.getId());
                         operation.updateItem(addonRecord, addon);
-                    } catch (AddonResolutionServiceException ex) {
+                    } catch (AddonResolutionException ex) {
                         Logger.getLogger(AddonOperationService.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -170,6 +170,6 @@ public class AddonOperationService {
     private AddonModificationsOperation createOperation() {
         AddonUpdateChangesManagement addonUpdateChanges = addonManager.getAddonUpdateChanges();
         ApplicationModulesUsage applicationModulesUsage = addonManager.getApplicationModulesUsage();
-        return new AddonModificationsOperation(resolutionService, applicationModulesUsage, addonUpdateChanges);
+        return new AddonModificationsOperation(resolutionManagement, applicationModulesUsage, addonUpdateChanges);
     }
 }

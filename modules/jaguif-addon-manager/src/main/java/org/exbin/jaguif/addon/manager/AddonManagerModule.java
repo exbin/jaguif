@@ -25,7 +25,6 @@ import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.contribution.AddonManagerContribution;
 import org.exbin.jaguif.addon.manager.gui.AddonsPanel;
-import org.exbin.jaguif.addon.manager.service.LocalAddonResolutionService;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerOptions;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerSettingsComponent;
 import org.exbin.jaguif.contribution.api.PositionSequenceContributionRule;
@@ -38,6 +37,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContribution;
 import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionManagement;
 
 /**
  * Addon manager module.
@@ -50,6 +50,7 @@ public class AddonManagerModule implements AddonManagerModuleApi {
 
     private @Nullable AddonManager addonManager = null;
     private @Nullable CategoryManager categoryManager = null;
+    private @Nullable AddonResolutionManagement resolutionManager = new LocalAddonResolutionManager();
 
     public AddonManagerModule() {
     }
@@ -89,7 +90,7 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     public AddonManager getAddonManager() {
         if (addonManager == null) {
             addonManager = new AddonManager();
-            // TODO addonManager.setResolutionService(new LocalAddonResolutionService());
+            addonManager.setResolutionManagement(resolutionManager);
         }
         return addonManager;
     }
@@ -99,6 +100,17 @@ public class AddonManagerModule implements AddonManagerModuleApi {
             categoryManager = new CategoryManager();
         }
         return categoryManager;
+    }
+
+    public AddonResolutionManagement getResolutionManager() {
+        return resolutionManager;
+    }
+
+    public void setResolutionManager(AddonResolutionManagement resolutionManager) {
+        this.resolutionManager = resolutionManager;
+        if (addonManager != null) {
+            addonManager.setResolutionManagement(resolutionManager);
+        }
     }
 
     @Override

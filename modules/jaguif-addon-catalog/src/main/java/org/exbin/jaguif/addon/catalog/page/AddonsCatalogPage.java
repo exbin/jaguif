@@ -123,6 +123,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
         this.managementContext = context;
         listComponent.setContext(context);
         notifyItemsChanged();
+        refreshContent();
     }
 
     public void setAddonCatalogService(AddonCatalogService addonCatalogService) {

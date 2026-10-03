@@ -65,7 +65,6 @@ import org.exbin.jaguif.context.api.ContextStateManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringManagement;
 import org.exbin.jaguif.context.api.ContextMonitoringRegistration;
 import org.jspecify.annotations.Nullable;
-import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
 import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityContext;
 import org.exbin.jaguif.addon.manager.gui.AddonsFilterPanel;
@@ -75,6 +74,7 @@ import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
 import org.exbin.jaguif.window.api.gui.DefaultControlPanel;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperationType;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionManagement;
 
 /**
  * Addon manager.
@@ -87,7 +87,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     protected @Nullable AddonsManagerPanel managerPanel;
     protected final List<CartOperation> cartOperations = new ArrayList<>();
 
-    protected @Nullable AddonResolutionService resolutionService;
+    protected @Nullable AddonResolutionManagement resolutionManagement;
     protected String catalogWebsiteUrl = "";
     protected final AddonsState addonsState = new AddonsState();
     protected @Nullable AddonManagerStatusListener statusListener;
@@ -230,8 +230,8 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         pagesDefinitions.registerTabPagesContribution(new InstalledAddonsPage.Contribution());
     }
 
-    public void setResolutionService(AddonResolutionService resolutionService) {
-        this.resolutionService = resolutionService;
+    public void setResolutionManagement(AddonResolutionManagement resolutionManagement) {
+        this.resolutionManagement = resolutionManagement;
     }
 
     public void setCatalogWebsiteUrl(String catalogWebsiteUrl) {
@@ -273,7 +273,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         }
 
         AddonOperationService addonOperationService = new AddonOperationService(AddonManager.this);
-        addonOperationService.setResolutionService(resolutionService);
+        addonOperationService.setResolutionManagement(resolutionManagement);
         AddonModificationsOperation modificationsOperations = addonOperationService.performAddonOperations(updateOperations);
         if (performAddonsOperation(modificationsOperations, managerPanel)) {
             notifyChanged();
@@ -327,7 +327,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
 
     public void runCartModifications() {
         AddonOperationService addonOperationService = new AddonOperationService(AddonManager.this);
-        addonOperationService.setResolutionService(resolutionService);
+        addonOperationService.setResolutionManagement(resolutionManagement);
         AddonModificationsOperation modificationsOperations = addonOperationService.performAddonOperations(cartOperations);
         if (performAddonsOperation(modificationsOperations, managerPanel)) {
             cartOperations.clear();

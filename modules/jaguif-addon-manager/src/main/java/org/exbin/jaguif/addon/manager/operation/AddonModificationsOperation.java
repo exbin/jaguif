@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.operation;
 
+import org.exbin.jaguif.addon.manager.api.LocalAddonModificationType;
 import org.exbin.jaguif.addon.update.api.AddonModificationType;
 import org.exbin.jaguif.addon.update.api.AddonModification;
 import org.exbin.jaguif.addon.manager.ApplicationModulesUsage;
@@ -47,26 +48,27 @@ import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.DependencyRecord;
 import org.exbin.jaguif.addon.manager.DownloadItemRecord;
 import org.exbin.jaguif.addon.manager.LicenseItemRecord;
+import org.exbin.jaguif.addon.manager.api.AddonOperationsProcessing;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
-import org.exbin.jaguif.addon.manager.api.AddonResolutionServiceException;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionException;
 import org.exbin.jaguif.addon.manager.settings.AddonManagerOptions;
 import org.exbin.jaguif.basic.BasicModuleProvider;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.options.api.OptionsModuleApi;
-import org.exbin.jaguif.addon.manager.api.AddonResolutionService;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
+import org.exbin.jaguif.addon.manager.api.AddonResolutionManagement;
 
 /**
  * Addon modifications operation.
  */
 @NullMarked
-public class AddonModificationsOperation {
+public class AddonModificationsOperation implements AddonOperationsProcessing {
 
     protected static final String MAVEN_CENTRAL_URL = "https://repo1.maven.org/maven2/";
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonModificationsOperation.class);
 
     protected final String primarySpdxLicense = "Apache-2.0";
-    protected final AddonResolutionService resolutionService;
+    protected final AddonResolutionManagement resolutionManagement;
     protected final AddonUpdateChangesManagement addonUpdateChanges;
     protected final ApplicationModulesUsage applicationModulesUsage;
     protected final List<LicenseItemRecord> licenseRecords = new ArrayList<>();
@@ -75,8 +77,8 @@ public class AddonModificationsOperation {
 
     protected final Map<AddonModificationType, List<?>> modifications = new HashMap<>();
 
-    public AddonModificationsOperation(AddonResolutionService resolutionService, ApplicationModulesUsage applicationModulesUsage, AddonUpdateChangesManagement addonUpdateChanges) {
-        this.resolutionService = resolutionService;
+    public AddonModificationsOperation(AddonResolutionManagement resolutionManagement, ApplicationModulesUsage applicationModulesUsage, AddonUpdateChangesManagement addonUpdateChanges) {
+        this.resolutionManagement = resolutionManagement;
         this.applicationModulesUsage = applicationModulesUsage;
         this.addonUpdateChanges = addonUpdateChanges;
     }
@@ -123,8 +125,8 @@ public class AddonModificationsOperation {
     public List<LicenseItemRecord> getLicenseRecords() {
         for (LicenseItemRecord record : licenseRecords) {
             try {
-                record.setUrl(resolutionService.getLicenseDownloadUrl(record.getRemoteFile()));
-            } catch (AddonResolutionServiceException ex) {
+                record.setUrl(resolutionManagement.getLicenseDownloadUrl(record.getRemoteFile()));
+            } catch (AddonResolutionException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -139,9 +141,9 @@ public class AddonModificationsOperation {
             String moduleFile = (String) identifier;
             DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, moduleFile), moduleFile);
             try {
-                record.setUrl(resolutionService.getFileDownloadUrl(moduleFile));
+                record.setUrl(resolutionManagement.getFileDownloadUrl(moduleFile));
                 downloadRecords.add(record);
-            } catch (AddonResolutionServiceException ex) {
+            } catch (AddonResolutionException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -150,9 +152,9 @@ public class AddonModificationsOperation {
             String library = (String) identifier;
             DownloadItemRecord record = new DownloadItemRecord(String.format(downloadItemDescription, library), library);
             try {
-                record.setUrl(resolutionService.getFileDownloadUrl(library));
+                record.setUrl(resolutionManagement.getFileDownloadUrl(library));
                 downloadRecords.add(record);
-            } catch (AddonResolutionServiceException ex) {
+            } catch (AddonResolutionException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -179,9 +181,8 @@ public class AddonModificationsOperation {
             }
             processAddonLicense((RepositoryAddonRecord) item);
             try {
-                addModification(resolutionService.getAddonFile(addonId));
-                addModification(LocalAddonModificationType.INSTALL_ADDON, addonId);
-            } catch (AddonResolutionServiceException ex) {
+                resolutionManagement.installAddon(this, addonId);
+            } catch (AddonResolutionException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
             addAddonDependencies((RepositoryAddonRecord) item);
@@ -205,8 +206,8 @@ public class AddonModificationsOperation {
                 }
             }
             try {
-                addModification(resolutionService.getAddonFile(item.getId()));
-            } catch (AddonResolutionServiceException ex) {
+                resolutionManagement.updateAddon(this, addonId);
+            } catch (AddonResolutionException ex) {
                 Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
             }
             addAddonDependencies((RepositoryAddonRecord) item);
@@ -314,12 +315,11 @@ public class AddonModificationsOperation {
                     if (include) {
                         RepositoryAddonRecord addonRecord;
                         try {
-                            addonRecord = resolutionService.getAddonDependency(dependencyId);
-                            addModification(LocalAddonModificationType.DEPENDENCY_ADDON, addonRecord.getId());
+                            addonRecord = resolutionManagement.getAddonDependency(dependencyId);
+                            resolutionManagement.installDependency(this, addonRecord.getId());
                             processAddonLicense(addonRecord);
-                            addModification(resolutionService.getAddonFile(addonRecord.getId()));
                             dependencies.addAll(addonRecord.getDependencies());
-                        } catch (AddonResolutionServiceException ex) {
+                        } catch (AddonResolutionException ex) {
                             Logger.getLogger(AddonModificationsOperation.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
@@ -437,7 +437,19 @@ public class AddonModificationsOperation {
         }
         ((List) list).add(identifier);
     }
+
+    @Override
+    public boolean isLocalModule(String moduleId) {
+        // TODO Support for installation from local file
+        return false;
+    }
     
+    @Override
+    public void addModification(AddonModificationType type, String moduleId) {
+        addModification(type, (Object) moduleId);
+    }
+
+    @Override
     public void addModification(AddonModification modification) {
         if (LocalAddonModificationType.NO_ACTION.equals(modification.getModificationType())) {
             return;
