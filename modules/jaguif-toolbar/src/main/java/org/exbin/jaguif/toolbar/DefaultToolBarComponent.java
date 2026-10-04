@@ -18,14 +18,12 @@ package org.exbin.jaguif.toolbar;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import javax.swing.JComponent;
-import jdk.nashorn.internal.ir.annotations.Immutable;
 import org.exbin.jaguif.toolbar.api.ToolBarComponent;
 
 /**
  * Default toolbar definition manager.
  */
 @NullMarked
-@Immutable
 public class DefaultToolBarComponent implements ToolBarComponent {
 
     private final JComponent component;

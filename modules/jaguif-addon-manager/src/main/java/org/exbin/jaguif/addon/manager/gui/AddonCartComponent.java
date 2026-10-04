@@ -21,6 +21,8 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.UIManager;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
@@ -32,6 +34,7 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class AddonCartComponent extends javax.swing.JPanel {
 
+    private static final Border DEFAULT_NO_FOCUS_BORDER = new EmptyBorder(1, 1, 1, 1);
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonCartComponent.class);
     protected final ImageIcon defaultItemIcon;
     protected final ImageIcon installVariantIcon;
@@ -59,7 +62,16 @@ public class AddonCartComponent extends javax.swing.JPanel {
             setBackground(list.getBackground());
             setForeground(list.getForeground());
         }
-        setBorder(UIManager.getBorder(cellHasFocus ? "List.focusCellHighlightBorder" : "List.noFocusBorder"));
+        Border border;
+        if (cellHasFocus) {
+            border = UIManager.getBorder(isSelected ? "List.focusSelectedCellHighlightBorder" : "List.focusCellHighlightBorder");
+        } else {
+            border = UIManager.getBorder("List.cellNoFocusBorder");
+        }
+        if (border == null) {
+            border = DEFAULT_NO_FOCUS_BORDER;
+        }
+        setBorder(border);
         switch (addonOperation.getVariant()) {
             case INSTALL:
                 variantLabel.setIcon(installVariantIcon);

@@ -72,7 +72,6 @@ public class AddonManagerAction extends AbstractAction {
         AddonManagerModuleApi addonManagerModule = App.getModule(AddonManagerModuleApi.class);
         AddonManager addonManager = ((AddonManagerModule) addonManagerModule).getAddonManager();
         AddonsManagerPanel addonManagerPanel = addonManager.getManagerPanel();
-        addonManager.refreshContent();
         addonManager.setStatusListener(new AddonManager.AddonManagerStatusListener() {
             @Override
             public void setProgressStatus(String status) {
@@ -104,6 +103,7 @@ public class AddonManagerAction extends AbstractAction {
                 controlPanel.setConnectionFailed();
             }
         });
+        addonManager.refreshContent();
 
         WindowModuleApi windowModule = App.getModule(WindowModuleApi.class);
         final WindowHandler dialog = windowModule.createDialog(addonManagerPanel, controlPanel);

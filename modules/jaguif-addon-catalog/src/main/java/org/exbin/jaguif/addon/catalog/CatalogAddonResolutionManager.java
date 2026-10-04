@@ -30,7 +30,7 @@ import org.exbin.jaguif.addon.manager.api.LocalAddonModificationType;
  */
 @NullMarked
 public class CatalogAddonResolutionManager implements AddonResolutionManagement {
-    
+
     protected DefaultAddonCatalogService addonCatalogService;
 
     public CatalogAddonResolutionManager(DefaultAddonCatalogService addonCatalogService) {
@@ -43,9 +43,13 @@ public class CatalogAddonResolutionManager implements AddonResolutionManagement 
             processing.addModification(LocalAddonModificationType.INSTALL_ADDON, moduleId);
             return;
         }
-        
-        processing.addModification(LocalAddonModificationType.DOWNLOAD_MODULE, moduleId);
-        processing.addModification(LocalAddonModificationType.INSTALL_ADDON, moduleId);
+
+        try {
+            processing.addModification(LocalAddonModificationType.DOWNLOAD_MODULE, addonCatalogService.getAddonFile(moduleId));
+            processing.addModification(LocalAddonModificationType.INSTALL_ADDON, moduleId);
+        } catch (AddonCatalogServiceException ex) {
+            throw new AddonResolutionException(ex);
+        }
     }
 
     @Override
@@ -53,8 +57,12 @@ public class CatalogAddonResolutionManager implements AddonResolutionManagement 
         if (processing.isLocalModule(moduleId)) {
             return;
         }
-        
-        processing.addModification(LocalAddonModificationType.DOWNLOAD_MODULE, moduleId);
+
+        try {
+            processing.addModification(LocalAddonModificationType.DOWNLOAD_MODULE, addonCatalogService.getAddonFile(moduleId));
+        } catch (AddonCatalogServiceException ex) {
+            throw new AddonResolutionException(ex);
+        }
     }
 
     @Override
@@ -63,9 +71,13 @@ public class CatalogAddonResolutionManager implements AddonResolutionManagement 
             processing.addModification(LocalAddonModificationType.DEPENDENCY_ADDON, moduleId);
             return;
         }
-        
-        processing.addModification(LocalAddonModificationType.DOWNLOAD_MODULE, moduleId);
-        processing.addModification(LocalAddonModificationType.DEPENDENCY_ADDON, moduleId);
+
+        try {
+            processing.addModification(LocalAddonModificationType.DOWNLOAD_MODULE, addonCatalogService.getAddonFile(moduleId));
+            processing.addModification(LocalAddonModificationType.DEPENDENCY_ADDON, moduleId);
+        } catch (AddonCatalogServiceException ex) {
+            throw new AddonResolutionException(ex);
+        }
     }
 
     @Override

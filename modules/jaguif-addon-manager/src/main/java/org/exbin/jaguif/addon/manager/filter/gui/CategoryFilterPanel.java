@@ -25,6 +25,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.UIManager;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
@@ -53,7 +55,7 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
                 if (event.getX() < 20) {
                     int index = categoriesList.locationToIndex(event.getPoint());
                     if (index >= 0) {
-                        CategoryRecord item = (CategoryRecord) categoriesList.getModel().getElementAt(index);
+                        CategoryRecord item = categoriesList.getModel().getElementAt(index);
                         item.setSelected(!item.isSelected());
                         categoriesList.repaint(categoriesList.getCellBounds(index, index));
                     }
@@ -124,6 +126,8 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
     @NullMarked
     public static class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<CategoryRecord> {
 
+        private static final Border DEFAULT_NO_FOCUS_BORDER = new EmptyBorder(1, 1, 1, 1);
+
         @Override
         public Component getListCellRendererComponent(JList<? extends CategoryRecord> list, @Nullable CategoryRecord value, int index, boolean isSelected, boolean cellHasFocus) {
             setEnabled(list.isEnabled());
@@ -133,7 +137,16 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
             setForeground(isSelected ? list.getSelectionForeground() : list.getForeground());
             setFocusPainted(cellHasFocus);
             setBorderPainted(true);
-            setBorder(UIManager.getBorder(cellHasFocus ? "List.focusCellHighlightBorder" : "List.noFocusBorder"));
+            Border border;
+            if (cellHasFocus) {
+                border = UIManager.getBorder(isSelected ? "List.focusSelectedCellHighlightBorder" : "List.focusCellHighlightBorder");
+            } else {
+                border = UIManager.getBorder("List.cellNoFocusBorder");
+            }
+            if (border == null) {
+                border = DEFAULT_NO_FOCUS_BORDER;
+            }
+            setBorder(border);
             setText(value == null ? "" : value.getName());
             setSelected(value != null && value.isSelected());
 

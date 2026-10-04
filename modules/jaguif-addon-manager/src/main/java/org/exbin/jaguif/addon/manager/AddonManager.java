@@ -102,10 +102,11 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     public void runOperation(Runnable operation) {
         operationsExecutor.submit(() -> {
             if (operation instanceof TitledOperation) {
+                String title = ((TitledOperation) operation).getTitle();
                 if (operation instanceof ProgressOperation) {
-                    statusListener.setProgressStatus(((TitledOperation) operation).getTitle());
+                    statusListener.setProgressStatus(title);
                 } else {
-                    statusListener.setStatusLabel(((TitledOperation) operation).getTitle());
+                    statusListener.setStatusLabel(title);
                 }
             }
 
@@ -117,6 +118,7 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     public void notifyChanged() {
         AddonManagerPage managerTab = managerPanel.getActiveTab();
         managerTab.refreshContent();
+        managerPanel.setCartItemsCount(cartOperations.size());
     }
 
     public void addManagerPage(ComponentTabPagesContribution pageContribution) {
@@ -328,10 +330,18 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
     public void runCartModifications() {
         AddonOperationService addonOperationService = new AddonOperationService(AddonManager.this);
         addonOperationService.setResolutionManagement(resolutionManagement);
-        AddonModificationsOperation modificationsOperations = addonOperationService.performAddonOperations(cartOperations);
-        if (performAddonsOperation(modificationsOperations, managerPanel)) {
-            cartOperations.clear();
-            notifyChanged();
+        try {
+            AddonModificationsOperation modificationsOperations = addonOperationService.performAddonOperations(cartOperations);
+            if (performAddonsOperation(modificationsOperations, managerPanel)) {
+                cartOperations.clear();
+                notifyChanged();
+            }
+        } catch (Throwable tw) {
+            JOptionPane.showMessageDialog(managerPanel,
+                    String.format(resourceBundle.getString("operationFailedError.message"), tw.getLocalizedMessage()),
+                    resourceBundle.getString("operationFailedError.title"),
+                    JOptionPane.ERROR_MESSAGE
+            );
         }
     }
 
