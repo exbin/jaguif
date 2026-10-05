@@ -16,9 +16,12 @@
 package org.exbin.jaguif.addon.manager.gui;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JToggleButton;
 import org.jspecify.annotations.Nullable;
@@ -30,6 +33,8 @@ import org.jspecify.annotations.Nullable;
 public class CartButton extends JToggleButton {
 
     protected int changesCount = 0;
+    protected @Nullable ImageIcon leftIcon = null;
+    protected @Nullable String centerText = null;
     protected final Color changesCountFg = new Color(255, 255, 201);
     protected final Color noChangesFg = Color.BLACK;
     protected final Color changesCountBg = new Color(16, 163, 16);
@@ -37,26 +42,77 @@ public class CartButton extends JToggleButton {
 
     public CartButton() {
         super();
+        updateWrapper();
+    }
+
+    public void setLeftIcon(@Nullable ImageIcon leftIcon) {
+        this.leftIcon = leftIcon;
+        updateWrapper();
+    }
+
+    public void setCenterText(@Nullable String centerText) {
+        this.centerText = centerText;
+        updateWrapper();
     }
 
     @Override
-    public void setText(String text) {
-        super.setText(text + "      ");
+    public void setIconTextGap(int iconTextGap) {
+        super.setIconTextGap(iconTextGap);
+        updateWrapper();
+    }
+    
+    
+    private void updateWrapper() {
+        setIcon(new WrapperIcon());
     }
 
-    @Override
-    protected void paintComponent(@Nullable Graphics graphics) {
-        if (ui == null || graphics == null) {
-            return;
+    public void setChangesCount(int changesCount) {
+        this.changesCount = changesCount;
+        repaint();
+    }
+
+    private class WrapperIcon implements Icon {
+        int width;
+        int height;
+        
+        private WrapperIcon() {
+            width = 25;
+            if (leftIcon != null) {
+                width += leftIcon.getIconWidth() + getIconTextGap();
+            }
+            if (centerText != null) {
+                char[] changesCharArray = centerText.toCharArray();
+                FontMetrics fontMetrics = getFontMetrics(getFont());
+                int textWidth = fontMetrics.charsWidth(changesCharArray, 0, changesCharArray.length);
+                width += textWidth + getIconTextGap();
+            }
+
+            height = 20;
+            if (leftIcon != null && leftIcon.getIconHeight() > height) {
+                height = leftIcon.getIconHeight();
+            }
         }
 
-        Graphics g = graphics.create();
-        try {
-            ui.update(g, this);
-            int x = getWidth() - 34;
-            int y = getHeight() / 2 - 10;
+        @Override
+        public void paintIcon(Component c, Graphics g, int x, int y) {
+            int textX = x;
+            if (leftIcon != null) {
+                g.drawImage(leftIcon.getImage(), x, y, null);
+                textX += leftIcon.getIconWidth() + getIconTextGap();
+            }
+            if (centerText != null) {
+                Font font = getFont();
+                int fontSize = font.getSize();
+                int textY = y + (height / 2) + (fontSize / 2);
+                g.setFont(font);
+                g.setColor(getForeground());
+                g.drawString(centerText, textX, textY);
+            }
+
+            int counterX = x + width - 25;
+            int counterY = y + height / 2 - 10;
             g.setColor(changesCount == 0 ? noChangesBg : changesCountBg);
-            g.fillOval(x, y, 25, 20);
+            g.fillOval(counterX, counterY, 25, 20);
             g.setColor(changesCount == 0 ? noChangesFg : changesCountFg);
             Font font = getFont().deriveFont(Font.BOLD);
             g.setFont(font);
@@ -64,14 +120,17 @@ public class CartButton extends JToggleButton {
             String text = changesCount > 99 ? "+" : String.valueOf(changesCount);
             char[] changesCharArray = text.toCharArray();
             int textWidth = fontMetrics.charsWidth(changesCharArray, 0, changesCharArray.length);
-            g.drawString(text, x + 13 - textWidth / 2, y + 15);
-        } finally {
-            g.dispose();
+            g.drawString(text, counterX + 13 - textWidth / 2, counterY + 15);
         }
-    }
 
-    public void setChangesCount(int changesCount) {
-        this.changesCount = changesCount;
-        repaint();
+        @Override
+        public int getIconWidth() {
+            return width;
+        }
+
+        @Override
+        public int getIconHeight() {
+            return height;
+        }
     }
 }
