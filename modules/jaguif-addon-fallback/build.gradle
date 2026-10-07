@@ -28,7 +28,7 @@ dependencies {
     api moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-addon-manager-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'core', 'jaguif-core')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'core', 'jaguif-basic')
-    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-addon-manager')
+    implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-addon-catalog-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-action-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-menu-popup-api')
     implementation moduleDep('Jaguif', 'org.exbin.jaguif', 'modules', 'jaguif-window-api')

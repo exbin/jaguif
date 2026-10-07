@@ -17,10 +17,12 @@ package org.exbin.jaguif.addon.manager.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JComponent;
+import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
 import javax.swing.JList;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
@@ -102,7 +104,9 @@ public class AddonsPanel extends javax.swing.JPanel implements AddonsListCompone
 
             @Override
             public void requestModuleDetail(AddonRecord itemRecord) {
-                controller.requestModuleDetail(itemRecord);
+                controller.requestModuleDetail(itemRecord, (detail) -> {
+                    addonDetailsPanel.setModuleDetail(itemRecord, detail);
+                });
             }
         });
     }

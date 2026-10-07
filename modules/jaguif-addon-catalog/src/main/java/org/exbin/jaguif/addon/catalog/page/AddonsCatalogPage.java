@@ -18,6 +18,7 @@ package org.exbin.jaguif.addon.catalog.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
@@ -25,6 +26,7 @@ import org.exbin.jaguif.addon.catalog.AddonCatalogModule;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogModuleApi;
 import org.exbin.jaguif.addon.catalog.operation.CatalogSearchOperation;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
+import org.exbin.jaguif.addon.catalog.operation.CatalogModuleDetailOperation;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.RepositoryAddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
@@ -94,8 +96,10 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
             }
 
             @Override
-            public void requestModuleDetail(AddonRecord addonRecord) {
-                // TODO addonManager.requestModuleDetail(addonRecord, addonsPanel);
+            public void requestModuleDetail(AddonRecord addonRecord, Consumer<String> detailOutput) {
+                managementContext.runOperation(new CatalogModuleDetailOperation(addonCatalogService, addonRecord, (details) -> {
+                    detailOutput.accept(details);
+                }));
             }
         });
         itemChangedListeners.add((ItemChangedListener) listComponent::notifyItemChanged);

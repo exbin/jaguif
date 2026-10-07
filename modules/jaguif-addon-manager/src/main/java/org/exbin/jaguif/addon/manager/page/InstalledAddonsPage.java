@@ -18,6 +18,7 @@ package org.exbin.jaguif.addon.manager.page;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.JComponent;
 import org.exbin.jaguif.App;
@@ -87,7 +88,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
             }
 
             @Override
-            public void requestModuleDetail(AddonRecord addonRecord) {
+            public void requestModuleDetail(AddonRecord addonRecord, Consumer<String> detailOutput) {
                 // TODO addonManager.requestModuleDetail(addonRecord, addonsPanel);
             }
         });

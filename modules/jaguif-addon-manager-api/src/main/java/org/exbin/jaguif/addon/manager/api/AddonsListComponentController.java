@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
+import java.util.function.Consumer;
 import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
 import org.jspecify.annotations.NullMarked;
 
@@ -60,6 +61,7 @@ public interface AddonsListComponentController {
      * Requests item record to be amended with additional details.
      *
      * @param itemRecord item record to update
+     * @param detailOutput detail output
      */
-    void requestModuleDetail(AddonRecord itemRecord);
+    void requestModuleDetail(AddonRecord itemRecord, Consumer<String> detailOutput);
 }
