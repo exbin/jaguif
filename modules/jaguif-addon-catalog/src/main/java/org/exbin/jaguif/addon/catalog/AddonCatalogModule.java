@@ -15,13 +15,10 @@
  */
 package org.exbin.jaguif.addon.catalog;
 
-import java.awt.Frame;
-import java.net.URL;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.ModuleUtils;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogModuleApi;
-import org.exbin.jaguif.utils.VersionNumbers;
 import org.exbin.jaguif.addon.catalog.page.AddonsCatalogPage;
 import org.exbin.jaguif.addon.catalog.service.DefaultAddonCatalogService;
 import org.exbin.jaguif.addon.catalog.settings.AddonCatalogOptions;
@@ -107,39 +104,4 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
 //    public void requestModuleDetail(ItemRecord itemRecord, AddonsPanel addonsPanel) {
 //        runOperation(new CatalogModuleDetailOperation(addonCatalogService, this, itemRecord, (details) -> addonsPanel.setModuleDetail(itemRecord, details)));
 //    }
-
-    @Override
-    public URL getUpdateUrl() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setUpdateUrl(URL updateUrl) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public VersionNumbers getUpdateVersion() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setUpdateVersion(VersionNumbers updateVersion) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public URL getUpdateDownloadUrl() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setUpdateDownloadUrl(URL downloadUrl) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void checkOnStart(Frame frame) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

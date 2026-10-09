@@ -28,6 +28,7 @@ import org.exbin.jaguif.addon.AddonApplication;
 import org.exbin.jaguif.addon.manager.DownloadItemRecord;
 import org.exbin.jaguif.operation.api.CancellableOperation;
 import org.exbin.jaguif.operation.api.ProgressOperation;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Download operation.
@@ -36,7 +37,7 @@ import org.exbin.jaguif.operation.api.ProgressOperation;
 public class DownloadOperation implements Runnable, CancellableOperation, ProgressOperation {
 
     protected final List<DownloadItemRecord> records;
-    protected DownloadOperation.ItemChangeListener listener;
+    protected DownloadOperation.@Nullable ItemChangeListener listener;
     protected boolean cancelled = false;
     protected long totalDownloadSize = 0;
     protected long downloadProgress = 0;

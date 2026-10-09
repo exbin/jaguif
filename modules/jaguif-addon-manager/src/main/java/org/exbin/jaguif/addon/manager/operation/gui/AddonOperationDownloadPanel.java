@@ -180,7 +180,7 @@ public class AddonOperationDownloadPanel extends javax.swing.JPanel {
     private javax.swing.JPanel overallStatusPanel;
     // End of variables declaration//GEN-END:variables
 
-    private static class ListModel extends DefaultListModel<DownloadItemRecord> {
+    protected static class ListModel extends DefaultListModel<DownloadItemRecord> {
 
         void rowChanged(int rowIndex) {
             fireContentsChanged(this, rowIndex, rowIndex);

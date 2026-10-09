@@ -15,10 +15,6 @@
  */
 package org.exbin.jaguif.addon.catalog.api;
 
-import org.exbin.jaguif.utils.VersionNumbers;
-import java.awt.Frame;
-import java.net.URL;
-import org.jspecify.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
@@ -42,41 +38,4 @@ public interface AddonCatalogModuleApi extends Module {
      * @return catalog service
      */
     AddonCatalogService getCatalogService();
-
-    /**
-     * Returns URL of update data source.
-     *
-     * @return update URL
-     */
-    @Nullable
-    URL getUpdateUrl();
-
-    /**
-     * Sets URL of update data source.
-     *
-     * @param updateUrl update URL
-     */
-    void setUpdateUrl(URL updateUrl);
-
-    @Nullable
-    VersionNumbers getUpdateVersion();
-
-    void setUpdateVersion(VersionNumbers updateVersion);
-
-    @Nullable
-    URL getUpdateDownloadUrl();
-
-    /**
-     * Sets URL of download website for updated application.
-     *
-     * @param downloadUrl download URL
-     */
-    void setUpdateDownloadUrl(URL downloadUrl);
-
-    /**
-     * Performs check for update on application start.
-     *
-     * @param frame frame
-     */
-    void checkOnStart(Frame frame);
 }

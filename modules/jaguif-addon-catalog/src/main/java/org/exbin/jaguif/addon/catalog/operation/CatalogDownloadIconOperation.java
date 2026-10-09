@@ -15,39 +15,37 @@
  */
 package org.exbin.jaguif.addon.catalog.operation;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ResourceBundle;
+import org.exbin.jaguif.App;
 import org.jspecify.annotations.NullMarked;
-import org.exbin.jaguif.addon.manager.api.UpdateRecord;
 import org.exbin.jaguif.addon.catalog.api.AddonCatalogService;
-import org.exbin.jaguif.addon.catalog.api.AddonCatalogServiceException;
+import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
+import org.exbin.jaguif.language.api.LanguageModuleApi;
 import org.exbin.jaguif.operation.api.CancellableOperation;
-import org.jspecify.annotations.Nullable;
+import org.exbin.jaguif.operation.api.TitledOperation;
 
 /**
- * Update availability operation.
+ * Operation to download icon from catalog.
  */
 @NullMarked
-public class UpdateAvailabilityOperation implements Runnable, CancellableOperation {
+public class CatalogDownloadIconOperation implements Runnable, CancellableOperation, TitledOperation {
 
+    protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(CatalogDownloadIconOperation.class);
+    protected final UpdateAvailabilityManagement updateAvailabilityManager;
     protected final AddonCatalogService addonCatalogService;
+    protected final int catalogRevision;
+    protected final Output output;
     protected boolean cancelled = false;
-    protected @Nullable List<UpdateRecord> updateRecords;
 
-    public UpdateAvailabilityOperation(AddonCatalogService addonCatalogService) {
+    public CatalogDownloadIconOperation(AddonCatalogService addonCatalogService, UpdateAvailabilityManagement updateAvailabilityManager, int catalogRevision, Output output) {
         this.addonCatalogService = addonCatalogService;
+        this.updateAvailabilityManager = updateAvailabilityManager;
+        this.catalogRevision = catalogRevision;
+        this.output = output;
     }
 
     @Override
     public void run() {
-        try {
-            updateRecords = addonCatalogService.getUpdateRecords();
-        } catch (AddonCatalogServiceException ex) {
-            Logger.getLogger(UpdateAvailabilityOperation.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @Override
@@ -60,17 +58,14 @@ public class UpdateAvailabilityOperation implements Runnable, CancellableOperati
         return cancelled;
     }
 
-    public List<UpdateRecord> getUpdateRecords() {
-        return updateRecords;
+    @Override
+    public String getTitle() {
+        return resourceBundle.getString("operation.name");
     }
 
-    public Map<String, String> getLatestVersions() {
-        Map<String, String> latestVersions = new HashMap<>();
-        if (updateRecords != null) {
-            for (UpdateRecord record : updateRecords) {
-                latestVersions.put(record.getModuleId(), record.getVersion());
-            }
-        }
-        return latestVersions;
+    @NullMarked
+    public interface Output {
+
+        void latestVersionsChanged();
     }
 }

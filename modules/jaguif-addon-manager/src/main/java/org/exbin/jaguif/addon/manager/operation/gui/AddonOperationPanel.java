@@ -23,6 +23,7 @@ import javax.swing.JComponent;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.operation.AddonModificationStep;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Panel for addon installation / update operation.
@@ -37,7 +38,7 @@ public class AddonOperationPanel extends javax.swing.JPanel {
     protected final AddonOperationDownloadPanel downloadPanel = new AddonOperationDownloadPanel();
     protected final AddonOperationSuccessPanel successPanel = new AddonOperationSuccessPanel();
 
-    protected JComponent activePanel = null;
+    protected @Nullable JComponent activePanel = null;
 
     public AddonOperationPanel() {
         initComponents();

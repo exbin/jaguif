@@ -67,7 +67,11 @@ public class LanguageOptions implements SettingsOptions {
         String localeCountry = getLocaleCountry();
         String localeVariant = getLocaleVariant();
         try {
-            return new Locale(localeLanguage, localeCountry, localeVariant);
+            Locale.Builder builder = new Locale.Builder();
+            builder.setLanguage(localeLanguage);
+            builder.setRegion(localeCountry);
+            builder.setVariant(localeVariant);
+            return builder.build();
         } catch (SecurityException ex) {
             // Ignore it in java WebStart
         }
