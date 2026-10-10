@@ -515,6 +515,10 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
         statusListener.setAvailableUpdates(availableUpdates);
     }
 
+    public void setCategoryFilter(String categoryFilter) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     @NullMarked
     public interface AddonManagerStatusListener {
 

@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.api;
 
+import java.util.List;
 import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
@@ -72,4 +73,23 @@ public interface AddonManagerModuleApi extends Module {
      * @return addons list component
      */
     AddonsListComponent createAddonsListComponent();
+
+    /**
+     * Returns addon categories.
+     *
+     * @return addon categories
+     */
+    List<AddonCategory> getAddonCategories();
+
+    /**
+     * Adds addon category.
+     *
+     * @param category addon category
+     */
+    void addAddonCategory(AddonCategory category);
+
+    /**
+     * Registers basic addon categories.
+     */
+    void registerBasicCategories();
 }

@@ -141,7 +141,7 @@ public class BasicModuleProvider implements ModuleProvider {
     public void addModulesFromManifest(Class manifestClass) {
         try {
             URL moduleClassLocation = manifestClass.getProtectionDomain().getCodeSource().getLocation();
-            URL manifestUrl = new URL("jar:" + moduleClassLocation.toExternalForm() + "!/META-INF/MANIFEST.MF");
+            URL manifestUrl = new URI("jar:" + moduleClassLocation.toExternalForm() + "!/META-INF/MANIFEST.MF").toURL();
 
             Manifest manifest = new Manifest(manifestUrl.openStream());
             String classPaths = manifest.getMainAttributes().getValue(new Attributes.Name("Class-Path"));
@@ -266,7 +266,7 @@ public class BasicModuleProvider implements ModuleProvider {
         URL moduleRecordUrl = null;
         InputStream moduleRecordStream = null;
         try {
-            moduleRecordUrl = new URL("jar:" + libraryUri.toURL().toExternalForm() + "!/META-INF/" + MODULE_FILE);
+            moduleRecordUrl = new URI("jar:" + libraryUri.toURL().toExternalForm() + "!/META-INF/" + MODULE_FILE).toURL();
             moduleRecordStream = moduleRecordUrl.openStream();
 
             // TODO Don't guess it from file name
@@ -284,6 +284,8 @@ public class BasicModuleProvider implements ModuleProvider {
                     }
                 }
             }
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(BasicModuleProvider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             // ignore
         }
@@ -375,8 +377,10 @@ public class BasicModuleProvider implements ModuleProvider {
         URL moduleRecordUrl;
         InputStream moduleRecordStream = null;
         try {
-            moduleRecordUrl = new URL("jar:" + moduleClassLocation.toExternalForm() + "!/META-INF/" + MODULE_FILE);
+            moduleRecordUrl = new URI("jar:" + moduleClassLocation.toExternalForm() + "!/META-INF/" + MODULE_FILE).toURL();
             moduleRecordStream = moduleRecordUrl.openStream();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(BasicModuleProvider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             // ignore
         }

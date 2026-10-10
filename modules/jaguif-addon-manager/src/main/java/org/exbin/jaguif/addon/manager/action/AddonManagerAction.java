@@ -46,6 +46,7 @@ public class AddonManagerAction extends AbstractAction {
 
     protected java.util.ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManagerAction.class);
     protected @Nullable DialogParentComponent dialogParentComponent;
+    protected @Nullable String categoryFilter = null;
 
     public AddonManagerAction() {
         init();
@@ -64,6 +65,10 @@ public class AddonManagerAction extends AbstractAction {
         });
     }
 
+    public void setCategoryFilter(@Nullable String categoryFilter) {
+        this.categoryFilter = categoryFilter;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         AddonsManagerControlPanel controlPanel = new AddonsManagerControlPanel();
@@ -72,6 +77,9 @@ public class AddonManagerAction extends AbstractAction {
         AddonManagerModuleApi addonManagerModule = App.getModule(AddonManagerModuleApi.class);
         AddonManager addonManager = ((AddonManagerModule) addonManagerModule).getAddonManager();
         AddonsManagerPanel addonManagerPanel = addonManager.getManagerPanel();
+        if (categoryFilter != null) {
+            addonManager.setCategoryFilter(categoryFilter);
+        }
         addonManager.setStatusListener(new AddonManager.AddonManagerStatusListener() {
             @Override
             public void setProgressStatus(String status) {

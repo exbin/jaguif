@@ -15,12 +15,15 @@
  */
 package org.exbin.jaguif.addon.manager;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.exbin.jaguif.addon.manager.filter.CategoryManager;
 import java.util.Optional;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.addon.manager.action.AddonManagerAction;
+import org.exbin.jaguif.addon.manager.api.AddonCategory;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonsListComponent;
 import org.exbin.jaguif.addon.manager.contribution.AddonManagerContribution;
@@ -51,6 +54,7 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     private @Nullable AddonManager addonManager = null;
     private @Nullable CategoryManager categoryManager = null;
     private @Nullable AddonResolutionManagement resolutionManager = new LocalAddonResolutionManager();
+    private final List<AddonCategory> addonCategories = new ArrayList<>();
 
     public AddonManagerModule() {
     }
@@ -85,6 +89,22 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     @Override
     public void registerBasicAddonManager() {
         getAddonManager().registerBasicAddonManager();
+    }
+
+    @Override
+    public List<AddonCategory> getAddonCategories() {
+        return addonCategories;
+    }
+
+    @Override
+    public void addAddonCategory(AddonCategory category) {
+        addonCategories.add(category);
+    }
+
+    @Override
+    public void registerBasicCategories() {
+        // TODO
+        addonCategories.add(new AddonCategory("laf", "Look&Feel"));
     }
 
     public AddonManager getAddonManager() {
