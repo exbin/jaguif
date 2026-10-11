@@ -13,20 +13,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.exbin.jaguif.addon.manager.filter;
+package org.exbin.jaguif.addon.manager.api.filter;
 
-import java.util.ArrayList;
 import java.util.List;
-import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
+import org.exbin.jaguif.addon.manager.api.AddonPageFilter;
 import org.jspecify.annotations.NullMarked;
 
 /**
- * Addon category manager.
+ * Addon manager page category filter.
  */
 @NullMarked
-public class CategoryManager {
-    
-    protected final List<CategoryRecord> addonCategories = new ArrayList<>();
-    
-    
+public interface CategoryPageFilter extends AddonPageFilter {
+
+    /**
+     * Return selected category ids.
+     *
+     * @return category ids
+     */
+    List<String> getCategoryIds();
+
+    /**
+     * Returns true if filter is empty.
+     *
+     * @return true if empty
+     */
+    boolean isEmpty();
+
+    /**
+     * Returns filter mode.
+     *
+     * @return filter mode
+     */
+    Mode getMode();
+
+    public enum Mode {
+        INCLUDE,
+        EXCLUDE
+    }
 }

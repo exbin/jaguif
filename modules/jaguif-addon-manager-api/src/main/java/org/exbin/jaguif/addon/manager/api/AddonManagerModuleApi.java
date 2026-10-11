@@ -21,6 +21,7 @@ import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
+import org.exbin.jaguif.addon.manager.api.filter.CategoryPageFilter;
 
 /**
  * Interface of the addon manager module.
@@ -30,6 +31,9 @@ public interface AddonManagerModuleApi extends Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonManagerModuleApi.class);
     public static final String ADDON_MANAGER_TABPAGES_ID = "addonManager";
+    public static final String LOOK_AND_FEEL_CATEGORY_ID = "laf";
+    public static final String LANGUAGE_CATEGORY_ID = "language";
+    public static final String ICON_SET_CATEGORY_ID = "iconSet";
 
     /**
      * Creates addon manager action.
@@ -92,4 +96,11 @@ public interface AddonManagerModuleApi extends Module {
      * Registers basic addon categories.
      */
     void registerBasicCategories();
+
+    /**
+     * Creates new category filter.
+     *
+     * @return category filter
+     */
+    CategoryPageFilter createCategoryFilter();
 }

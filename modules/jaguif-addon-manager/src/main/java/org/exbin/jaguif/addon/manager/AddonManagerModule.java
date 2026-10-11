@@ -17,8 +17,9 @@ package org.exbin.jaguif.addon.manager;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.exbin.jaguif.addon.manager.filter.CategoryManager;
+import org.exbin.jaguif.addon.manager.filter.CategoryFilter;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import org.jspecify.annotations.NullMarked;
 import javax.swing.Action;
 import org.exbin.jaguif.App;
@@ -41,6 +42,7 @@ import org.exbin.jaguif.options.settings.api.SettingsPageContributionRule;
 import org.exbin.jaguif.menu.api.MenuDefinitionManagement;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionManagement;
+import org.exbin.jaguif.language.api.LanguageModuleApi;
 
 /**
  * Addon manager module.
@@ -49,14 +51,23 @@ import org.exbin.jaguif.addon.manager.api.AddonResolutionManagement;
 public class AddonManagerModule implements AddonManagerModuleApi {
 
     public static final String SETTINGS_PAGE_ID = "addonManager";
+    public static final String CATEGORY_NAME_PREFIX = "categoryName.";
     private String manualCatalogUrl = null;
 
+    private @Nullable ResourceBundle resourceBundle;
     private @Nullable AddonManager addonManager = null;
-    private @Nullable CategoryManager categoryManager = null;
     private @Nullable AddonResolutionManagement resolutionManager = new LocalAddonResolutionManager();
     private final List<AddonCategory> addonCategories = new ArrayList<>();
 
     public AddonManagerModule() {
+    }
+
+    public ResourceBundle getResourceBundle() {
+        if (resourceBundle == null) {
+            resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonManagerModule.class);
+        }
+
+        return resourceBundle;
     }
 
     @Override
@@ -103,8 +114,14 @@ public class AddonManagerModule implements AddonManagerModuleApi {
 
     @Override
     public void registerBasicCategories() {
-        // TODO
-        addonCategories.add(new AddonCategory("laf", "Look&Feel"));
+        getResourceBundle();
+        addBasicCategory(LOOK_AND_FEEL_CATEGORY_ID);
+        addBasicCategory(LANGUAGE_CATEGORY_ID);
+        addBasicCategory(ICON_SET_CATEGORY_ID);
+    }
+    
+    private void addBasicCategory(String categoryId) {
+        addonCategories.add(new AddonCategory(categoryId, resourceBundle.getString(CATEGORY_NAME_PREFIX + categoryId)));
     }
 
     public AddonManager getAddonManager() {
@@ -115,11 +132,13 @@ public class AddonManagerModule implements AddonManagerModuleApi {
         return addonManager;
     }
 
-    public CategoryManager getCategoryManager() {
-        if (categoryManager == null) {
-            categoryManager = new CategoryManager();
+    @Override
+    public CategoryFilter createCategoryFilter() {
+        CategoryFilter categoryFilter = new CategoryFilter();
+        for (AddonCategory addonCategory : addonCategories) {
+            categoryFilter.addCategory(addonCategory);
         }
-        return categoryManager;
+        return categoryFilter;
     }
 
     public AddonResolutionManagement getResolutionManager() {

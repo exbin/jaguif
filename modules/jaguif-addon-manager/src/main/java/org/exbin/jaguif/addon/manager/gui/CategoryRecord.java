@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager.gui;
 
+import org.exbin.jaguif.addon.manager.api.AddonCategory;
 import org.jspecify.annotations.NullMarked;
 
 /**
@@ -23,21 +24,19 @@ import org.jspecify.annotations.NullMarked;
 @NullMarked
 public class CategoryRecord {
 
-    protected final String id;
-    protected final String name;
+    protected final AddonCategory category;
     protected boolean selected;
 
-    public CategoryRecord(String id, String name) {
-        this.id = id;
-        this.name = name;
+    public CategoryRecord(AddonCategory category) {
+        this.category = category;
     }
 
     public String getId() {
-        return id;
+        return category.getId();
     }
 
     public String getName() {
-        return name;
+        return category.getName();
     }
 
     public boolean isSelected() {

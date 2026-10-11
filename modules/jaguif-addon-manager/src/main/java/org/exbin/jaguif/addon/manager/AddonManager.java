@@ -15,7 +15,7 @@
  */
 package org.exbin.jaguif.addon.manager;
 
-import org.exbin.jaguif.addon.manager.filter.CategoryManager;
+import org.exbin.jaguif.addon.manager.filter.CategoryFilter;
 import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperation;
 import org.exbin.jaguif.addon.manager.api.operation.AddonCartOperationType;
 import org.exbin.jaguif.addon.manager.page.InstalledAddonsPage;
@@ -69,7 +69,6 @@ import org.exbin.jaguif.addon.manager.api.AddonsManagementCatalogState;
 import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityContext;
 import org.exbin.jaguif.addon.manager.gui.AddonsFilterPanel;
 import org.exbin.jaguif.addon.manager.filter.gui.CategoryFilterPanel;
-import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 import org.exbin.jaguif.addon.update.api.AddonUpdateChangesManagement;
 import org.exbin.jaguif.window.api.controller.DefaultControlController;
 import org.exbin.jaguif.window.api.gui.DefaultControlPanel;
@@ -160,13 +159,11 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
             public void changeFilter() {
                 AddonManagerPage activePage = managerPanel.getActiveTab();
                 AddonManagerModule managerModule = (AddonManagerModule) App.getModule(AddonManagerModuleApi.class);
-                CategoryManager categoryManager = managerModule.getCategoryManager();
+                CategoryFilter categoryFilter = managerModule.createCategoryFilter();
                 
                 AddonsFilterPanel filtersPanel = new AddonsFilterPanel();
                 CategoryFilterPanel categoryFilterPanel = new CategoryFilterPanel();
-                List<CategoryRecord> categoryRecords = new ArrayList<>();
-                categoryRecords.add(new CategoryRecord("test", "Test"));
-                categoryFilterPanel.setCategories(categoryRecords);
+                categoryFilterPanel.setCategoryFilter(categoryFilter);
                 filtersPanel.addFilter("Category", categoryFilterPanel);
                 WindowModuleApi windowModule = App.getModule(WindowModuleApi.class);
                 DefaultControlPanel controlPanel = new DefaultControlPanel();

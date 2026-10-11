@@ -15,23 +15,15 @@
  */
 package org.exbin.jaguif.addon.manager.filter.gui;
 
-import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 import java.util.ResourceBundle;
 import javax.swing.DefaultListModel;
-import javax.swing.JCheckBox;
-import javax.swing.JList;
-import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.manager.filter.CategoryFilter;
 import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
-import org.jspecify.annotations.Nullable;
 
 /**
  * Category filter panel.
@@ -48,7 +40,7 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
 
     private void init() {
         categoriesList.setModel(new DefaultListModel<>());
-        categoriesList.setCellRenderer(new CheckboxListCellRenderer());
+        categoriesList.setCellRenderer(new CategoryListCellRenderer());
         categoriesList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent event) {
@@ -68,10 +60,10 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
         return resourceBundle;
     }
 
-    public void setCategories(List<CategoryRecord> records) {
+    public void setCategoryFilter(CategoryFilter categoryFilter) {
         DefaultListModel<CategoryRecord> model = (DefaultListModel<CategoryRecord>) categoriesList.getModel();
         model.removeAllElements();
-        for (CategoryRecord record : records) {
+        for (CategoryRecord record : categoryFilter.getAddonCategories()) {
             model.addElement(record);
         }
     }
@@ -123,34 +115,4 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox modeCheckBox;
     // End of variables declaration//GEN-END:variables
 
-    @NullMarked
-    public static class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<CategoryRecord> {
-
-        private static final Border DEFAULT_NO_FOCUS_BORDER = new EmptyBorder(1, 1, 1, 1);
-
-        @Override
-        public Component getListCellRendererComponent(JList<? extends CategoryRecord> list, @Nullable CategoryRecord value, int index, boolean isSelected, boolean cellHasFocus) {
-            setEnabled(list.isEnabled());
-            setComponentOrientation(list.getComponentOrientation());
-            setFont(list.getFont());
-            setBackground(isSelected ? list.getSelectionBackground() : list.getBackground());
-            setForeground(isSelected ? list.getSelectionForeground() : list.getForeground());
-            setFocusPainted(cellHasFocus);
-            setBorderPainted(true);
-            Border border;
-            if (cellHasFocus) {
-                border = UIManager.getBorder(isSelected ? "List.focusSelectedCellHighlightBorder" : "List.focusCellHighlightBorder");
-            } else {
-                border = UIManager.getBorder("List.cellNoFocusBorder");
-            }
-            if (border == null) {
-                border = DEFAULT_NO_FOCUS_BORDER;
-            }
-            setBorder(border);
-            setText(value == null ? "" : value.getName());
-            setSelected(value != null && value.isSelected());
-
-            return this;
-        }
-    }
 }
