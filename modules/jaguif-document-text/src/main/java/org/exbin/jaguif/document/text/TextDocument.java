@@ -15,6 +15,7 @@
  */
 package org.exbin.jaguif.document.text;
 
+import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -45,12 +46,13 @@ import org.exbin.jaguif.text.encoding.ContextEncoding;
 import org.exbin.jaguif.text.font.TextFontState;
 import org.exbin.jaguif.document.api.EmptyDocumentSource;
 import org.exbin.jaguif.context.api.ContextStateManagement;
+import org.exbin.jaguif.print.api.PrintableContent;
 
 /**
  * Text document.
  */
 @NullMarked
-public class TextDocument implements NamedDocument, ContextDocument, ComponentDocument, FileDocument, EditableDocument {
+public class TextDocument implements NamedDocument, ContextDocument, ComponentDocument, FileDocument, EditableDocument, PrintableContent {
 
     protected final TextPanel textPanel = new TextPanel();
 
@@ -59,7 +61,7 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
     protected @Nullable ContextStateManagement contextManager;
     protected @Nullable DialogParentComponent dialogParentComponent;
     protected @Nullable UndoRedoController undoRedoControl = null;
-    protected @Nullable EditorTextPanelComponent textPanelComponent;
+    protected EditorTextPanelComponent textPanelComponent;
 
     public TextDocument() {
         init();
@@ -208,6 +210,16 @@ public class TextDocument implements NamedDocument, ContextDocument, ComponentDo
     public boolean isModified() {
         return textPanel.isModified();
     }
+
+    @Override
+    public void printContent() {
+        try {
+            textPanel.getTextArea().print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(TextPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 
     public void componentActivated(ContextStateManagement contextManager) {
         this.contextManager = contextManager;

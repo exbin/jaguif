@@ -21,7 +21,6 @@ import java.awt.Font;
 import java.awt.Point;
 import java.awt.SystemColor;
 import java.awt.event.FocusListener;
-import java.awt.print.PrinterException;
 import java.nio.charset.Charset;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -216,14 +215,6 @@ public class TextPanel extends javax.swing.JPanel {
 
     public JTextComponent getTextComponent() {
         return textArea;
-    }
-
-    public void printFile() {
-        try {
-            textArea.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(TextPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     public void setCurrentFont(Font font) {

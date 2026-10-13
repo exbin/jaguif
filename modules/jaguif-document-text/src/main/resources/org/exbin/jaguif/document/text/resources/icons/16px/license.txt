@@ -3,11 +3,6 @@ document-properties-2.png
   link: openiconlibrary.sourceforge.net
   license: various
 
-document-print.png
-  Tango Icon Theme
-  link: tango-project.org
-  license: public domain
-
 edit-find-replace.png
   Tango Icon Theme
   link: tango-project.org

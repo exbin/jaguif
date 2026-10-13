@@ -34,6 +34,9 @@ import org.exbin.jaguif.action.api.ActionModuleApi;
 import org.exbin.jaguif.context.api.ContextComponent;
 import org.exbin.jaguif.utils.ActionUtils;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
+import org.exbin.jaguif.print.api.ContextPrint;
+import org.exbin.jaguif.print.api.PrintableContent;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Print action.
@@ -42,6 +45,8 @@ import org.exbin.jaguif.context.api.ContextChangeRegistration;
 public class PrintAction extends AbstractAction {
 
     public static final String ACTION_ID = "print";
+
+    protected @Nullable ContextPrint contextPrint;
 
     public PrintAction() {
     }
@@ -56,7 +61,8 @@ public class PrintAction extends AbstractAction {
             @Override
             public void register(ContextChangeRegistration registrar) {
                 registrar.registerChangeListener(ContextComponent.class, (instance) -> {
-                    setEnabled(instance != null);
+                    contextPrint = instance instanceof ContextPrint ? (ContextPrint) instance : null;
+                    setEnabled(contextPrint != null);
                 });
             }
         });
@@ -64,6 +70,11 @@ public class PrintAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (contextPrint instanceof PrintableContent) {
+            ((PrintableContent) contextPrint).printContent();
+            return;
+        }
+
         PrinterJob job = PrinterJob.getPrinterJob();
         if (job.printDialog()) {
             try {

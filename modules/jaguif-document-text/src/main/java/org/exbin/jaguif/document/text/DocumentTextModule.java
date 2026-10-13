@@ -17,7 +17,6 @@ package org.exbin.jaguif.document.text;
 
 import org.exbin.jaguif.document.text.action.FindReplaceActions;
 import org.exbin.jaguif.document.text.action.TextColorAction;
-import org.exbin.jaguif.document.text.action.PrintAction;
 import org.exbin.jaguif.document.text.action.WordWrappingAction;
 import org.exbin.jaguif.document.text.action.PropertiesAction;
 import org.exbin.jaguif.document.text.action.GoToLineAction;
@@ -315,12 +314,6 @@ public class DocumentTextModule implements Module {
         return propertiesAction;
     }
 
-    private PrintAction createPrintAction() {
-        PrintAction printAction = new PrintAction();
-        printAction.init(getResourceBundle());
-        return printAction;
-    }
-
     public void registerEditFindMenuActions() {
         /* getFindReplaceActions();
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
@@ -375,13 +368,6 @@ public class DocumentTextModule implements Module {
         SequenceContribution contribution = new PropertiesContribution();
         mgmt.registerMenuContribution(contribution);
         mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.BOTTOM));
-    }
-
-    public void registerPrintMenu() {
-        /* MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);
-        MenuDefinitionManagement mgmt = menuModule.getMainMenuDefinition().getSubMenu(MenuModuleApi.FILE_SUBMENU_ID);
-        SequenceContribution contribution = mgmt.registerMenuItem(createPrintAction());
-        mgmt.registerMenuRule(contribution, new PositionSequenceContributionRule(PositionSequenceContributionRule.PositionMode.BOTTOM)); */
     }
 
     public JPopupMenu createPopupMenu(TextPanel textPanel) {
