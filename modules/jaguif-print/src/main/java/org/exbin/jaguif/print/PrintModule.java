@@ -50,12 +50,14 @@ public class PrintModule implements PrintModuleApi {
         return resourceBundle;
     }
 
+    @Override
     public PrintAction createPrintAction() {
         PrintAction printAction = new PrintAction();
         printAction.init(getResourceBundle());
         return printAction;
     }
 
+    @Override
     public void registerPrintMenu() {
         createPrintAction();
         MenuModuleApi menuModule = App.getModule(MenuModuleApi.class);

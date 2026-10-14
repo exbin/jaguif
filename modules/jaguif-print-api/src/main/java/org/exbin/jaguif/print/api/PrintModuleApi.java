@@ -16,12 +16,13 @@
 package org.exbin.jaguif.print.api;
 
 import java.util.ResourceBundle;
+import javax.swing.Action;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
 
 /**
- * Interface for framework search module.
+ * Interface for print suppport module.
  */
 @NullMarked
 public interface PrintModuleApi extends Module {
@@ -30,4 +31,16 @@ public interface PrintModuleApi extends Module {
     public static final String SEARCH_MENU_GROUP_ID = MODULE_ID + ".searchMenuGroup";
 
     ResourceBundle getResourceBundle();
+
+    /**
+     * Creates print action.
+     *
+     * @return print action
+     */
+    Action createPrintAction();
+
+    /**
+     * Registers print action into main menu.
+     */
+    void registerPrintMenu();
 }
