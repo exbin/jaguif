@@ -2,6 +2,8 @@ rootProject.name = 'jaguif-update-check'
 
 if (rootProject.path == ':') {
     include ':core:jaguif-core'
+    include ':core:jaguif-basic'
+    include ':core:jaguif-addon'
     include ':modules:jaguif-context-api'
     include ':modules:jaguif-action-api'
     include ':modules:jaguif-help-api'
@@ -9,6 +11,7 @@ if (rootProject.path == ':') {
     include ':modules:jaguif-menu-api'
     include ':modules:jaguif-addon-update-api'
     include ':modules:jaguif-frame-api'
+    include ':modules:jaguif-tabpages-api'
     include ':modules:jaguif-language-api'
     include ':modules:jaguif-options-settings-api'
     include ':modules:jaguif-options-api'
