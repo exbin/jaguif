@@ -21,6 +21,8 @@ import java.util.ResourceBundle;
 import javax.swing.DefaultListModel;
 import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
+import org.exbin.jaguif.addon.manager.api.AddonCategory;
+import org.exbin.jaguif.addon.manager.api.filter.CategoryPageFilter;
 import org.exbin.jaguif.addon.manager.filter.CategoryFilter;
 import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 import org.exbin.jaguif.language.api.LanguageModuleApi;
@@ -60,14 +62,28 @@ public class CategoryFilterPanel extends javax.swing.JPanel {
         return resourceBundle;
     }
 
+    public CategoryFilter getCategoryFilter() {
+        CategoryFilter categoryFilter = new CategoryFilter();
+        categoryFilter.setMode(modeCheckBox.isSelected() ? CategoryPageFilter.Mode.EXCLUDE : CategoryPageFilter.Mode.INCLUDE);
+        DefaultListModel<CategoryRecord> model = (DefaultListModel<CategoryRecord>) categoriesList.getModel();
+        for (int i = 0; i < model.getSize(); i++) {
+            CategoryRecord record = model.get(i);
+            if (record.isSelected()) {
+                categoryFilter.addCategory(new AddonCategory(record.getId(), record.getName()));
+            }
+        }
+        return categoryFilter;
+    }
+
     public void setCategoryFilter(CategoryFilter categoryFilter) {
+        modeCheckBox.setSelected(categoryFilter.getMode() == CategoryPageFilter.Mode.EXCLUDE);
         DefaultListModel<CategoryRecord> model = (DefaultListModel<CategoryRecord>) categoriesList.getModel();
         model.removeAllElements();
         for (CategoryRecord record : categoryFilter.getAddonCategories()) {
             model.addElement(record);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

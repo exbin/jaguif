@@ -36,6 +36,7 @@ import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.manager.gui.AddonsCartPanel;
 import org.exbin.jaguif.addon.manager.gui.AddonsManagerPanel;
 import org.exbin.jaguif.addon.manager.api.AddonManagerPage;
+import org.exbin.jaguif.addon.manager.api.AddonPageFilter;
 import org.exbin.jaguif.addon.manager.api.AddonPageRefreshFilter;
 import org.exbin.jaguif.addon.manager.api.AddonRecord;
 import org.exbin.jaguif.addon.manager.api.AddonsManagementCartController;
@@ -74,6 +75,8 @@ import org.exbin.jaguif.window.api.controller.DefaultControlController;
 import org.exbin.jaguif.window.api.gui.DefaultControlPanel;
 import org.exbin.jaguif.addon.manager.api.operation.CartOperationType;
 import org.exbin.jaguif.addon.manager.api.AddonResolutionManagement;
+import org.exbin.jaguif.addon.manager.api.filter.CategoryPageFilter;
+import org.exbin.jaguif.addon.manager.gui.CategoryRecord;
 
 /**
  * Addon manager.
@@ -160,6 +163,15 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
                 AddonManagerPage activePage = managerPanel.getActiveTab();
                 AddonManagerModule managerModule = (AddonManagerModule) App.getModule(AddonManagerModuleApi.class);
                 CategoryFilter categoryFilter = managerModule.createCategoryFilter();
+                AddonPageRefreshFilter pageFilter = activePage.getFilter();
+                for (AddonPageFilter filter : pageFilter.getFilters()) {
+                    if ((filter instanceof CategoryFilter) && !((CategoryFilter) filter).isEmpty()) {
+                        categoryFilter.setMode(((CategoryFilter) filter).getMode());
+                        for (CategoryRecord record : ((CategoryFilter) filter).getAddonCategories()) {
+                            categoryFilter.setSelected(record.getId(), true);
+                        }
+                    }
+                }
                 
                 AddonsFilterPanel filtersPanel = new AddonsFilterPanel();
                 CategoryFilterPanel categoryFilterPanel = new CategoryFilterPanel();
@@ -172,9 +184,35 @@ public class AddonManager implements AddonsManagementCartController, AddonsManag
                 ((JDialog) dialog.getWindow()).setTitle("Filter");
                 controlPanel.setController((actionType) -> {
                     if (actionType == DefaultControlController.ControlActionType.OK) {
-                        // TODO AddonPageFilter filter1 = managerPage.getFilter();
-                        managerPanel.setFilter("category:" + "test");
-                        // activePage.setFilter(filter);
+                        CategoryFilter resultCategoryFilter = categoryFilterPanel.getCategoryFilter();
+                        List<AddonPageFilter> pageFilters = new ArrayList<>();
+                        StringBuilder builder = new StringBuilder();
+                        if (!resultCategoryFilter.isEmpty()) {
+                            pageFilters.add(resultCategoryFilter);
+                            if (resultCategoryFilter.getMode() == CategoryPageFilter.Mode.EXCLUDE) {
+                                builder.append("-");
+                            }
+                            builder.append("category:");
+                            List<CategoryRecord> addonCategories = resultCategoryFilter.getAddonCategories();
+                            if (addonCategories.size() > 1) {
+                                builder.append("{");
+                                boolean first = true;
+                                for (CategoryRecord record : resultCategoryFilter.getAddonCategories()) {
+                                    if (first) {
+                                        first = false;
+                                    } else {
+                                        builder.append(",");
+                                    }
+                                    builder.append(record.getId());
+                                }
+                                builder.append("}");
+                            } else {
+                                builder.append(addonCategories.get(0).getId());
+                            }
+                        }
+                        managerPanel.setFilter(builder.toString());
+                        pageFilter.setFilters(pageFilters);
+                        activePage.setFilter(pageFilter);
                         activePage.refreshContent();
                     }
 
