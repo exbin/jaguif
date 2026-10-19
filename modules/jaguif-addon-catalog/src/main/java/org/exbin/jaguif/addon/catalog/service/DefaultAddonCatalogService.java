@@ -60,7 +60,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
     protected String addonServiceUrl;
     protected String catalogPageUrl = "";
     protected final Map<RepositoryAddonRecord, String> iconPaths = new HashMap<>();
-    protected final List<IconChangeListener> iconChangeListeners = new ArrayList<>();
 
     public DefaultAddonCatalogService() {
         AddonCatalogModule addonCatalogModule = App.getModule(AddonCatalogModule.class);
@@ -335,14 +334,6 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         return catalogPageUrl;
     }
 
-    public void addIconChangeListener(IconChangeListener listener) {
-        iconChangeListeners.add(listener);
-    }
-
-    public void removeIconChangeListener(IconChangeListener listener) {
-        iconChangeListeners.remove(listener);
-    }
-
     public URL createApiCall(String operation) throws AddonCatalogServiceException {
         return createApiCall(operation, null);
     }
@@ -353,10 +344,5 @@ public class DefaultAddonCatalogService implements AddonCatalogService {
         } catch (MalformedURLException | URISyntaxException ex) {
             throw new AddonCatalogServiceException("Invalid URL for operation " + operation, ex);
         }
-    }
-
-    public interface IconChangeListener {
-
-        void iconsChanged();
     }
 }

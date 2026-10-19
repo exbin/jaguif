@@ -49,7 +49,6 @@ import org.exbin.jaguif.addon.manager.api.UpdateAvailabilityManagement;
 @NullMarked
 public class InstalledAddonsPage extends AbstractTabPagesComponent implements AddonManagerPage {
 
-    public static final String PAGE_ID = "installedAddons";
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(InstalledAddonsPage.class);
     protected @Nullable AddonsListComponent listComponent;
     protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
@@ -197,7 +196,7 @@ public class InstalledAddonsPage extends AbstractTabPagesComponent implements Ad
 
         @Override
         public String getContributionId() {
-            return PAGE_ID;
+            return AddonManagerModuleApi.INSTALLED_ADDONS_PAGE_ID;
         }
     };
 }

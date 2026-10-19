@@ -19,6 +19,7 @@ import org.jspecify.annotations.NullMarked;
 import org.exbin.jaguif.App;
 import org.exbin.jaguif.Module;
 import org.exbin.jaguif.ModuleUtils;
+import org.exbin.jaguif.addon.catalog.api.AddonCatalogModuleApi;
 import org.exbin.jaguif.addon.manager.api.AddonManagerModuleApi;
 import org.exbin.jaguif.addon.packs.page.AddonPacksPage;
 import org.exbin.jaguif.contribution.api.RelativeSequenceContributionRule;
@@ -41,7 +42,7 @@ public class AddonPacksModule implements Module {
         TabPagesDefinitionManagement pagesDefinitions = tabPagesModule.getMainTabPagesDefinition(AddonManagerModuleApi.ADDON_MANAGER_TABPAGES_ID, AddonManagerModuleApi.MODULE_ID);
         AddonPacksPage.Contribution pageContribution = new AddonPacksPage.Contribution();
         pagesDefinitions.registerTabPagesContribution(pageContribution);
-        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.AFTER, "addonsCatalog" /*AddonsCatalogPage.PAGE_ID */));
-        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.BEFORE, "installedAddons"));
+        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.AFTER, AddonCatalogModuleApi.ADDONS_CATALOG_PAGE_ID));
+        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.BEFORE, AddonManagerModuleApi.INSTALLED_ADDONS_PAGE_ID));
     }
 }

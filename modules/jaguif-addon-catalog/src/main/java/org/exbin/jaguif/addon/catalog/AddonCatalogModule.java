@@ -41,9 +41,6 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class AddonCatalogModule implements AddonCatalogModuleApi {
 
-    public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonCatalogModule.class);
-    public static final String SETTINGS_PAGE_ID = "addonCatalog";
-
     private static boolean devMode = false;
     private String catalogPageUrl = "https://www.exbin.org/";
     private @Nullable AddonCatalogService catalogService;
@@ -97,7 +94,7 @@ public class AddonCatalogModule implements AddonCatalogModuleApi {
         TabPagesDefinitionManagement pagesDefinitions = tabPagesModule.getMainTabPagesDefinition(AddonManagerModuleApi.ADDON_MANAGER_TABPAGES_ID, AddonManagerModuleApi.MODULE_ID);
         AddonsCatalogPage.Contribution pageContribution = new AddonsCatalogPage.Contribution();
         pagesDefinitions.registerTabPagesContribution(pageContribution);
-        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.BEFORE, "installedAddons"));
+        pagesDefinitions.registerTabPagesRule(pageContribution, new RelativeSequenceContributionRule(RelativeSequenceContributionRule.NextToMode.BEFORE, AddonManagerModuleApi.INSTALLED_ADDONS_PAGE_ID));
     }
 
     // TODO

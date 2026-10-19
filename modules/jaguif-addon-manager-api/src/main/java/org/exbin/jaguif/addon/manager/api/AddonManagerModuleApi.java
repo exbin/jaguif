@@ -30,6 +30,8 @@ import org.exbin.jaguif.addon.manager.api.filter.CategoryPageFilter;
 public interface AddonManagerModuleApi extends Module {
 
     public static final String MODULE_ID = ModuleUtils.getModuleIdByApi(AddonManagerModuleApi.class);
+    public static final String INSTALLED_ADDONS_PAGE_ID = "installedAddons";
+    public static final String SETTINGS_PAGE_ID = "addonManager";
     public static final String ADDON_MANAGER_TABPAGES_ID = "addonManager";
     public static final String LOOK_AND_FEEL_CATEGORY_ID = "laf";
     public static final String LANGUAGE_CATEGORY_ID = "language";
@@ -41,6 +43,14 @@ public interface AddonManagerModuleApi extends Module {
      * @return addon manager action
      */
     Action createAddonManagerAction();
+
+    /**
+     * Creates addon manager action.
+     *
+     * @param categoryId category identifier
+     * @return addon manager action
+     */
+    Action createAddonManagerCategoryAction(String categoryId);
 
     /**
      * Registers addon manager menu item.

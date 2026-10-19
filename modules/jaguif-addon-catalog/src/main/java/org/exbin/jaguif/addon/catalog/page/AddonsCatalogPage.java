@@ -55,7 +55,6 @@ import org.jspecify.annotations.Nullable;
 @NullMarked
 public class AddonsCatalogPage extends AbstractTabPagesComponent implements AddonManagerPage {
 
-    public static final String PAGE_ID = "addonsCatalog";
     protected final ResourceBundle resourceBundle = App.getModule(LanguageModuleApi.class).getBundle(AddonsCatalogPage.class);
     protected AddonsListComponent listComponent;
     protected final List<ItemChangedListener> itemChangedListeners = new ArrayList<>();
@@ -224,7 +223,7 @@ public class AddonsCatalogPage extends AbstractTabPagesComponent implements Addo
 
         @Override
         public String getContributionId() {
-            return PAGE_ID;
+            return AddonCatalogModuleApi.ADDONS_CATALOG_PAGE_ID;
         }
     };
 }

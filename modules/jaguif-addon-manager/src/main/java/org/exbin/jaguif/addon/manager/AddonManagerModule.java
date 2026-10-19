@@ -50,11 +50,10 @@ import org.exbin.jaguif.language.api.LanguageModuleApi;
 @NullMarked
 public class AddonManagerModule implements AddonManagerModuleApi {
 
-    public static final String SETTINGS_PAGE_ID = "addonManager";
     public static final String CATEGORY_NAME_PREFIX = "categoryName.";
-    private String manualCatalogUrl = null;
 
     private @Nullable ResourceBundle resourceBundle;
+    private @Nullable String manualCatalogUrl = null;
     private @Nullable AddonManager addonManager = null;
     private @Nullable AddonResolutionManagement resolutionManager = new LocalAddonResolutionManager();
     private final List<AddonCategory> addonCategories = new ArrayList<>();
@@ -73,6 +72,13 @@ public class AddonManagerModule implements AddonManagerModuleApi {
     @Override
     public Action createAddonManagerAction() {
         return new AddonManagerAction();
+    }
+
+    @Override
+    public Action createAddonManagerCategoryAction(String categoryId) {
+        AddonManagerAction action = new AddonManagerAction();
+        action.setCategoryFilter(categoryId);
+        return action;
     }
 
     @Override
