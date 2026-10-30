@@ -167,6 +167,10 @@ public class DefaultTreeContributionSequenceBuilder implements TreeContributionS
             BuilderProcessingRecord processingRecord = processing.get(processing.size() - 1);
             BuilderSubRecord subRecord = processingRecord.sub;
             BuilderGroupRecord groupRecord = processingRecord.group;
+            if (groupRecord == null) {
+                // TODO Is this incorrect state?
+                groupRecord = new BuilderGroupRecord("");
+            }
 
             if (groupRecord.processingState == SectionProcessingState.START) {
                 if (groupRecord.separationMode == SeparationSequenceContributionRule.SeparationMode.ABOVE || groupRecord.separationMode == SeparationSequenceContributionRule.SeparationMode.AROUND) {

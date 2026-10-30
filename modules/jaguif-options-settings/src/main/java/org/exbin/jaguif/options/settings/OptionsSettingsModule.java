@@ -79,8 +79,8 @@ public class OptionsSettingsModule implements OptionsSettingsModuleApi {
     public SettingsAction createSettingsAction() {
         SettingsAction optionsAction = new SettingsAction();
         getMainSettingsManager();
-        optionsAction.init(getResourceBundle(), (SettingsPageReceiver optionsPageReceiver) -> {
-            getMainSettingsManager().passSettingsPages(optionsPageReceiver);
+        optionsAction.init(getResourceBundle(), (SettingsPageReceiver pageReceiver) -> {
+            getMainSettingsManager().passSettingsPages(pageReceiver);
         });
 
         return optionsAction;

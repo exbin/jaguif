@@ -43,7 +43,6 @@ import org.exbin.jaguif.options.settings.api.OptionsSettingsManagement;
 import org.exbin.jaguif.options.settings.api.SettingsOptionsProvider;
 import org.exbin.jaguif.context.api.ContextChangeRegistration;
 import org.exbin.jaguif.options.settings.api.SettingsOptions;
-import org.exbin.jaguif.frame.api.FrameController;
 import org.jspecify.annotations.Nullable;
 import org.exbin.jaguif.context.api.ContextStateManagement;
 
