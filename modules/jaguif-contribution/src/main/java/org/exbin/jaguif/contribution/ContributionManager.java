@@ -35,7 +35,7 @@ import org.exbin.jaguif.contribution.api.SequenceContributionRule;
 public class ContributionManager implements ContributionManagement {
 
     /**
-     * Definition records: definition id -> contribution definition.
+     * Definition records: definition id into contribution definition.
      */
     protected final Map<String, DefaultContributionDefinition> definitions = new HashMap<>();
 

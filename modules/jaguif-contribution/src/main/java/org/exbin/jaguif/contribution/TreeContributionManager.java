@@ -35,7 +35,7 @@ import org.exbin.jaguif.utils.ObjectUtils;
 public class TreeContributionManager implements TreeContributionManagement {
 
     /**
-     * Definition records: definition id -> contribution definition.
+     * Definition records: definition id into contribution definition.
      */
     protected final Map<String, DefaultContributionDefinition> definitions = new HashMap<>();
 
